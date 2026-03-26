@@ -1,9 +1,18 @@
 /*
  * WILLOW TREE FUNERALS — GLOBAL DESIGN TOKENS
- * Design Philosophy: "Serene Elegance"
+ * Design Philosophy: "Sacred Elegance"
  * Fonts: Playfair Display (headings) + Montserrat (body/nav/buttons) + Libre Baskerville (quotes/scripture)
- * Colours: Deep Teal, Sage Teal, Soft Mint, Warm White, Gold Accent
- * Mood: Dignified, hopeful, warm, trustworthy — never mournful.
+ * Colours: Royal Blue Navy, Royal Blue, Soft Blue, Ivory White, Gold Accent
+ * Mood: Dignified, hopeful, Catholic-inspired, classy — never mournful.
+ *
+ * COLOUR SYSTEM (Royal Blue / Catholic-inspired):
+ *   --color-brand-navy:       #0B1F3A  (deep navy — primary dark)
+ *   --color-brand-royal:      #1B4B8A  (royal blue — primary brand)
+ *   --color-brand-mid-blue:   #2E6DB4  (mid blue — hover / secondary)
+ *   --color-brand-light-blue: #D4E3F5  (soft blue — section backgrounds)
+ *   --color-brand-ivory:      #FAF8F2  (ivory — page background)
+ *   --color-brand-gold:       #B8973A  (ecclesiastical gold — accent)
+ *   --color-brand-silver:     #C8C8C8  (silver — subtle accents)
  */
 
 @import "tailwindcss";
@@ -13,13 +22,13 @@
 
 @theme inline {
   /* ── Brand Colours (OKLCH) ── */
-  --color-brand-deep-teal:  oklch(0.22 0.03 200);   /* #0D2123 */
-  --color-brand-teal:       oklch(0.68 0.11 215);   /* #54B6BF */
-  --color-brand-sage:       oklch(0.55 0.08 210);   /* #2C6F76 */
-  --color-brand-mint:       oklch(0.88 0.04 215);   /* #CBE0E3 */
-  --color-brand-warm-white: oklch(0.98 0.01 95);    /* #FBFAEF */
-  --color-brand-gold:       oklch(0.55 0.15 55);    /* #C16510 */
-  --color-brand-peach:      oklch(0.82 0.08 75);    /* #F8CFB0 */
+  --color-brand-navy:       oklch(0.18 0.04 250);   /* #0B1F3A */
+  --color-brand-royal:      oklch(0.38 0.12 255);   /* #1B4B8A */
+  --color-brand-mid-blue:   oklch(0.50 0.13 255);   /* #2E6DB4 */
+  --color-brand-light-blue: oklch(0.90 0.04 255);   /* #D4E3F5 */
+  --color-brand-ivory:      oklch(0.98 0.01 90);    /* #FAF8F2 */
+  --color-brand-gold:       oklch(0.65 0.10 75);    /* #B8973A */
+  --color-brand-silver:     oklch(0.80 0.00 0);     /* #C8C8C8 */
 
   /* ── Semantic tokens ── */
   --color-background:               var(--background);
@@ -65,33 +74,33 @@
 :root {
   --radius: 0.25rem;
 
-  --background:              oklch(0.98 0.01 95);
-  --foreground:              oklch(0.22 0.03 200);
+  --background:              oklch(0.98 0.01 90);
+  --foreground:              oklch(0.18 0.04 250);
   --card:                    oklch(1 0 0);
-  --card-foreground:         oklch(0.22 0.03 200);
+  --card-foreground:         oklch(0.18 0.04 250);
   --popover:                 oklch(1 0 0);
-  --popover-foreground:      oklch(0.22 0.03 200);
-  --primary:                 oklch(0.22 0.03 200);
-  --primary-foreground:      oklch(0.98 0.01 95);
-  --secondary:               oklch(0.88 0.04 215);
-  --secondary-foreground:    oklch(0.22 0.03 200);
-  --muted:                   oklch(0.93 0.02 210);
-  --muted-foreground:        oklch(0.50 0.04 210);
-  --accent:                  oklch(0.68 0.11 215);
+  --popover-foreground:      oklch(0.18 0.04 250);
+  --primary:                 oklch(0.18 0.04 250);
+  --primary-foreground:      oklch(0.98 0.01 90);
+  --secondary:               oklch(0.90 0.04 255);
+  --secondary-foreground:    oklch(0.18 0.04 250);
+  --muted:                   oklch(0.94 0.02 255);
+  --muted-foreground:        oklch(0.50 0.04 255);
+  --accent:                  oklch(0.38 0.12 255);
   --accent-foreground:       oklch(1 0 0);
   --destructive:             oklch(0.577 0.245 27.325);
   --destructive-foreground:  oklch(0.985 0 0);
-  --border:                  oklch(0.88 0.04 215);
-  --input:                   oklch(0.93 0.02 210);
-  --ring:                    oklch(0.68 0.11 215);
-  --sidebar:                 oklch(0.22 0.03 200);
-  --sidebar-foreground:      oklch(0.98 0.01 95);
-  --sidebar-primary:         oklch(0.68 0.11 215);
+  --border:                  oklch(0.90 0.04 255);
+  --input:                   oklch(0.94 0.02 255);
+  --ring:                    oklch(0.38 0.12 255);
+  --sidebar:                 oklch(0.18 0.04 250);
+  --sidebar-foreground:      oklch(0.98 0.01 90);
+  --sidebar-primary:         oklch(0.38 0.12 255);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent:          oklch(0.30 0.04 200);
-  --sidebar-accent-foreground: oklch(0.98 0.01 95);
-  --sidebar-border:          oklch(0.30 0.04 200);
-  --sidebar-ring:            oklch(0.68 0.11 215);
+  --sidebar-accent:          oklch(0.25 0.05 250);
+  --sidebar-accent-foreground: oklch(0.98 0.01 90);
+  --sidebar-border:          oklch(0.25 0.05 250);
+  --sidebar-ring:            oklch(0.38 0.12 255);
 }
 
 @layer base {
@@ -157,13 +166,13 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    background-color: oklch(0.22 0.03 200);
-    color: oklch(0.98 0.01 95);
-    border: 1px solid oklch(0.22 0.03 200);
+    background-color: #0B1F3A;
+    color: #FAF8F2;
+    border: 1px solid #0B1F3A;
   }
   .btn-primary:hover {
-    background-color: oklch(0.68 0.11 215);
-    border-color: oklch(0.68 0.11 215);
+    background-color: #1B4B8A;
+    border-color: #1B4B8A;
   }
   .btn-outline {
     display: inline-flex;
@@ -177,14 +186,14 @@
     text-transform: uppercase;
     transition: all 0.3s ease;
     background: transparent;
-    color: oklch(0.22 0.03 200);
-    border: 1px solid oklch(0.22 0.03 200);
+    color: #0B1F3A;
+    border: 1px solid #0B1F3A;
   }
   .btn-outline:hover {
-    background-color: oklch(0.22 0.03 200);
-    color: oklch(0.98 0.01 95);
+    background-color: #0B1F3A;
+    color: #FAF8F2;
   }
-  .btn-teal {
+  .btn-royal {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -195,13 +204,13 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    background-color: oklch(0.68 0.11 215);
-    color: oklch(1 0 0);
-    border: 1px solid oklch(0.68 0.11 215);
+    background-color: #1B4B8A;
+    color: #FAF8F2;
+    border: 1px solid #1B4B8A;
   }
-  .btn-teal:hover {
-    background-color: oklch(0.55 0.08 210);
-    border-color: oklch(0.55 0.08 210);
+  .btn-royal:hover {
+    background-color: #2E6DB4;
+    border-color: #2E6DB4;
   }
 
   /* ── Section Label ── */
@@ -211,13 +220,13 @@
     font-size: 0.7rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: oklch(0.68 0.11 215);
+    color: #1B4B8A;
   }
 
   /* ── Scripture / Quote Text ── */
   .scripture {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-style: italic;
-    color: oklch(0.68 0.11 215);
+    color: #B8973A;
   }
 }
