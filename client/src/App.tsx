@@ -1,19 +1,18 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
 import BrandGuide from "./pages/BrandGuide";
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
       <Route path={"/brand-guide"} component={BrandGuide} />
-      <Route path={"/404"} component={NotFound} />
-      <Route component={NotFound} />
+      {/* Redirect everything else to the brand guide */}
+      <Route>
+        <Redirect to="/brand-guide" />
+      </Route>
     </Switch>
   );
 }
