@@ -12,6 +12,40 @@
 import { useState } from "react";
 import { COMPANY } from "../../../shared/company";
 
+// ── Print / PDF export ───────────────────────────────────────────────────────
+const PRINT_STYLES = `
+  @media print {
+    /* Hide interactive / nav chrome */
+    nav, .no-print, .animate-bounce { display: none !important; }
+    /* Remove shadows and transitions */
+    * { box-shadow: none !important; transition: none !important; }
+    /* Force colour backgrounds to print */
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    /* Page breaks */
+    section { page-break-inside: avoid; }
+    /* Ensure full width */
+    body, html { width: 100%; margin: 0; padding: 0; }
+    /* A4 page size */
+    @page { size: A4; margin: 12mm 10mm; }
+  }
+`;
+
+function injectPrintStyles() {
+  const existing = document.getElementById("wtf-print-styles");
+  if (!existing) {
+    const style = document.createElement("style");
+    style.id = "wtf-print-styles";
+    style.textContent = PRINT_STYLES;
+    document.head.appendChild(style);
+  }
+}
+
+function handleExportPDF() {
+  injectPrintStyles();
+  // Small delay to let styles inject before print dialog opens
+  setTimeout(() => window.print(), 120);
+}
+
 // ── Brand constants ──────────────────────────────────────────────────────────
 const NAVY   = "#0B1F3A";
 const ROYAL  = "#1B4B8A";
@@ -100,6 +134,16 @@ export default function BrandGuide() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const [exporting, setExporting] = useState(false);
+  const onExportPDF = () => {
+    setExporting(true);
+    injectPrintStyles();
+    setTimeout(() => {
+      window.print();
+      setExporting(false);
+    }, 150);
+  };
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: IVORY, fontFamily: "'Montserrat', system-ui, sans-serif" }}>
 
@@ -118,13 +162,36 @@ export default function BrandGuide() {
         <nav className="relative z-20 flex items-center justify-between px-8 py-6">
           <img src={COMPANY.assets.logoWhite} alt="Willow Tree Funerals"
                className="h-12 object-contain" />
-          <div className="hidden md:flex gap-6">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map(item => (
               <button key={item.id} onClick={() => scrollTo(item.id)}
-                      className="font-sans text-xs tracking-widest uppercase text-white/70 hover:text-white transition-colors">
+                      className="font-sans text-xs tracking-widest uppercase text-white/70 hover:text-white transition-colors no-print">
                 {item.label}
               </button>
             ))}
+            {/* PDF Export button */}
+            <button
+              onClick={onExportPDF}
+              disabled={exporting}
+              className="no-print flex items-center gap-2 font-sans text-xs tracking-widest uppercase transition-all"
+              style={{
+                padding: "0.5rem 1.25rem",
+                background: GOLD,
+                color: NAVY,
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                border: "none",
+                cursor: exporting ? "wait" : "pointer",
+                opacity: exporting ? 0.7 : 1,
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              {exporting ? "Preparing…" : "Export PDF"}
+            </button>
           </div>
         </nav>
 
@@ -697,6 +764,29 @@ export default function BrandGuide() {
 
       {/* ── FOOTER ──────────────────────────────────────────────────────── */}
       <footer className="py-12 px-8 md:px-16" style={{ borderTop: `1px solid ${LIGHT}`, backgroundColor: IVORY }}>
+        {/* Mobile PDF export button */}
+        <div className="flex justify-center mb-8 md:hidden no-print">
+          <button
+            onClick={onExportPDF}
+            className="flex items-center gap-2 font-sans text-xs tracking-widest uppercase"
+            style={{
+              padding: "0.75rem 2rem",
+              background: GOLD,
+              color: NAVY,
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Export PDF
+          </button>
+        </div>
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <img src={COMPANY.assets.logoDark} alt="Willow Tree Funerals" className="h-10 object-contain" />
           <p className="font-sans text-xs text-gray-400 text-center">
