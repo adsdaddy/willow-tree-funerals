@@ -1,49 +1,56 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
-import { useLocation } from "wouter";
+/**
+ * WILLOW TREE FUNERALS — 404 Not Found Page
+ * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ */
+
+import { Link } from "wouter";
+import { Phone, Home, ChevronRight } from "lucide-react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import { COMPANY } from "../../../shared/company";
 
 export default function NotFound() {
-  const [, setLocation] = useLocation();
-
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
+    <>
+      <Nav />
+      <section className="min-h-[70vh] bg-brand-ivory flex items-center">
+        <div className="container max-w-2xl text-center py-20">
+          <p className="font-serif text-brand-gold text-8xl font-semibold mb-4">404</p>
+          <h1 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold mb-4">
             Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
+          </h1>
+          <p className="text-brand-navy/60 leading-relaxed mb-10">
+            We couldn't find the page you were looking for. Please use the navigation above, or contact us directly — we're available 24 hours a day.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/" className="btn-primary flex items-center justify-center gap-2">
+              <Home size={15} /> Return Home
+            </Link>
+            <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2">
+              <Phone size={15} /> Call {COMPANY.phone}
+            </a>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+          <div className="mt-12 grid sm:grid-cols-3 gap-4 text-left">
+            {[
+              { label: "Our Services", href: "/services/funeral-services" },
+              { label: "Catholic Funerals", href: "/services/catholic-funerals" },
+              { label: "Pricing", href: "/pricing" },
+              { label: "About Bruce Missen", href: "/about" },
+              { label: "Contact Us", href: "/contact" },
+              { label: "FAQ", href: "/faq" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex items-center gap-2 text-brand-royal hover:text-brand-navy text-sm font-sans transition-colors"
+              >
+                <ChevronRight size={13} /> {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 }

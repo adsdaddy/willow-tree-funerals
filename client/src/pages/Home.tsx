@@ -1,845 +1,518 @@
 /**
  * WILLOW TREE FUNERALS — Homepage
- * Design Philosophy: "Serene Elegance"
- * Fonts: Playfair Display (headings) + Montserrat (body/nav) + Libre Baskerville (quotes/scripture)
- * Colours: Deep Teal #0D2123, Brand Teal #54B6BF, Soft Mint #CBE0E3, Warm White #FBFAEF, Gold #C16510
- * SEO: Keyword clusters — funeral home Hurstville, funeral director Sydney, cremation St George
+ * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * SEO: FuneralHome + LocalBusiness schema, keyword-rich copy
+ * CRO: Above-fold phone CTA, trust signals, testimonials, FAQ
+ *
+ * Sections:
+ * 1. Hero (full-screen, willow tree bg, dark text on dark overlay)
+ * 2. Trust bar (24/7, licensed, 5-star, local)
+ * 3. Services grid (6 services)
+ * 4. About Bruce (asymmetric layout)
+ * 5. Why Choose Us (3 pillars)
+ * 6. Catholic / Faith section
+ * 7. Testimonials
+ * 8. Local area SEO grid
+ * 9. FAQ accordion
+ * 10. Final CTA
  */
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
+import { Phone, ChevronRight, ChevronDown, Star, MapPin, Shield, Clock, Heart } from "lucide-react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import SEOHead from "../components/SEOHead";
 import { COMPANY } from "../../../shared/company";
-import FAQSection from "../components/FAQSection";
-import LocalAreaSEO from "../components/LocalAreaSEO";
 
-// ── Sticky Header ─────────────────────────────────────────────────────────
-function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-main-38P4jzQnm5gVH5u842pmKp.webp";
+const CATHOLIC_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/catholic-service-LUjBvUWfNvTuieMmDW8eaL.webp";
+const CELEBRATION_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/celebration-of-life-bCTtGLugDMZoxqHYrmmipo.webp";
+const BRUCE_HEADSHOT = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot_18cf3f17.png";
+const BRUCE_PODIUM = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-podium_d5ec753d.png";
+const CHURCH_SERVICE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-service_a28d78fe.png";
+const GRANDMOTHER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/grandmother-granddaughter_157c2ea1.png";
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
+const services = [
+  {
+    label: "Catholic Funerals",
+    desc: "Deeply reverent Catholic funeral Masses and services, coordinated with your parish priest and conducted with full liturgical care.",
+    href: "/services/catholic-funerals",
+    icon: "✝",
+  },
+  {
+    label: "Funeral Services",
+    desc: "Personalised funeral services tailored to honour your loved one's life, faith, and legacy — at any venue across Sydney.",
+    href: "/services/funeral-services",
+    icon: "🌿",
+  },
+  {
+    label: "Cremation Services",
+    desc: "Dignified cremation with full ceremony options, from simple direct cremation to a full service with viewing.",
+    href: "/services/cremation",
+    icon: "🕊",
+  },
+  {
+    label: "Burial Services",
+    desc: "Traditional burial services at all Sydney cemeteries, including the new MacArthur Memorial Park at Varroville.",
+    href: "/services/burial",
+    icon: "🌸",
+  },
+  {
+    label: "Celebration of Life",
+    desc: "A joyful, personalised tribute that celebrates who your loved one was — their passions, stories, and the lives they touched.",
+    href: "/services/celebration-of-life",
+    icon: "🌟",
+  },
+  {
+    label: "Pre-Arranged Funerals",
+    desc: "Plan ahead with confidence. Remove the burden from your family and ensure your wishes are honoured exactly as you intend.",
+    href: "/services/pre-arranged-funerals",
+    icon: "📋",
+  },
+];
 
-  const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#about", label: "About" },
-    { href: "#process", label: "Our Process" },
-    { href: "#testimonials", label: "Testimonials" },
-    { href: "#contact", label: "Contact" },
-  ];
+const testimonials = [
+  {
+    name: "Maria C.",
+    suburb: "Hurstville",
+    text: "Bruce and his team were absolutely wonderful during the most difficult time of our lives. They handled everything with such grace and dignity. Our mother's Catholic funeral was exactly as she would have wanted.",
+    stars: 5,
+  },
+  {
+    name: "Tony & Rosa M.",
+    suburb: "Kogarah",
+    text: "From the first phone call at 2am to the final farewell, Willow Tree Funerals were there for us every step of the way. Bruce is a true professional with a genuine heart.",
+    stars: 5,
+  },
+  {
+    name: "Father Patrick O.",
+    suburb: "Rockdale",
+    text: "I have worked with many funeral directors over the years. Bruce Missen stands apart — his faith, his professionalism, and his care for families is exceptional. I recommend Willow Tree without hesitation.",
+    stars: 5,
+  },
+  {
+    name: "The Nguyen Family",
+    suburb: "Sutherland",
+    text: "We didn't know where to turn when Dad passed suddenly. Bruce answered our call immediately and guided us through everything. The service was beautiful and deeply personal.",
+    stars: 5,
+  },
+];
 
+const faqs = [
+  {
+    q: "What should I do when someone passes away?",
+    a: "Call us immediately on " + COMPANY.phone + " — we are available 24 hours a day, 7 days a week. We will guide you through every step, starting with the transfer of your loved one into our care.",
+  },
+  {
+    q: "Do you arrange Catholic funeral Masses?",
+    a: "Yes. Bruce Missen has extensive experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney areas. We handle all church liaison on your behalf.",
+  },
+  {
+    q: "What is the difference between cremation and burial?",
+    a: "Cremation involves the respectful reduction of the body to ashes, which can be kept, scattered, or interred. Burial involves placing the coffin in a cemetery plot. Both options can include a full funeral service. We can explain all options during a no-obligation consultation.",
+  },
+  {
+    q: "How much does a funeral cost in Sydney?",
+    a: "Funeral costs vary depending on the type of service, cemetery or crematorium fees, and personalisation. We offer transparent, itemised pricing with no hidden fees. Please visit our Pricing page or call us for a personalised quote.",
+  },
+  {
+    q: "Do you serve areas outside Hurstville?",
+    a: "Yes. We serve the entire St George and Sutherland Shire area, as well as South West Sydney including Campbelltown, Liverpool, Narellan, Gregory Hills, and the MacArthur Memorial Park at Varroville.",
+  },
+  {
+    q: "Can I pre-arrange my own funeral?",
+    a: "Absolutely. Pre-arranging your funeral is one of the greatest gifts you can give your family. It removes the burden of decision-making during grief and ensures your wishes are honoured. Contact Bruce to arrange a confidential consultation.",
+  },
+];
+
+const suburbs = [
+  "Hurstville", "Kogarah", "Rockdale", "Bexley", "Penshurst",
+  "Sutherland", "Cronulla", "Miranda", "Campbelltown", "Liverpool",
+  "Macquarie Links", "Narellan", "Gregory Hills", "Ingleburn", "Varroville", "Leumeah",
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{
-        backgroundColor: scrolled ? "rgba(13,33,35,0.97)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(84,182,191,0.15)" : "none",
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-20">
-        {/* Logo */}
-        <a href="/" aria-label="Willow Tree Funerals — Home">
-          <img
-            src={COMPANY.assets.logoWhite}
-            alt="Willow Tree Funerals"
-            className="h-12 object-contain"
-          />
-        </a>
-
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-sans text-white/70 hover:text-white transition-colors"
-              style={{ fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 500 }}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* CTA */}
-        <div className="hidden lg:flex items-center gap-4">
-          <a
-            href={COMPANY.phoneHref}
-            className="font-sans text-[#54B6BF] hover:text-white transition-colors"
-            style={{ fontSize: "0.7rem", letterSpacing: "0.12em", fontWeight: 500 }}
-          >
-            {COMPANY.phone}
-          </a>
-          <a
-            href="#contact"
-            className="btn-teal"
-            style={{ padding: "0.6rem 1.5rem", fontSize: "0.65rem" }}
-          >
-            Get in Touch
-          </a>
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden text-white p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
-        >
-          <div className="w-6 flex flex-col gap-1.5">
-            <span className={`block h-px bg-white transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block h-px bg-white transition-all ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-px bg-white transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-          </div>
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="lg:hidden bg-[#0D2123] border-t border-white/10 px-6 py-6 flex flex-col gap-4">
-          {navLinks.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="font-sans text-white/70 hover:text-white transition-colors py-2 border-b border-white/5"
-              style={{ fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase" }}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a href={COMPANY.phoneHref} className="btn-teal mt-2 text-center">
-            Call {COMPANY.phone}
-          </a>
+    <div className="border-b border-brand-light-blue">
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-5 text-left gap-4">
+        <span className="font-serif text-brand-navy font-semibold text-base md:text-lg">{q}</span>
+        <ChevronDown size={18} className={`text-brand-royal shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="pb-5 pr-8">
+          <p className="text-brand-navy/70 leading-relaxed">{a}</p>
         </div>
       )}
-    </header>
-  );
-}
-
-// ── Hero Section ──────────────────────────────────────────────────────────
-function HeroSection() {
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src={COMPANY.assets.heroBg}
-          alt="Serene willow tree landscape"
-          className="w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(105deg, rgba(13,33,35,0.92) 40%, rgba(13,33,35,0.55) 75%, rgba(13,33,35,0.3) 100%)"
-          }}
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pt-24 pb-16 w-full">
-        <div className="max-w-2xl">
-          <p className="section-label text-[#54B6BF] mb-5">
-            Funeral Home · Hurstville, Sydney NSW
-          </p>
-          <h1
-            className="font-serif text-white leading-none mb-6"
-            style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)", fontWeight: 600, letterSpacing: "-0.02em" }}
-          >
-            Honouring Life.<br />
-            <span style={{ color: "#54B6BF" }}>Celebrating</span><br />
-            Memories.
-          </h1>
-          <p
-            className="font-sans text-white/75 mb-8 max-w-lg"
-            style={{ fontSize: "1.0625rem", lineHeight: 1.8 }}
-          >
-            Compassionate, personalised funeral services for families across Sydney's St George and Sutherland Shire. Available 24 hours a day, 7 days a week.
-          </p>
-
-          <div className="flex flex-wrap gap-4 mb-12">
-            <a href="#contact" className="btn-teal">
-              Speak with Bruce
-            </a>
-            <a href="#services" className="btn-outline" style={{ color: "white", borderColor: "rgba(255,255,255,0.4)" }}>
-              Our Services
-            </a>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap gap-6">
-            {[
-              { label: "24/7 Available", value: "Always Here" },
-              { label: "Years of Service", value: "Est. 2018" },
-              { label: "Google Reviews", value: "5.0 ★★★★★" },
-            ].map(stat => (
-              <div key={stat.label} className="border-l border-[#54B6BF]/40 pl-4">
-                <p className="font-sans text-white text-base font-medium">{stat.value}</p>
-                <p className="font-sans text-white/50 text-xs tracking-wide">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Scripture */}
-      <div className="absolute bottom-8 right-8 md:right-12 z-10 text-right">
-        <p className="font-baskerville italic text-white/50 text-sm">
-          "Let not your heart be troubled."
-        </p>
-        <p className="font-sans text-white/30 text-xs tracking-widest uppercase mt-1">John 14:1</p>
-      </div>
-    </section>
-  );
-}
-
-// ── Announcement Bar ──────────────────────────────────────────────────────
-function AnnouncementBar() {
-  return (
-    <div className="bg-[#54B6BF] py-4 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="font-sans text-white text-sm text-center">
-          <strong>Available 24 hours, 7 days a week.</strong> When you need us most, we are here.
-        </p>
-        <a
-          href={COMPANY.phoneHref}
-          className="font-sans text-white font-medium text-sm border border-white/40 px-4 py-1.5 hover:bg-white hover:text-[#54B6BF] transition-colors shrink-0"
-          style={{ letterSpacing: "0.05em" }}
-        >
-          Call {COMPANY.phone}
-        </a>
-      </div>
     </div>
   );
 }
 
-// ── Services Section ──────────────────────────────────────────────────────
-function ServicesSection() {
-  const services = [
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      title: "Traditional Funeral Service",
-      desc: "A dignified full funeral service with burial or cremation, conducted with meticulous care and personalised to honour your loved one's unique life story.",
-      icon: "✦",
-      keywords: "funeral service Hurstville, burial service Sydney"
+      "@type": "FuneralHome",
+      "name": COMPANY.name,
+      "description": "Compassionate, faith-based funeral services in Hurstville and South West Sydney. Catholic funerals, cremation, burial, and celebration of life services.",
+      "url": "https://www.willowtreefunerals.com.au",
+      "telephone": COMPANY.phone,
+      "email": COMPANY.email,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": COMPANY.street,
+        "addressLocality": COMPANY.suburb,
+        "addressRegion": COMPANY.state,
+        "postalCode": COMPANY.postcode,
+        "addressCountry": "AU"
+      },
+      "openingHours": "Mo-Su 00:00-23:59",
+      "priceRange": "$$",
+      "founder": { "@type": "Person", "name": COMPANY.director },
+      "areaServed": suburbs.map(s => ({ "@type": "City", "name": s })),
     },
     {
-      title: "Celebration of Life",
-      desc: "A joyful, personalised tribute that focuses on the unique personality, passions, and legacy of the person being remembered — a true celebration.",
-      icon: "✦",
-      keywords: "celebration of life Sydney, memorial service Hurstville"
-    },
-    {
-      title: "Cremation Services",
-      desc: "Respectful cremation services with a range of options from simple direct cremation to full funeral services with cremation, tailored to your family's wishes.",
-      icon: "✦",
-      keywords: "cremation Hurstville, cremation services Sydney"
-    },
-    {
-      title: "Eco-Friendly Funerals",
-      desc: "Environmentally conscious funeral options including natural burials and biodegradable caskets for families who wish to minimise their environmental impact.",
-      icon: "✦",
-      keywords: "eco funeral Sydney, green burial NSW"
-    },
-    {
-      title: "Pre-Arranged Funerals",
-      desc: "Plan ahead and relieve your loved ones of the burden of decision-making. A pre-arranged funeral ensures your wishes are honoured exactly as you intend.",
-      icon: "✦",
-      keywords: "pre-arranged funeral Sydney, funeral planning Hurstville"
-    },
-    {
-      title: "Grief Support",
-      desc: "Our care doesn't end after the service. We provide ongoing grief support resources and can connect your family with professional counselling services.",
-      icon: "✦",
-      keywords: "grief support Sydney, bereavement services NSW"
-    },
-  ];
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
 
-  return (
-    <section id="services" className="py-24 px-6 md:px-10" style={{ backgroundColor: "#FBFAEF" }}>
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <p className="section-label mb-3">Our Services</p>
-            <h2 className="font-serif text-[#0D2123]" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600 }}>
-              Funeral Services in<br />Hurstville & Sydney
-            </h2>
-          </div>
-          <p className="font-sans text-gray-600 text-sm max-w-sm leading-relaxed">
-            Every life is unique. Every farewell should be too. We offer a full range of funeral services tailored to the needs of your family.
-          </p>
-        </div>
-
-        {/* Service grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#CBE0E3]">
-          {services.map((service, i) => (
-            <div
-              key={service.title}
-              className="bg-[#FBFAEF] p-8 hover:bg-white transition-colors group"
-            >
-              <span className="text-[#54B6BF] text-2xl block mb-5 group-hover:text-[#0D2123] transition-colors">
-                {service.icon}
-              </span>
-              <h3 className="font-serif text-[#0D2123] text-xl mb-3" style={{ fontWeight: 600 }}>
-                {service.title}
-              </h3>
-              <p className="font-sans text-sm text-gray-600 leading-relaxed mb-5">
-                {service.desc}
-              </p>
-              <a
-                href="#contact"
-                className="section-label hover:text-[#0D2123] transition-colors"
-              >
-                Enquire Now →
-              </a>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA bar */}
-        <div className="mt-px bg-[#0D2123] p-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <p className="font-serif text-white text-xl" style={{ fontWeight: 600 }}>
-              Not sure which service is right for you?
-            </p>
-            <p className="font-sans text-white/60 text-sm mt-1">
-              Call Bruce directly — he'll guide you through every option with care and clarity.
-            </p>
-          </div>
-          <a href={COMPANY.phoneHref} className="btn-teal shrink-0">
-            Call {COMPANY.phone}
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── About Section ─────────────────────────────────────────────────────────
-function AboutSection() {
-  return (
-    <section id="about" className="py-24 px-6 md:px-10 overflow-hidden" style={{ backgroundColor: "#CBE0E3" }}>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        {/* Images */}
-        <div className="relative">
-          <div className="relative z-10">
-            <img
-              src={COMPANY.assets.brucePodium}
-              alt="Bruce Missen conducting a funeral service in Hurstville"
-              className="w-full aspect-[4/3] object-cover rounded-sm"
-            />
-          </div>
-          {/* Floating headshot */}
-          <div
-            className="absolute -bottom-8 -right-4 md:-right-8 z-20 border-4 border-[#CBE0E3] rounded-sm overflow-hidden shadow-2xl"
-            style={{ width: 140, height: 140 }}
-          >
-            <img
-              src={COMPANY.assets.bruceHeadshot}
-              alt="Bruce Missen — Funeral Director"
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
-          {/* Accent block */}
-          <div
-            className="absolute -bottom-4 -left-4 z-0 w-32 h-32"
-            style={{ backgroundColor: "#54B6BF", opacity: 0.3 }}
-          />
-        </div>
-
-        {/* Content */}
-        <div className="lg:pl-8">
-          <p className="section-label mb-3">About Willow Tree Funerals</p>
-          <h2 className="font-serif text-[#0D2123] mb-6" style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: 600 }}>
-            A Funeral Home Built on<br />Compassion & Faith
-          </h2>
-
-          <blockquote className="border-l-4 border-[#54B6BF] pl-5 mb-8">
-            <p className="font-baskerville italic text-[#0D2123] text-lg leading-relaxed">
-              "My purpose is to serve families with the same care and dignity I would want for my own."
-            </p>
-            <cite className="font-sans text-xs text-[#54B6BF] tracking-widest uppercase mt-2 block not-italic">
-              — {COMPANY.director}, Funeral Director & Owner
-            </cite>
-          </blockquote>
-
-          <p className="font-sans text-gray-700 text-sm leading-relaxed mb-6">
-            Willow Tree Funerals is a locally owned and operated funeral home serving Hurstville, the St George area, and all of Sydney. Founded by Bruce Missen, our practice is built on a foundation of Christian faith, community service, and an unwavering commitment to personalised care.
-          </p>
-          <p className="font-sans text-gray-700 text-sm leading-relaxed mb-8">
-            We believe that every life deserves to be honoured with dignity and celebrated with meaning. Whether your family requires a traditional religious service, a contemporary celebration of life, or a simple direct cremation, we bring the same meticulous attention to detail and heartfelt compassion to every arrangement.
-          </p>
-
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            {[
-              { label: "Serving Sydney Since", value: "2018" },
-              { label: "Service Area", value: "All of Sydney" },
-              { label: "Availability", value: "24 / 7 / 365" },
-              { label: "Google Rating", value: "5.0 Stars" },
-            ].map(stat => (
-              <div key={stat.label} className="bg-white p-4">
-                <p className="font-serif text-[#0D2123] text-2xl" style={{ fontWeight: 600 }}>{stat.value}</p>
-                <p className="font-sans text-xs text-gray-500 mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <a href="#contact" className="btn-primary">
-            Meet Bruce Missen
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Process Section ───────────────────────────────────────────────────────
-function ProcessSection() {
-  const steps = [
-    {
-      step: "01",
-      title: "First Call",
-      desc: "Call us any time, day or night. Bruce will answer personally and guide you through the immediate next steps with calm and clarity."
-    },
-    {
-      step: "02",
-      title: "Transfer & Care",
-      desc: "We gently bring your loved one into our care, treating them with the same respect and dignity we would give our own family."
-    },
-    {
-      step: "03",
-      title: "Personal Arrangement",
-      desc: "We sit with your family — in person or via video call — to understand your loved one's story and design a service that truly honours them."
-    },
-    {
-      step: "04",
-      title: "The Service",
-      desc: "We manage every detail of the service so your family can be fully present — from venue coordination to music, flowers, and tributes."
-    },
-    {
-      step: "05",
-      title: "Ongoing Support",
-      desc: "Our care continues after the service. We assist with paperwork, death notices, and connect you with grief support resources."
-    },
-  ];
-
-  return (
-    <section id="process" className="py-24 px-6 md:px-10" style={{ backgroundColor: "#0D2123" }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <p className="section-label text-[#54B6BF] mb-3">How We Work</p>
-            <h2 className="font-serif text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600 }}>
-              Our Process
-            </h2>
-          </div>
-          <p className="font-sans text-white/50 text-sm max-w-sm leading-relaxed">
-            We guide you through every step of the journey — from the first call to the final farewell and beyond.
-          </p>
-        </div>
-
-        <div className="relative">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-[#54B6BF]/20" style={{ top: "2.5rem" }} />
-
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {steps.map(step => (
-              <div key={step.step} className="relative">
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 relative z-10"
-                    style={{ backgroundColor: "#54B6BF" }}
-                  >
-                    <span className="font-sans text-white text-xs font-medium">{step.step}</span>
-                  </div>
-                </div>
-                <h3 className="font-serif text-white text-lg mb-2" style={{ fontWeight: 600 }}>
-                  {step.title}
-                </h3>
-                <p className="font-sans text-white/50 text-xs leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Photo strip */}
-        <div className="grid grid-cols-3 gap-4 mt-16">
-          <img src={COMPANY.assets.churchService} alt="Church funeral service Sydney"
-               className="w-full aspect-video object-cover rounded-sm opacity-70 hover:opacity-100 transition-opacity" />
-          <img src={COMPANY.assets.chapelInterior} alt="Modern funeral chapel Hurstville"
-               className="w-full aspect-video object-cover rounded-sm opacity-70 hover:opacity-100 transition-opacity" />
-          <img src={COMPANY.assets.cremationUrn} alt="Cremation service Sydney"
-               className="w-full aspect-video object-cover rounded-sm opacity-70 hover:opacity-100 transition-opacity" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Testimonials Section ──────────────────────────────────────────────────
-function TestimonialsSection() {
-  const reviews = [
-    {
-      name: "Sarah M.",
-      location: "Hurstville",
-      text: "Bruce and his team were absolutely incredible during the most difficult time of our lives. Every detail was handled with such care and compassion. We couldn't have asked for more.",
-      rating: 5
-    },
-    {
-      name: "David & Lisa T.",
-      location: "Kogarah",
-      text: "From the very first phone call, we felt supported. Bruce personally guided us through every decision and made sure Mum's farewell was exactly what she would have wanted.",
-      rating: 5
-    },
-    {
-      name: "The Nguyen Family",
-      location: "Hurstville",
-      text: "We are so grateful for the respectful and personalised service we received. Bruce honoured our cultural traditions beautifully. Truly a remarkable funeral director.",
-      rating: 5
-    },
-    {
-      name: "Margaret K.",
-      location: "Sutherland",
-      text: "I pre-arranged my own funeral with Willow Tree Funerals and felt completely at ease throughout the entire process. Bruce was patient, kind, and thoroughly professional.",
-      rating: 5
-    },
-  ];
-
-  return (
-    <section id="testimonials" className="py-24 px-6 md:px-10" style={{ backgroundColor: "#FBFAEF" }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <p className="section-label mb-3">What Families Say</p>
-            <h2 className="font-serif text-[#0D2123]" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600 }}>
-              Trusted by Sydney Families
-            </h2>
-          </div>
-          <div className="flex items-center gap-3">
-            <img src={COMPANY.assets.fiveStars} alt="5 star Google rating" className="h-8 object-contain" />
-            <div>
-              <p className="font-sans text-[#0D2123] font-medium text-sm">5.0 Google Rating</p>
-              <p className="font-sans text-gray-500 text-xs">Based on verified reviews</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {reviews.map(review => (
-            <div key={review.name} className="bg-white border border-[#CBE0E3] p-8">
-              <div className="flex gap-0.5 mb-4">
-                {Array.from({ length: review.rating }).map((_, i) => (
-                  <span key={i} className="text-[#C16510] text-sm">★</span>
-                ))}
-              </div>
-              <p className="font-baskerville italic text-[#0D2123] text-base leading-relaxed mb-6">
-                "{review.text}"
-              </p>
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-sans font-medium text-sm"
-                  style={{ backgroundColor: "#54B6BF" }}
-                >
-                  {review.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-sans font-medium text-[#0D2123] text-sm">{review.name}</p>
-                  <p className="font-sans text-gray-500 text-xs">{review.location}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Community Section ─────────────────────────────────────────────────────
-function CommunitySection() {
-  return (
-    <section className="py-24 px-6 md:px-10 overflow-hidden" style={{ backgroundColor: "#CBE0E3" }}>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <p className="section-label mb-3">Community & Giving Back</p>
-          <h2 className="font-serif text-[#0D2123] mb-6" style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: 600 }}>
-            Rooted in the<br />St George Community
-          </h2>
-          <p className="font-sans text-gray-700 text-sm leading-relaxed mb-6">
-            Willow Tree Funerals is more than a business — we are an active member of the Hurstville and St George community. We believe in giving back to the people we serve.
-          </p>
-          <div className="space-y-4 mb-8">
-            {[
-              "Supporting Australia's Biggest Morning Tea for cancer research",
-              "Participating in International Women's Day events",
-              "Providing compassionate care for families experiencing miscarriage and infant loss",
-              "Partnering with local churches and community organisations",
-            ].map(item => (
-              <div key={item} className="flex gap-3 items-start">
-                <span className="text-[#54B6BF] mt-0.5 shrink-0">✦</span>
-                <p className="font-sans text-sm text-gray-700">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <img
-            src={COMPANY.assets.grandmotherGranddaughter}
-            alt="Compassionate care for families in Sydney"
-            className="w-full aspect-square object-cover rounded-sm"
-          />
-          <img
-            src={COMPANY.assets.communityDinner}
-            alt="Community gathering and support"
-            className="w-full aspect-square object-cover rounded-sm mt-8"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Contact Section ───────────────────────────────────────────────────────
-function ContactSection() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-  };
-
-  return (
-    <section id="contact" className="py-24 px-6 md:px-10" style={{ backgroundColor: "#0D2123" }}>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
-        {/* Left: info */}
-        <div>
-          <p className="section-label text-[#54B6BF] mb-3">Contact Us</p>
-          <h2 className="font-serif text-white mb-6" style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: 600 }}>
-            We Are Here<br />When You Need Us
-          </h2>
-          <p className="font-sans text-white/60 text-sm leading-relaxed mb-10">
-            Whether you need immediate assistance or would like to discuss arrangements in advance, Bruce is available 24 hours a day, 7 days a week.
-          </p>
-
-          <div className="space-y-6 mb-10">
-            {[
-              { label: "Phone (24/7)", value: COMPANY.phone, href: COMPANY.phoneHref },
-              { label: "Email", value: COMPANY.email, href: `mailto:${COMPANY.email}` },
-              { label: "Address", value: COMPANY.address, href: `https://maps.google.com/?q=${encodeURIComponent(COMPANY.address)}` },
-            ].map(item => (
-              <div key={item.label} className="flex gap-4 items-start">
-                <div className="w-px h-10 bg-[#54B6BF]/40 shrink-0 mt-1" />
-                <div>
-                  <p className="font-sans text-white/40 text-xs tracking-widest uppercase mb-1">{item.label}</p>
-                  <a
-                    href={item.href}
-                    className="font-sans text-white hover:text-[#54B6BF] transition-colors text-sm"
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  >
-                    {item.value}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bruce photo */}
-          <div className="flex items-center gap-4 border border-white/10 p-4">
-            <img
-              src={COMPANY.assets.bruceHeadshot}
-              alt="Bruce Missen — Funeral Director Hurstville"
-              className="w-16 h-16 rounded-full object-cover object-top border-2 border-[#54B6BF]"
-            />
-            <div>
-              <p className="font-serif text-white text-base" style={{ fontWeight: 600 }}>{COMPANY.director}</p>
-              <p className="font-sans text-white/50 text-xs">{COMPANY.directorTitle}</p>
-              <p className="font-sans text-[#54B6BF] text-xs mt-1">Available 24/7</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: form */}
-        <div>
-          {sent ? (
-            <div className="h-full flex flex-col items-center justify-center text-center py-16">
-              <div className="w-16 h-16 rounded-full bg-[#54B6BF]/20 flex items-center justify-center mb-6">
-                <span className="text-[#54B6BF] text-2xl">✓</span>
-              </div>
-              <h3 className="font-serif text-white text-2xl mb-3" style={{ fontWeight: 600 }}>
-                Thank You
-              </h3>
-              <p className="font-sans text-white/60 text-sm max-w-sm leading-relaxed">
-                We have received your message. Bruce will be in touch with you shortly. If you need immediate assistance, please call {COMPANY.phone}.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label className="font-sans text-white/50 text-xs tracking-widest uppercase block mb-2">
-                  Your Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={form.name}
-                  onChange={e => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-white/5 border border-white/15 text-white font-sans text-sm px-4 py-3 focus:outline-none focus:border-[#54B6BF] transition-colors placeholder:text-white/20"
-                  placeholder="Your full name"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="font-sans text-white/50 text-xs tracking-widest uppercase block mb-2">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    value={form.phone}
-                    onChange={e => setForm({ ...form, phone: e.target.value })}
-                    className="w-full bg-white/5 border border-white/15 text-white font-sans text-sm px-4 py-3 focus:outline-none focus:border-[#54B6BF] transition-colors placeholder:text-white/20"
-                    placeholder="02 xxxx xxxx"
-                  />
-                </div>
-                <div>
-                  <label className="font-sans text-white/50 text-xs tracking-widest uppercase block mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    value={form.email}
-                    onChange={e => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-white/5 border border-white/15 text-white font-sans text-sm px-4 py-3 focus:outline-none focus:border-[#54B6BF] transition-colors placeholder:text-white/20"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="font-sans text-white/50 text-xs tracking-widest uppercase block mb-2">
-                  How Can We Help? *
-                </label>
-                <textarea
-                  required
-                  rows={5}
-                  value={form.message}
-                  onChange={e => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-white/5 border border-white/15 text-white font-sans text-sm px-4 py-3 focus:outline-none focus:border-[#54B6BF] transition-colors placeholder:text-white/20 resize-none"
-                  placeholder="Please share how we can help your family..."
-                />
-              </div>
-              <button type="submit" className="btn-teal w-full">
-                Send Message
-              </button>
-              <p className="font-sans text-white/30 text-xs text-center leading-relaxed">
-                For immediate assistance, please call {COMPANY.phone} — available 24/7.
-              </p>
-            </form>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Footer ────────────────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer style={{ backgroundColor: "#060F10" }}>
-      {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 grid md:grid-cols-4 gap-10">
-        {/* Brand */}
-        <div className="md:col-span-2">
-          <img src={COMPANY.assets.logoWhite} alt="Willow Tree Funerals" className="h-14 object-contain mb-4" />
-          <p className="font-sans text-white/40 text-xs leading-relaxed max-w-xs mb-4">
-            Compassionate, personalised funeral services for families across Hurstville, the St George area, and all of Sydney NSW.
-          </p>
-          <p className="font-baskerville italic text-[#54B6BF] text-sm">
-            "Honouring Life. Celebrating Memories."
-          </p>
-        </div>
-
-        {/* Services */}
-        <div>
-          <p className="font-sans text-white/50 text-xs tracking-widest uppercase mb-4">Services</p>
-          <ul className="space-y-2">
-            {["Traditional Funeral", "Celebration of Life", "Cremation Services", "Eco Funerals", "Pre-Arranged Funerals", "Grief Support"].map(s => (
-              <li key={s}>
-                <a href="#services" className="font-sans text-white/40 hover:text-white/70 text-xs transition-colors">
-                  {s}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <p className="font-sans text-white/50 text-xs tracking-widest uppercase mb-4">Contact</p>
-          <div className="space-y-3">
-            <div>
-              <p className="font-sans text-white/30 text-xs">Phone (24/7)</p>
-              <a href={COMPANY.phoneHref} className="font-sans text-white/70 hover:text-white text-sm transition-colors">
-                {COMPANY.phone}
-              </a>
-            </div>
-            <div>
-              <p className="font-sans text-white/30 text-xs">Email</p>
-              <a href={`mailto:${COMPANY.email}`} className="font-sans text-white/70 hover:text-white text-xs transition-colors">
-                {COMPANY.email}
-              </a>
-            </div>
-            <div>
-              <p className="font-sans text-white/30 text-xs">Address</p>
-              <p className="font-sans text-white/70 text-xs">{COMPANY.address}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="font-sans text-white/25 text-xs">
-            © {COMPANY.year} {COMPANY.name} · {COMPANY.address} · Funeral Director: {COMPANY.director}
-          </p>
-          <div className="flex gap-4">
-            <Link href="/brand-guide">
-              <span className="font-sans text-white/20 hover:text-white/50 text-xs transition-colors cursor-pointer">
-                Brand Guide
-              </span>
-            </Link>
-            <a href="#" className="font-sans text-white/20 hover:text-white/50 text-xs transition-colors">
-              Privacy Policy
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-// ── Page ──────────────────────────────────────────────────────────────────
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <HeroSection />
-        <AnnouncementBar />
-        <ServicesSection />
-        <LocalAreaSEO />
-        <AboutSection />
-        <ProcessSection />
-        <TestimonialsSection />
-        <CommunitySection />
-        <FAQSection />
-        <ContactSection />
-      </main>
+    <>
+      <SEOHead
+        title="Willow Tree Funerals Hurstville | Compassionate Funeral Directors Sydney"
+        description="Willow Tree Funerals — trusted funeral directors in Hurstville, Sydney NSW. Catholic funerals, cremation, burial & celebration of life. Available 24/7. Call Bruce Missen on 02 8776 1667."
+        canonical="/"
+        schema={homeSchema}
+      />
+      <Nav />
+
+      {/* ── 1. HERO ── */}
+      <section
+        className="relative min-h-screen flex items-center"
+        style={{ backgroundImage: `url(${HERO_BG})`, backgroundSize: "cover", backgroundPosition: "center 30%" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/70 to-brand-navy/30" />
+        <div className="relative z-10 container py-32">
+          <div className="max-w-2xl">
+            <p className="section-label text-brand-gold mb-4">Hurstville · South West Sydney</p>
+            <h1 className="font-serif text-white text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6">
+              Honouring Life.<br />
+              <span className="text-brand-gold">Celebrating</span><br />
+              Memories.
+            </h1>
+            <p className="scripture text-white/80 text-lg mb-2">
+              "Do not let your hearts be troubled."
+            </p>
+            <p className="font-sans text-white/50 text-xs tracking-widest uppercase mb-8">{COMPANY.scripture}</p>
+            <p className="text-white/75 text-lg leading-relaxed mb-10 max-w-xl">
+              Willow Tree Funerals provides compassionate, faith-based funeral services across Hurstville, the St George area, and South West Sydney. Available 24 hours, 7 days a week.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 text-sm px-8 py-4">
+                <Phone size={16} /> Call {COMPANY.phone}
+              </a>
+              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy flex items-center justify-center gap-2 text-sm px-8 py-4">
+                Arrange a Funeral
+              </Link>
+            </div>
+          </div>
+        </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+          <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+        </div>
+      </section>
+
+      {/* ── 2. TRUST BAR ── */}
+      <section className="bg-brand-navy border-b border-white/10">
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+            {[
+              { icon: <Clock size={20} className="text-brand-gold" />, label: "Available", value: "24 / 7 · 365 Days" },
+              { icon: <Shield size={20} className="text-brand-gold" />, label: "Licensed", value: "NSW Funeral Director" },
+              { icon: <Star size={20} className="text-brand-gold" />, label: "Rated", value: "5 Stars on Google" },
+              { icon: <MapPin size={20} className="text-brand-gold" />, label: "Locations", value: "Hurstville & Macquarie Links" },
+            ].map((t, i) => (
+              <div key={i} className="flex items-center gap-4 px-6 py-5">
+                {t.icon}
+                <div>
+                  <p className="text-white/40 text-xs tracking-widest uppercase font-sans">{t.label}</p>
+                  <p className="text-white font-sans font-semibold text-sm">{t.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. SERVICES ── */}
+      <section className="py-28 bg-brand-ivory">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-8 items-end mb-16">
+            <div>
+              <p className="section-label mb-3">Our Services</p>
+              <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight">
+                Every Farewell,<br />Thoughtfully Arranged
+              </h2>
+            </div>
+            <div>
+              <p className="text-brand-navy/65 text-lg leading-relaxed">
+                From traditional Catholic funeral Masses to intimate celebrations of life, we offer a full range of funeral services tailored to your family's faith, culture, and wishes.
+              </p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s) => (
+              <Link key={s.href} href={s.href}
+                className="group bg-white border border-brand-light-blue p-8 hover:border-brand-royal hover:shadow-lg transition-all duration-300">
+                <div className="text-3xl mb-5">{s.icon}</div>
+                <h3 className="font-serif text-brand-navy text-xl font-semibold mb-3 group-hover:text-brand-royal transition-colors">
+                  {s.label}
+                </h3>
+                <p className="text-brand-navy/60 text-sm leading-relaxed mb-5">{s.desc}</p>
+                <span className="text-brand-royal text-xs tracking-widest uppercase font-sans font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Learn More <ChevronRight size={12} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. ABOUT BRUCE (asymmetric) ── */}
+      <section className="py-28 bg-white overflow-hidden">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Images */}
+            <div className="relative">
+              <img
+                src={BRUCE_PODIUM}
+                alt="Bruce Missen — Funeral Director at Willow Tree Funerals"
+                className="w-full aspect-[4/3] object-cover"
+              />
+              <div className="absolute -bottom-8 -right-8 w-40 h-40 hidden lg:block">
+                <img
+                  src={BRUCE_HEADSHOT}
+                  alt="Bruce Missen"
+                  className="w-full h-full object-cover border-4 border-white shadow-xl"
+                />
+              </div>
+              <div className="absolute top-6 left-6 bg-brand-gold px-4 py-2">
+                <p className="font-sans text-white text-xs tracking-widest uppercase font-semibold">Est. {COMPANY.established}</p>
+              </div>
+            </div>
+            {/* Text */}
+            <div className="lg:pl-8">
+              <p className="section-label mb-3">Meet Your Funeral Director</p>
+              <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight mb-6">
+                Bruce Missen —<br />A Calling, Not Just a Career
+              </h2>
+              <p className="text-brand-navy/70 text-lg leading-relaxed mb-5">
+                Bruce Missen founded Willow Tree Funerals with a single purpose: to provide the families of the St George and South West Sydney communities with funeral care that is deeply personal, faith-centred, and genuinely compassionate.
+              </p>
+              <p className="text-brand-navy/70 leading-relaxed mb-5">
+                With years of experience as a licensed NSW funeral director, Bruce has guided hundreds of families through their most difficult moments. His Catholic faith and commitment to dignity inform every service he conducts.
+              </p>
+              <blockquote className="border-l-2 border-brand-gold pl-5 mb-8">
+                <p className="scripture text-brand-royal text-lg">
+                  "I believe every person deserves a farewell that truly honours who they were. That is the promise I make to every family."
+                </p>
+                <footer className="font-sans text-brand-navy/50 text-xs tracking-widest uppercase mt-2">— Bruce Missen, Founder</footer>
+              </blockquote>
+              <Link href="/about" className="btn-primary">Meet Bruce</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. WHY CHOOSE US ── */}
+      <section className="py-28 bg-brand-navy">
+        <div className="container">
+          <div className="text-center mb-16">
+            <p className="section-label text-brand-gold mb-3">Why Willow Tree</p>
+            <h2 className="font-serif text-white text-4xl md:text-5xl font-semibold">
+              The Difference You'll Feel
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Heart size={28} className="text-brand-gold" />,
+                title: "Genuinely Personal",
+                desc: "No call centres. No corporate scripts. When you call Willow Tree, you speak directly with Bruce — a real person who genuinely cares about your family.",
+              },
+              {
+                icon: <Shield size={28} className="text-brand-gold" />,
+                title: "Faith & Dignity",
+                desc: "Rooted in Catholic faith, we bring reverence and spiritual care to every service. We work closely with parish priests and clergy across Sydney.",
+              },
+              {
+                icon: <Star size={28} className="text-brand-gold" />,
+                title: "Transparent Pricing",
+                desc: "We believe families deserve clear, honest pricing with no hidden fees. Every quote is itemised and explained before any commitment is made.",
+              },
+            ].map((p, i) => (
+              <div key={i} className="border border-white/10 p-8 hover:border-brand-gold/40 transition-colors">
+                <div className="mb-5">{p.icon}</div>
+                <h3 className="font-serif text-white text-xl font-semibold mb-3">{p.title}</h3>
+                <p className="text-white/60 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. CATHOLIC / FAITH SECTION ── */}
+      <section className="py-28 bg-brand-ivory overflow-hidden">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="section-label mb-3">Catholic Funeral Services</p>
+              <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight mb-6">
+                Serving Sydney's<br />Catholic Community
+              </h2>
+              <p className="text-brand-navy/70 text-lg leading-relaxed mb-5">
+                Willow Tree Funerals is one of Sydney's most trusted Catholic funeral directors. We understand the liturgical traditions, the importance of the Requiem Mass, and the comfort that faith brings to grieving families.
+              </p>
+              <p className="text-brand-navy/70 leading-relaxed mb-5">
+                We coordinate directly with parish priests across the St George, Sutherland Shire, and South West Sydney dioceses — handling all church bookings, order of service, and liturgical requirements on your behalf.
+              </p>
+              <p className="text-brand-navy/70 leading-relaxed mb-8">
+                Whether your loved one attended St Patrick's in Sutherland, St Brigid's in Marrickville, or any parish across Sydney, we will ensure their final farewell honours their faith with the reverence it deserves.
+              </p>
+              <Link href="/services/catholic-funerals" className="btn-primary">Learn About Catholic Funerals</Link>
+            </div>
+            <div className="relative">
+              <img
+                src={CHURCH_SERVICE}
+                alt="Catholic funeral Mass in Sydney"
+                className="w-full aspect-[4/3] object-cover"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-brand-royal p-6 max-w-xs hidden lg:block">
+                <p className="scripture text-white/90 text-sm leading-relaxed">
+                  "I am the resurrection and the life. Whoever believes in me, though he die, yet shall he live."
+                </p>
+                <p className="font-sans text-white/50 text-xs tracking-widest uppercase mt-2">John 11:25</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. TESTIMONIALS ── */}
+      <section className="py-28 bg-white">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-8 items-end mb-16">
+            <div>
+              <p className="section-label mb-3">Testimonials</p>
+              <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight">
+                Words From the<br />Families We've Served
+              </h2>
+            </div>
+            <div className="flex items-center gap-3">
+              <img src={COMPANY.assets.fiveStars} alt="5 star rating" className="h-8 w-auto" />
+              <p className="text-brand-navy/60 text-sm">Rated 5 stars on Google Reviews</p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-brand-ivory border border-brand-light-blue p-8">
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: t.stars }).map((_, j) => (
+                    <Star key={j} size={14} className="text-brand-gold fill-brand-gold" />
+                  ))}
+                </div>
+                <p className="text-brand-navy/75 leading-relaxed mb-5 italic">"{t.text}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-brand-royal flex items-center justify-center">
+                    <span className="text-white font-serif font-semibold text-sm">{t.name[0]}</span>
+                  </div>
+                  <div>
+                    <p className="font-sans font-semibold text-brand-navy text-sm">{t.name}</p>
+                    <p className="text-brand-navy/40 text-xs">{t.suburb}, Sydney</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8. LOCAL AREA SEO GRID ── */}
+      <section className="py-20 bg-brand-light-blue/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="section-label mb-3">Areas We Serve</p>
+            <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold">
+              Serving All of Sydney's South
+            </h2>
+            <p className="text-brand-navy/60 mt-4 max-w-2xl mx-auto">
+              From Hurstville and the St George area to Campbelltown, Liverpool, and the new MacArthur Memorial Park at Varroville — Willow Tree Funerals is your local, trusted funeral director across South Sydney and South West Sydney.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {suburbs.map((suburb) => (
+              <div key={suburb} className="flex items-center gap-2 bg-white px-4 py-3 border border-brand-light-blue">
+                <MapPin size={13} className="text-brand-royal shrink-0" />
+                <span className="text-brand-navy text-sm font-sans">{suburb}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 9. FAQ ── */}
+      <section className="py-28 bg-brand-ivory">
+        <div className="container max-w-3xl">
+          <div className="mb-12">
+            <p className="section-label mb-3">Frequently Asked Questions</p>
+            <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold">
+              We're Here to Help
+            </h2>
+          </div>
+          {faqs.map((faq, i) => (
+            <FAQItem key={i} {...faq} />
+          ))}
+          <div className="mt-10">
+            <Link href="/faq" className="btn-outline">View All FAQs</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 10. FINAL CTA ── */}
+      <section
+        className="relative py-32"
+        style={{ backgroundImage: `url(${GRANDMOTHER})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0 bg-brand-navy/85" />
+        <div className="relative z-10 container text-center">
+          <p className="section-label text-brand-gold mb-4">We're Here for You</p>
+          <h2 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 max-w-3xl mx-auto leading-tight">
+            You Don't Have to Face This Alone
+          </h2>
+          <p className="text-white/75 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+            Call Bruce directly, any time of the day or night. We will answer, and we will help.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 px-10 py-4">
+              <Phone size={16} /> {COMPANY.phone}
+            </a>
+            <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-10 py-4">
+              Send an Enquiry
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
-    </div>
+    </>
   );
 }

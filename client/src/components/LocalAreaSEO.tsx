@@ -1,72 +1,84 @@
 /**
  * WILLOW TREE FUNERALS — Local Area SEO Section
- * Purpose: Targets suburb-level keyword clusters for St George & Sutherland Shire
- * SEO: funeral home Kogarah, funeral director Rockdale, funeral services Sutherland Shire, etc.
+ * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * Used on homepage to target suburb-level SEO keywords
+ * Updated: teal colours removed, now uses brand-navy / brand-royal / brand-gold tokens
  */
 
+import { Link } from "wouter";
+import { Phone, MapPin } from "lucide-react";
+import { COMPANY } from "../../../shared/company";
+
 const serviceAreas = [
-  { suburb: "Hurstville", postcode: "2220", desc: "Our home base — serving Hurstville families with 24/7 availability." },
-  { suburb: "Kogarah", postcode: "2217", desc: "Compassionate funeral services for Kogarah and surrounding areas." },
-  { suburb: "Rockdale", postcode: "2216", desc: "Personalised funerals and cremation services in Rockdale." },
-  { suburb: "Bexley", postcode: "2207", desc: "Dignified funeral arrangements for Bexley families." },
-  { suburb: "Penshurst", postcode: "2222", desc: "Caring funeral director services for Penshurst residents." },
-  { suburb: "Mortdale", postcode: "2223", desc: "Trusted funeral home serving Mortdale and Oatley." },
-  { suburb: "Sutherland Shire", postcode: "2232", desc: "Full funeral services across the Sutherland Shire." },
-  { suburb: "All of Sydney", postcode: "NSW", desc: "We travel across Sydney to serve families wherever they are." },
+  { suburb: "Hurstville", postcode: "2220", desc: "Our primary location, serving the heart of St George." },
+  { suburb: "Kogarah", postcode: "2217", desc: "Compassionate funeral services for Kogarah families." },
+  { suburb: "Rockdale", postcode: "2216", desc: "Trusted funeral directors serving Rockdale and surrounds." },
+  { suburb: "Bexley", postcode: "2207", desc: "Dignified funeral services for the Bexley community." },
+  { suburb: "Penshurst", postcode: "2222", desc: "Caring for Penshurst families with respect and warmth." },
+  { suburb: "Mortdale", postcode: "2223", desc: "Local funeral services for the Mortdale area." },
+  { suburb: "Sutherland Shire", postcode: "2232", desc: "Serving all suburbs across the Sutherland Shire." },
+  { suburb: "Campbelltown", postcode: "2560", desc: "South West Sydney funerals from our Macquarie Links location." },
+  { suburb: "Liverpool", postcode: "2170", desc: "Serving Liverpool and surrounds from South West Sydney." },
+  { suburb: "Narellan", postcode: "2567", desc: "Funeral services for the growing Narellan community." },
+  { suburb: "Gregory Hills", postcode: "2557", desc: "Caring for Gregory Hills and Camden families." },
+  { suburb: "Varroville", postcode: "2566", desc: "MacArthur Memorial Park — South West Sydney's premier cemetery." },
 ];
 
 export default function LocalAreaSEO() {
   return (
-    <section className="py-20 px-6 md:px-10" style={{ backgroundColor: "#FBFAEF" }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+    <section className="py-24 bg-white">
+      <div className="container">
+        {/* Header */}
+        <div className="max-w-2xl mb-14">
           <p className="section-label mb-3">Service Areas</p>
-          <h2
-            className="font-serif text-[#0D2123]"
-            style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 600 }}
-          >
-            Funeral Services Across Sydney's St George &amp; Sutherland Shire
+          <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold leading-tight mb-4">
+            Serving Sydney's South &amp; South West Communities
           </h2>
-          <p className="font-sans text-gray-600 text-sm mt-4 max-w-2xl mx-auto leading-relaxed">
-            Willow Tree Funerals is based in Hurstville and serves families across the entire St George area, Sutherland Shire, and greater Sydney. We come to you — available 24 hours a day, 7 days a week.
+          <p className="text-brand-navy/65 leading-relaxed">
+            Willow Tree Funerals serves families across Sydney's southern suburbs from our Hurstville location,
+            and South West Sydney from our Macquarie Links office. Wherever you are, we will come to you.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#CBE0E3]">
-          {serviceAreas.map(area => (
+        {/* Suburb grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-14">
+          {serviceAreas.map((area) => (
             <div
               key={area.suburb}
-              className="bg-[#FBFAEF] hover:bg-white transition-colors p-6 group"
+              className="group border border-brand-light-blue p-5 hover:border-brand-royal hover:shadow-sm transition-all"
             >
-              <div className="flex items-start justify-between mb-3">
-                <h3
-                  className="font-serif text-[#0D2123] group-hover:text-[#54B6BF] transition-colors"
-                  style={{ fontSize: "1.0625rem", fontWeight: 600 }}
-                >
-                  {area.suburb}
-                </h3>
-                <span className="font-sans text-[#54B6BF] text-xs mt-0.5">{area.postcode}</span>
+              <div className="flex items-start gap-2 mb-2">
+                <MapPin size={14} className="text-brand-gold mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-serif text-brand-navy font-semibold text-sm group-hover:text-brand-royal transition-colors">
+                    {area.suburb}
+                  </p>
+                  <p className="text-brand-navy/40 text-xs font-sans">NSW {area.postcode}</p>
+                </div>
               </div>
-              <p className="font-sans text-gray-500 text-xs leading-relaxed">{area.desc}</p>
+              <p className="text-brand-navy/55 text-xs leading-relaxed">{area.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 bg-[#0D2123] p-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* CTA bar */}
+        <div className="bg-brand-navy p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="font-serif text-white text-lg" style={{ fontWeight: 600 }}>
-              Not sure if we cover your area?
-            </p>
-            <p className="font-sans text-white/50 text-sm mt-1">
-              We serve all of Sydney — call us and we will confirm immediately.
+            <h3 className="font-serif text-white text-xl md:text-2xl font-semibold mb-1">
+              Don't See Your Suburb?
+            </h3>
+            <p className="text-white/65 text-sm">
+              We serve all of Sydney. Call Bruce directly and we will come to you.
             </p>
           </div>
-          <a
-            href="tel:+61287761667"
-            className="btn-teal shrink-0"
-          >
-            Call 02 8776 1667
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <a href={COMPANY.phoneHref} className="btn-royal flex items-center gap-2">
+              <Phone size={14} /> Call {COMPANY.phone}
+            </a>
+            <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
+              Send an Enquiry
+            </Link>
+          </div>
         </div>
       </div>
     </section>
