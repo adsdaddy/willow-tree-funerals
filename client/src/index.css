@@ -295,3 +295,18 @@
     top: 1rem;
   }
 }
+
+/* ── Marquee Keyframes (Testimonials dual-row) ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Pause on hover */
+.marquee-row:hover > div {
+  animation-play-state: paused;
+}
