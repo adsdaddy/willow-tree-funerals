@@ -6,13 +6,23 @@
  * Schema: FAQPage (rich snippets)
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Phone, ChevronDown } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SEOHead from "../components/SEOHead";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Frequently Asked Questions", "item": "https://www.willowtreefunerals.com.au/faq" }
+  ]
+};
 
 const faqCategories = [
   {
@@ -155,12 +165,16 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-brand-light-blue">
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-5 text-left gap-4">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between py-5 text-left gap-4"
+      >
         <span className="font-serif text-brand-navy font-semibold text-base">{q}</span>
         <ChevronDown size={18} className={`text-brand-royal shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="pb-5 pr-8">
+        <div className="pb-5 pr-8" role="region">
           <p className="text-brand-navy/70 leading-relaxed text-sm">{a}</p>
         </div>
       )}
@@ -169,6 +183,21 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function FAQ() {
+  useScrollReveal();
+
+  useEffect(() => {
+    const id = "breadcrumb-schema";
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement("script");
+      el.id = id;
+      (el as HTMLScriptElement).type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(breadcrumbSchema);
+    return () => { document.getElementById(id)?.remove(); };
+  }, []);
+
   return (
     <>
       <SEOHead

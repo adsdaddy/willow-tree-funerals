@@ -13,6 +13,13 @@
  *   --color-brand-ivory:      #FAF8F2  (ivory — page background)
  *   --color-brand-gold:       #B8973A  (ecclesiastical gold — accent)
  *   --color-brand-silver:     #C8C8C8  (silver — subtle accents)
+ *
+ * PLAYBOOK: OptiCheck SEO & CRO Playbook applied
+ *   - Scroll-reveal via IntersectionObserver (CSS only, 0KB overhead)
+ *   - Skip-to-content link for WCAG AA accessibility
+ *   - Global focus-visible ring for keyboard navigation
+ *   - Sticky mobile CTA bar
+ *   - Parallax hero pattern in JS
  */
 
 @import "tailwindcss";
@@ -129,6 +136,12 @@
   select:not(:disabled) {
     cursor: pointer;
   }
+
+  /* ── Global focus-visible ring (WCAG AA keyboard navigation) ── */
+  :focus-visible {
+    outline: 2px solid #B8973A;
+    outline-offset: 3px;
+  }
 }
 
 @layer components {
@@ -228,5 +241,57 @@
     font-family: 'Libre Baskerville', Georgia, serif;
     font-style: italic;
     color: #B8973A;
+  }
+
+  /* ── Scroll Reveal (OptiCheck Playbook — 0KB overhead, CSS transitions + IntersectionObserver) ── */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Staggered children */
+  .scroll-reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .scroll-reveal-stagger.revealed > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0ms; }
+  .scroll-reveal-stagger.revealed > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 80ms; }
+  .scroll-reveal-stagger.revealed > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 160ms; }
+  .scroll-reveal-stagger.revealed > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 240ms; }
+  .scroll-reveal-stagger.revealed > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 320ms; }
+  .scroll-reveal-stagger.revealed > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 400ms; }
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal-stagger > * {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ── Skip to Content (WCAG AA) ── */
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    background: #1B4B8A;
+    color: #FAF8F2;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: top 0.2s ease;
+  }
+  .skip-to-content:focus {
+    top: 1rem;
   }
 }

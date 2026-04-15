@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
+# Allow AI crawlers (OptiCheck Playbook)
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://www.willowtreefunerals.com.au/sitemap.xml

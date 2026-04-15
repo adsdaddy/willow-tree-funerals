@@ -6,11 +6,13 @@
  * Schema: Person (Bruce Missen), FuneralHome
  */
 
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { Phone, Heart, Shield, Star, MapPin, Award, ChevronRight } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SEOHead from "../components/SEOHead";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
 
 const schema = {
@@ -86,7 +88,31 @@ const values = [
   },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "About Bruce Missen", "item": "https://www.willowtreefunerals.com.au/about" }
+  ]
+};
+
 export default function About() {
+  useScrollReveal();
+
+  useEffect(() => {
+    const id = "breadcrumb-schema";
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement("script");
+      el.id = id;
+      (el as HTMLScriptElement).type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(breadcrumbSchema);
+    return () => { document.getElementById(id)?.remove(); };
+  }, []);
+
   return (
     <>
       <SEOHead
@@ -123,11 +149,15 @@ export default function About() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image */}
-            <div className="relative">
+            <div className="relative scroll-reveal">
               <img
                 src={COMPANY.assets.bruceHeadshot}
                 alt="Bruce Missen — Funeral Director, Willow Tree Funerals"
                 className="w-full aspect-[3/4] object-cover object-top"
+                width={480}
+                height={640}
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute top-6 left-6 bg-brand-gold px-4 py-2">
                 <p className="font-sans text-white text-xs tracking-widest uppercase font-semibold">
@@ -143,7 +173,7 @@ export default function About() {
             </div>
 
             {/* Text */}
-            <div className="lg:pl-8">
+            <div className="lg:pl-8 scroll-reveal">
               <p className="section-label mb-3">Our Story</p>
               <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight mb-6">
                 Meet Bruce Missen
@@ -179,13 +209,13 @@ export default function About() {
       {/* Values */}
       <section className="py-28 bg-brand-navy">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-reveal">
             <p className="section-label text-brand-gold mb-3">Our Values</p>
             <h2 className="font-serif text-white text-4xl md:text-5xl font-semibold">
               What We Stand For
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal-stagger">
             {values.map((v, i) => (
               <div key={i} className="border border-white/10 p-8 hover:border-brand-gold/40 transition-colors">
                 <div className="mb-5">{v.icon}</div>

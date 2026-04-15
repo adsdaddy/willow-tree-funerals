@@ -23,6 +23,7 @@ import { Phone, ChevronRight, ChevronDown, Star, MapPin, Shield, Clock, Heart } 
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SEOHead from "../components/SEOHead";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
 
 const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-main-38P4jzQnm5gVH5u842pmKp.webp";
@@ -136,12 +137,16 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-brand-light-blue">
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-5 text-left gap-4">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between py-5 text-left gap-4"
+      >
         <span className="font-serif text-brand-navy font-semibold text-base md:text-lg">{q}</span>
         <ChevronDown size={18} className={`text-brand-royal shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="pb-5 pr-8">
+        <div className="pb-5 pr-8" role="region">
           <p className="text-brand-navy/70 leading-relaxed">{a}</p>
         </div>
       )}
@@ -184,6 +189,7 @@ const homeSchema = {
 };
 
 export default function Home() {
+  useScrollReveal();
   return (
     <>
       <SEOHead
@@ -256,7 +262,7 @@ export default function Home() {
       {/* ── 3. SERVICES ── */}
       <section className="py-28 bg-brand-ivory">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-8 items-end mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-end mb-16 scroll-reveal">
             <div>
               <p className="section-label mb-3">Our Services</p>
               <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight">
@@ -269,7 +275,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal-stagger">
             {services.map((s) => (
               <Link key={s.href} href={s.href}
                 className="group bg-white border border-brand-light-blue p-8 hover:border-brand-royal hover:shadow-lg transition-all duration-300">
@@ -292,17 +298,25 @@ export default function Home() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Images */}
-            <div className="relative">
+            <div className="relative scroll-reveal">
               <img
                 src={BRUCE_PODIUM}
                 alt="Bruce Missen — Funeral Director at Willow Tree Funerals"
                 className="w-full aspect-[4/3] object-cover"
+                width={640}
+                height={480}
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute -bottom-8 -right-8 w-40 h-40 hidden lg:block">
                 <img
                   src={BRUCE_HEADSHOT}
                   alt="Bruce Missen"
                   className="w-full h-full object-cover border-4 border-white shadow-xl"
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="absolute top-6 left-6 bg-brand-gold px-4 py-2">
@@ -310,7 +324,7 @@ export default function Home() {
               </div>
             </div>
             {/* Text */}
-            <div className="lg:pl-8">
+            <div className="lg:pl-8 scroll-reveal">
               <p className="section-label mb-3">Meet Your Funeral Director</p>
               <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight mb-6">
                 Bruce Missen —<br />A Calling, Not Just a Career
@@ -336,13 +350,13 @@ export default function Home() {
       {/* ── 5. WHY CHOOSE US ── */}
       <section className="py-28 bg-brand-navy">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-reveal">
             <p className="section-label text-brand-gold mb-3">Why Willow Tree</p>
             <h2 className="font-serif text-white text-4xl md:text-5xl font-semibold">
               The Difference You'll Feel
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 scroll-reveal-stagger">
             {[
               {
                 icon: <Heart size={28} className="text-brand-gold" />,
@@ -374,7 +388,7 @@ export default function Home() {
       <section className="py-28 bg-brand-ivory overflow-hidden">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="scroll-reveal">
               <p className="section-label mb-3">Catholic Funeral Services</p>
               <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight mb-6">
                 Serving Sydney's<br />Catholic Community
@@ -390,11 +404,15 @@ export default function Home() {
               </p>
               <Link href="/services/catholic-funerals" className="btn-primary">Learn About Catholic Funerals</Link>
             </div>
-            <div className="relative">
+            <div className="relative scroll-reveal">
               <img
                 src={CHURCH_SERVICE}
                 alt="Catholic funeral Mass in Sydney"
                 className="w-full aspect-[4/3] object-cover"
+                width={640}
+                height={480}
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute -bottom-6 -left-6 bg-brand-royal p-6 max-w-xs hidden lg:block">
                 <p className="scripture text-white/90 text-sm leading-relaxed">
@@ -410,7 +428,7 @@ export default function Home() {
       {/* ── 7. TESTIMONIALS ── */}
       <section className="py-28 bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-8 items-end mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-end mb-16 scroll-reveal">
             <div>
               <p className="section-label mb-3">Testimonials</p>
               <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight">
@@ -422,7 +440,7 @@ export default function Home() {
               <p className="text-brand-navy/60 text-sm">Rated 5 stars on Google Reviews</p>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 scroll-reveal-stagger">
             {testimonials.map((t, i) => (
               <div key={i} className="bg-brand-ivory border border-brand-light-blue p-8">
                 <div className="flex gap-1 mb-4">
@@ -449,7 +467,7 @@ export default function Home() {
       {/* ── 8. LOCAL AREA SEO GRID ── */}
       <section className="py-20 bg-brand-light-blue/30">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 scroll-reveal">
             <p className="section-label mb-3">Areas We Serve</p>
             <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold">
               Serving All of Sydney's South
@@ -472,7 +490,7 @@ export default function Home() {
       {/* ── 9. FAQ ── */}
       <section className="py-28 bg-brand-ivory">
         <div className="container max-w-3xl">
-          <div className="mb-12">
+          <div className="mb-12 scroll-reveal">
             <p className="section-label mb-3">Frequently Asked Questions</p>
             <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold">
               We're Here to Help

@@ -6,12 +6,22 @@
  * CRO: Phone number above fold, both locations, contact form
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Phone, Mail, MapPin, Clock, ChevronRight } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SEOHead from "../components/SEOHead";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://www.willowtreefunerals.com.au/contact" }
+  ]
+};
 
 const schema = {
   "@context": "https://schema.org",
@@ -39,6 +49,21 @@ const schema = {
 };
 
 export default function Contact() {
+  useScrollReveal();
+
+  useEffect(() => {
+    const id = "breadcrumb-schema";
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement("script");
+      el.id = id;
+      (el as HTMLScriptElement).type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(breadcrumbSchema);
+    return () => { document.getElementById(id)?.remove(); };
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

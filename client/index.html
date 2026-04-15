@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-AU">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
     <title>Willow Tree Funerals | Funeral Home Hurstville, Sydney NSW</title>
     <meta name="description" content="Compassionate funeral services in Hurstville, Sydney NSW. Willow Tree Funerals — personalised funerals, cremation &amp; celebration of life. Available 24/7. Call 02 8776 1667." />
     <meta name="keywords" content="funeral home Hurstville, funeral director Sydney, funeral services St George, cremation Hurstville, burial services NSW, celebration of life Sydney, funeral director Hurstville, funeral home St George" />
@@ -13,7 +13,9 @@
     <meta property="og:description" content="Compassionate, personalised funeral services in Hurstville and the St George area. Available 24/7. Call 02 8776 1667." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.willowtreefunerals.com.au/" />
-    <meta property="og:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-dark_ecaf2959.png" />
+    <meta property="og:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg_3a4c2b1d.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_AU" />
     <meta property="og:site_name" content="Willow Tree Funerals" />
 
@@ -21,12 +23,28 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Willow Tree Funerals | Funeral Home Hurstville, Sydney NSW" />
     <meta name="twitter:description" content="Compassionate, personalised funeral services in Hurstville. Available 24/7." />
+    <meta name="twitter:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg_3a4c2b1d.jpg" />
 
     <!-- Geo targeting -->
     <meta name="geo.region" content="AU-NSW" />
     <meta name="geo.placename" content="Hurstville" />
     <meta name="geo.position" content="-33.9667;151.1000" />
     <meta name="ICBM" content="-33.9667, 151.1000" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Resource hints (OptiCheck Playbook — eliminate render-blocking) -->
+    <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossorigin />
+    <link rel="dns-prefetch" href="https://d2xsxph8kpxj0f.cloudfront.net" />
+
+    <!-- Hero image preload (LCP optimisation) -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg_3a4c2b1d.jpg"
+      fetchpriority="high"
+    />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -72,11 +90,13 @@
             "name": "Funeral Services",
             "itemListElement": [
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Traditional Funeral Service"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Catholic Funeral & Requiem Mass"}},
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Celebration of Life"}},
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cremation Services"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eco-Friendly Funerals"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Burial Services"}},
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pre-Arranged Funerals"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Grief Support"}}
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Repatriation Services"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Graveside Services"}}
             ]
           },
           "aggregateRating": {
@@ -100,7 +120,15 @@
           "@id": "https://www.willowtreefunerals.com.au/#website",
           "url": "https://www.willowtreefunerals.com.au/",
           "name": "Willow Tree Funerals",
-          "publisher": {"@id": "https://www.willowtreefunerals.com.au/#business"}
+          "publisher": {"@id": "https://www.willowtreefunerals.com.au/#business"},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.willowtreefunerals.com.au/faq?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
         }
       ]
     }
