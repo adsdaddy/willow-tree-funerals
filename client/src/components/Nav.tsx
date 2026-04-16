@@ -45,7 +45,7 @@ export default function Nav() {
       {/* Top announcement bar */}
       <div className="bg-brand-navy text-white/80 text-center py-2 px-4 text-xs tracking-widest uppercase font-sans">
         Available 24 Hours · 7 Days a Week &nbsp;|&nbsp;
-        <a href={COMPANY.phoneHref} className="text-brand-gold hover:text-white transition-colors font-semibold">
+        <a href={COMPANY.phoneHref} className="text-white/90 hover:text-white transition-colors font-semibold">
           {COMPANY.phone}
         </a>
       </div>
@@ -59,13 +59,13 @@ export default function Nav() {
         }`}
       >
         <div className="container">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <Link href="/">
               <img
                 src={COMPANY.assets.logoWhite}
                 alt="Willow Tree Funerals"
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </Link>
 
@@ -88,12 +88,12 @@ export default function Nav() {
                   Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
                 {servicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl border-t-2 border-brand-gold py-2">
+                  <div className="absolute top-full left-0 mt-2 w-60 bg-white shadow-2xl rounded-2xl border border-[#E8EFF8] py-2 overflow-hidden">
                     {services.map((s) => (
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="block px-5 py-2.5 text-brand-navy hover:bg-brand-light-blue hover:text-brand-royal text-xs tracking-wide uppercase font-sans font-medium transition-colors"
+                        className="block px-5 py-2.5 text-brand-navy hover:bg-brand-light-blue/60 hover:text-brand-royal text-xs tracking-wide uppercase font-sans font-medium transition-colors rounded-lg mx-1"
                       >
                         {s.label}
                       </Link>
@@ -133,6 +133,7 @@ export default function Nav() {
               <a
                 href={COMPANY.phoneHref}
                 className="flex items-center gap-2 text-brand-gold hover:text-white transition-colors"
+              aria-label={`Call ${COMPANY.phone}`}
               >
                 <Phone size={15} />
                 <span className="font-sans font-semibold text-sm">{COMPANY.phone}</span>

@@ -44,7 +44,7 @@ const schema = {
       "name": COMPANY.director,
       "jobTitle": COMPANY.directorTitle,
       "worksFor": { "@type": "Organization", "name": COMPANY.name },
-      "description": "Bruce Missen is a licensed NSW funeral director and the founder of Willow Tree Funerals. He has guided hundreds of Sydney families through their most difficult moments with compassion, faith, and professionalism.",
+      "description": "Bruce Missen is the Managing Director and Founder of Willow Tree Funerals, registered through ASIC as a Funeral Director and Funeral Home operator. He has guided hundreds of Sydney families through their most difficult moments with compassion, faith, and professionalism.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Hurstville",
@@ -139,7 +139,7 @@ export default function About() {
             A Funeral Home Built on Faith, Compassion &amp; Community
           </h1>
           <p className="text-white/75 text-lg max-w-2xl leading-relaxed">
-            Willow Tree Funerals was founded by Bruce Missen in Hurstville — with a single purpose: to serve the families of Sydney's south with the care, dignity, and faith they deserve.
+            Willow Tree Funerals was founded by Bruce Missen in Hurstville — with a single purpose: to serve the families of Sydney's south, Wollongong and the Central Coast with the care, dignity, and compassion they deserve.
           </p>
         </div>
       </section>
@@ -179,10 +179,10 @@ export default function About() {
                 Meet Bruce Missen
               </h2>
               <p className="text-brand-navy/70 text-lg leading-relaxed mb-5">
-                Bruce Missen is a licensed NSW funeral director and the founder of Willow Tree Funerals. He established the business in Hurstville in {COMPANY.established} with a clear vision: to create a funeral home that felt genuinely different from the corporate chains that dominate the industry.
+                Bruce Missen is the Managing Director and Founder of Willow Tree Funerals. Currently completing his Certificate IV in Funeral Services, Bruce is registered through ASIC as a Funeral Director and Funeral Home operator. He established the business in Hurstville in {COMPANY.established} with a single vision: to create a funeral home that felt genuinely different from the corporate chains that dominate the industry.
               </p>
               <p className="text-brand-navy/70 leading-relaxed mb-5">
-                Bruce's Catholic faith is at the heart of everything he does. He understands the profound importance of the Requiem Mass, the comfort of scripture, and the role that faith plays in helping families find peace in the midst of grief. He works closely with parish priests across the Archdiocese of Sydney, and is trusted by clergy and families alike.
+                Bruce's Catholic faith is at the heart of everything he does. He understands the profound importance of the Requiem Mass, the comfort of scripture, and the role that faith plays in helping families find peace in the midst of grief. He works closely with parish priests across the Archdiocese of Sydney, and is trusted by clergy and families alike. Willow Tree also arranges secular and non-religious services, including celebrations of life, for families of all backgrounds and beliefs.
               </p>
               <p className="text-brand-navy/70 leading-relaxed mb-5">
                 Over the years, Bruce has guided hundreds of families through their most difficult moments — from sudden, unexpected losses to peaceful passings after long lives well lived. His approach is always the same: patient, honest, and deeply personal.
@@ -195,11 +195,11 @@ export default function About() {
                   "I believe every person deserves a farewell that truly honours who they were. That is the promise I make to every family I serve."
                 </p>
                 <footer className="font-sans text-brand-navy/50 text-xs tracking-widest uppercase mt-2">
-                  — Bruce Missen, Founder &amp; Funeral Director
+                  — Bruce Missen, Managing Director &amp; Founder
                 </footer>
               </blockquote>
               <a href={COMPANY.phoneHref} className="btn-primary flex items-center gap-2 w-fit">
-                <Phone size={15} /> Call Bruce: {COMPANY.phone}
+                <Phone size={15} /> Call Our Family Care Specialists
               </a>
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function About() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal-stagger">
             {values.map((v, i) => (
-              <div key={i} className="border border-white/10 p-8 hover:border-brand-gold/40 transition-colors">
+              <div key={i} className="rounded-2xl border border-white/10 p-8 hover:border-brand-gold/40 transition-colors">
                 <div className="mb-5">{v.icon}</div>
                 <h3 className="font-serif text-white text-xl font-semibold mb-3">{v.title}</h3>
                 <p className="text-white/60 leading-relaxed text-sm">{v.desc}</p>
@@ -241,7 +241,7 @@ export default function About() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {COMPANY.locations.map((loc) => (
-              <div key={loc.name} className="border border-brand-light-blue p-8 hover:border-brand-royal hover:shadow-md transition-all">
+              <div key={loc.name} className="rounded-2xl border border-brand-light-blue p-8 hover:border-brand-royal hover:shadow-lg transition-all">
                 <div className="flex items-start gap-3 mb-4">
                   <MapPin size={20} className="text-brand-gold mt-0.5 shrink-0" />
                   <div>
@@ -263,9 +263,9 @@ export default function About() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <h2 className="font-serif text-white text-2xl md:text-3xl font-semibold mb-2">
-                Ready to Speak with Bruce?
+                Ready to Speak with Our Family Care Team?
               </h2>
-              <p className="text-white/75">Available 24 hours, 7 days a week — call any time.</p>
+              <p className="text-white/75">Our Family Care Specialists are available 24 hours, 7 days a week — call any time.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">

@@ -29,15 +29,15 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <img src={COMPANY.assets.logoWhite} alt="Willow Tree Funerals" className="h-14 w-auto mb-6 opacity-90" />
             <p className="text-sm leading-relaxed text-white/60 mb-6">
-              Serving the St George, Sutherland Shire and South West Sydney communities with dignity, compassion, and faith since {COMPANY.established}.
+              Serving families across St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast with dignity and compassion since {COMPANY.established}.
             </p>
             <div className="flex gap-3">
               <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors">
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors">
                 <Facebook size={15} />
               </a>
               <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors">
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors">
                 <Instagram size={15} />
               </a>
             </div>
@@ -86,7 +86,7 @@ export default function Footer() {
 
             <h4 className="font-sans text-xs tracking-widest uppercase text-white font-semibold mt-8 mb-5">Areas We Serve</h4>
             <ul className="space-y-2.5">
-              {["Hurstville", "Kogarah", "Rockdale", "Sutherland", "Campbelltown", "Liverpool", "Macquarie Links"].map((suburb) => (
+              {["Hurstville", "Kogarah", "Rockdale", "Sutherland", "Campbelltown", "Liverpool", "Macquarie Links", "Camden", "Menangle", "Picton", "Wollongong", "Central Coast"].map((suburb) => (
                 <li key={suburb}>
                   <span className="text-sm text-white/50">{suburb}</span>
                 </li>
@@ -134,7 +134,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40">
-            © {year} {COMPANY.name}. All rights reserved. Licensed Funeral Director NSW.
+            © {year} {COMPANY.name}. All rights reserved. ASIC Registered Funeral Director &amp; Funeral Home.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-xs text-white/40 hover:text-white/70 transition-colors">Privacy Policy</Link>

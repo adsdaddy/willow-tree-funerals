@@ -7,7 +7,7 @@
 export const COMPANY = {
   name: "Willow Tree Funerals",
   legalName: "Willow Tree Funerals",
-  tagline: "Honouring Life. Celebrating Memories.",
+  tagline: "You Focus On Healing. We'll Take Care Of The Rest.",
   scripture: "John 14:1-3",
   phone: "02 8776 1667",
   phoneHref: "tel:+61287761667",
@@ -18,7 +18,7 @@ export const COMPANY = {
   city: "Sydney",
   state: "NSW",
   postcode: "2220",
-  region: "St George, Sutherland Shire & South West Sydney",
+  region: "St George, Sutherland Shire, South West Sydney, Wollongong & the Central Coast",
   locations: [
     {
       name: "Hurstville",
@@ -38,7 +38,7 @@ export const COMPANY = {
     },
   ],
   director: "Bruce Missen",
-  directorTitle: "Funeral Director & Owner",
+  directorTitle: "Managing Director & Founder",
   year: new Date().getFullYear(),
   established: 2018,
   social: {

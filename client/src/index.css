@@ -1,25 +1,28 @@
 /*
  * WILLOW TREE FUNERALS — GLOBAL DESIGN TOKENS
- * Design Philosophy: "Sacred Elegance"
+ * Design Philosophy: "Modern in Design. Traditional in Values."
  * Fonts: Playfair Display (headings) + Montserrat (body/nav/buttons) + Libre Baskerville (quotes/scripture)
- * Colours: Royal Blue Navy, Royal Blue, Soft Blue, Ivory White, Gold Accent
- * Mood: Dignified, hopeful, Catholic-inspired, classy — never mournful.
+ * Colours: Royal Blue Navy, Royal Blue, Soft Blue, Ivory White, Periwinkle Silver Accent
+ * Mood: Dignified, hopeful, modern, gentle — never mournful, never corporate.
  *
- * COLOUR SYSTEM (Royal Blue / Catholic-inspired):
+ * COLOUR SYSTEM (Royal Blue / Soft Periwinkle — Reverent & Elegant):
  *   --color-brand-navy:       #0B1F3A  (deep navy — primary dark)
  *   --color-brand-royal:      #1B4B8A  (royal blue — primary brand)
  *   --color-brand-mid-blue:   #2E6DB4  (mid blue — hover / secondary)
  *   --color-brand-light-blue: #D4E3F5  (soft blue — section backgrounds)
  *   --color-brand-ivory:      #FAF8F2  (ivory — page background)
- *   --color-brand-gold:       #B8973A  (ecclesiastical gold — accent)
+ *   --color-brand-gold:       #8FA8C8  (soft periwinkle silver — delicate accent)
  *   --color-brand-silver:     #C8C8C8  (silver — subtle accents)
+ *
+ * DESIGN SYSTEM: Modern rounded corners, soft shadows, generous whitespace
+ *   --radius: 0.75rem  (cards, inputs, buttons all use rounded corners)
+ *   Shadows: layered soft box-shadows, no harsh borders
  *
  * PLAYBOOK: OptiCheck SEO & CRO Playbook applied
  *   - Scroll-reveal via IntersectionObserver (CSS only, 0KB overhead)
  *   - Skip-to-content link for WCAG AA accessibility
  *   - Global focus-visible ring for keyboard navigation
  *   - Sticky mobile CTA bar
- *   - Parallax hero pattern in JS
  */
 
 @import "tailwindcss";
@@ -34,7 +37,7 @@
   --color-brand-mid-blue:   oklch(0.50 0.13 255);   /* #2E6DB4 */
   --color-brand-light-blue: oklch(0.90 0.04 255);   /* #D4E3F5 */
   --color-brand-ivory:      oklch(0.98 0.01 90);    /* #FAF8F2 */
-  --color-brand-gold:       oklch(0.65 0.10 75);    /* #B8973A */
+  --color-brand-gold:       oklch(0.68 0.06 240);   /* #8FA8C8 — soft periwinkle silver */
   --color-brand-silver:     oklch(0.80 0.00 0);     /* #C8C8C8 */
 
   /* ── Semantic tokens ── */
@@ -66,11 +69,11 @@
   --color-sidebar-border:           var(--sidebar-border);
   --color-sidebar-ring:             var(--sidebar-ring);
 
-  /* ── Radius ── */
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* ── Radius — generous rounded corners for modern feel ── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
 
   /* ── Typography ── */
   --font-family-serif:        'Playfair Display', Georgia, serif;
@@ -79,7 +82,7 @@
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0.75rem;   /* Modern rounded corners throughout */
 
   --background:              oklch(0.98 0.01 90);
   --foreground:              oklch(0.18 0.04 250);
@@ -97,9 +100,9 @@
   --accent-foreground:       oklch(1 0 0);
   --destructive:             oklch(0.577 0.245 27.325);
   --destructive-foreground:  oklch(0.985 0 0);
-  --border:                  oklch(0.90 0.04 255);
-  --input:                   oklch(0.94 0.02 255);
-  --ring:                    oklch(0.38 0.12 255);
+  --border:                  oklch(0.92 0.02 255);
+  --input:                   oklch(0.96 0.01 255);
+  --ring:                    oklch(0.68 0.06 240);
   --sidebar:                 oklch(0.18 0.04 250);
   --sidebar-foreground:      oklch(0.98 0.01 90);
   --sidebar-primary:         oklch(0.38 0.12 255);
@@ -139,8 +142,9 @@
 
   /* ── Global focus-visible ring (WCAG AA keyboard navigation) ── */
   :focus-visible {
-    outline: 2px solid #B8973A;
+    outline: 2px solid #8FA8C8;
     outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
@@ -167,12 +171,23 @@
   .font-serif       { font-family: 'Playfair Display', Georgia, serif; }
   .font-baskerville { font-family: 'Libre Baskerville', Georgia, serif; }
 
-  /* ── Button System ── */
+  /* ── Modern Card Shadow ── */
+  .card-shadow {
+    box-shadow: 0 2px 8px rgba(11, 31, 58, 0.06), 0 8px 32px rgba(11, 31, 58, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .card-shadow:hover {
+    box-shadow: 0 4px 16px rgba(11, 31, 58, 0.10), 0 16px 48px rgba(11, 31, 58, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* ── Button System — Modern Rounded ── */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 2rem;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
     font-family: 'Montserrat', system-ui, sans-serif;
     font-weight: 500;
     font-size: 0.75rem;
@@ -181,17 +196,21 @@
     transition: all 0.3s ease;
     background-color: #0B1F3A;
     color: #FAF8F2;
-    border: 1px solid #0B1F3A;
+    border: 1.5px solid #0B1F3A;
+    border-radius: 9999px;
   }
   .btn-primary:hover {
     background-color: #1B4B8A;
     border-color: #1B4B8A;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(27, 75, 138, 0.25);
   }
   .btn-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 2rem;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
     font-family: 'Montserrat', system-ui, sans-serif;
     font-weight: 500;
     font-size: 0.75rem;
@@ -200,17 +219,20 @@
     transition: all 0.3s ease;
     background: transparent;
     color: #0B1F3A;
-    border: 1px solid #0B1F3A;
+    border: 1.5px solid #0B1F3A;
+    border-radius: 9999px;
   }
   .btn-outline:hover {
     background-color: #0B1F3A;
     color: #FAF8F2;
+    transform: translateY(-1px);
   }
   .btn-royal {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 2rem;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
     font-family: 'Montserrat', system-ui, sans-serif;
     font-weight: 500;
     font-size: 0.75rem;
@@ -219,31 +241,50 @@
     transition: all 0.3s ease;
     background-color: #1B4B8A;
     color: #FAF8F2;
-    border: 1px solid #1B4B8A;
+    border: 1.5px solid #1B4B8A;
+    border-radius: 9999px;
   }
   .btn-royal:hover {
     background-color: #2E6DB4;
     border-color: #2E6DB4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(27, 75, 138, 0.30);
   }
 
   /* ── Section Label ── */
   .section-label {
     font-family: 'Montserrat', system-ui, sans-serif;
-    font-weight: 500;
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #1B4B8A;
+    color: #2E6DB4;
   }
 
   /* ── Scripture / Quote Text ── */
   .scripture {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-style: italic;
-    color: #B8973A;
+    color: #5B7FA6;
   }
 
-  /* ── Scroll Reveal (OptiCheck Playbook — 0KB overhead, CSS transitions + IntersectionObserver) ── */
+  /* ── Modern Pill Badge ── */
+  .pill-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.875rem;
+    border-radius: 9999px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background-color: rgba(143, 168, 200, 0.15);
+    color: #1B4B8A;
+    border: 1px solid rgba(143, 168, 200, 0.35);
+  }
+
+  /* ── Scroll Reveal (OptiCheck Playbook — 0KB overhead) ── */
   .scroll-reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -284,6 +325,7 @@
     background: #1B4B8A;
     color: #FAF8F2;
     padding: 0.75rem 1.5rem;
+    border-radius: 0 0 0.75rem 0.75rem;
     font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
@@ -292,7 +334,7 @@
     transition: top 0.2s ease;
   }
   .skip-to-content:focus {
-    top: 1rem;
+    top: 0;
   }
 }
 
