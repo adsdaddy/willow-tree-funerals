@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import MobileCtaBar from "./components/MobileCtaBar";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 // ── Lazy-loaded pages (code splitting — OptiCheck Playbook) ──
 // Home is NOT lazy — it is the LCP page and must load immediately
@@ -30,12 +31,30 @@ const PreArrangedFunerals = lazy(() => import("./pages/services/PreArrangedFuner
 const GravesideServices = lazy(() => import("./pages/services/GravesideServices"));
 const Repatriation = lazy(() => import("./pages/services/Repatriation"));
 
+// Suburb SEO pages — all lazy
+const SuburbKogarah = lazy(() => import("./pages/suburbs/Kogarah"));
+const SuburbSutherland = lazy(() => import("./pages/suburbs/Sutherland"));
+const SuburbCampbelltown = lazy(() => import("./pages/suburbs/Campbelltown"));
+const SuburbWollongong = lazy(() => import("./pages/suburbs/Wollongong"));
+const SuburbCamden = lazy(() => import("./pages/suburbs/Camden"));
+const SuburbCentralCoast = lazy(() => import("./pages/suburbs/CentralCoast"));
+
+// Blog pages — all lazy
+const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
+const BlogWhatToDo = lazy(() => import("./pages/blog/WhatToDoWhenSomeonePasses"));
+const BlogCatholicFuneral = lazy(() => import("./pages/blog/HowToPlanCatholicFuneral"));
+const BlogFuneralCosts = lazy(() => import("./pages/blog/UnderstandingFuneralCosts"));
+const BlogMacArthurPark = lazy(() => import("./pages/blog/MacArthurMemorialParkGuide"));
+
+// Pre-arrangement flow
+const PreArrange = lazy(() => import("./pages/PreArrange"));
+
 // Minimal page-transition fallback — no spinner flash for fast connections
 function PageFallback() {
   return <div className="min-h-screen bg-brand-ivory" aria-hidden="true" />;
 }
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Suspense fallback={<PageFallback />}>
       <Switch>
@@ -58,6 +77,24 @@ function Router() {
 
         {/* Location / SEO pages */}
         <Route path="/macarthur-memorial-park" component={MacArthurMemorialPark} />
+
+        {/* Suburb SEO pages */}
+        <Route path="/funeral-director-kogarah" component={SuburbKogarah} />
+        <Route path="/funeral-director-sutherland" component={SuburbSutherland} />
+        <Route path="/funeral-director-campbelltown" component={SuburbCampbelltown} />
+        <Route path="/funeral-director-wollongong" component={SuburbWollongong} />
+        <Route path="/funeral-director-camden" component={SuburbCamden} />
+        <Route path="/funeral-director-central-coast" component={SuburbCentralCoast} />
+
+        {/* Blog */}
+        <Route path="/blog" component={BlogIndex} />
+        <Route path="/blog/what-to-do-when-someone-passes-away-nsw" component={BlogWhatToDo} />
+        <Route path="/blog/how-to-plan-catholic-funeral-sydney" component={BlogCatholicFuneral} />
+        <Route path="/blog/understanding-funeral-costs-sydney" component={BlogFuneralCosts} />
+        <Route path="/blog/macarthur-memorial-park-guide" component={BlogMacArthurPark} />
+
+        {/* Pre-arrangement flow */}
+        <Route path="/pre-arrange" component={PreArrange} />
 
         {/* Brand guide (preserved) */}
         <Route path="/brand-guide" component={BrandGuide} />
@@ -92,6 +129,9 @@ function App() {
 
           {/* Sticky mobile CTA bar — CRO pattern */}
           <MobileCtaBar />
+
+          {/* WhatsApp floating button */}
+          <WhatsAppButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

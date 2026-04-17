@@ -94,6 +94,84 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Suburb SEO pages -->
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/funeral-director-kogarah</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/funeral-director-sutherland</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/funeral-director-campbelltown</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/funeral-director-wollongong</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/funeral-director-camden</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/funeral-director-central-coast</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog / Resources -->
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/blog</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/blog/what-to-do-when-someone-passes-away-nsw</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/blog/how-to-plan-catholic-funeral-sydney</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/blog/understanding-funeral-costs-sydney</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/blog/macarthur-memorial-park-guide</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Pre-arrangement flow -->
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/pre-arrange</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal -->
   <url>
     <loc>https://www.willowtreefunerals.com.au/privacy</loc>

@@ -7,12 +7,13 @@
  */
 
 import { useState, useEffect } from "react";
-import { Phone, Mail, MapPin, Clock, ChevronRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ChevronRight, CheckCircle2, Loader2 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SEOHead from "../components/SEOHead";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
+import { trpc } from "@/lib/trpc";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -73,12 +74,22 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const contactMutation = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      setSubmitted(true);
+      setSubmitError("");
+    },
+    onError: (err) => {
+      setSubmitError(err.message || "Something went wrong. Please call us directly.");
+    },
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production this would POST to a backend endpoint
-    // For now, show a thank-you message
-    setSubmitted(true);
+    setSubmitError("");
+    contactMutation.mutate(formData);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -203,12 +214,29 @@ export default function Contact() {
               {submitted ? (
                 <div className="bg-brand-navy p-10 text-center">
                   <div className="w-16 h-16 border border-brand-gold/50 flex items-center justify-center mx-auto mb-6">
-                    <span className="text-brand-gold text-2xl">✓</span>
+                    <CheckCircle2 size={32} className="text-brand-gold" />
                   </div>
-                  <h3 className="font-serif text-white text-2xl font-semibold mb-3">Thank You</h3>
-                  <p className="text-white/70 leading-relaxed mb-6">
-                    We have received your enquiry and Bruce will be in touch shortly. If you need immediate assistance, please call us on {COMPANY.phone}.
+                  <h3 className="font-serif text-white text-2xl font-semibold mb-3">Thank You — We've Received Your Enquiry</h3>
+                  <p className="text-white/70 leading-relaxed mb-4">
+                    Bruce will personally review your message and call you back shortly. If you need immediate assistance, please call us now.
                   </p>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-4 mb-6 text-left">
+                    <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-2">What Happens Next</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-white/70 text-sm">
+                        <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />
+                        <span>Your enquiry has been sent directly to Bruce Missen</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-white/70 text-sm">
+                        <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />
+                        <span>Bruce will call you back as soon as possible — usually within the hour</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-white/70 text-sm">
+                        <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />
+                        <span>For urgent matters, please call us directly on {COMPANY.phone}</span>
+                      </li>
+                    </ul>
+                  </div>
                   <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 mx-auto w-fit">
                     <Phone size={15} /> Call {COMPANY.phone}
                   </a>
@@ -306,9 +334,22 @@ export default function Contact() {
                       placeholder="Please share any details that will help us assist you..."
                     />
                   </div>
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm rounded">
+                      {submitError}
+                    </div>
+                  )}
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button type="submit" className="btn-primary flex items-center justify-center gap-2">
-                      Send Enquiry <ChevronRight size={14} />
+                    <button
+                      type="submit"
+                      disabled={contactMutation.isPending}
+                      className="btn-primary flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {contactMutation.isPending ? (
+                        <><Loader2 size={14} className="animate-spin" /> Sending...</>
+                      ) : (
+                        <>Send Enquiry <ChevronRight size={14} /></>
+                      )}
                     </button>
                     <a href={COMPANY.phoneHref} className="btn-outline flex items-center justify-center gap-2">
                       <Phone size={14} /> Or Call {COMPANY.phone}

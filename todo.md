@@ -1,0 +1,59 @@
+# Willow Tree Funerals — Project TODO
+
+## Completed (Pre-Upgrade)
+- [x] Full competitor research (12+ competitors)
+- [x] Brand guide at /brand-guide
+- [x] Homepage — 14-section redesign with real photos
+- [x] About, Pricing, FAQ, Contact, Privacy, Terms pages
+- [x] 8 service pages (Funeral Services, Catholic Funerals, Cremation, Burial, Celebration of Life, Pre-Arranged Funerals, Graveside Services, Repatriation)
+- [x] MacArthur Memorial Park SEO page
+- [x] BreadcrumbList JSON-LD on all inner pages
+- [x] FAQPage schema on all service pages
+- [x] FuneralHome + WebSite + SearchAction schema on homepage
+- [x] Complete sitemap.xml (16 URLs)
+- [x] robots.txt with AI bot directives
+- [x] Skip-to-content, ARIA landmarks, focus-visible ring
+- [x] Sticky mobile CTA bar (MobileCtaBar component)
+- [x] Framer-motion animations throughout
+- [x] Lazy-loaded routes (code splitting)
+- [x] Real photos from Bruce's photo pack integrated
+- [x] Stats bar with count-up animations
+- [x] 4-step process timeline
+- [x] Google Reviews carousel (paginated, auto-advances)
+- [x] Pricing comparison table
+- [x] Planning Ahead banner
+- [x] Catholic + Secular split section
+- [x] Suburb pills service area section
+- [x] FAQ sticky sidebar layout
+- [x] Final CTA with branded hearse background
+- [x] Backend upgrade to web-db-user (tRPC + MySQL + Express)
+
+## Trust/Conversion Improvements (Complete)
+- [x] Wire contact form to send real email to Bruce via notifyOwner()
+- [x] Add accreditation bar (ASIC, Cert IV, Google 5★, Independent)
+- [x] WhatsApp floating button (links to Bruce's number)
+- [x] Post-form "what happens next" confirmation message
+- [x] Suburb-level SEO landing pages (Kogarah, Sutherland, Campbelltown, Wollongong, Camden, Central Coast)
+- [x] Blog/Resources section with 4 SEO articles
+- [x] Pre-arrangement enquiry flow (multi-step form at /pre-arrange)
+- [x] Update sitemap.xml with new suburb pages and blog
+
+## Suburb SEO Pages
+- [x] /funeral-director-kogarah
+- [x] /funeral-director-sutherland
+- [x] /funeral-director-campbelltown
+- [x] /funeral-director-wollongong
+- [x] /funeral-director-camden
+- [x] /funeral-director-central-coast
+
+## Blog Articles
+- [x] /blog index page
+- [x] "What to do when someone passes away in NSW"
+- [x] "How to plan a Catholic funeral Mass in Sydney"
+- [x] "Understanding funeral costs in Sydney 2026"
+- [x] "MacArthur Memorial Park — Sydney's newest cemetery guide"
+
+## Pre-Arrangement Flow
+- [x] /pre-arrange multi-step form (4 steps: Personal Details → Service Preferences → Final Wishes → Review & Submit)
+- [x] tRPC preArrange.preArrange mutation with notifyOwner
+- [x] Vitest tests for contact.submit and preArrange.preArrange (9 tests passing)
