@@ -24,10 +24,31 @@ import MobileCtaBar from "../components/MobileCtaBar";
 import { COMPANY } from "../../../shared/company";
 
 // ── CDN Assets ───────────────────────────────────────────────────────────────
-const HERO_IMG   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-LSQmgP64pNExBCjB2t9kFG.webp";
-const BRUCE_IMG  = COMPANY.assets.brucePodium;
-const BRUCE_HS   = COMPANY.assets.bruceHeadshot;
-const CHAPEL_IMG = COMPANY.assets.chapelInterior;
+const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-LSQmgP64pNExBCjB2t9kFG.webp";
+const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-walking_c31a875e.jpg"; // Bruce walking in church — hero About
+const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230518-WA0007_91c5c66b.jpg"; // Bruce + hearse formal
+const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded_c81955b1.png"; // Branded Willow Tree hearse
+const CHURCH_MASS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_839f3c5a.jpg"; // Full church mass congregation
+const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_ecdb85ad.png"; // Casket with roses in cathedral
+const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4.jpg"; // White casket at altar
+const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_124331_WhatsApp_359a0f27.jpg"; // Priest blessing casket at hearse
+const PRIEST_CHILD    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_125324_WhatsApp_37f3f93a.jpg"; // Priest with small white casket
+const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0006_596dbd5c.jpg"; // Bagpiper leading procession
+const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg"; // Procession with bagpiper + hearse
+const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg"; // Birdcage roses memorial garden
+const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg"; // Butterfly on floral tribute
+const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250509-WA0033_e419dfcf.jpg"; // Casket with white lilies in hearse
+const WILLOW_SIGN     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0031_27ef1400.jpg"; // Willow Tree sign on car
+const SERVICE_CHURCH  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0023_d520aec6.jpg"; // Service in church with casket
+const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0033_2dba725d.jpg"; // Pallbearers at hearse
+const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0034_ca7fe50f.jpg"; // Casket with yellow flowers
+const BRUCE_HEARSE_2  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0042_de2b1b80.jpg"; // Bruce walking from hearse garden
+const BRUCE_HEARSE_3  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0044_688d04e3.jpg"; // Bruce in front of hearse garden
+const BRUCE_PODIUM    = COMPANY.assets.brucePodium;
+const BRUCE_HS        = COMPANY.assets.bruceHeadshot;
+// Legacy aliases
+const BRUCE_IMG  = BRUCE_CHURCH;
+const CHAPEL_IMG = CHURCH_MASS;
 const GRANDMOTHER = COMPANY.assets.grandmotherGranddaughter;
 
 // ── Animation helpers ─────────────────────────────────────────────────────────
@@ -527,9 +548,9 @@ export default function Home() {
               <Reveal from="left" className="relative">
                 <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md">
                   <img
-                    src={BRUCE_IMG}
-                    alt="Bruce Missen conducting a funeral service"
-                    className="w-full h-full object-cover"
+                    src={BRUCE_CHURCH}
+                    alt="Bruce Missen walking through church during a funeral service"
+                    className="w-full h-full object-cover object-top"
                     width={480}
                     height={600}
                     loading="lazy"
@@ -540,13 +561,13 @@ export default function Home() {
                     <p className="text-brand-navy font-sans text-xs font-semibold tracking-widest uppercase">Est. 2018</p>
                   </div>
                 </div>
-                {/* Headshot inset */}
-                <div className="absolute -bottom-4 -right-4 lg:right-0 w-28 h-28 rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                {/* Second real photo inset — Bruce leading hearse procession */}
+                <div className="absolute -bottom-4 -right-4 lg:right-0 w-36 h-28 rounded-2xl overflow-hidden border-4 border-white shadow-xl">
                   <img
-                    src={BRUCE_HS}
-                    alt="Bruce Missen — Managing Director & Founder"
-                    className="w-full h-full object-cover object-top"
-                    width={112}
+                    src={BRUCE_HEARSE_3}
+                    alt="Bruce Missen leading a funeral procession"
+                    className="w-full h-full object-cover object-center"
+                    width={144}
                     height={112}
                     loading="lazy"
                     decoding="async"
@@ -655,9 +676,9 @@ export default function Home() {
               {/* Image */}
               <Reveal from="left" className="rounded-3xl overflow-hidden aspect-[4/3]">
                 <img
-                  src={CHAPEL_IMG}
-                  alt="Beautiful chapel interior — Willow Tree Funerals"
-                  className="w-full h-full object-cover"
+                  src={CHURCH_MASS}
+                  alt="Catholic funeral Mass with full congregation — Willow Tree Funerals"
+                  className="w-full h-full object-cover object-center"
                   width={640}
                   height={480}
                   loading="lazy"
@@ -766,9 +787,52 @@ export default function Home() {
               </a>
             </Reveal>
           </div>
+        </section>        {/* ── 7b. PHOTO GALLERY ────────────────────────────────────────── */}
+        <section className="py-16 bg-brand-ivory overflow-hidden">
+          <div className="container">
+            <Reveal className="mb-8 text-center">
+              <div className="w-10 h-px bg-brand-gold mx-auto mb-4" />
+              <p className="section-label mb-2">Our Services in Action</p>
+              <h2
+                className="font-serif text-brand-navy font-semibold"
+                style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", letterSpacing: "-0.02em" }}
+              >
+                Every Farewell, Thoughtfully Arranged
+              </h2>
+            </Reveal>
+            {/* 2-row masonry-style grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {/* Row 1: tall + wide + tall */}
+              <div className="rounded-2xl overflow-hidden row-span-2 aspect-[3/4] col-span-1">
+                <img src={CASKET_CATHEDRAL} alt="Casket with roses at cathedral altar" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+              <div className="rounded-2xl overflow-hidden aspect-square">
+                <img src={BUTTERFLY_FLOWERS} alt="Butterfly resting on floral tribute" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+              <div className="rounded-2xl overflow-hidden aspect-square">
+                <img src={CASKET_HEARSE} alt="Casket with white lilies in hearse" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+              <div className="rounded-2xl overflow-hidden aspect-square">
+                <img src={BIRDCAGE_GARDEN} alt="Birdcage with white roses at memorial garden" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+              {/* Row 2 */}
+              <div className="rounded-2xl overflow-hidden aspect-square">
+                <img src={BAGPIPER} alt="Bagpiper leading funeral procession" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+              <div className="rounded-2xl overflow-hidden aspect-square">
+                <img src={PALLBEARERS} alt="Pallbearers carrying casket" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+              <div className="rounded-2xl overflow-hidden aspect-square">
+                <img src={PRIEST_BLESSING} alt="Priest blessing casket at hearse" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            {/* Full-width hearse banner */}
+            <Reveal className="mt-3 rounded-2xl overflow-hidden aspect-[21/6]">
+              <img src={HEARSE_BRANDED} alt="Willow Tree Funerals branded hearse" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            </Reveal>
+          </div>
         </section>
-
-        {/* ── 8. SERVICE AREAS ──────────────────────────────────────────── */}
+        {/* ── 8. SERVICE AREAS ────────────────────────────────────────────── */}
         <section className="py-20 bg-brand-light-blue/25">
           <div className="container">
             <Reveal className="mb-10">
@@ -829,9 +893,9 @@ export default function Home() {
         <section
           className="relative py-40 overflow-hidden"
           style={{
-            backgroundImage: `url(${GRANDMOTHER})`,
+            backgroundImage: `url(${HEARSE_BRANDED})`,
             backgroundSize: "cover",
-            backgroundPosition: "center 30%",
+            backgroundPosition: "center 40%",
           }}
         >
           <div className="absolute inset-0 bg-brand-navy/78" />
