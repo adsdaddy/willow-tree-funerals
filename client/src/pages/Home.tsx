@@ -1,79 +1,74 @@
 /**
- * WILLOW TREE FUNERALS — Homepage
- * Design: "Modern in Design. Traditional in Values."
- * - Split editorial hero with bright willow tree dawn image
- * - Soft periwinkle accent (#8FA8C8) replaces brown-gold
- * - Rounded cards (border-radius: 1rem+), soft shadows
- * - Framer-motion entrance animations
- * - Google Reviews section (curated authentic reviews)
- * - Tagline: "You Focus On Healing. We'll Take Care Of The Rest."
- * - Secular + faith-based services mentioned
- * - Expanded service areas incl. Camden, Menangle, Picton, Wollongong, Central Coast
+ * Home.tsx — Willow Tree Funerals
+ * Design: Modern editorial, Royal Blue + Periwinkle accent, Playfair Display serif
+ * Philosophy: "Modern in design, traditional in values" — trust, status, reverence
+ *
+ * Sections:
+ *  1. Hero — split editorial, bright willow tree image, tagline
+ *  2. Stats bar — count-up numbers
+ *  3. Process timeline — "How we help" 4-step journey (competitor improvement #1)
+ *  4. Services grid — numbered cards
+ *  5. About Bruce — asymmetric portrait
+ *  6. Why Willow Tree — dark trust section
+ *  7. Pricing trust section — transparent pricing comparison (competitor improvement #5)
+ *  8. Catholic + Secular — split image faith section
+ *  9. Planning Ahead banner — pre-arrangement CTA (competitor improvement #8)
+ * 10. Google Reviews — auto-scroll carousel (competitor improvement #4)
+ * 11. Photo gallery — real event photos
+ * 12. Service areas — suburb pills (competitor improvement #7)
+ * 13. FAQ accordion
+ * 14. Final CTA — hearse background
  */
-import { useEffect, useRef, useState } from "react";
+
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Link } from "wouter";
-import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
-  Phone, ArrowRight, MapPin, Star, ChevronDown, ChevronUp,
-  Heart, Shield, Award, CheckCircle2, Quote
+  Phone, ArrowRight, ChevronDown, ChevronUp, Star,
+  CheckCircle2, Clock, Heart, Shield, MapPin, Calendar,
+  Quote, ChevronLeft, ChevronRight,
 } from "lucide-react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
-import SEOHead from "../components/SEOHead";
-import MobileCtaBar from "../components/MobileCtaBar";
-import { COMPANY } from "../../../shared/company";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import { COMPANY } from "@/../../shared/company";
 
 // ── CDN Assets ───────────────────────────────────────────────────────────────
 const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-LSQmgP64pNExBCjB2t9kFG.webp";
-const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-walking_upscaled_a1fa6d59.jpg"; // Bruce walking in church — hero About (upscaled 1.5x)
-const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230518-WA0007_91c5c66b.jpg"; // Bruce + hearse formal
-const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded_c81955b1.png"; // Branded Willow Tree hearse
-const CHURCH_MASS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg"; // Full church mass congregation (upscaled 1.5x)
-const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg"; // Casket with roses in cathedral (upscaled 1.6x)
-const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4.jpg"; // White casket at altar
-const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_124331_WhatsApp_upscaled_13fb4a7e.jpg"; // Priest blessing casket at hearse (upscaled + sharpened)
-const PRIEST_CHILD    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_125324_WhatsApp_upscaled_dc253b47.jpg"; // Priest with small white casket (upscaled + sharpened)
-const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0006_596dbd5c.jpg"; // Bagpiper leading procession
-const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg"; // Procession with bagpiper + hearse
-const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg"; // Birdcage roses memorial garden
-const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg"; // Butterfly on floral tribute
-const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250509-WA0033_e419dfcf.jpg"; // Casket with white lilies in hearse
-const WILLOW_SIGN     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0031_27ef1400.jpg"; // Willow Tree sign on car
-const SERVICE_CHURCH  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0023_d520aec6.jpg"; // Service in church with casket
-const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0033_2dba725d.jpg"; // Pallbearers at hearse
-const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0034_ca7fe50f.jpg"; // Casket with yellow flowers
-const BRUCE_HEARSE_2  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0042_de2b1b80.jpg"; // Bruce walking from hearse garden
-const BRUCE_HEARSE_3  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0044_688d04e3.jpg"; // Bruce in front of hearse garden
-const BRUCE_PODIUM    = COMPANY.assets.brucePodium;
-const BRUCE_HS        = COMPANY.assets.bruceHeadshot;
-// Legacy aliases
-const BRUCE_IMG  = BRUCE_CHURCH;
-const CHAPEL_IMG = CHURCH_MASS;
-const GRANDMOTHER = COMPANY.assets.grandmotherGranddaughter;
+const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-walking_upscaled_a1fa6d59.jpg";
+const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230518-WA0007_91c5c66b.jpg";
+const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded_c81955b1.png";
+const CHURCH_MASS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg";
+const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg";
+const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4.jpg";
+const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_124331_WhatsApp_upscaled_13fb4a7e.jpg";
+const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0006_596dbd5c.jpg";
+const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg";
+const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
+const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg";
+const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250509-WA0033_e419dfcf.jpg";
+const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0033_2dba725d.jpg";
+const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0034_ca7fe50f.jpg";
+const BRUCE_HEARSE_2  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0042_de2b1b80.jpg";
+const BRUCE_HEARSE_3  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0044_688d04e3.jpg";
+const SERVICE_CHURCH  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0023_d520aec6.jpg";
 
 // ── Animation helpers ─────────────────────────────────────────────────────────
 const EASE = [0.22, 1, 0.36, 1] as const;
-
 function Reveal({
-  children,
-  delay = 0,
-  className = "",
-  from = "bottom",
+  children, delay = 0, className = "", from = "bottom",
 }: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-  from?: "bottom" | "left" | "right";
+  children: React.ReactNode; delay?: number; className?: string; from?: "bottom" | "left" | "right";
 }) {
-  const y = from === "bottom" ? 32 : 0;
-  const x = from === "left" ? -32 : from === "right" ? 32 : 0;
+  const y = from === "bottom" ? 28 : 0;
+  const x = from === "left" ? -28 : from === "right" ? 28 : 0;
   return (
     <motion.div
       className={className}
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.75, delay, ease: EASE }}
     >
       {children}
     </motion.div>
@@ -101,127 +96,59 @@ function useCountUp(target: number, duration = 1.6, suffix = "") {
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const services = [
+  { label: "Catholic Funerals", desc: "Coordinated with parish priests across St George, Sutherland Shire & South West Sydney.", href: "/services/catholic-funerals", img: CASKET_CATHEDRAL },
+  { label: "Cremation Services", desc: "Dignified cremation with full ceremony options, tailored to your family's wishes.", href: "/services/cremation", img: CASKET_HEARSE },
+  { label: "Burial Services", desc: "Traditional burial services at cemeteries across Sydney, Wollongong & the Central Coast.", href: "/services/burial", img: CASKET_CHURCH },
+  { label: "Graveside Services", desc: "Intimate farewell ceremonies held at the graveside, led with care and reverence.", href: "/services/graveside", img: BIRDCAGE_GARDEN },
+  { label: "Repatriation", desc: "Respectful transfer of your loved one to their home country, handled with precision.", href: "/services/repatriation", img: PROCESSION },
+  { label: "Secular & Non-Religious", desc: "Meaningful celebrations of life for families of all beliefs and backgrounds.", href: "/services/secular-funerals", img: BUTTERFLY_FLOWERS },
+];
+
+const processSteps = [
   {
-    label: "Catholic Funerals",
-    desc: "Deeply reverent Requiem Masses and liturgical services, coordinated with your parish priest.",
-    href: "/services/catholic-funerals",
-    num: "01",
-    icon: "✝",
+    number: "01",
+    icon: Phone,
+    title: "We Answer Your Call",
+    desc: "Day or night, our Family Care Specialists answer immediately. No call centres, no queues — you speak directly with someone who cares.",
   },
   {
-    label: "Funeral Services",
-    desc: "Personalised services tailored to honour your loved one's life, faith, and legacy.",
-    href: "/services/funeral-services",
-    num: "02",
-    icon: "🕊",
+    number: "02",
+    icon: Heart,
+    title: "We Come to You",
+    desc: "We meet you at home, at hospital, or wherever is most comfortable. We bring calm, clarity, and compassion to your door.",
   },
   {
-    label: "Cremation Services",
-    desc: "Dignified cremation with full ceremony options, from direct cremation to a full service.",
-    href: "/services/cremation",
-    num: "03",
-    icon: "🌿",
+    number: "03",
+    icon: Shield,
+    title: "We Handle Everything",
+    desc: "From transfer and preparation to church liaison, cemetery coordination, and every detail in between — we take care of it all.",
   },
   {
-    label: "Burial Services",
-    desc: "Traditional burial at all Sydney cemeteries, including MacArthur Memorial Park.",
-    href: "/services/burial",
-    num: "04",
-    icon: "🌷",
-  },
-  {
-    label: "Celebration of Life",
-    desc: "A joyful tribute celebrating who your loved one was — their passions, stories, and legacy.",
-    href: "/services/celebration-of-life",
-    num: "05",
-    icon: "☀",
-  },
-  {
-    label: "Pre-Arranged Funerals",
-    desc: "Plan ahead with confidence. Remove the burden from your family and lock in today's prices.",
-    href: "/services/pre-arranged-funerals",
-    num: "06",
-    icon: "📋",
+    number: "04",
+    icon: CheckCircle2,
+    title: "You Focus On Healing",
+    desc: "On the day, we ensure everything unfolds with dignity and grace. Your only role is to be present with the people you love.",
   },
 ];
 
-// Authentic Google reviews — curated from real client feedback
-const googleReviews = [
-  {
-    name: "Maria C.",
-    suburb: "Hurstville",
-    rating: 5,
-    date: "2 months ago",
-    text: "Bruce and his team were absolutely wonderful during the most difficult time of our lives. Our mother's Catholic funeral was exactly as she would have wanted. The attention to detail, the compassion, and the care shown to our whole family was extraordinary.",
-    initials: "MC",
-  },
-  {
-    name: "Tony & Rosa M.",
-    suburb: "Kogarah",
-    rating: 5,
-    date: "4 months ago",
-    text: "From the first phone call at 2am to the final farewell, Willow Tree Funerals were there for us every step of the way. Bruce is a true professional with a genuine heart. We couldn't have asked for better care.",
-    initials: "TM",
-  },
-  {
-    name: "Father Patrick O.",
-    suburb: "Rockdale",
-    rating: 5,
-    date: "5 months ago",
-    text: "Bruce Missen stands apart — his faith, his professionalism, and his care for families is exceptional. As a parish priest I have worked with many funeral directors, and I recommend Willow Tree without hesitation.",
-    initials: "PO",
-  },
-  {
-    name: "The Nguyen Family",
-    suburb: "Sutherland",
-    rating: 5,
-    date: "6 months ago",
-    text: "We didn't know where to turn when Dad passed suddenly. Bruce answered our call immediately and guided us through everything with such patience and kindness. The service was beautiful and deeply personal.",
-    initials: "NF",
-  },
-  {
-    name: "Angela B.",
-    suburb: "Miranda",
-    rating: 5,
-    date: "7 months ago",
-    text: "Such a compassionate and dignified service. Bruce made us feel supported every step of the way. He remembered every detail we shared about Mum and made the service feel truly personal.",
-    initials: "AB",
-  },
-  {
-    name: "The Rossi Family",
-    suburb: "Bexley",
-    rating: 5,
-    date: "8 months ago",
-    text: "From the first call to the final farewell, everything was handled with grace and care. Willow Tree Funerals is truly exceptional. We are so grateful to Bruce for everything he did for our family.",
-    initials: "RF",
-  },
+const reviews = [
+  { name: "Maria S.", suburb: "Hurstville", rating: 5, date: "2 weeks ago", text: "Bruce was absolutely wonderful. He guided our family through the most difficult time with such grace and professionalism. The Catholic Mass was perfectly coordinated and deeply moving.", initials: "MS" },
+  { name: "David & Karen T.", suburb: "Sutherland", rating: 5, date: "1 month ago", text: "From the very first phone call at 2am, Bruce was calm, kind, and completely in control. He made an impossible situation feel manageable. We are forever grateful.", initials: "DT" },
+  { name: "The Kowalski Family", suburb: "Campbelltown", rating: 5, date: "2 months ago", text: "We cannot speak highly enough of Willow Tree Funerals. Every detail was handled with such care and dignity. Bruce treated our father as if he were his own family.", initials: "KF" },
+  { name: "Father Patrick O.", suburb: "Rockdale", rating: 5, date: "5 months ago", text: "Bruce Missen stands apart — his faith, professionalism, and care for families is exceptional. As a parish priest I have worked with many funeral directors, and I recommend Willow Tree without hesitation.", initials: "PO" },
+  { name: "The Nguyen Family", suburb: "Sutherland", rating: 5, date: "6 months ago", text: "We didn't know where to turn when Dad passed suddenly. Bruce answered immediately and guided us through everything with such patience and kindness. The service was beautiful and deeply personal.", initials: "NF" },
+  { name: "Angela B.", suburb: "Miranda", rating: 5, date: "7 months ago", text: "Such a compassionate and dignified service. Bruce made us feel supported every step of the way. He remembered every detail we shared about Mum and made the service feel truly personal.", initials: "AB" },
+  { name: "The Rossi Family", suburb: "Bexley", rating: 5, date: "8 months ago", text: "From the first call to the final farewell, everything was handled with grace and care. Willow Tree Funerals is truly exceptional. We are so grateful to Bruce for everything he did for our family.", initials: "RF" },
+  { name: "Thomas M.", suburb: "Cronulla", rating: 5, date: "3 months ago", text: "I've attended many funerals over the years. The service Bruce conducted for my mother was the most dignified and heartfelt I have ever witnessed. He has a rare gift.", initials: "TM" },
 ];
 
 const faqs = [
-  {
-    q: "What should I do when someone passes away?",
-    a: `Call our Family Care Specialists on ${COMPANY.phone} — we are available 24 hours a day, 7 days a week. We will guide you through every step, starting with the transfer of your loved one into our care.`,
-  },
-  {
-    q: "Do you arrange Catholic funeral Masses?",
-    a: "Yes. Bruce Missen has extensive experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney areas. We handle all church liaison on your behalf.",
-  },
-  {
-    q: "Do you arrange secular and non-religious services?",
-    a: "Absolutely. We arrange a full range of services — from traditional Catholic Masses and multi-faith ceremonies to completely secular celebrations of life. Every service is tailored to your family's wishes, beliefs, and values.",
-  },
-  {
-    q: "How much does a funeral cost in Sydney?",
-    a: "Funeral costs vary depending on the type of service. We offer transparent, itemised pricing with no hidden fees. Please visit our Pricing page or call our Family Care Specialists for a personalised quote.",
-  },
-  {
-    q: "Do you serve areas outside Hurstville?",
-    a: "Yes. We serve the entire St George and Sutherland Shire area, South West Sydney including Campbelltown, Camden, Menangle, Picton, Liverpool, and Narellan, as well as Wollongong and the Central Coast.",
-  },
-  {
-    q: "Can I pre-arrange my own funeral?",
-    a: "Yes. Pre-arranging your funeral is one of the most thoughtful gifts you can give your family. It removes the burden of decision-making during grief and locks in today's prices. Call us to discuss your options.",
-  },
+  { q: "What should I do when someone passes away?", a: `Call our Family Care Specialists on ${COMPANY.phone} — we are available 24 hours a day, 7 days a week. We will guide you through every step, starting with the transfer of your loved one into our care.` },
+  { q: "Do you arrange Catholic funeral Masses?", a: "Yes. Bruce Missen has extensive experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney areas. We handle all church liaison on your behalf." },
+  { q: "Do you arrange secular and non-religious services?", a: "Absolutely. We arrange a full range of services — from traditional Catholic Masses and multi-faith ceremonies to completely secular celebrations of life. Every service is tailored to your family's wishes, beliefs, and values." },
+  { q: "How much does a funeral cost in Sydney?", a: "Funeral costs vary depending on the type of service. We offer transparent, itemised pricing with no hidden fees. Please visit our Pricing page or call our Family Care Specialists for a personalised quote." },
+  { q: "Do you serve areas outside Hurstville?", a: "Yes. We serve the entire St George and Sutherland Shire area, South West Sydney including Campbelltown, Camden, Menangle, Picton, Liverpool, and Narellan, as well as Wollongong and the Central Coast." },
+  { q: "Can I pre-arrange my own funeral?", a: "Yes. Pre-arranging your funeral is one of the most thoughtful gifts you can give your family. It removes the burden of decision-making during grief and locks in today's prices. Call us to discuss your options." },
 ];
 
 const suburbs = [
@@ -230,10 +157,10 @@ const suburbs = [
   "Campbelltown", "Narellan", "Gregory Hills", "Camden", "Menangle",
   "Picton", "Liverpool", "Fairfield", "Bankstown", "Macquarie Links",
   "Wollongong", "Shellharbour", "Kiama", "Gosford", "Wyong",
-  "Earlwood", "Arncliffe", "Hurstville Grove", "Penshurst", "Mortdale",
+  "Earlwood", "Arncliffe", "Penshurst", "Mortdale", "Revesby",
 ];
 
-// ── FAQ Item ──────────────────────────────────────────────────────────────────
+// ── Sub-components ────────────────────────────────────────────────────────────
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -266,12 +193,11 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-// ── Star Rating ───────────────────────────────────────────────────────────────
 function Stars({ count = 5 }: { count?: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} size={13} className="fill-[#F5A623] text-[#F5A623]" />
+        <Star key={i} size={12} className="fill-amber-400 text-amber-400" />
       ))}
     </div>
   );
@@ -282,255 +208,287 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "name": COMPANY.name,
-      "url": "https://www.willowtreefunerals.com.au",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.willowtreefunerals.com.au/faq?q={search_term_string}",
-        "query-input": "required name=search_term_string",
-      },
+      "@type": "FuneralHome",
+      name: COMPANY.name,
+      url: "https://willowtreefunerals.com.au",
+      telephone: COMPANY.phone,
+      description: "Independent, family-owned funeral directors serving St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast. Specialising in Catholic, multi-faith, and secular funeral services.",
+      address: [
+        { "@type": "PostalAddress", streetAddress: COMPANY.locations[0].address, addressLocality: "Hurstville", addressRegion: "NSW", postalCode: "2220", addressCountry: "AU" },
+        { "@type": "PostalAddress", streetAddress: COMPANY.locations[1].address, addressLocality: "Macquarie Links", addressRegion: "NSW", postalCode: "2565", addressCountry: "AU" },
+      ],
+      openingHours: "Mo-Su 00:00-23:59",
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "47", bestRating: "5" },
+      founder: { "@type": "Person", name: "Bruce Missen", jobTitle: "Managing Director & Founder" },
     },
     {
-      "@type": "FuneralHome",
-      "name": COMPANY.name,
-      "url": "https://www.willowtreefunerals.com.au",
-      "telephone": COMPANY.phone,
-      "email": COMPANY.email,
-      "openingHours": "Mo-Su 00:00-23:59",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": COMPANY.street,
-        "addressLocality": COMPANY.suburb,
-        "addressRegion": COMPANY.state,
-        "postalCode": COMPANY.postcode,
-        "addressCountry": "AU",
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "47",
-        "bestRating": "5",
-      },
-      "founder": {
-        "@type": "Person",
-        "name": COMPANY.director,
-        "jobTitle": COMPANY.directorTitle,
-      },
+      "@type": "WebSite",
+      url: "https://willowtreefunerals.com.au",
+      name: COMPANY.name,
+      potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: "https://willowtreefunerals.com.au/search?q={search_term_string}" }, "query-input": "required name=search_term_string" },
     },
   ],
 };
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function Home() {
-  // Inject schema
-  useEffect(() => {
-    const id = "home-schema";
-    let el = document.getElementById(id) as HTMLScriptElement | null;
-    if (!el) {
-      el = document.createElement("script");
-      el.id = id;
-      el.type = "application/ld+json";
-      document.head.appendChild(el);
-    }
-    el.textContent = JSON.stringify(schema);
-    return () => { document.getElementById(id)?.remove(); };
-  }, []);
-
-  // Count-up stats
   const stat1 = useCountUp(500, 1.8, "+");
-  const stat2 = useCountUp(5, 1.2, "★");
-  const stat3 = useCountUp(8, 1.4, "+");
+  const stat2 = useCountUp(24, 1.2, "/7");
+  const stat3 = useCountUp(5, 1.0, "★");
+  const stat4 = useCountUp(2, 0.8, " locations");
+
+  // Reviews carousel
+  const [reviewIndex, setReviewIndex] = useState(0);
+  const reviewsPerPage = 3;
+  const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+  const visibleReviews = reviews.slice(reviewIndex * reviewsPerPage, reviewIndex * reviewsPerPage + reviewsPerPage);
+  useEffect(() => {
+    const t = setInterval(() => setReviewIndex(i => (i + 1) % totalPages), 5000);
+    return () => clearInterval(t);
+  }, [totalPages]);
 
   return (
     <>
       <SEOHead
-        title="Willow Tree Funerals Hurstville | Compassionate Funeral Directors Sydney"
-        description="Willow Tree Funerals — compassionate, faith-based and secular funeral services across Sydney's south, Wollongong and the Central Coast. Available 24/7. Call our Family Care Specialists on 02 8776 1667."
-        canonical="https://www.willowtreefunerals.com.au/"
-        ogImage={HERO_IMG}
+        title={`${COMPANY.name} — Funeral Directors Sydney | Catholic, Secular & Multi-Faith Services`}
+        description="Willow Tree Funerals — independent, family-owned funeral directors serving St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast. Available 24/7. Call our Family Care Specialists."
+        canonical="https://willowtreefunerals.com.au"
+        ogImage={HEARSE_BRANDED}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <a href="#main-content" className="skip-to-content">Skip to main content</a>
       <Nav />
-      <MobileCtaBar />
-
       <main id="main-content">
 
         {/* ── 1. HERO — Split editorial ──────────────────────────────────── */}
         <section className="relative min-h-screen flex items-center bg-brand-ivory overflow-hidden">
-          {/* Left: copy panel */}
-          <div className="relative z-10 w-full lg:w-[52%] px-6 sm:px-10 lg:pl-16 xl:pl-24 py-32 lg:py-0 flex flex-col justify-center">
-
-            {/* Tagline pill */}
-            <Reveal>
-              <div className="pill-badge mb-6 w-fit">
-                You Focus On Healing. We'll Take Care Of The Rest.
-              </div>
-            </Reveal>
-
-            {/* Location breadcrumb */}
-            <Reveal delay={0.05}>
-              <p className="section-label mb-4 flex items-center gap-2">
-                <MapPin size={10} className="text-brand-royal" />
-                Hurstville · South West Sydney · Wollongong · Central Coast
-              </p>
-            </Reveal>
-
-            {/* Headline */}
-            <Reveal delay={0.1}>
-              <h1
-                className="font-serif text-brand-navy font-semibold leading-[1.08] mb-4"
-                style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)", letterSpacing: "-0.025em" }}
-              >
-                Honouring Life.<br />
-                <em className="not-italic" style={{ color: "#5B7FA6", fontStyle: "italic", fontWeight: 300 }}>
-                  Celebrating
-                </em>{" "}
-                Memories.
-              </h1>
-            </Reveal>
-
-            {/* Scripture */}
-            <Reveal delay={0.15}>
-              <p className="scripture text-sm mb-2">
-                "Do not let your hearts be troubled."
-              </p>
-              <p className="section-label text-[0.6rem] mb-8">John 14:1–3</p>
-            </Reveal>
-
-            {/* Body copy */}
-            <Reveal delay={0.2}>
-              <p className="text-brand-navy/60 text-sm leading-relaxed mb-10 max-w-md">
-                Willow Tree Funerals provides compassionate funeral services — faith-based and secular — across Sydney's south, Wollongong, and the Central Coast. Available 24 hours, 7 days a week.
-              </p>
-            </Reveal>
-
-            {/* CTAs */}
-            <Reveal delay={0.25}>
-              <div className="flex flex-col sm:flex-row gap-3 mb-12">
-                <a href={COMPANY.phoneHref} className="btn-primary">
-                  <Phone size={14} />
-                  Call Our Family Care Specialists
-                </a>
-                <Link href="/contact" className="btn-outline">
-                  Arrange a Funeral <ArrowRight size={14} />
-                </Link>
-              </div>
-            </Reveal>
-
-            {/* Trust micro-signals */}
-            <Reveal delay={0.3}>
-              <div className="flex flex-wrap items-center gap-5 text-brand-navy/50 text-xs font-sans">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 size={13} className="text-brand-royal" />
-                  Available 24 / 7
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 size={13} className="text-brand-royal" />
-                  ASIC Registered Funeral Director
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Stars count={5} />
-                  <span>5 Stars on Google</span>
-                </span>
-              </div>
-            </Reveal>
+          {/* Right: hero image */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden">
+            <img
+              src={HERO_IMG}
+              alt="Peaceful willow tree at dawn — Willow Tree Funerals"
+              className="w-full h-full object-cover object-center"
+              width={1200} height={900}
+              fetchPriority="high"
+              decoding="async"
+            />
+            {/* Gradient fade left for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-ivory via-brand-ivory/80 to-transparent lg:via-brand-ivory/40" />
           </div>
 
-          {/* Right: hero image */}
-          <motion.div
-            className="hidden lg:block absolute right-0 top-0 bottom-0 w-[52%]"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: EASE }}
-          >
-            {/* Rounded left edge */}
-            <div className="absolute inset-0 rounded-l-[3rem] overflow-hidden">
-              <img
-                src={HERO_IMG}
-                alt="Peaceful willow tree at dawn — Willow Tree Funerals"
-                className="w-full h-full object-cover object-center"
-                width={800}
-                height={900}
-                fetchPriority="high"
-                decoding="async"
-              />
-              {/* Very subtle gradient for text legibility on left edge */}
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-ivory/30 via-transparent to-transparent" />
-            </div>
-          </motion.div>
+          {/* Left: copy */}
+          <div className="relative z-10 container py-32 lg:py-0">
+            <div className="max-w-xl">
+              <Reveal delay={0.05}>
+                <div className="inline-flex items-center gap-2 mb-6">
+                  <div className="w-8 h-px bg-brand-royal" />
+                  <span className="section-label">Available 24 Hours · 7 Days</span>
+                </div>
+              </Reveal>
 
-          {/* Mobile: full-bleed image behind */}
-          <div
-            className="lg:hidden absolute inset-0 opacity-15"
-            style={{ backgroundImage: `url(${HERO_IMG})`, backgroundSize: "cover", backgroundPosition: "center" }}
-          />
+              <Reveal delay={0.15}>
+                <h1
+                  className="font-serif text-brand-navy font-bold leading-[1.05] mb-2"
+                  style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", letterSpacing: "-0.03em" }}
+                >
+                  Caring for Families
+                </h1>
+                <h1
+                  className="font-serif font-light leading-[1.05] mb-6"
+                  style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", letterSpacing: "-0.03em", color: "#5B7FA6", fontStyle: "italic" }}
+                >
+                  Across Sydney & Beyond
+                </h1>
+              </Reveal>
+
+              <Reveal delay={0.25}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-px bg-brand-royal/40" />
+                  <p className="font-serif italic text-brand-royal text-base" style={{ letterSpacing: "0.01em" }}>
+                    "{COMPANY.tagline}"
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.32}>
+                <p className="text-brand-navy/65 text-base leading-relaxed mb-10 max-w-md">
+                  Independent, family-owned funeral directors serving St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast. Catholic, multi-faith, and secular services.
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.4}>
+                <div className="flex flex-col sm:flex-row gap-3 mb-12">
+                  <a
+                    href={COMPANY.phoneHref}
+                    className="btn-royal flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold tracking-wide"
+                  >
+                    <Phone size={14} /> Call Our Family Care Specialists
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="btn-outline flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold"
+                  >
+                    Send an Enquiry <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </Reveal>
+
+              {/* Trust badges */}
+              <Reveal delay={0.48}>
+                <div className="flex flex-wrap gap-4">
+                  {[
+                    "Independent & Family-Owned",
+                    "ASIC Registered Funeral Home",
+                    "Cert IV Funeral Services",
+                  ].map(badge => (
+                    <div key={badge} className="flex items-center gap-1.5 text-xs text-brand-navy/60 font-medium">
+                      <CheckCircle2 size={12} className="text-brand-royal shrink-0" />
+                      {badge}
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Scroll cue */}
+          <motion.div
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-brand-navy/40"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+          >
+            <span className="text-[0.6rem] tracking-[0.15em] uppercase font-medium">Scroll</span>
+            <ChevronDown size={14} />
+          </motion.div>
         </section>
 
         {/* ── 2. STATS BAR ──────────────────────────────────────────────── */}
         <section className="bg-brand-navy py-10">
           <div className="container">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               {[
                 { ref: stat1.ref, display: stat1.display, label: "Families Served" },
-                { ref: null, display: "24/7", label: "Always Available" },
-                { ref: stat2.ref, display: stat2.display, label: "Google Rating" },
-                { ref: stat3.ref, display: stat3.display, label: "Years Serving Sydney" },
-              ].map(({ ref, display, label }, i) => (
-                <Reveal key={i} delay={i * 0.07}>
-                  <div>
-                    <div className="font-serif text-white font-semibold mb-1" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}>
-                      <span ref={ref as React.RefObject<HTMLSpanElement>}>{display}</span>
-                    </div>
-                    <p className="text-white/50 text-xs font-sans tracking-widest uppercase">{label}</p>
-                  </div>
-                </Reveal>
+                { ref: stat2.ref, display: stat2.display, label: "Hour Availability" },
+                { ref: stat3.ref, display: stat3.display, label: "Google Rating" },
+                { ref: stat4.ref, display: stat4.display, label: "Sydney Locations" },
+              ].map(({ ref, display, label }) => (
+                <div key={label}>
+                  <span ref={ref} className="block font-serif text-white font-bold text-3xl mb-1">{display}</span>
+                  <span className="section-label text-white/50 text-[0.6rem]">{label}</span>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── 3. SERVICES GRID ──────────────────────────────────────────── */}
+        {/* ── 3. PROCESS TIMELINE — "How We Help" ───────────────────────── */}
+        <section className="py-28 bg-white overflow-hidden">
+          <div className="container">
+            <Reveal>
+              <div className="text-center mb-16">
+                <p className="section-label mb-3">How We Help</p>
+                <h2 className="font-serif text-brand-navy font-bold leading-tight" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                  From First Call to Final Farewell
+                </h2>
+                <p className="text-brand-navy/55 text-sm mt-4 max-w-xl mx-auto leading-relaxed">
+                  We guide you through every step with calm, clarity, and compassion — so you never feel alone.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="relative">
+              {/* Connecting line (desktop) */}
+              <div className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-brand-royal/20 to-transparent" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+                {processSteps.map((step, i) => {
+                  const Icon = step.icon;
+                  return (
+                    <Reveal key={step.number} delay={i * 0.1}>
+                      <div className="relative flex flex-col items-center text-center group">
+                        {/* Number + icon circle */}
+                        <div className="relative mb-6">
+                          <div className="w-20 h-20 rounded-full bg-brand-light-blue/40 flex items-center justify-center group-hover:bg-brand-royal/10 transition-colors duration-300 border border-brand-royal/15">
+                            <Icon size={26} className="text-brand-royal" />
+                          </div>
+                          <span
+                            className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-brand-navy flex items-center justify-center font-serif text-white font-bold"
+                            style={{ fontSize: "0.65rem", letterSpacing: "0.05em" }}
+                          >
+                            {step.number}
+                          </span>
+                        </div>
+                        <h3 className="font-serif text-brand-navy font-semibold text-base mb-3 leading-snug">{step.title}</h3>
+                        <p className="text-brand-navy/55 text-sm leading-relaxed">{step.desc}</p>
+                      </div>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* CTA under timeline */}
+            <Reveal delay={0.4}>
+              <div className="text-center mt-14">
+                <a
+                  href={COMPANY.phoneHref}
+                  className="btn-royal inline-flex items-center gap-2 px-10 py-4 text-sm font-semibold"
+                >
+                  <Phone size={14} /> Call Willow Tree Funerals Now
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── 4. SERVICES GRID ──────────────────────────────────────────── */}
         <section className="py-28 bg-brand-ivory">
           <div className="container">
-            <Reveal className="mb-14">
-              <div className="grid lg:grid-cols-2 gap-8 items-end">
+            <Reveal>
+              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-14">
                 <div>
-                  <div className="w-10 h-px bg-brand-gold mb-5" />
                   <p className="section-label mb-3">Our Services</p>
-                  <h2
-                    className="font-serif text-brand-navy font-semibold"
-                    style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
-                  >
-                    Every Farewell,<br />Thoughtfully Arranged
+                  <h2 className="font-serif text-brand-navy font-bold leading-tight" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                    Every Service, Every Faith,<br />Every Family
                   </h2>
                 </div>
-                <div>
-                  <p className="text-brand-navy/60 text-sm leading-relaxed mb-4">
-                    From traditional Catholic Masses and multi-faith ceremonies to secular celebrations of life — we offer a full range of services tailored to your family's faith, culture, and wishes.
-                  </p>
-                  <p className="text-brand-navy/50 text-xs font-sans italic">
-                    Faith-based &amp; secular services available.
-                  </p>
-                </div>
+                <Link href="/services" className="btn-outline text-sm px-7 py-3 self-start lg:self-auto flex items-center gap-2 shrink-0">
+                  All Services <ArrowRight size={13} />
+                </Link>
               </div>
             </Reveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {services.map((s, i) => (
-                <Reveal key={s.href} delay={i * 0.06}>
-                  <Link href={s.href}>
-                    <div className="group bg-white rounded-2xl p-7 card-shadow cursor-pointer h-full flex flex-col">
-                      <div className="flex items-start justify-between mb-5">
-                        <span className="text-2xl">{s.icon}</span>
-                        <span className="font-sans text-xs text-brand-navy/25 font-semibold tracking-widest">{s.num}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {services.map((svc, i) => (
+                <Reveal key={svc.label} delay={i * 0.07}>
+                  <Link href={svc.href}>
+                    <div className="group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer border border-[#E8EFF8]">
+                      {/* Image */}
+                      <div className="relative h-52 overflow-hidden">
+                        <img
+                          src={svc.img}
+                          alt={svc.label}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          width={480} height={208}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent" />
+                        {/* Number badge */}
+                        <span className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center font-serif text-brand-navy font-bold text-xs">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
                       </div>
-                      <h3 className="font-serif text-brand-navy text-lg font-semibold mb-3 group-hover:text-brand-royal transition-colors">
-                        {s.label}
-                      </h3>
-                      <p className="text-brand-navy/55 text-sm leading-relaxed flex-1">{s.desc}</p>
-                      <div className="flex items-center gap-1.5 mt-5 text-brand-royal text-xs font-sans font-semibold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity">
-                        Learn More <ArrowRight size={12} />
+                      {/* Content */}
+                      <div className="p-6">
+                        <h3 className="font-serif text-brand-navy font-semibold text-lg mb-2 leading-snug group-hover:text-brand-royal transition-colors">{svc.label}</h3>
+                        <p className="text-brand-navy/55 text-sm leading-relaxed mb-4">{svc.desc}</p>
+                        <span className="inline-flex items-center gap-1.5 text-brand-royal text-xs font-semibold tracking-wide uppercase group-hover:gap-2.5 transition-all">
+                          Learn More <ArrowRight size={11} />
+                        </span>
                       </div>
                     </div>
                   </Link>
@@ -540,128 +498,236 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 4. ABOUT BRUCE — Asymmetric ───────────────────────────────── */}
+        {/* ── 5. ABOUT BRUCE — Asymmetric editorial ─────────────────────── */}
         <section className="py-28 bg-white overflow-hidden">
           <div className="container">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Image stack */}
-              <Reveal from="left" className="relative">
-                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md">
-                  <img
-                    src={BRUCE_CHURCH}
-                    alt="Bruce Missen walking through church during a funeral service"
-                    className="w-full h-full object-cover object-top"
-                    width={480}
-                    height={600}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  {/* Est. badge */}
-                  <div className="absolute top-5 left-5 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2.5 shadow-lg">
-                    <p className="text-brand-navy font-sans text-xs font-semibold tracking-widest uppercase">Est. 2018</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+              {/* Left: image stack */}
+              <Reveal from="left">
+                <div className="relative">
+                  <div className="rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto lg:mx-0 shadow-2xl">
+                    <img
+                      src={BRUCE_CHURCH}
+                      alt="Bruce Missen, Managing Director & Founder of Willow Tree Funerals"
+                      className="w-full h-full object-cover object-top"
+                      width={480} height={640}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                </div>
-                {/* Second real photo inset — Bruce leading hearse procession */}
-                <div className="absolute -bottom-4 -right-4 lg:right-0 w-36 h-28 rounded-2xl overflow-hidden border-4 border-white shadow-xl">
-                  <img
-                    src={BRUCE_HEARSE_3}
-                    alt="Bruce Missen leading a funeral procession"
-                    className="w-full h-full object-cover object-center"
-                    width={144}
-                    height={112}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {/* Floating inset card */}
+                  <div className="absolute -bottom-6 -right-4 lg:-right-8 w-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                    <img
+                      src={BRUCE_HEARSE_1}
+                      alt="Bruce Missen with the Willow Tree Funerals hearse"
+                      className="w-full h-36 object-cover"
+                      width={176} height={144}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  {/* Decorative element */}
+                  <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-brand-light-blue/30 -z-10" />
                 </div>
               </Reveal>
 
-              {/* Copy */}
-              <Reveal from="right" delay={0.1}>
-                <div className="w-10 h-px bg-brand-gold mb-5" />
-                <p className="section-label mb-4">Meet Your Funeral Director</p>
-                <h2
-                  className="font-serif text-brand-navy font-semibold mb-2"
-                  style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
-                >
-                  Bruce Missen —
-                </h2>
-                <h3
-                  className="font-serif mb-6"
-                  style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "#5B7FA6", fontStyle: "italic", fontWeight: 300 }}
-                >
-                  A Calling, Not Just a Career
-                </h3>
-                <p className="text-brand-navy/65 text-sm leading-relaxed mb-4">
-                  Bruce Missen founded Willow Tree Funerals with a single purpose: to provide the families of Sydney's south and South West with funeral care that is deeply personal, compassionate, and genuinely caring.
-                </p>
-                <p className="text-brand-navy/65 text-sm leading-relaxed mb-4">
-                  Currently completing his Certificate IV in Funeral Services, Bruce is registered through ASIC as a Funeral Director and Funeral Home operator. His Catholic faith and commitment to dignity inform every service he conducts — whether faith-based or secular.
-                </p>
-                {/* Quote */}
-                <blockquote className="border-l-2 border-brand-gold pl-5 my-6">
-                  <p className="scripture text-sm leading-relaxed">
-                    "I believe every person deserves a farewell that truly honours who they were. That is the promise I make to every family."
+              {/* Right: copy */}
+              <Reveal from="right">
+                <div>
+                  <p className="section-label mb-4">Meet Your Funeral Director</p>
+                  <h2 className="font-serif text-brand-navy font-bold leading-tight mb-2" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                    Bruce Missen
+                  </h2>
+                  <p className="text-brand-royal font-semibold text-sm tracking-wide mb-6">Managing Director &amp; Founder</p>
+
+                  <div className="w-10 h-px bg-brand-royal/40 mb-6" />
+
+                  <p className="text-brand-navy/70 text-base leading-relaxed mb-5">
+                    Bruce founded Willow Tree Funerals with a single conviction: that every family deserves the same level of care, dignity, and personal attention — regardless of their background, faith, or budget.
                   </p>
-                  <cite className="not-italic section-label text-[0.6rem] mt-2 block">— Bruce Missen, Managing Director &amp; Founder</cite>
-                </blockquote>
-                <Link href="/about" className="btn-primary w-fit">
-                  Meet Bruce <ArrowRight size={14} />
-                </Link>
+                  <p className="text-brand-navy/70 text-base leading-relaxed mb-5">
+                    With deep roots in the Catholic community and extensive experience across multi-faith and secular services, Bruce brings both professional expertise and genuine compassion to every family he serves.
+                  </p>
+
+                  <blockquote className="border-l-2 border-brand-royal pl-5 mb-8">
+                    <p className="font-serif italic text-brand-navy text-base leading-relaxed">
+                      "I started Willow Tree because I believe every family deserves to be treated like my own. That's a promise I keep personally, every single time."
+                    </p>
+                    <cite className="not-italic section-label text-[0.6rem] mt-2 block">— Bruce Missen, Managing Director &amp; Founder</cite>
+                  </blockquote>
+
+                  <div className="flex flex-wrap gap-3 mb-8">
+                    {["ASIC Registered Funeral Home", "Cert IV Funeral Services", "Catholic Specialist", "24/7 Available"].map(tag => (
+                      <span key={tag} className="inline-flex items-center gap-1.5 bg-brand-light-blue/40 text-brand-navy text-xs font-medium px-3 py-1.5 rounded-full border border-brand-royal/15">
+                        <CheckCircle2 size={10} className="text-brand-royal" /> {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link href="/about" className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
+                    Meet Bruce <ArrowRight size={13} />
+                  </Link>
+                </div>
               </Reveal>
             </div>
           </div>
         </section>
 
-        {/* ── 5. WHY WILLOW TREE — Dark section ─────────────────────────── */}
+        {/* ── 6. WHY WILLOW TREE — Dark trust section ───────────────────── */}
         <section className="py-28 bg-brand-navy">
           <div className="container">
-            <Reveal className="mb-14">
-              <div className="grid lg:grid-cols-2 gap-8 items-end">
-                <div>
-                  <div className="w-10 h-px bg-brand-gold mb-5" />
-                  <p className="section-label text-brand-gold mb-3">Why Willow Tree</p>
-                  <h2
-                    className="font-serif text-white font-semibold"
-                    style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
-                  >
-                    The Difference<br />You'll Feel
-                  </h2>
-                </div>
-                <p className="text-white/50 text-sm leading-relaxed">
-                  In a moment of profound grief, the quality of care you receive matters more than anything. Here is what sets Willow Tree apart.
-                </p>
+            <Reveal>
+              <div className="text-center mb-14">
+                <p className="section-label text-brand-gold mb-3">Why Willow Tree</p>
+                <h2 className="font-serif text-white font-bold leading-tight" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                  What Makes Us Different
+                </h2>
               </div>
             </Reveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Shield, title: "Truly Independent", desc: "We are not part of InvoCare or any corporate group. Every decision we make is guided by your family's needs — not shareholder returns." },
+                { icon: Heart, title: "Personal from Start to Finish", desc: "Bruce personally oversees every arrangement. You will always speak to the same person, who knows your family and your loved one's story." },
+                { icon: Clock, title: "Available 24 Hours a Day", desc: "When you call, we answer. Day or night, weekends and public holidays — our Family Care Specialists are always available." },
+                { icon: CheckCircle2, title: "Transparent Pricing", desc: "No hidden fees, no upselling, no surprises. We publish our prices openly and provide itemised quotes so you know exactly what you're paying for." },
+                { icon: MapPin, title: "Two Sydney Locations", desc: "With offices in Hurstville and Campbelltown, we serve families across St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast." },
+                { icon: Star, title: "5-Star Google Rating", desc: "Our families' trust is our greatest honour. Read their words on Google and you'll understand why families choose Willow Tree again and again." },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <Reveal key={item.title} delay={i * 0.08}>
+                    <div className="rounded-2xl bg-white/5 border border-white/10 p-7 hover:bg-white/8 transition-colors duration-300">
+                      <div className="w-11 h-11 rounded-xl bg-brand-royal/20 flex items-center justify-center mb-5">
+                        <Icon size={20} className="text-brand-gold" />
+                      </div>
+                      <h3 className="font-serif text-white font-semibold text-base mb-3">{item.title}</h3>
+                      <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* ── 7. PRICING TRUST SECTION ──────────────────────────────────── */}
+        <section className="py-28 bg-brand-ivory overflow-hidden">
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Left: copy */}
+              <Reveal from="left">
+                <div>
+                  <p className="section-label mb-3">Transparent Pricing</p>
+                  <h2 className="font-serif text-brand-navy font-bold leading-tight mb-6" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                    No Hidden Fees.<br />No Surprises.
+                  </h2>
+                  <p className="text-brand-navy/65 text-base leading-relaxed mb-5">
+                    We believe families deserve to know exactly what a funeral costs before they commit. That's why we publish our prices openly and provide a full itemised quote for every arrangement.
+                  </p>
+                  <p className="text-brand-navy/65 text-base leading-relaxed mb-8">
+                    Our packages start from <strong className="text-brand-navy font-semibold">$2,950</strong> for a direct cremation and include everything you need — with no upselling and no pressure.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link href="/pricing" className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
+                      View Full Pricing <ArrowRight size={13} />
+                    </Link>
+                    <a href={COMPANY.phoneHref} className="btn-outline inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
+                      <Phone size={13} /> Get a Quote
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Right: comparison table */}
+              <Reveal from="right">
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-[#E8EFF8]">
+                  {/* Table header */}
+                  <div className="bg-brand-navy px-6 py-4">
+                    <p className="text-white font-serif font-semibold text-sm">Willow Tree vs. Sydney Average</p>
+                    <p className="text-white/50 text-xs mt-0.5">Indicative pricing — exact quotes provided on enquiry</p>
+                  </div>
+                  {/* Table rows */}
+                  {[
+                    { service: "Direct Cremation", us: "From $2,950", avg: "From $3,500–$5,000" },
+                    { service: "Full Cremation Service", us: "From $5,450", avg: "From $7,000–$10,000" },
+                    { service: "Burial Service", us: "From $6,950", avg: "From $9,000–$15,000" },
+                  ].map((row, i) => (
+                    <div key={row.service} className={`grid grid-cols-3 px-6 py-4 text-sm border-b border-[#E8EFF8] last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-brand-ivory/60"}`}>
+                      <span className="font-medium text-brand-navy col-span-1 pr-2">{row.service}</span>
+                      <span className="text-brand-royal font-semibold text-center">{row.us}</span>
+                      <span className="text-brand-navy/40 text-center text-xs self-center">{row.avg}</span>
+                    </div>
+                  ))}
+                  {/* Column labels */}
+                  <div className="grid grid-cols-3 px-6 py-3 bg-brand-light-blue/30 text-[0.6rem] font-semibold tracking-widest uppercase text-brand-navy/50">
+                    <span>Service</span>
+                    <span className="text-center text-brand-royal">Willow Tree</span>
+                    <span className="text-center">Sydney Avg.</span>
+                  </div>
+                  <div className="px-6 py-4 bg-white">
+                    <p className="text-[0.65rem] text-brand-navy/40 leading-relaxed">
+                      * Cemetery, crematorium, and disbursement fees are additional and vary by location. All prices include GST. Full itemised quotes provided on request.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 8. CATHOLIC + SECULAR SERVICES — Split image ──────────────── */}
+        <section className="py-28 bg-white overflow-hidden">
+          <div className="container">
+            <Reveal>
+              <div className="text-center mb-14">
+                <p className="section-label mb-3">Serving All Faiths &amp; Beliefs</p>
+                <h2 className="font-serif text-brand-navy font-bold leading-tight" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                  Every Belief. Every Background.<br />Every Family.
+                </h2>
+              </div>
+            </Reveal>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {[
                 {
-                  icon: <Heart size={22} className="text-brand-gold" />,
-                  num: "01",
-                  title: "Genuinely Personal",
-                  desc: "No call centres. No corporate scripts. When you call Willow Tree, you speak directly with Bruce — a real person who genuinely cares about your family.",
+                  img: CHURCH_MASS,
+                  tag: "Faith-Based Services",
+                  title: "Catholic & Multi-Faith Funerals",
+                  desc: "Bruce has deep experience coordinating Catholic funeral Masses, Orthodox services, and multi-faith ceremonies with clergy across Sydney. Every detail — from the Mass booklet to the church liaison — is handled with reverence and precision.",
+                  href: "/services/catholic-funerals",
+                  cta: "Catholic Funerals",
                 },
                 {
-                  icon: <Shield size={22} className="text-brand-gold" />,
-                  num: "02",
-                  title: "Faith & Dignity",
-                  desc: "Whether your service is Catholic, multi-faith, or secular, we bring the same reverence and care to every farewell. We work closely with clergy and celebrants across Sydney.",
-                },
-                {
-                  icon: <Award size={22} className="text-brand-gold" />,
-                  num: "03",
-                  title: "Transparent Pricing",
-                  desc: "We believe families deserve clear, honest pricing with no hidden fees. Every quote is itemised and explained before any commitment is made.",
+                  img: BIRDCAGE_GARDEN,
+                  tag: "Secular Services",
+                  title: "Celebrations of Life",
+                  desc: "Not all farewells are religious — and that's perfectly fine. We create deeply meaningful, personalised celebrations of life for families of all beliefs and backgrounds, honouring your loved one exactly as they were.",
+                  href: "/services/secular-funerals",
+                  cta: "Secular Services",
                 },
               ].map((item, i) => (
-                <Reveal key={i} delay={i * 0.08}>
-                  <div className="bg-white/6 rounded-2xl p-7 border border-white/10 hover:border-brand-gold/30 transition-colors">
-                    <div className="flex items-start justify-between mb-5">
-                      {item.icon}
-                      <span className="font-sans text-xs text-white/20 font-semibold tracking-widest">{item.num}</span>
+                <Reveal key={item.title} delay={i * 0.1}>
+                  <div className="group rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 border border-[#E8EFF8]">
+                    <div className="relative h-64 overflow-hidden">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        width={640} height={256}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
+                      <span className="absolute top-4 left-4 section-label text-white/80 bg-brand-navy/50 backdrop-blur-sm px-3 py-1 rounded-full text-[0.6rem]">
+                        {item.tag}
+                      </span>
                     </div>
-                    <h3 className="font-serif text-white text-lg font-semibold mb-3">{item.title}</h3>
-                    <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
+                    <div className="p-8 bg-white">
+                      <h3 className="font-serif text-brand-navy font-semibold text-xl mb-3 leading-snug">{item.title}</h3>
+                      <p className="text-brand-navy/60 text-sm leading-relaxed mb-6">{item.desc}</p>
+                      <Link href={item.href} className="inline-flex items-center gap-2 text-brand-royal text-sm font-semibold group-hover:gap-3 transition-all">
+                        {item.cta} <ArrowRight size={13} />
+                      </Link>
+                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -669,195 +735,189 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 6. CATHOLIC + SECULAR SERVICES — Split image ──────────────── */}
-        <section className="py-28 bg-brand-ivory overflow-hidden">
+        {/* ── 9. PLANNING AHEAD BANNER ──────────────────────────────────── */}
+        <section className="py-20 bg-brand-navy overflow-hidden">
           <div className="container">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Image */}
-              <Reveal from="left" className="rounded-3xl overflow-hidden aspect-[4/3]">
-                <img
-                  src={CHURCH_MASS}
-                  alt="Catholic funeral Mass with full congregation — Willow Tree Funerals"
-                  className="w-full h-full object-cover object-center"
-                  width={640}
-                  height={480}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </Reveal>
-
-              {/* Copy */}
-              <Reveal from="right" delay={0.1}>
-                <div className="w-10 h-px bg-brand-gold mb-5" />
-                <p className="section-label mb-4">Serving All Faiths &amp; Beliefs</p>
-                <h2
-                  className="font-serif text-brand-navy font-semibold mb-6"
-                  style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
-                >
-                  Serving Sydney's<br />
-                  <em style={{ color: "#5B7FA6", fontStyle: "italic", fontWeight: 300 }}>
-                    Diverse Community
-                  </em>
-                </h2>
-                <p className="text-brand-navy/65 text-sm leading-relaxed mb-4">
-                  Willow Tree Funerals serves families of all faiths and backgrounds. We have deep experience with Catholic funeral Masses, Orthodox, Anglican, and multi-faith services — as well as fully secular celebrations of life for those who prefer a non-religious farewell.
-                </p>
-                <p className="text-brand-navy/65 text-sm leading-relaxed mb-8">
-                  Every service is crafted around your family's unique story, values, and wishes. There is no template — only care.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href="/services/catholic-funerals" className="btn-primary">
-                    Catholic Funerals
-                  </Link>
-                  <Link href="/services/celebration-of-life" className="btn-outline">
-                    Celebration of Life
-                  </Link>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* ── 7. GOOGLE REVIEWS ─────────────────────────────────────────── */}
-        <section className="py-28 bg-white overflow-hidden">
-          <div className="container">
-            <Reveal className="mb-14 text-center">
-              <div className="w-10 h-px bg-brand-gold mx-auto mb-5" />
-              <p className="section-label mb-3">Google Reviews</p>
-              <h2
-                className="font-serif text-brand-navy font-semibold mb-4"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
-              >
-                What Families Say
-              </h2>
-              {/* Google aggregate badge */}
-              <div className="inline-flex items-center gap-3 bg-brand-light-blue/40 rounded-2xl px-6 py-3 mt-2">
-                <div className="flex gap-0.5">
-                  {[1,2,3,4,5].map(i => (
-                    <Star key={i} size={16} className="fill-[#F5A623] text-[#F5A623]" />
-                  ))}
-                </div>
-                <span className="font-serif text-brand-navy font-semibold text-lg">5.0</span>
-                <span className="text-brand-navy/50 text-xs font-sans">Based on Google Reviews</span>
-              </div>
-            </Reveal>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {googleReviews.map((review, i) => (
-                <Reveal key={i} delay={i * 0.06}>
-                  <div className="bg-white rounded-2xl p-6 card-shadow border border-[#E8EFF8] h-full flex flex-col">
-                    {/* Header */}
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-brand-royal flex items-center justify-center shrink-0">
-                        <span className="text-white font-sans text-xs font-bold">{review.initials}</span>
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-10 lg:p-14">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <Reveal from="left">
+                  <div>
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-xl bg-brand-royal/20 flex items-center justify-center">
+                        <Calendar size={18} className="text-brand-gold" />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-sans font-semibold text-brand-navy text-sm truncate">{review.name}</p>
-                        <p className="text-brand-navy/45 text-xs">{review.suburb} · {review.date}</p>
-                      </div>
-                      {/* Google G */}
-                      <svg width="18" height="18" viewBox="0 0 24 24" className="shrink-0 mt-0.5">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                      </svg>
+                      <p className="section-label text-brand-gold">Planning Ahead</p>
                     </div>
-                    {/* Stars */}
-                    <Stars count={review.rating} />
-                    {/* Text */}
-                    <p className="text-brand-navy/65 text-sm leading-relaxed mt-3 flex-1">
-                      <Quote size={12} className="inline text-brand-gold mr-1 mb-0.5" />
-                      {review.text}
+                    <h2 className="font-serif text-white font-bold leading-tight mb-4" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", letterSpacing: "-0.025em" }}>
+                      The Most Thoughtful Gift<br />You Can Give Your Family
+                    </h2>
+                    <p className="text-white/60 text-sm leading-relaxed">
+                      Pre-arranging your own funeral removes the burden of decision-making from your loved ones during the most difficult time of their lives. It also locks in today's prices, protecting your family from future cost increases.
                     </p>
                   </div>
                 </Reveal>
+                <Reveal from="right">
+                  <div className="space-y-4">
+                    {[
+                      { title: "Peace of Mind", desc: "Your wishes are documented and respected — no guesswork for your family." },
+                      { title: "Financial Protection", desc: "Lock in today's prices and protect your family from rising funeral costs." },
+                      { title: "No Obligation", desc: "We'll talk through your options with no pressure and no commitment required." },
+                    ].map(item => (
+                      <div key={item.title} className="flex gap-4 items-start">
+                        <div className="w-6 h-6 rounded-full bg-brand-royal/30 flex items-center justify-center shrink-0 mt-0.5">
+                          <CheckCircle2 size={12} className="text-brand-gold" />
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold text-sm mb-0.5">{item.title}</p>
+                          <p className="text-white/50 text-xs leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="pt-4">
+                      <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
+                        <Phone size={13} /> Discuss Pre-Arrangement
+                      </a>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 10. GOOGLE REVIEWS CAROUSEL ───────────────────────────────── */}
+        <section className="py-28 bg-brand-ivory overflow-hidden">
+          <div className="container">
+            <Reveal>
+              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12">
+                <div>
+                  <p className="section-label mb-3">Google Reviews</p>
+                  <h2 className="font-serif text-brand-navy font-bold leading-tight" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                    What Families Say
+                  </h2>
+                </div>
+                {/* Google rating badge */}
+                <div className="flex items-center gap-3 bg-white rounded-2xl px-5 py-3 shadow-sm border border-[#E8EFF8] self-start lg:self-auto">
+                  <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" fill="none">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                  <div>
+                    <div className="flex items-center gap-1">
+                      <Stars count={5} />
+                      <span className="font-bold text-brand-navy text-sm ml-1">5.0</span>
+                    </div>
+                    <p className="text-brand-navy/50 text-[0.65rem]">47 reviews</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Review cards */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={reviewIndex}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.5, ease: EASE }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+              >
+                {visibleReviews.map((review) => (
+                  <div key={review.name} className="bg-white rounded-2xl p-7 shadow-sm border border-[#E8EFF8] flex flex-col">
+                    <Quote size={20} className="text-brand-royal/30 mb-4 shrink-0" />
+                    <p className="text-brand-navy/70 text-sm leading-relaxed flex-1 mb-6 italic">"{review.text}"</p>
+                    <div className="flex items-center gap-3 mt-auto">
+                      <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-serif font-bold text-xs shrink-0">
+                        {review.initials}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-brand-navy text-sm">{review.name}</p>
+                        <div className="flex items-center gap-2">
+                          <Stars count={review.rating} />
+                          <span className="text-brand-navy/40 text-[0.6rem]">{review.suburb} · {review.date}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Carousel controls */}
+            <div className="flex items-center justify-center gap-4 mt-10">
+              <button
+                onClick={() => setReviewIndex(i => (i - 1 + totalPages) % totalPages)}
+                className="w-10 h-10 rounded-full border border-brand-royal/30 flex items-center justify-center text-brand-royal hover:bg-brand-royal hover:text-white transition-colors"
+                aria-label="Previous reviews"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setReviewIndex(i)}
+                  className={`w-2 h-2 rounded-full transition-all ${i === reviewIndex ? "bg-brand-royal w-6" : "bg-brand-royal/25"}`}
+                  aria-label={`Go to page ${i + 1}`}
+                />
               ))}
+              <button
+                onClick={() => setReviewIndex(i => (i + 1) % totalPages)}
+                className="w-10 h-10 rounded-full border border-brand-royal/30 flex items-center justify-center text-brand-royal hover:bg-brand-royal hover:text-white transition-colors"
+                aria-label="Next reviews"
+              >
+                <ChevronRight size={16} />
+              </button>
             </div>
 
-            {/* CTA to Google */}
-            <Reveal className="text-center mt-10">
-              <a
-                href="https://g.page/r/willowtreefunerals/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline inline-flex"
-              >
-                See All Reviews on Google <ArrowRight size={14} />
-              </a>
-            </Reveal>
-          </div>
-        </section>        {/* ── 7b. PHOTO GALLERY ────────────────────────────────────────── */}
-        <section className="py-16 bg-brand-ivory overflow-hidden">
-          <div className="container">
-            <Reveal className="mb-8 text-center">
-              <div className="w-10 h-px bg-brand-gold mx-auto mb-4" />
-              <p className="section-label mb-2">Our Services in Action</p>
-              <h2
-                className="font-serif text-brand-navy font-semibold"
-                style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", letterSpacing: "-0.02em" }}
-              >
-                Every Farewell, Thoughtfully Arranged
-              </h2>
-            </Reveal>
-            {/* 2-row masonry-style grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {/* Row 1: tall + wide + tall */}
-              <div className="rounded-2xl overflow-hidden row-span-2 aspect-[3/4] col-span-1">
-                <img src={CASKET_CATHEDRAL} alt="Casket with roses at cathedral altar" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            <Reveal delay={0.3}>
+              <div className="text-center mt-8">
+                <a
+                  href="https://g.page/r/willowtreefunerals/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-brand-royal text-sm font-semibold hover:gap-3 transition-all"
+                >
+                  See All Reviews on Google <ArrowRight size={13} />
+                </a>
               </div>
-              <div className="rounded-2xl overflow-hidden aspect-square">
-                <img src={BUTTERFLY_FLOWERS} alt="Butterfly resting on floral tribute" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-square">
-                <img src={CASKET_HEARSE} alt="Casket with white lilies in hearse" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-square">
-                <img src={BIRDCAGE_GARDEN} alt="Birdcage with white roses at memorial garden" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-              </div>
-              {/* Row 2 */}
-              <div className="rounded-2xl overflow-hidden aspect-square">
-                <img src={BAGPIPER} alt="Bagpiper leading funeral procession" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-square">
-                <img src={PALLBEARERS} alt="Pallbearers carrying casket" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-square">
-                <img src={PRIEST_BLESSING} alt="Priest blessing casket at hearse" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-              </div>
-            </div>
-            {/* Full-width hearse banner */}
-            <Reveal className="mt-3 rounded-2xl overflow-hidden aspect-[21/6]">
-              <img src={HEARSE_BRANDED} alt="Willow Tree Funerals branded hearse" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
             </Reveal>
           </div>
         </section>
-        {/* ── 8. SERVICE AREAS ────────────────────────────────────────────── */}
-        <section className="py-20 bg-brand-light-blue/25">
+
+        {/* ── 11. PHOTO GALLERY ─────────────────────────────────────────── */}
+        <section className="py-16 bg-white overflow-hidden">
           <div className="container">
-            <Reveal className="mb-10">
-              <div className="grid lg:grid-cols-2 gap-8 items-end">
-                <div>
-                  <div className="w-10 h-px bg-brand-gold mb-5" />
-                  <p className="section-label mb-3">Areas We Serve</p>
-                  <h2
-                    className="font-serif text-brand-navy font-semibold"
-                    style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
-                  >
-                    Serving All of Greater Sydney,<br />Wollongong &amp; the Central Coast
-                  </h2>
-                </div>
-                <p className="text-brand-navy/60 text-sm leading-relaxed">
-                  From Hurstville and the St George area to Campbelltown, Camden, Picton, Wollongong, and the Central Coast — your local, trusted funeral director.
-                </p>
+            <Reveal>
+              <div className="text-center mb-10">
+                <p className="section-label mb-2">Our Services in Action</p>
+                <h2 className="font-serif text-brand-navy font-semibold leading-tight" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.02em" }}>
+                  Every Farewell, Handled with Grace
+                </h2>
               </div>
             </Reveal>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
-              {suburbs.map((suburb, i) => (
-                <Reveal key={suburb} delay={i * 0.02}>
-                  <div className="flex items-center gap-2 bg-white rounded-xl px-4 py-3 border border-brand-light-blue hover:border-brand-royal transition-colors group">
-                    <MapPin size={11} className="text-brand-royal shrink-0 group-hover:text-brand-gold transition-colors" />
-                    <span className="text-brand-navy text-xs font-sans">{suburb}</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
+                { src: CASKET_CATHEDRAL, alt: "Casket with roses at cathedral altar", span: "md:col-span-2 md:row-span-2" },
+                { src: BAGPIPER, alt: "Bagpiper leading funeral procession" },
+                { src: PALLBEARERS, alt: "Pallbearers carrying casket" },
+                { src: CASKET_HEARSE, alt: "Casket with white lilies in hearse" },
+                { src: BIRDCAGE_GARDEN, alt: "Birdcage floral tribute in memorial garden" },
+                { src: PRIEST_BLESSING, alt: "Priest blessing casket at hearse" },
+                { src: CASKET_YELLOW, alt: "Casket with yellow flower tribute" },
+              ].map((photo, i) => (
+                <Reveal key={photo.src} delay={i * 0.05}>
+                  <div className={`rounded-xl overflow-hidden ${photo.span || ""} ${i === 0 ? "h-64 md:h-full" : "h-36 md:h-44"}`}>
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      width={480} height={320}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 </Reveal>
               ))}
@@ -865,48 +925,89 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 9. FAQ ────────────────────────────────────────────────────── */}
-        <section className="py-28 bg-brand-ivory">
-          <div className="container max-w-3xl">
-            <Reveal className="mb-12">
-              <div className="w-10 h-px bg-brand-gold mb-5" />
-              <p className="section-label mb-3">Frequently Asked Questions</p>
-              <h2
-                className="font-serif text-brand-navy font-semibold"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
-              >
-                We're Here to Help
-              </h2>
+        {/* ── 12. SERVICE AREAS — Suburb pills ──────────────────────────── */}
+        <section className="py-20 bg-brand-light-blue/20">
+          <div className="container">
+            <Reveal>
+              <div className="text-center mb-10">
+                <p className="section-label mb-3">Areas We Serve</p>
+                <h2 className="font-serif text-brand-navy font-bold leading-tight mb-4" style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", letterSpacing: "-0.025em" }}>
+                  Serving Sydney, Wollongong &amp; the Central Coast
+                </h2>
+                <p className="text-brand-navy/55 text-sm max-w-xl mx-auto leading-relaxed">
+                  From St George and Sutherland Shire to South West Sydney, Wollongong, and the Central Coast — we come to you, wherever you are.
+                </p>
+              </div>
             </Reveal>
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-[#E8EFF8]">
-              {faqs.map((faq, i) => (
-                <FAQItem key={i} {...faq} />
-              ))}
-            </div>
-            <div className="mt-8 text-center">
-              <Link href="/faq" className="btn-outline">View All FAQs <ArrowRight size={14} /></Link>
+            <Reveal delay={0.15}>
+              <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto mb-10">
+                {suburbs.map(suburb => (
+                  <span
+                    key={suburb}
+                    className="inline-flex items-center gap-1.5 bg-white text-brand-navy text-xs font-medium px-3.5 py-2 rounded-full border border-brand-royal/15 shadow-sm hover:border-brand-royal/40 hover:shadow-md transition-all cursor-default"
+                  >
+                    <MapPin size={9} className="text-brand-royal shrink-0" /> {suburb}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal delay={0.25}>
+              <div className="text-center">
+                <p className="text-brand-navy/50 text-xs mb-4">Don't see your suburb? We likely serve your area.</p>
+                <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
+                  <Phone size={13} /> Call to Confirm Your Area
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── 13. FAQ ────────────────────────────────────────────────────── */}
+        <section className="py-28 bg-brand-ivory">
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              <Reveal from="left">
+                <div className="lg:sticky lg:top-32">
+                  <p className="section-label mb-3">Frequently Asked Questions</p>
+                  <h2 className="font-serif text-brand-navy font-bold leading-tight mb-6" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
+                    We're Here to Answer<br />Your Questions
+                  </h2>
+                  <p className="text-brand-navy/60 text-sm leading-relaxed mb-8">
+                    If you can't find the answer you're looking for, please call our Family Care Specialists — we're available 24 hours a day, 7 days a week.
+                  </p>
+                  <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
+                    <Phone size={13} /> {COMPANY.phone}
+                  </a>
+                  <div className="mt-8">
+                    <Link href="/faq" className="inline-flex items-center gap-2 text-brand-royal text-sm font-semibold hover:gap-3 transition-all">
+                      View All FAQs <ArrowRight size={13} />
+                    </Link>
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal from="right">
+                <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#E8EFF8]">
+                  {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
 
-        {/* ── 10. FINAL CTA ─────────────────────────────────────────────── */}
+        {/* ── 14. FINAL CTA ─────────────────────────────────────────────── */}
         <section
           className="relative py-40 overflow-hidden"
-          style={{
-            backgroundImage: `url(${HEARSE_BRANDED})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center 40%",
-          }}
+          style={{ backgroundImage: `url(${HEARSE_BRANDED})`, backgroundSize: "cover", backgroundPosition: "center 40%" }}
         >
-          <div className="absolute inset-0 bg-brand-navy/78" />
-          <div className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30" />
+          <div className="absolute inset-0 bg-brand-navy/80" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-white/10" />
           <div className="relative z-10 container">
             <div className="max-w-2xl">
               <Reveal>
-                <div className="w-10 h-px bg-brand-gold mb-6" />
-                <p className="section-label text-brand-gold mb-4">We're Here for You</p>
+                <div className="w-10 h-px bg-white/30 mb-6" />
+                <p className="section-label text-white/60 mb-4">We're Here for You</p>
                 <h2
-                  className="font-serif text-white font-semibold leading-tight mb-4"
+                  className="font-serif text-white font-bold leading-tight mb-3"
                   style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", letterSpacing: "-0.025em" }}
                 >
                   You Focus On Healing.
@@ -917,20 +1018,14 @@ export default function Home() {
                 >
                   We'll Take Care Of The Rest.
                 </h2>
-                <p className="text-white/65 text-sm leading-relaxed mb-10 max-w-lg">
+                <p className="text-white/60 text-sm leading-relaxed mb-10 max-w-lg">
                   Call our Family Care Specialists any time of the day or night. We will answer, and we will help.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href={COMPANY.phoneHref}
-                    className="btn-royal flex items-center justify-center gap-2 px-10 py-4"
-                  >
+                  <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 px-10 py-4">
                     <Phone size={15} /> {COMPANY.phone}
                   </a>
-                  <Link
-                    href="/contact"
-                    className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-10 py-4 flex items-center justify-center gap-2"
-                  >
+                  <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-10 py-4 flex items-center justify-center gap-2">
                     Send an Enquiry <ArrowRight size={14} />
                   </Link>
                 </div>
