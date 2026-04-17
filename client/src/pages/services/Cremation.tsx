@@ -77,7 +77,7 @@ export default function Cremation() {
         },
         {
           q: "How much does cremation cost in Sydney?",
-          a: "Cremation costs vary depending on the type of service chosen. We offer transparent, itemised pricing with no hidden fees. Please visit our Pricing page or call Bruce directly for a personalised quote.",
+          a: "Cremation costs vary depending on the type of service chosen. We offer transparent, itemised pricing with no hidden fees. Please visit our Pricing page or call our family care specialists for a personalised quote.",
         },
       ]}
       relatedServices={[

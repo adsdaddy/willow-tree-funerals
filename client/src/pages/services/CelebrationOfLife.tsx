@@ -23,7 +23,7 @@ export default function CelebrationOfLife() {
       }}
       intro={`A Celebration of Life is a beautiful, personalised service that focuses on honouring who your loved one truly was — their passions, their humour, their relationships, and the legacy they leave behind. While a traditional funeral centres on the solemnity of loss, a Celebration of Life embraces joy, gratitude, and the richness of a life fully lived. At Willow Tree Funerals, we help families create deeply meaningful tributes that feel authentic, warm, and uniquely personal — whether held at a chapel, a garden, a favourite venue, or even a sporting club.`}
       includes={[
-        "Personalised service design consultation with Bruce",
+        "Personalised service design consultation with our arrangers",
         "Photo and video tribute presentation",
         "Music of your choice — live or recorded",
         "Personalised order of service booklet",

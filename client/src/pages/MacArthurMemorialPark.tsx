@@ -314,7 +314,7 @@ export default function MacArthurMemorialPark() {
               <h2 className="font-serif text-white text-2xl md:text-3xl font-semibold mb-2">
                 Arranging a Funeral at MacArthur Memorial Park?
               </h2>
-              <p className="text-white/75">Call Bruce — we will take care of everything, from the first call to the final farewell.</p>
+              <p className="text-white/75">Call our family care specialists — we will take care of everything, from the first call to the final farewell.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">

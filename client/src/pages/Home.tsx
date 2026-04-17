@@ -140,6 +140,9 @@ const reviews = [
   { name: "Angela B.", suburb: "Miranda", rating: 5, date: "7 months ago", text: "Such a compassionate and dignified service. Bruce made us feel supported every step of the way. He remembered every detail we shared about Mum and made the service feel truly personal.", initials: "AB" },
   { name: "The Rossi Family", suburb: "Bexley", rating: 5, date: "8 months ago", text: "From the first call to the final farewell, everything was handled with grace and care. Willow Tree Funerals is truly exceptional. We are so grateful to Bruce for everything he did for our family.", initials: "RF" },
   { name: "Thomas M.", suburb: "Cronulla", rating: 5, date: "3 months ago", text: "I've attended many funerals over the years. The service Bruce conducted for my mother was the most dignified and heartfelt I have ever witnessed. He has a rare gift.", initials: "TM" },
+  { name: "Kellie Bell", suburb: "Sydney", rating: 5, date: "3 months ago", text: "Bruce and his team were amazing, even before our loved one passed and we were preparing for the inevitable. His warmth and care is second to none and his organisation and assistance of everything really took the pressure off.", initials: "KB" },
+  { name: "Jane Xie", suburb: "Sydney", rating: 5, date: "2 months ago", text: "Thank you so much, Bruce and your beautiful team! Your sincere generosity, sensitivity and professionalism have been heaven sent in our most difficult moments with mum's passing. You've made everything so smooth and easy — a true witness in this sacred vocation.", initials: "JX" },
+  { name: "Simon Yeak", suburb: "Sydney", rating: 5, date: "2 months ago", text: "Bruce is not only an old friend, but the only person that came to mind in entrusting my mother-in-law to. He held the service with such faith and devotion that all who were present felt his respect for someone he never met. Thank you, brother. The love you showed my family and I will never be forgotten.", initials: "SY" },
 ];
 
 const faqs = [
@@ -264,61 +267,48 @@ export default function Home() {
       <main id="main-content">
 
         {/* ── 1. HERO — Split editorial ──────────────────────────────────── */}
-        <section className="relative min-h-screen flex items-center bg-brand-ivory overflow-hidden">
-          {/* Right: hero image */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden">
-            <img
-              src={HERO_IMG}
-              alt="Peaceful willow tree at dawn — Willow Tree Funerals"
-              className="w-full h-full object-cover object-center"
-              width={1200} height={900}
-              fetchPriority="high"
-              decoding="async"
-            />
-            {/* Gradient fade left for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-ivory via-brand-ivory/80 to-transparent lg:via-brand-ivory/40" />
-          </div>
-
-          {/* Left: copy */}
+        <section
+          className="relative min-h-screen flex items-center overflow-hidden"
+          style={{ backgroundImage: `url(${HERO_IMG})`, backgroundSize: "cover", backgroundPosition: "center" }}
+        >
+          {/* Dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/65 to-brand-navy/30" />
+          {/* Copy */}
           <div className="relative z-10 container py-32 lg:py-0">
             <div className="max-w-xl">
               <Reveal delay={0.05}>
                 <div className="inline-flex items-center gap-2 mb-6">
-                  <div className="w-8 h-px bg-brand-royal" />
-                  <span className="section-label">Available 24 Hours · 7 Days</span>
+                  <div className="w-8 h-px bg-brand-gold" />
+                  <span className="section-label text-white/70">Available 24 Hours · 7 Days</span>
                 </div>
               </Reveal>
-
               <Reveal delay={0.15}>
                 <h1
-                  className="font-serif text-brand-navy font-bold leading-[1.05] mb-2"
+                  className="font-serif text-white font-bold leading-[1.05] mb-2"
                   style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", letterSpacing: "-0.03em" }}
                 >
                   Caring for Families
                 </h1>
                 <h1
                   className="font-serif font-light leading-[1.05] mb-6"
-                  style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", letterSpacing: "-0.03em", color: "#5B7FA6", fontStyle: "italic" }}
+                  style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", letterSpacing: "-0.03em", color: "#8FA8C8", fontStyle: "italic" }}
                 >
                   Across Sydney & Beyond
                 </h1>
               </Reveal>
-
               <Reveal delay={0.25}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-px bg-brand-royal/40" />
-                  <p className="font-serif italic text-brand-royal text-base" style={{ letterSpacing: "0.01em" }}>
+                  <div className="w-10 h-px bg-white/30" />
+                  <p className="font-serif italic text-white/80 text-base" style={{ letterSpacing: "0.01em" }}>
                     "{COMPANY.tagline}"
                   </p>
                 </div>
               </Reveal>
-
               <Reveal delay={0.32}>
-                <p className="text-brand-navy/65 text-base leading-relaxed mb-10 max-w-md">
+                <p className="text-white/70 text-base leading-relaxed mb-10 max-w-md">
                   Independent, family-owned funeral directors serving St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast. Catholic, multi-faith, and secular services.
                 </p>
               </Reveal>
-
               <Reveal delay={0.4}>
                 <div className="flex flex-col sm:flex-row gap-3 mb-12">
                   <a
@@ -329,13 +319,12 @@ export default function Home() {
                   </a>
                   <Link
                     href="/contact"
-                    className="btn-outline flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold"
+                    className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold"
                   >
                     Send an Enquiry <ArrowRight size={14} />
                   </Link>
                 </div>
               </Reveal>
-
               {/* Trust badges */}
               <Reveal delay={0.48}>
                 <div className="flex flex-wrap gap-4">
@@ -344,8 +333,8 @@ export default function Home() {
                     "ASIC Registered Funeral Home",
                     "Cert IV Funeral Services",
                   ].map(badge => (
-                    <div key={badge} className="flex items-center gap-1.5 text-xs text-brand-navy/60 font-medium">
-                      <CheckCircle2 size={12} className="text-brand-royal shrink-0" />
+                    <div key={badge} className="flex items-center gap-1.5 text-xs text-white/60 font-medium">
+                      <CheckCircle2 size={12} className="text-brand-gold shrink-0" />
                       {badge}
                     </div>
                   ))}
@@ -353,10 +342,9 @@ export default function Home() {
               </Reveal>
             </div>
           </div>
-
           {/* Scroll cue */}
           <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-brand-navy/40"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/40"
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
           >
@@ -364,8 +352,7 @@ export default function Home() {
             <ChevronDown size={14} />
           </motion.div>
         </section>
-
-        {/* ── 2. STATS BAR ──────────────────────────────────────────────── */}
+                {/* ── 2. STATS BAR ──────────────────────────────────────────────── */}
         <section className="bg-brand-navy py-10">
           <div className="container">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -505,11 +492,11 @@ export default function Home() {
               {/* Left: image stack */}
               <Reveal from="left">
                 <div className="relative">
-                  <div className="rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto lg:mx-0 shadow-2xl">
+                  <div className="rounded-2xl overflow-hidden aspect-[2/3] max-w-sm mx-auto lg:mx-0 shadow-2xl">
                     <img
                       src={BRUCE_CHURCH}
                       alt="Bruce Missen, Managing Director & Founder of Willow Tree Funerals"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-center"
                       width={480} height={640}
                       loading="lazy"
                       decoding="async"
@@ -809,7 +796,7 @@ export default function Home() {
                       <Stars count={5} />
                       <span className="font-bold text-brand-navy text-sm ml-1">5.0</span>
                     </div>
-                    <p className="text-brand-navy/50 text-[0.65rem]">47 reviews</p>
+                    <p className="text-brand-navy/50 text-[0.65rem]">58 reviews</p>
                   </div>
                 </div>
               </div>
@@ -875,7 +862,7 @@ export default function Home() {
             <Reveal delay={0.3}>
               <div className="text-center mt-8">
                 <a
-                  href="https://g.page/r/willowtreefunerals/review"
+                  href="https://www.google.com/maps/place/Willow+Tree+Funerals/@-33.9669895,151.1117502,17z/data=!4m8!3m7!1s0x6b12bfda70d48fbb:0xdd9386a77997c51c!8m2!3d-33.9669895!4d151.1117502!9m1!1b1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-brand-royal text-sm font-semibold hover:gap-3 transition-all"

@@ -45,6 +45,7 @@ const BlogWhatToDo = lazy(() => import("./pages/blog/WhatToDoWhenSomeonePasses")
 const BlogCatholicFuneral = lazy(() => import("./pages/blog/HowToPlanCatholicFuneral"));
 const BlogFuneralCosts = lazy(() => import("./pages/blog/UnderstandingFuneralCosts"));
 const BlogMacArthurPark = lazy(() => import("./pages/blog/MacArthurMemorialParkGuide"));
+const BlogArticle = lazy(() => import("./pages/blog/BlogArticle"));
 
 // Pre-arrangement flow
 const PreArrange = lazy(() => import("./pages/PreArrange"));
@@ -92,6 +93,8 @@ function Router() {
         <Route path="/blog/how-to-plan-catholic-funeral-sydney" component={BlogCatholicFuneral} />
         <Route path="/blog/understanding-funeral-costs-sydney" component={BlogFuneralCosts} />
         <Route path="/blog/macarthur-memorial-park-guide" component={BlogMacArthurPark} />
+        {/* Dynamic AI-generated article pages from babylovegrowth.ai */}
+        <Route path="/blog/article/:slug" component={BlogArticle} />
 
         {/* Pre-arrangement flow */}
         <Route path="/pre-arrange" component={PreArrange} />

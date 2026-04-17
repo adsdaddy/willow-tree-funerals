@@ -114,7 +114,7 @@ export default function Contact() {
             We're Here for You — Any Time
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8">
-            Call Bruce directly on <a href={COMPANY.phoneHref} className="text-brand-gold hover:text-white transition-colors font-semibold">{COMPANY.phone}</a> — available 24 hours a day, 7 days a week. Or send us an enquiry below and we will respond promptly.
+            Call our Family Care Specialists on <a href={COMPANY.phoneHref} className="text-brand-gold hover:text-white transition-colors font-semibold">{COMPANY.phone}</a> — available 24 hours a day, 7 days a week. Or send us an enquiry below and we will respond promptly.
           </p>
           {/* Quick contact bar */}
           <div className="flex flex-col sm:flex-row gap-4">
@@ -218,7 +218,7 @@ export default function Contact() {
                   </div>
                   <h3 className="font-serif text-white text-2xl font-semibold mb-3">Thank You — We've Received Your Enquiry</h3>
                   <p className="text-white/70 leading-relaxed mb-4">
-                    Bruce will personally review your message and call you back shortly. If you need immediate assistance, please call us now.
+                    Our family care specialists will review your message and call you back shortly. If you need immediate assistance, please call us now.
                   </p>
                   <div className="bg-white/5 border border-white/10 rounded-lg p-4 mb-6 text-left">
                     <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-2">What Happens Next</p>
@@ -229,7 +229,7 @@ export default function Contact() {
                       </li>
                       <li className="flex items-start gap-2 text-white/70 text-sm">
                         <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />
-                        <span>Bruce will call you back as soon as possible — usually within the hour</span>
+                        <span>One of our family care specialists will call you back as soon as possible — usually within the hour</span>
                       </li>
                       <li className="flex items-start gap-2 text-white/70 text-sm">
                         <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />

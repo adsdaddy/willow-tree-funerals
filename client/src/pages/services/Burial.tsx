@@ -57,7 +57,7 @@ export default function Burial() {
         },
         {
           q: "How much does a burial cost in Sydney?",
-          a: "Burial costs include our funeral service fees plus cemetery fees, which vary by cemetery and plot type. We provide a fully itemised, transparent quote with no hidden fees. Please call Bruce or visit our Pricing page for details.",
+          a: "Burial costs include our funeral service fees plus cemetery fees, which vary by cemetery and plot type. We provide a fully itemised, transparent quote with no hidden fees. Please call our family care specialists or visit our Pricing page for details.",
         },
       ]}
       relatedServices={[

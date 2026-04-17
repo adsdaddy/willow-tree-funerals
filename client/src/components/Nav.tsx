@@ -3,9 +3,10 @@
  * Design: Sacred Elegance — Royal Blue / Catholic-inspired
  * Sticky header, transparent-to-solid on scroll, mobile hamburger menu
  * CRO: Phone number always visible, "Arrange a Funeral" CTA button
+ * Fix: Services dropdown works on both hover (desktop) and click (touch/keyboard)
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { COMPANY } from "../../../shared/company";
@@ -24,7 +25,9 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location] = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -36,7 +39,19 @@ export default function Nav() {
   useEffect(() => {
     setMobileOpen(false);
     setServicesOpen(false);
+    setMobileServicesOpen(false);
   }, [location]);
+
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const isHome = location === "/";
 
@@ -59,13 +74,13 @@ export default function Nav() {
         }`}
       >
         <div className="container">
-          <div className="flex items-center justify-between h-24">
-            {/* Logo */}
+          <div className="flex items-center justify-between h-28">
+            {/* Logo — enlarged for visibility */}
             <Link href="/">
               <img
                 src={COMPANY.assets.logoWhite}
                 alt="Willow Tree Funerals"
-                className="h-16 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </Link>
 
@@ -78,22 +93,32 @@ export default function Nav() {
                 Home
               </Link>
 
-              {/* Services dropdown */}
+              {/* Services dropdown — works on hover AND click */}
               <div
+                ref={dropdownRef}
                 className="relative"
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors">
-                  Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+                <button
+                  onClick={() => setServicesOpen((prev) => !prev)}
+                  aria-expanded={servicesOpen}
+                  aria-haspopup="true"
+                  className="flex items-center gap-1 text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                >
+                  Services <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
                 {servicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-60 bg-white shadow-2xl rounded-2xl border border-[#E8EFF8] py-2 overflow-hidden">
+                  <div
+                    className="absolute top-full left-0 mt-1 w-64 bg-white shadow-2xl rounded-2xl border border-[#E8EFF8] py-2 overflow-hidden z-50"
+                    role="menu"
+                  >
                     {services.map((s) => (
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="block px-5 py-2.5 text-brand-navy hover:bg-brand-light-blue/60 hover:text-brand-royal text-xs tracking-wide uppercase font-sans font-medium transition-colors rounded-lg mx-1"
+                        role="menuitem"
+                        className="block px-5 py-3 text-brand-navy hover:bg-brand-light-blue/60 hover:text-brand-royal text-xs tracking-wide uppercase font-sans font-medium transition-colors rounded-lg mx-1"
                       >
                         {s.label}
                       </Link>
@@ -115,6 +140,12 @@ export default function Nav() {
                 Pricing
               </Link>
               <Link
+                href="/blog"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+              >
+                Blog
+              </Link>
+              <Link
                 href="/faq"
                 className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
               >
@@ -133,7 +164,7 @@ export default function Nav() {
               <a
                 href={COMPANY.phoneHref}
                 className="flex items-center gap-2 text-brand-gold hover:text-white transition-colors"
-              aria-label={`Call ${COMPANY.phone}`}
+                aria-label={`Call ${COMPANY.phone}`}
               >
                 <Phone size={15} />
                 <span className="font-sans font-semibold text-sm">{COMPANY.phone}</span>
@@ -148,6 +179,7 @@ export default function Nav() {
               className="lg:hidden text-white p-2"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -161,15 +193,16 @@ export default function Nav() {
               <Link href="/" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Home</Link>
               <div>
                 <button
-                  onClick={() => setServicesOpen(!servicesOpen)}
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  aria-expanded={mobileServicesOpen}
                   className="flex items-center justify-between w-full text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10"
                 >
-                  Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+                  Services <ChevronDown size={14} className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
                 </button>
-                {servicesOpen && (
-                  <div className="pl-4 mt-2 flex flex-col gap-2">
+                {mobileServicesOpen && (
+                  <div className="pl-4 mt-2 flex flex-col gap-1">
                     {services.map((s) => (
-                      <Link key={s.href} href={s.href} className="text-white/60 text-xs tracking-wide uppercase font-sans py-1.5">
+                      <Link key={s.href} href={s.href} className="text-white/70 text-xs tracking-wide uppercase font-sans py-2 hover:text-white transition-colors">
                         {s.label}
                       </Link>
                     ))}
@@ -178,6 +211,7 @@ export default function Nav() {
               </div>
               <Link href="/about" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">About</Link>
               <Link href="/pricing" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Pricing</Link>
+              <Link href="/blog" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Blog</Link>
               <Link href="/faq" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">FAQ</Link>
               <Link href="/contact" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Contact</Link>
               <a href={COMPANY.phoneHref} className="btn-royal text-center mt-2">

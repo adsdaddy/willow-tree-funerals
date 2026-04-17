@@ -37,7 +37,7 @@ export default function GravesideServices() {
       featureImage={COMPANY.assets.brucePodium}
       pullQuote="The Lord is my shepherd; I shall not want. He makes me lie down in green pastures."
       steps={[
-        { num: "01", title: "First Call", desc: "Call Bruce on 02 8776 1667 — any time. We will come to you and take care of everything." },
+        { num: "01", title: "First Call", desc: "Call us on 02 8776 1667 — any time. Our family care specialists will come to you and take care of everything." },
         { num: "02", title: "Cemetery Selection", desc: "We help you choose the right cemetery and arrange the grave booking and all preparation." },
         { num: "03", title: "The Service", desc: "A simple, personalised service at the graveside — conducted with complete dignity and care." },
         { num: "04", title: "The Committal", desc: "The final farewell at the graveside — a moment of peace, closure, and love." },
@@ -61,7 +61,7 @@ export default function GravesideServices() {
         },
         {
           q: "Is a graveside service less expensive than a full funeral?",
-          a: "Generally, yes. A graveside service avoids the cost of a separate chapel or church hire. We provide transparent, itemised pricing — please call Bruce or visit our Pricing page for details.",
+          a: "Generally, yes. A graveside service avoids the cost of a separate chapel or church hire. We provide transparent, itemised pricing — please call our team or visit our Pricing page for details.",
         },
       ]}
       relatedServices={[

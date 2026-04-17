@@ -4,6 +4,9 @@ import { notifyOwner } from "./_core/notification";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
+import { getDb } from "./db";
+import { blogPosts } from "../drizzle/schema";
+import { desc, eq, and } from "drizzle-orm";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -147,6 +150,67 @@ export const appRouter = router({
         return { success: true, notified: sent };
       }),
   }),
-});
+  // ── Blog procedures (reads from blog_posts table populated by babylovegrowth.ai webhook) ──
+  blog: router({
+    getLatest: publicProcedure
+      .input(
+        z.object({
+          limit: z.number().min(1).max(12).default(6),
+          tag: z.string().optional(),
+        }).optional()
+      )
+      .query(async ({ input }) => {
+        const db = await getDb();
+        if (!db) return [];
+        const posts = await db
+          .select()
+          .from(blogPosts)
+          .where(eq(blogPosts.isPublished, 1))
+          .orderBy(desc(blogPosts.publishedAt))
+          .limit(input?.limit ?? 6);
+        if (input?.tag && input.tag !== "All") {
+          return posts.filter((p) =>
+            p.tags.split(",").map((t) => t.trim()).includes(input.tag!)
+          );
+        }
+        return posts;
+      }),
 
+    getBySlug: publicProcedure
+      .input(z.object({ slug: z.string() }))
+      .query(async ({ input }) => {
+        const db = await getDb();
+        if (!db) return null;
+        const [post] = await db
+          .select()
+          .from(blogPosts)
+          .where(
+            and(
+              eq(blogPosts.slug, input.slug),
+              eq(blogPosts.isPublished, 1)
+            )
+          )
+          .limit(1);
+        return post ?? null;
+      }),
+
+    getAllTags: publicProcedure.query(async () => {
+      const db = await getDb();
+      if (!db) return [];
+      const posts = await db
+        .select({ tags: blogPosts.tags })
+        .from(blogPosts)
+        .where(eq(blogPosts.isPublished, 1));
+      const tagSet = new Set<string>();
+      posts.forEach((p) =>
+        p.tags
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean)
+          .forEach((t) => tagSet.add(t))
+      );
+      return Array.from(tagSet).sort();
+    }),
+  }),
+});
 export type AppRouter = typeof appRouter;

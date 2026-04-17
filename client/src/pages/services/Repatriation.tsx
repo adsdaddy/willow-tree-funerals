@@ -34,10 +34,10 @@ export default function Repatriation() {
         "Burial or cremation in Sydney or onward transport",
         "Ongoing communication with your family throughout",
       ]}
-      featureImage={COMPANY.assets.grandmotherGranddaughter}
+      featureImage={COMPANY.assets.communityDinner}
       pullQuote="Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me."
       steps={[
-        { num: "01", title: "First Call", desc: "Call Bruce immediately — we will take over all coordination so your family can focus on grieving, not logistics." },
+        { num: "01", title: "First Call", desc: "Call us immediately — our team will take over all coordination so your family can focus on grieving, not logistics." },
         { num: "02", title: "Documentation", desc: "We manage all consular, embassy, and government documentation required for international transport." },
         { num: "03", title: "Transport", desc: "We coordinate with airlines and overseas funeral homes to ensure safe, dignified transport." },
         { num: "04", title: "Home", desc: "Your loved one arrives in Sydney in our care, ready for the funeral service your family chooses." },
@@ -61,7 +61,7 @@ export default function Repatriation() {
         },
         {
           q: "How much does repatriation cost?",
-          a: "Costs vary significantly depending on the country of origin, airline, and documentation requirements. We provide a transparent, itemised quote as soon as we have the necessary information. Please call Bruce directly for an initial estimate.",
+          a: "Costs vary significantly depending on the country of origin, airline, and documentation requirements. We provide a transparent, itemised quote as soon as we have the necessary information. Please call our family care specialists directly for an initial estimate.",
         },
       ]}
       relatedServices={[

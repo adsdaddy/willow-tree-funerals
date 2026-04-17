@@ -46,7 +46,7 @@ export default function CatholicFunerals() {
         {
           num: "01",
           title: "First Call",
-          desc: "Call Bruce directly on 02 8776 1667 — any time, day or night. We will come to you immediately.",
+          desc: "Call our Family Care Specialists on 02 8776 1667 — any time, day or night. We will come to you immediately.",
         },
         {
           num: "02",

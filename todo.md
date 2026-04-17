@@ -57,3 +57,22 @@
 - [x] /pre-arrange multi-step form (4 steps: Personal Details → Service Preferences → Final Wishes → Review & Submit)
 - [x] tRPC preArrange.preArrange mutation with notifyOwner
 - [x] Vitest tests for contact.submit and preArrange.preArrange (9 tests passing)
+
+## User Feedback Changes (Round 2) — Complete
+- [x] Hero image: full-width stretch like /services/funeral-services (same colour/tone)
+- [x] Nav dropdown: fix so it stays open on click and items are selectable
+- [x] Logo: make bigger so it's clearly visible
+- [x] Replace "Bruce" references with "Willow Tree Funerals / our family care specialists / our arrangers" (except About/Meet Bruce sections)
+- [x] Pre-arrange page: show Bruce's full photo (not cropped)
+- [x] Repatriation page: replace duplicate celebration-of-life image with a different one
+- [x] About Us banner: replace blurred banner image with clear bruce-church-walking photo
+- [x] Pricing page: changed to "Call and speak to one of our Family Care Specialists"
+- [x] Google Reviews: real reviews added to homepage carousel
+- [x] Fix "See All Reviews on Google" button — now links to correct Google Place page
+- [x] Add Blog link to the main navigation menu
+- [ ] Set up babylovegrowth.ai webhook for automated daily blog posts — deferred to next session
+
+## Database
+- [x] blog_posts table created and migrated (for future babylovegrowth.ai integration)
+- [x] Blog tRPC procedures: blog.getLatest, blog.getBySlug, blog.getAllTags
+- [x] Blog REST API + webhook endpoint registered at /api/blog/webhook

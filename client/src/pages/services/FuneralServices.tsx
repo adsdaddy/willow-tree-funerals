@@ -37,7 +37,7 @@ export default function FuneralServices() {
       featureImage={COMPANY.assets.grandmotherGranddaughter}
       pullQuote="Do not let your hearts be troubled. You believe in God; believe also in me."
       steps={[
-        { num: "01", title: "Call Us", desc: "Call Bruce on 02 8776 1667 — any time. We will come to you and take care of everything from the very first moment." },
+        { num: "01", title: "Call Us", desc: "Call us on 02 8776 1667 — any time, day or night. Our family care specialists will come to you and take care of everything from the very first moment." },
         { num: "02", title: "Plan Together", desc: "We sit with your family and help you plan a service that truly reflects your loved one's life, faith, and personality." },
         { num: "03", title: "The Service", desc: "We conduct a beautiful, personalised service — at a church, chapel, graveside, or any meaningful location." },
         { num: "04", title: "Aftercare", desc: "Our care doesn't end at the service. We provide ongoing support and help with all post-funeral administration." },

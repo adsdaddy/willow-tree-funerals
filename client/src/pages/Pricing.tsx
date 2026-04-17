@@ -157,7 +157,7 @@ const pricingFaqs = [
   },
   {
     q: "Can I get a personalised quote?",
-    a: "Yes. Call Bruce on " + COMPANY.phone + " or complete our contact form. We will provide a fully itemised, written quote tailored to your family's specific needs and wishes — with no obligation.",
+    a: "Yes. Call us on " + COMPANY.phone + " or complete our contact form. We will provide a fully itemised, written quote tailored to your family's specific needs and wishes — with no obligation.",
   },
   {
     q: "What is not included in the package price?",
@@ -169,11 +169,11 @@ const pricingFaqs = [
   },
   {
     q: "Can I pay for a funeral in advance?",
-    a: "Yes. Pre-paying for your funeral locks in today's prices and ensures the cost is fully covered. Funds are held in a regulated trust. Please visit our Pre-Arranged Funerals page or call Bruce to discuss.",
+    a: "Yes. Pre-paying for your funeral locks in today's prices and ensures the cost is fully covered. Funds are held in a regulated trust. Please visit our Pre-Arranged Funerals page or call our team to discuss.",
   },
   {
     q: "What if I cannot afford a funeral?",
-    a: "We understand that cost is a real concern for many families. We will always work with you to find a dignified solution within your budget. Please call Bruce and speak openly — we will do our best to help.",
+    a: "We understand that cost is a real concern for many families. We will always work with you to find a dignified solution within your budget. Please call our team and speak openly — we will do our best to help.",
   },
 ];
 
@@ -215,7 +215,7 @@ export default function Pricing() {
           </p>
           <div className="flex items-center justify-center gap-2 bg-brand-gold/10 border border-brand-gold/30 px-6 py-3 inline-flex">
             <Info size={16} className="text-brand-gold shrink-0" />
-            <p className="text-white/80 text-sm">Prices shown are indicative starting points. Call Bruce for a personalised, itemised quote.</p>
+            <p className="text-white/80 text-sm">Prices shown are indicative starting points. Call our team for a personalised, itemised quote.</p>
           </div>
         </div>
       </section>
@@ -284,7 +284,7 @@ export default function Pricing() {
             ))}
           </div>
           <p className="text-brand-navy/40 text-xs mt-4">
-            POA = Price on application. All prices are indicative and subject to confirmation. Contact Bruce for a personalised quote.
+            POA = Price on application. All prices are indicative and subject to confirmation. Contact our team for a personalised quote.
           </p>
         </div>
       </section>
@@ -340,7 +340,7 @@ export default function Pricing() {
               <h2 className="font-serif text-white text-2xl md:text-3xl font-semibold mb-2">
                 Get a Personalised, Itemised Quote
               </h2>
-              <p className="text-white/75">Call Bruce directly — no obligation, no pressure.</p>
+              <p className="text-white/75">Call our Family Care Specialists — no obligation, no pressure.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">

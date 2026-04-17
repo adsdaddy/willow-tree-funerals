@@ -127,9 +127,9 @@ export default function About() {
       <section
         className="relative min-h-[60vh] flex items-end"
         style={{
-          backgroundImage: `url(${COMPANY.assets.brucePodium})`,
+          backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-walking_upscaled_a1fa6d59.jpg)`,
           backgroundSize: "cover",
-          backgroundPosition: "center 30%",
+          backgroundPosition: "center 20%",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/20" />
@@ -153,7 +153,7 @@ export default function About() {
               <img
                 src={COMPANY.assets.bruceHeadshot}
                 alt="Bruce Missen — Funeral Director, Willow Tree Funerals"
-                className="w-full aspect-[3/4] object-cover object-top"
+                className="w-full aspect-[2/3] object-cover object-center"
                 width={480}
                 height={640}
                 loading="lazy"

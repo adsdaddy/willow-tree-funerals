@@ -126,7 +126,7 @@ const faqCategories = [
       },
       {
         q: "Can I pre-pay for my funeral?",
-        a: "Yes. Pre-paying locks in today's prices and ensures the cost is fully covered. Funds are held in a regulated trust. Please visit our Pre-Arranged Funerals page or call Bruce to discuss.",
+        a: "Yes. Pre-paying locks in today's prices and ensures the cost is fully covered. Funds are held in a regulated trust. Please visit our Pre-Arranged Funerals page or call our team to discuss.",
       },
     ],
   },
@@ -216,7 +216,7 @@ export default function FAQ() {
             Your Questions, Answered Honestly
           </h1>
           <p className="text-white/70 text-lg leading-relaxed">
-            We know that arranging a funeral raises many questions. Here are honest, clear answers to the questions families ask us most often. If you don't find what you're looking for, please call Bruce directly.
+            We know that arranging a funeral raises many questions. Here are honest, clear answers to the questions families ask us most often. If you don't find what you're looking for, please call our family care specialists directly.
           </p>
         </div>
       </section>
@@ -242,7 +242,7 @@ export default function FAQ() {
         <div className="container max-w-3xl text-center">
           <p className="section-label text-brand-gold mb-3">Still Have Questions?</p>
           <h2 className="font-serif text-white text-3xl md:text-4xl font-semibold mb-6">
-            Call Bruce — He Will Answer
+            Speak to a Family Care Specialist
           </h2>
           <p className="text-white/70 leading-relaxed mb-10">
             No call centres, no automated systems. When you call Willow Tree Funerals, Bruce Missen answers. He will take the time to answer every question you have, with patience and honesty.
