@@ -76,3 +76,6 @@
 - [x] blog_posts table created and migrated (for future babylovegrowth.ai integration)
 - [x] Blog tRPC procedures: blog.getLatest, blog.getBySlug, blog.getAllTags
 - [x] Blog REST API + webhook endpoint registered at /api/blog/webhook
+
+## User Feedback Changes (Round 3)
+- [x] Replace homepage hero background with branded hearse image (warm stone/church tones, no beach/water feel)

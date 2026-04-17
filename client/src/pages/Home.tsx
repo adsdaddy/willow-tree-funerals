@@ -269,7 +269,7 @@ export default function Home() {
         {/* ── 1. HERO — Split editorial ──────────────────────────────────── */}
         <section
           className="relative min-h-screen flex items-center overflow-hidden"
-          style={{ backgroundImage: `url(${HERO_IMG})`, backgroundSize: "cover", backgroundPosition: "center" }}
+          style={{ backgroundImage: `url(${HEARSE_BRANDED})`, backgroundSize: "cover", backgroundPosition: "center 30%" }}
         >
           {/* Dark gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/65 to-brand-navy/30" />
