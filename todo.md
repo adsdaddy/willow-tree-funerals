@@ -79,3 +79,13 @@
 
 ## User Feedback Changes (Round 3)
 - [x] Replace homepage hero background with branded hearse image (warm stone/church tones, no beach/water feel)
+
+## User Feedback Changes (Round 4)
+- [ ] Replace Christmas dinner table image with something appropriate
+- [ ] Revert homepage hero back to willow tree banner (used on other pages) — pending Louise's decision on hearse vs willow tree
+
+## User Feedback Changes (Round 4)
+- [x] Fix Bruce portrait crop — head cut off on mobile (About page: changed to object-top)
+- [x] Replace Christmas dinner table (communityDinner) on Repatriation page with procession photo
+- [x] Revert homepage hero back to original willow tree banner
+- [x] Remove brucePodium/podium photo from all pages — replaced with: church-interior-mass (Catholic Funerals), casket-cathedral (Burial), chapelInterior (Graveside), church-service (Blog)

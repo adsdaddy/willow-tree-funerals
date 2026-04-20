@@ -34,7 +34,7 @@ export default function Burial() {
         "Death certificate and all statutory documentation",
         "Personalised order of service booklet",
       ]}
-      featureImage={COMPANY.assets.brucePodium}
+      featureImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg"
       pullQuote="Blessed are those who mourn, for they shall be comforted."
       steps={[
         { num: "01", title: "First Call", desc: "Call us 24/7 — we will come to you immediately and take care of your loved one." },

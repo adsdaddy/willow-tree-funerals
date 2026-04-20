@@ -9,7 +9,7 @@ import ServicePageTemplate from "../../components/ServicePageTemplate";
 import { COMPANY } from "../../../../shared/company";
 
 const HERO_IMG = COMPANY.assets.churchService;
-const FEATURE_IMG = COMPANY.assets.brucePodium;
+const FEATURE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg";
 
 export default function CatholicFunerals() {
   return (

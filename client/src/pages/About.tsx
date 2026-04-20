@@ -153,7 +153,7 @@ export default function About() {
               <img
                 src={COMPANY.assets.bruceHeadshot}
                 alt="Bruce Missen — Funeral Director, Willow Tree Funerals"
-                className="w-full aspect-[2/3] object-cover object-center"
+                className="w-full aspect-[2/3] object-cover object-top"
                 width={480}
                 height={640}
                 loading="lazy"

@@ -34,7 +34,7 @@ export default function GravesideServices() {
         "Rite of Committal (Catholic or multi-faith)",
         "Death certificate and all statutory documentation",
       ]}
-      featureImage={COMPANY.assets.brucePodium}
+      featureImage={COMPANY.assets.chapelInterior}
       pullQuote="The Lord is my shepherd; I shall not want. He makes me lie down in green pastures."
       steps={[
         { num: "01", title: "First Call", desc: "Call us on 02 8776 1667 — any time. Our family care specialists will come to you and take care of everything." },
