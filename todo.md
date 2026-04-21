@@ -85,7 +85,15 @@
 - [ ] Revert homepage hero back to willow tree banner (used on other pages) — pending Louise's decision on hearse vs willow tree
 
 ## User Feedback Changes (Round 4)
-- [x] Fix Bruce portrait crop — head cut off on mobile (About page: changed to object-top)
+- [x] Fix Bruce portrait crop — About page now shows full headshot at natural proportions (no forced aspect ratio, no cropping)
 - [x] Replace Christmas dinner table (communityDinner) on Repatriation page with procession photo
 - [x] Revert homepage hero back to original willow tree banner
 - [x] Remove brucePodium/podium photo from all pages — replaced with: church-interior-mass (Catholic Funerals), casket-cathedral (Burial), chapelInterior (Graveside), church-service (Blog)
+
+## Analytics & Tracking Integration
+- [ ] Google Analytics 4 (GA4) — gtag.js in index.html
+- [ ] Google Ads conversion tracking — linked to GA4 or standalone AW tag
+- [ ] Microsoft Clarity — script in index.html
+- [ ] Meta Pixel (client-side) — fbq script in index.html
+- [ ] Meta Conversions API (server-side) — tRPC procedure sending events to Meta CAPI
+- [ ] Conversion events wired: contact form submit, phone click, "Arrange a Funeral" CTA click, pre-arrange form submit
