@@ -492,12 +492,12 @@ export default function Home() {
               {/* Left: image stack */}
               <Reveal from="left">
                 <div className="relative">
-                  <div className="rounded-2xl overflow-hidden aspect-[2/3] max-w-sm mx-auto lg:mx-0 shadow-2xl">
+                  <div className="rounded-2xl overflow-hidden max-w-sm mx-auto lg:mx-0 shadow-2xl">
                     <img
-                      src={BRUCE_CHURCH}
+                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot_18cf3f17.png"
                       alt="Bruce Missen, Managing Director & Founder of Willow Tree Funerals"
-                      className="w-full h-full object-cover object-center"
-                      width={480} height={640}
+                      className="w-full h-auto block"
+                      width={480} height={480}
                       loading="lazy"
                       decoding="async"
                     />
