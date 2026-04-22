@@ -612,7 +612,7 @@ export default function Home() {
                     We believe families deserve to know exactly what a funeral costs before they commit. That's why we publish our prices openly and provide a full itemised quote for every arrangement.
                   </p>
                   <p className="text-brand-navy/65 text-base leading-relaxed mb-8">
-                    Our packages start from <strong className="text-brand-navy font-semibold">$2,950</strong> for a direct cremation and include everything you need, with no upselling and no pressure.
+                    Our packages start from <strong className="text-brand-navy font-semibold">$3,100</strong> for a direct cremation and include everything you need, with no upselling and no pressure.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Link href="/pricing" className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
