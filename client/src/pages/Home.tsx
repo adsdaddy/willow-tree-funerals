@@ -885,26 +885,44 @@ export default function Home() {
                 </h2>
               </div>
             </Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {/* Row 1: large hero photo (2×2) + 3 smaller photos */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+              {/* Hero — spans 2 cols × 2 rows */}
+              <Reveal delay={0} className="col-span-1 md:col-span-2 row-span-1 md:row-span-2">
+                <div className="rounded-xl overflow-hidden h-52 md:h-[380px]">
+                  <img src={CASKET_CATHEDRAL} alt="Casket with roses at cathedral altar"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    width={640} height={480} loading="lazy" decoding="async" />
+                </div>
+              </Reveal>
+              {/* Three small photos to the right */}
               {[
-                { src: CASKET_CATHEDRAL, alt: "Casket with roses at cathedral altar", span: "md:col-span-2 md:row-span-2" },
-                { src: BAGPIPER, alt: "Bagpiper leading funeral procession" },
+                { src: BAGPIPER,    alt: "Bagpiper leading funeral procession" },
                 { src: PALLBEARERS, alt: "Pallbearers carrying casket" },
                 { src: CASKET_HEARSE, alt: "Casket with white lilies in hearse" },
+              ].map((photo, i) => (
+                <Reveal key={photo.src} delay={(i + 1) * 0.07}>
+                  <div className="rounded-xl overflow-hidden h-52 md:h-[182px]">
+                    <img src={photo.src} alt={photo.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      width={480} height={320} loading="lazy" decoding="async" />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            {/* Row 2: 4 equal-width photos */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
                 { src: BIRDCAGE_GARDEN, alt: "Birdcage floral tribute in memorial garden" },
                 { src: PRIEST_BLESSING, alt: "Priest blessing casket at hearse" },
-                { src: CASKET_YELLOW, alt: "Casket with yellow flower tribute" },
+                { src: CASKET_YELLOW,   alt: "Casket with yellow flower tribute" },
+                { src: SERVICE_CHURCH,  alt: "Funeral service inside church" },
               ].map((photo, i) => (
-                <Reveal key={photo.src} delay={i * 0.05}>
-                  <div className={`rounded-xl overflow-hidden ${photo.span || ""} ${i === 0 ? "h-64 md:h-full" : "h-36 md:h-44"}`}>
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
+                <Reveal key={photo.src} delay={(i + 4) * 0.07}>
+                  <div className="rounded-xl overflow-hidden h-40 md:h-52">
+                    <img src={photo.src} alt={photo.alt}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                      width={480} height={320}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                      width={480} height={320} loading="lazy" decoding="async" />
                   </div>
                 </Reveal>
               ))}

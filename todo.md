@@ -121,3 +121,6 @@
 - [x] Director email shown on Order Flowers page (intro section + form footer + CTA)
 - [x] Flower enquiry form UI on /order-flowers (arrangement type, delivery address, service date, contact details)
 - [x] Vitest tests for flowers.submitEnquiry procedure (10 tests, all passing)
+
+## Gallery Layout Fix
+- [x] Fixed 'Our Services in Action' gallery — replaced orphaned 3-photo bottom row with 2-row layout: large hero (2×2) + 3 right-side photos in row 1, then 4 equal photos in row 2
