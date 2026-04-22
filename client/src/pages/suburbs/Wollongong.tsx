@@ -10,7 +10,7 @@ export default function Wollongong() {
       slug="wollongong"
       heroHeading="Funeral Director Wollongong"
       heroSubheading="Compassionate funeral services for families in Wollongong and the Illawarra region. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals extends its services to families in Wollongong and the Illawarra region. We understand that when a loved one passes, families need immediate, compassionate support — and we provide exactly that. Bruce Missen will travel to Wollongong to meet your family and personally oversee every aspect of the funeral arrangement."
+      intro="Willow Tree Funerals extends its services to families in Wollongong and the Illawarra region. We understand that when a loved one passes, families need immediate, compassionate support — and we provide exactly that. Our team will travel to Wollongong to meet your family and personally oversee every aspect of the funeral arrangement."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",
@@ -24,7 +24,7 @@ export default function Wollongong() {
       faqs={[
         {
           q: "Do you serve Wollongong and the Illawarra?",
-          a: "Yes. Willow Tree Funerals serves families in Wollongong, Shellharbour, Kiama, and throughout the Illawarra region. Bruce Missen will travel to meet your family wherever is most convenient.",
+          a: "Yes. Willow Tree Funerals serves families in Wollongong, Shellharbour, Kiama, and throughout the Illawarra region. Our team will travel to meet your family wherever is most convenient.",
         },
         {
           q: "Can you arrange a Catholic funeral in Wollongong?",
@@ -41,7 +41,7 @@ export default function Wollongong() {
       ]}
       canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-wollongong"
       metaTitle="Funeral Director Wollongong | Willow Tree Funerals | 02 8776 1667"
-      metaDescription="Compassionate funeral director serving Wollongong and the Illawarra. Catholic, secular, and multi-faith services. Available 24/7. Call Bruce Missen on 02 8776 1667."
+      metaDescription="Compassionate funeral director serving Wollongong and the Illawarra. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}
     />
   );

@@ -136,3 +136,8 @@
 
 ## Homepage Pricing Table Update
 - [x] Updated 'Willow Tree vs. Sydney Average' comparison table to match new Pricing page values (Direct Cremation $3,100, Full Cremation Service $7,500, Burial Service $9,500)
+
+## Site-Wide Solo-Attribution Audit
+- [x] Found 20+ instances across 11 files: FAQSection, LocalAreaSEO, SuburbPageTemplate, Home, Contact, PreArrange, CatholicFunerals, PreArrangedFunerals, and all 6 suburb pages
+- [x] Replaced all with team-inclusive language ("our team", "our Family Care Specialists", "A Family Care Specialist", "Call us") — About/Meet Bruce sections intentionally preserved
+- [x] Final site-wide grep confirms zero remaining solo-attribution phrases outside About/Meet Bruce sections

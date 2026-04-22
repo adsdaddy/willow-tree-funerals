@@ -574,7 +574,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: Shield, title: "Truly Independent", desc: "We are not part of InvoCare or any corporate group. Every decision we make is guided by your family's needs — not shareholder returns." },
-                { icon: Heart, title: "Personal from Start to Finish", desc: "Bruce personally oversees every arrangement. You will always speak to the same person, who knows your family and your loved one's story." },
+                { icon: Heart, title: "Personal from Start to Finish", desc: "Our team personally oversees every arrangement. You will always speak to the same person, who knows your family and your loved one's story." },
                 { icon: Clock, title: "Available 24 Hours a Day", desc: "When you call, we answer. Day or night, weekends and public holidays — our Family Care Specialists are always available." },
                 { icon: CheckCircle2, title: "Transparent Pricing", desc: "No hidden fees, no upselling, no surprises. We publish our prices openly and provide itemised quotes so you know exactly what you're paying for." },
                 { icon: MapPin, title: "Two Sydney Locations", desc: "With offices in Hurstville and Campbelltown, we serve families across St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast." },

@@ -68,7 +68,7 @@ export default function LocalAreaSEO() {
               Don't See Your Suburb?
             </h3>
             <p className="text-white/65 text-sm">
-              We serve all of Sydney. Call Bruce directly and we will come to you.
+              We serve all of Sydney. Call us directly and we will come to you.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">

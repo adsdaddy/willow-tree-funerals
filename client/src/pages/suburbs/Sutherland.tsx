@@ -41,7 +41,7 @@ export default function Sutherland() {
       ]}
       canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-sutherland"
       metaTitle="Funeral Director Sutherland Shire | Willow Tree Funerals | 02 8776 1667"
-      metaDescription="Trusted funeral director serving Sutherland and the Sutherland Shire. Catholic, secular, and multi-faith services. Available 24/7. Call Bruce Missen on 02 8776 1667."
+      metaDescription="Trusted funeral director serving Sutherland and the Sutherland Shire. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}
     />
   );

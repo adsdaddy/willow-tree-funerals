@@ -41,7 +41,7 @@ export default function Campbelltown() {
       ]}
       canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-campbelltown"
       metaTitle="Funeral Director Campbelltown | Willow Tree Funerals | 02 8776 1667"
-      metaDescription="Independent funeral director serving Campbelltown and South West Sydney. Catholic, secular, and multi-faith services. Available 24/7. Call Bruce Missen on 02 8776 1667."
+      metaDescription="Independent funeral director serving Campbelltown and South West Sydney. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}
     />
   );

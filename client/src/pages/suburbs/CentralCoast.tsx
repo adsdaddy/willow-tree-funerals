@@ -10,7 +10,7 @@ export default function CentralCoast() {
       slug="central-coast"
       heroHeading="Funeral Director Central Coast"
       heroSubheading="Compassionate, independent funeral services for families on the Central Coast. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals extends its services to families on the Central Coast of NSW. We serve Gosford, Wyong, Terrigal, The Entrance, and all surrounding areas. Bruce Missen will travel to the Central Coast to meet your family and personally oversee every aspect of the funeral arrangement — bringing the same care and dignity that has earned us a 5-star Google rating."
+      intro="Willow Tree Funerals extends its services to families on the Central Coast of NSW. We serve Gosford, Wyong, Terrigal, The Entrance, and all surrounding areas. Our team will travel to the Central Coast to meet your family and personally oversee every aspect of the funeral arrangement — bringing the same care and dignity that has earned us a 5-star Google rating."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",
@@ -24,7 +24,7 @@ export default function CentralCoast() {
       faqs={[
         {
           q: "Do you serve the Central Coast?",
-          a: "Yes. Willow Tree Funerals serves families across the Central Coast including Gosford, Wyong, Terrigal, The Entrance, Erina, and all surrounding areas. Bruce Missen will travel to meet your family wherever is most convenient.",
+          a: "Yes. Willow Tree Funerals serves families across the Central Coast including Gosford, Wyong, Terrigal, The Entrance, Erina, and all surrounding areas. Our team will travel to meet your family wherever is most convenient.",
         },
         {
           q: "Can you arrange a Catholic funeral on the Central Coast?",
@@ -41,7 +41,7 @@ export default function CentralCoast() {
       ]}
       canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-central-coast"
       metaTitle="Funeral Director Central Coast NSW | Willow Tree Funerals | 02 8776 1667"
-      metaDescription="Independent funeral director serving the Central Coast NSW. Catholic, secular, and multi-faith services. Available 24/7. Call Bruce Missen on 02 8776 1667."
+      metaDescription="Independent funeral director serving the Central Coast NSW. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}
     />
   );

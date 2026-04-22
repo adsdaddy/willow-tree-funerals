@@ -100,7 +100,7 @@ export default function Contact() {
     <>
       <SEOHead
         title="Contact Willow Tree Funerals | Funeral Director Hurstville | 02 8776 1667"
-        description="Contact Willow Tree Funerals in Hurstville or Macquarie Links. Available 24/7. Call Bruce Missen on 02 8776 1667 or send an enquiry online. Serving all of Sydney's south and South West Sydney."
+        description="Contact Willow Tree Funerals in Hurstville or Macquarie Links. Available 24/7. Call us on 02 8776 1667 or send an enquiry online. Serving all of Sydney's south and South West Sydney."
         canonical="/contact"
         schema={schema}
       />

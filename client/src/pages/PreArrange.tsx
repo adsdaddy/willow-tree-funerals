@@ -102,7 +102,7 @@ export default function PreArrange() {
       <>
         <SEOHead
           title="Pre-Arrangement Request Received | Willow Tree Funerals"
-          description="Thank you for submitting your pre-arrangement request. Bruce Missen will be in touch within 24 hours."
+          description="Thank you for submitting your pre-arrangement request. Our team will be in touch within 24 hours."
           canonical="https://www.willowtreefunerals.com.au/pre-arrange"
         />
         <Nav />
@@ -115,13 +115,13 @@ export default function PreArrange() {
               Thank You, {form.firstName}
             </h1>
             <p className="text-brand-navy/65 text-base leading-relaxed mb-8">
-              Your pre-arrangement request has been received. Bruce Missen will personally review your details and be in touch within 24 hours to discuss your wishes and answer any questions.
+              Your pre-arrangement request has been received. Our team will personally review your details and be in touch within 24 hours to discuss your wishes and answer any questions.
             </p>
             <div className="bg-white rounded-2xl border border-brand-light-blue/60 p-8 mb-8 text-left">
               <p className="section-label mb-3">What Happens Next</p>
               <div className="space-y-4">
                 {[
-                  { icon: Phone, title: "Personal Call from Bruce", desc: "Bruce Missen will call you within 24 hours to discuss your wishes in detail." },
+                  { icon: Phone, title: "Personal Call from Our Team", desc: "A Family Care Specialist will call you within 24 hours to discuss your wishes in detail." },
                   { icon: FileText, title: "Written Confirmation", desc: "We will provide a written summary of your pre-arrangement wishes for your records." },
                   { icon: Shield, title: "No Obligation", desc: "There is no obligation or payment required at this stage. We are simply here to help you plan." },
                 ].map(({ icon: Icon, title, desc }) => (
@@ -139,7 +139,7 @@ export default function PreArrange() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2">
-                <Phone size={14} /> Call Bruce Now
+                <Phone size={14} /> Call Us Now
               </a>
               <Link href="/" className="btn-outline flex items-center justify-center gap-2">
                 Return Home <ArrowRight size={14} />
@@ -399,7 +399,7 @@ export default function PreArrange() {
           {step === 4 && (
             <div className="bg-white rounded-2xl border border-brand-light-blue/60 p-8 shadow-sm">
               <h2 className="font-serif text-brand-navy font-bold text-2xl mb-2">Review Your Details</h2>
-              <p className="text-brand-navy/55 text-sm mb-8">Please review your pre-arrangement details before submitting. Bruce Missen will be in touch within 24 hours.</p>
+              <p className="text-brand-navy/55 text-sm mb-8">Please review your pre-arrangement details before submitting. Our team will be in touch within 24 hours.</p>
 
               <div className="space-y-6 mb-8">
                 {/* Personal */}
@@ -452,7 +452,7 @@ export default function PreArrange() {
               )}
 
               <div className="bg-brand-light-blue/20 rounded-lg p-4 mb-6 text-sm text-brand-navy/70 leading-relaxed">
-                <strong className="text-brand-navy">No obligation.</strong> Submitting this form does not commit you to any arrangement or payment. Bruce Missen will call you within 24 hours to discuss your wishes in a relaxed, no-pressure conversation.
+                <strong className="text-brand-navy">No obligation.</strong> Submitting this form does not commit you to any arrangement or payment. A Family Care Specialist will call you within 24 hours to discuss your wishes in a relaxed, no-pressure conversation.
               </div>
 
               <div className="flex justify-between">
@@ -476,7 +476,7 @@ export default function PreArrange() {
             {[
               { icon: Shield, title: "Strictly Confidential", desc: "Your details are never shared with third parties." },
               { icon: Phone, title: "No Obligation", desc: "No payment or commitment required at any stage." },
-              { icon: Heart, title: "Personal Follow-Up", desc: "Bruce Missen will call you personally within 24 hours." },
+              { icon: Heart, title: "Personal Follow-Up", desc: "A Family Care Specialist will call you personally within 24 hours." },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="bg-white rounded-xl border border-brand-light-blue/60 p-5 text-center">
                 <div className="w-10 h-10 rounded-xl bg-brand-light-blue/40 flex items-center justify-center mx-auto mb-3">

@@ -25,7 +25,7 @@ export default function CatholicFunerals() {
         subheading: "Coordinating Requiem Masses and Catholic burial services with your parish priest across all of Sydney's southern communities.",
         image: HERO_IMG,
       }}
-      intro={`At Willow Tree Funerals, we understand that for Catholic families, a funeral is not merely a farewell — it is a sacred liturgical celebration of the resurrection and the promise of eternal life. Bruce Missen has deep experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney dioceses. From the initial notification of death through to the Rite of Committal at the graveside, every step is conducted with the reverence and care your faith demands.`}
+      intro={`At Willow Tree Funerals, we understand that for Catholic families, a funeral is not merely a farewell — it is a sacred liturgical celebration of the resurrection and the promise of eternal life. Our team has deep experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney dioceses. From the initial notification of death through to the Rite of Committal at the graveside, every step is conducted with the reverence and care your faith demands.`}
       includes={[
         "Coordination with your parish priest and church booking",
         "Full Requiem Mass or Funeral Mass arrangements",
@@ -56,7 +56,7 @@ export default function CatholicFunerals() {
         {
           num: "03",
           title: "The Funeral Mass",
-          desc: "Bruce personally conducts the funeral cortège, ensuring every liturgical detail is honoured with dignity.",
+          desc: "Our team personally conducts the funeral cortège, ensuring every liturgical detail is honoured with dignity.",
         },
         {
           num: "04",

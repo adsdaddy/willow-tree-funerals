@@ -41,7 +41,7 @@ export default function Kogarah() {
       ]}
       canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-kogarah"
       metaTitle="Funeral Director Kogarah | Willow Tree Funerals | 02 8776 1667"
-      metaDescription="Compassionate funeral director in Kogarah. Willow Tree Funerals offers Catholic, secular, and multi-faith funeral services. Available 24/7. Call Bruce Missen on 02 8776 1667."
+      metaDescription="Compassionate funeral director in Kogarah. Willow Tree Funerals offers Catholic, secular, and multi-faith funeral services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}
     />
   );

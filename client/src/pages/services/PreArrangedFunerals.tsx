@@ -21,9 +21,9 @@ export default function PreArrangedFunerals() {
         subheading: "Pre-arranging your funeral is one of the most loving things you can do — sparing your family from difficult decisions at the hardest time.",
         image: COMPANY.assets.personPhone,
       }}
-      intro={`Pre-arranging your funeral is a profound act of love and care for the people you will leave behind. When your wishes are clearly documented and your arrangements are in place, your family is spared the burden of making difficult decisions while they are grieving. At Willow Tree Funerals, Bruce Missen will meet with you personally — at our Hurstville office, our Macquarie Links location, or in your own home — to discuss your wishes, document your preferences, and ensure everything is prepared exactly as you want it. There is no pressure, no obligation, and no rush.`}
+      intro={`Pre-arranging your funeral is a profound act of love and care for the people you will leave behind. When your wishes are clearly documented and your arrangements are in place, your family is spared the burden of making difficult decisions while they are grieving. At Willow Tree Funerals, our team will meet with you personally — at our Hurstville office, our Macquarie Links location, or in your own home — to discuss your wishes, document your preferences, and ensure everything is prepared exactly as you want it. There is no pressure, no obligation, and no rush.`}
       includes={[
-        "Personal consultation with Bruce Missen at a time and place of your choosing",
+        "Personal consultation with our team at a time and place of your choosing",
         "Documentation of all your funeral wishes",
         "Choice of service type: Catholic, religious, secular, or Celebration of Life",
         "Coffin or urn selection",

@@ -41,7 +41,7 @@ export default function Camden() {
       ]}
       canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-camden"
       metaTitle="Funeral Director Camden | Willow Tree Funerals | 02 8776 1667"
-      metaDescription="Independent funeral director serving Camden and the Macarthur region. Catholic, secular, and multi-faith services. Available 24/7. Call Bruce Missen on 02 8776 1667."
+      metaDescription="Independent funeral director serving Camden and the Macarthur region. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}
     />
   );

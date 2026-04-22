@@ -9,7 +9,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "How do I arrange a funeral in Hurstville?",
-    a: "Simply call Willow Tree Funerals on 02 8776 1667 — we are available 24 hours a day, 7 days a week. Bruce Missen will guide you through every step of the arrangement process with care and clarity, either in person, by phone, or via video call."
+    a: "Simply call Willow Tree Funerals on 02 8776 1667 — we are available 24 hours a day, 7 days a week. Our Family Care Specialists will guide you through every step of the arrangement process with care and clarity, either in person, by phone, or via video call."
   },
   {
     q: "What areas do you serve in Sydney?",
@@ -25,11 +25,11 @@ const faqs = [
   },
   {
     q: "Can I pre-arrange my own funeral?",
-    a: "Yes — pre-arranging your funeral is one of the most thoughtful gifts you can give your family. It relieves them of the burden of decision-making during a difficult time and ensures your wishes are honoured exactly as you intend. Bruce Missen will guide you through the process at your own pace."
+    a: "Yes — pre-arranging your funeral is one of the most thoughtful gifts you can give your family. It relieves them of the burden of decision-making during a difficult time and ensures your wishes are honoured exactly as you intend. Our team will guide you through the process at your own pace."
   },
   {
     q: "Do you offer eco-friendly or green funeral options?",
-    a: "Yes. We offer environmentally conscious funeral options including natural burials and biodegradable caskets for families who wish to minimise their environmental impact. Please speak with Bruce to discuss the options available."
+    a: "Yes. We offer environmentally conscious funeral options including natural burials and biodegradable caskets for families who wish to minimise their environmental impact. Please contact us to discuss the options available."
   },
   {
     q: "Are you available on weekends and public holidays?",
