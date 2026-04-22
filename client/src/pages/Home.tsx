@@ -439,7 +439,7 @@ export default function Home() {
                 <div>
                   <p className="section-label mb-3">Our Services</p>
                   <h2 className="font-serif text-brand-navy font-bold leading-tight" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
-                    Every Service, Every Faith,<br />Every Family
+                    Every Service, Every Culture,<br />Every Family
                   </h2>
                 </div>
                 <Link href="/services" className="btn-outline text-sm px-7 py-3 self-start lg:self-auto flex items-center gap-2 shrink-0">
