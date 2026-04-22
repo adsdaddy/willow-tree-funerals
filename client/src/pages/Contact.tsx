@@ -111,7 +111,7 @@ export default function Contact() {
         <div className="container max-w-3xl">
           <p className="section-label text-brand-gold mb-3">Contact Us</p>
           <h1 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-            We're Here for You — Any Time
+            We're Here For You — Any Time, Day Or Night!
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8">
             Call our Family Care Specialists on <a href={COMPANY.phoneHref} className="text-brand-gold hover:text-white transition-colors font-semibold">{COMPANY.phone}</a> — available 24 hours a day, 7 days a week. Or send us an enquiry below and we will respond promptly.
