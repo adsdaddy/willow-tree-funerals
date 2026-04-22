@@ -2,19 +2,32 @@
  * WILLOW TREE FUNERALS — Order Flowers Page
  * Design: Sacred Elegance — Royal Blue / Catholic-inspired
  * SEO: "funeral flowers sydney", "sympathy flowers hurstville", "order funeral flowers"
+ * Includes: Flower enquiry form with arrangement type, delivery address, service date, contact details
  */
 
+import { useState } from "react";
 import { Link } from "wouter";
-import { Phone, ChevronRight, Flower, Truck, Heart } from "lucide-react";
+import { Phone, ChevronRight, Flower, Truck, Heart, Mail, CheckCircle2, AlertCircle, CalendarDays, MapPin, User, MessageSquare } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SEOHead from "../components/SEOHead";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
+import { trpc } from "@/lib/trpc";
 
 const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg";
-const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
-const CASKET_CATHEDRAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg";
+const BIRDCAGE_GARDEN   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
+const CASKET_CATHEDRAL  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg";
+
+const ARRANGEMENT_TYPES = [
+  "Wreath Tribute",
+  "Casket Flowers",
+  "Tribute Heart Wreath",
+  "Sympathy Arrangement",
+  "Standing Spray",
+  "Posy / Bouquet",
+  "Other / Custom",
+];
 
 const schema = {
   "@context": "https://schema.org",
@@ -25,12 +38,9 @@ const schema = {
     "@type": "FuneralHome",
     "name": COMPANY.name,
     "telephone": COMPANY.phone,
-    "url": "https://www.willowtreefunerals.com.au"
+    "url": "https://www.willowtreefunerals.com.au",
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Sydney"
-  }
+  "areaServed": { "@type": "City", "name": "Sydney" },
 };
 
 const breadcrumbSchema = {
@@ -38,8 +48,8 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-    { "@type": "ListItem", "position": 2, "name": "Order Flowers", "item": "https://www.willowtreefunerals.com.au/order-flowers" }
-  ]
+    { "@type": "ListItem", "position": 2, "name": "Order Flowers", "item": "https://www.willowtreefunerals.com.au/order-flowers" },
+  ],
 };
 
 const flowerTypes = [
@@ -65,6 +75,361 @@ const flowerTypes = [
   },
 ];
 
+// ── Enquiry Form ──────────────────────────────────────────────────────────────
+function FlowerEnquiryForm() {
+  const [form, setForm] = useState({
+    arrangementType: "",
+    customArrangement: "",
+    deliveryAddress: "",
+    deliverySuburb: "",
+    serviceDate: "",
+    serviceTime: "",
+    name: "",
+    phone: "",
+    email: "",
+    additionalNotes: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const mutation = trpc.flowers.submitEnquiry.useMutation({
+    onSuccess: () => setSubmitted(true),
+  });
+
+  function set(field: string, value: string) {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) setErrors((prev) => { const e = { ...prev }; delete e[field]; return e; });
+  }
+
+  function validate() {
+    const e: Record<string, string> = {};
+    if (!form.arrangementType) e.arrangementType = "Please select an arrangement type";
+    if (form.arrangementType === "Other / Custom" && !form.customArrangement.trim())
+      e.customArrangement = "Please describe the custom arrangement";
+    if (!form.deliveryAddress.trim() || form.deliveryAddress.trim().length < 5)
+      e.deliveryAddress = "Please enter a delivery address";
+    if (!form.deliverySuburb.trim()) e.deliverySuburb = "Please enter a suburb";
+    if (!form.serviceDate) e.serviceDate = "Please enter the service date";
+    if (!form.name.trim()) e.name = "Please enter your name";
+    if (!form.phone.trim() || form.phone.trim().length < 6) e.phone = "Please enter a valid phone number";
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+      e.email = "Please enter a valid email address";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!validate()) return;
+    mutation.mutate({
+      arrangementType: form.arrangementType,
+      customArrangement: form.customArrangement || undefined,
+      deliveryAddress: form.deliveryAddress,
+      deliverySuburb: form.deliverySuburb,
+      serviceDate: form.serviceDate,
+      serviceTime: form.serviceTime || undefined,
+      name: form.name,
+      phone: form.phone,
+      email: form.email || undefined,
+      additionalNotes: form.additionalNotes || undefined,
+    });
+  }
+
+  if (submitted) {
+    return (
+      <div className="rounded-2xl bg-white border border-brand-light-blue p-10 text-center shadow-lg">
+        <div className="w-16 h-16 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center mx-auto mb-5">
+          <CheckCircle2 size={32} className="text-green-500" />
+        </div>
+        <h3 className="font-serif text-brand-navy text-2xl font-semibold mb-3">Enquiry Received</h3>
+        <p className="text-brand-navy/70 leading-relaxed mb-2">
+          Thank you for your flower enquiry. Our team will contact you shortly to confirm your order.
+        </p>
+        <p className="text-brand-navy/60 text-sm mb-6">
+          If you need immediate assistance, please call us on{" "}
+          <a href={COMPANY.phoneHref} className="text-brand-royal font-semibold hover:underline">
+            {COMPANY.phone}
+          </a>{" "}
+          or email{" "}
+          <a href={`mailto:${COMPANY.email}`} className="text-brand-royal font-semibold hover:underline">
+            {COMPANY.email}
+          </a>.
+        </p>
+        <button
+          onClick={() => { setSubmitted(false); setForm({ arrangementType: "", customArrangement: "", deliveryAddress: "", deliverySuburb: "", serviceDate: "", serviceTime: "", name: "", phone: "", email: "", additionalNotes: "" }); }}
+          className="btn-outline text-sm"
+        >
+          Submit Another Enquiry
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-white border border-brand-light-blue shadow-lg overflow-hidden">
+      {/* Form header */}
+      <div className="bg-brand-navy px-8 py-6">
+        <h3 className="font-serif text-white text-xl font-semibold">Flower Enquiry Form</h3>
+        <p className="text-white/60 text-sm mt-1">
+          Complete the form below and we will contact you to confirm your order.
+        </p>
+      </div>
+
+      <div className="p-8 space-y-7">
+
+        {/* ── Section 1: Arrangement ── */}
+        <div>
+          <p className="font-sans text-xs tracking-widest uppercase text-brand-royal font-semibold mb-4 flex items-center gap-2">
+            <Flower size={13} /> Arrangement Type
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {ARRANGEMENT_TYPES.map((type) => (
+              <button
+                key={type}
+                type="button"
+                onClick={() => set("arrangementType", type)}
+                className={`rounded-xl border px-3 py-3 text-sm font-sans font-medium text-left transition-all leading-snug ${
+                  form.arrangementType === type
+                    ? "border-brand-royal bg-brand-royal/10 text-brand-royal"
+                    : "border-brand-light-blue text-brand-navy/70 hover:border-brand-royal hover:text-brand-navy"
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+          {errors.arrangementType && (
+            <p className="text-red-500 text-xs mt-2 flex items-center gap-1">
+              <AlertCircle size={12} /> {errors.arrangementType}
+            </p>
+          )}
+        </div>
+
+        {/* Custom arrangement description — shown when "Other / Custom" selected */}
+        {form.arrangementType === "Other / Custom" && (
+          <div>
+            <label className="block font-sans text-xs tracking-widest uppercase text-brand-navy/60 font-semibold mb-2">
+              Describe Your Custom Arrangement <span className="text-red-400">*</span>
+            </label>
+            <textarea
+              value={form.customArrangement}
+              onChange={(e) => set("customArrangement", e.target.value)}
+              rows={3}
+              placeholder="e.g. White lilies and roses, large standing spray..."
+              className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors resize-none ${errors.customArrangement ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+            />
+            {errors.customArrangement && (
+              <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                <AlertCircle size={12} /> {errors.customArrangement}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* ── Section 2: Delivery Details ── */}
+        <div>
+          <p className="font-sans text-xs tracking-widest uppercase text-brand-royal font-semibold mb-4 flex items-center gap-2">
+            <MapPin size={13} /> Delivery Details
+          </p>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
+                Delivery Address <span className="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                value={form.deliveryAddress}
+                onChange={(e) => set("deliveryAddress", e.target.value)}
+                placeholder="e.g. St George Catholic Church, 1 Park Road, Hurstville"
+                className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.deliveryAddress ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+              />
+              {errors.deliveryAddress && (
+                <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                  <AlertCircle size={12} /> {errors.deliveryAddress}
+                </p>
+              )}
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
+                  Suburb <span className="text-red-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={form.deliverySuburb}
+                  onChange={(e) => set("deliverySuburb", e.target.value)}
+                  placeholder="e.g. Hurstville"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.deliverySuburb ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                />
+                {errors.deliverySuburb && (
+                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                    <AlertCircle size={12} /> {errors.deliverySuburb}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
+                  Service Date <span className="text-red-400">*</span>
+                </label>
+                <div className="relative">
+                  <CalendarDays size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-navy/40 pointer-events-none" />
+                  <input
+                    type="date"
+                    value={form.serviceDate}
+                    onChange={(e) => set("serviceDate", e.target.value)}
+                    min={new Date().toISOString().split("T")[0]}
+                    className={`w-full rounded-xl border pl-10 pr-4 py-3 text-sm text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.serviceDate ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                  />
+                </div>
+                {errors.serviceDate && (
+                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                    <AlertCircle size={12} /> {errors.serviceDate}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
+                Service Time <span className="text-brand-navy/40 font-normal">(optional)</span>
+              </label>
+              <input
+                type="time"
+                value={form.serviceTime}
+                onChange={(e) => set("serviceTime", e.target.value)}
+                className="w-full sm:w-48 rounded-xl border border-brand-light-blue bg-brand-ivory/40 px-4 py-3 text-sm text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* ── Section 3: Contact Details ── */}
+        <div>
+          <p className="font-sans text-xs tracking-widest uppercase text-brand-royal font-semibold mb-4 flex items-center gap-2">
+            <User size={13} /> Your Contact Details
+          </p>
+          <div className="space-y-4">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
+                  Full Name <span className="text-red-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => set("name", e.target.value)}
+                  placeholder="Your name"
+                  autoComplete="name"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.name ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                    <AlertCircle size={12} /> {errors.name}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
+                  Phone Number <span className="text-red-400">*</span>
+                </label>
+                <input
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => set("phone", e.target.value)}
+                  placeholder="e.g. 0400 000 000"
+                  autoComplete="tel"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.phone ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                    <AlertCircle size={12} /> {errors.phone}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
+                Email Address <span className="text-brand-navy/40 font-normal">(optional)</span>
+              </label>
+              <div className="relative">
+                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-navy/40 pointer-events-none" />
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => set("email", e.target.value)}
+                  placeholder="your@email.com"
+                  autoComplete="email"
+                  className={`w-full rounded-xl border pl-10 pr-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.email ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                />
+              </div>
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                  <AlertCircle size={12} /> {errors.email}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Section 4: Additional Notes ── */}
+        <div>
+          <label className="font-sans text-xs tracking-widest uppercase text-brand-royal font-semibold mb-4 flex items-center gap-2">
+            <MessageSquare size={13} /> Additional Notes <span className="text-brand-navy/40 font-normal normal-case tracking-normal">(optional)</span>
+          </label>
+          <textarea
+            value={form.additionalNotes}
+            onChange={(e) => set("additionalNotes", e.target.value)}
+            rows={3}
+            placeholder="e.g. Preferred colours, specific flowers, any special requests..."
+            className="w-full rounded-xl border border-brand-light-blue bg-brand-ivory/40 px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors resize-none"
+          />
+        </div>
+
+        {/* Mutation error */}
+        {mutation.isError && (
+          <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 flex items-start gap-2">
+            <AlertCircle size={16} className="text-red-500 mt-0.5 shrink-0" />
+            <p className="text-red-700 text-sm">
+              Something went wrong. Please try again or call us on{" "}
+              <a href={COMPANY.phoneHref} className="font-semibold underline">{COMPANY.phone}</a>.
+            </p>
+          </div>
+        )}
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={mutation.isPending}
+          className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {mutation.isPending ? (
+            <>
+              <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+              Sending Enquiry…
+            </>
+          ) : (
+            <>
+              <Flower size={15} /> Submit Flower Enquiry
+            </>
+          )}
+        </button>
+
+        <p className="text-center text-brand-navy/40 text-xs leading-relaxed">
+          By submitting this form you agree to be contacted by Willow Tree Funerals regarding your flower order.
+          Alternatively, call us directly on{" "}
+          <a href={COMPANY.phoneHref} className="text-brand-royal hover:underline">{COMPANY.phone}</a> or email{" "}
+          <a href={`mailto:${COMPANY.email}`} className="text-brand-royal hover:underline">{COMPANY.email}</a>.
+        </p>
+      </div>
+    </form>
+  );
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────────
 export default function OrderFlowers() {
   useScrollReveal();
 
@@ -110,26 +475,26 @@ export default function OrderFlowers() {
         </div>
       </section>
 
-      {/* Order section */}
-      <section className="py-28 bg-white">
+      {/* Intro + Delivery info */}
+      <section className="py-20 bg-white">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="scroll-reveal">
-              <p className="section-label mb-3">Order Flowers</p>
+              <p className="section-label mb-3">Our Preferred Florists</p>
               <h2 className="font-serif text-brand-navy text-4xl md:text-5xl font-semibold leading-tight mb-6">
-                Our Preferred Florists
+                Premium Floral Tributes
               </h2>
               <p className="text-brand-navy/70 text-lg leading-relaxed mb-5">
                 Willow Tree Funerals has partnered with two trusted local florists — <strong>Rays Florist</strong> and <strong>Lazy Daisy Florist</strong> — to provide beautiful, premium floral arrangements for funeral services and sympathy deliveries.
               </p>
               <p className="text-brand-navy/70 leading-relaxed mb-5">
-                Funeral flowers are floral arrangements suitable for delivery to church services, funeral homes, and memorials. They include wreath tributes, casket flowers, tribute heart wreaths, and sympathy arrangements.
+                Funeral flowers include wreath tributes, casket flowers, tribute heart wreaths, standing sprays, and sympathy arrangements. Every order is crafted with care and delivered with dignity.
               </p>
               <p className="text-brand-navy/70 leading-relaxed mb-8">
-                We offer a premium funeral delivery service to our customers at no extra cost. Servicing the local area ensures that we always deliver your flowers well in advance of any service.
+                We offer a premium funeral delivery service to our customers at no extra cost. Servicing the local area ensures your flowers are always delivered well in advance of the service.
               </p>
 
-              <div className="rounded-2xl bg-brand-light-blue/40 border border-brand-light-blue p-6 mb-8">
+              <div className="rounded-2xl bg-brand-light-blue/40 border border-brand-light-blue p-6 mb-6">
                 <div className="flex items-start gap-3">
                   <Truck size={20} className="text-brand-royal mt-0.5 shrink-0" />
                   <div>
@@ -141,13 +506,17 @@ export default function OrderFlowers() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href={COMPANY.phoneHref} className="btn-primary flex items-center gap-2 justify-center">
-                  <Phone size={15} /> Call to Place an Order
-                </a>
-                <Link href="/contact" className="btn-outline flex items-center gap-2 justify-center">
-                  Send an Enquiry <ChevronRight size={14} />
-                </Link>
+              {/* Direct contact */}
+              <div className="rounded-2xl bg-brand-navy/5 border border-brand-navy/10 p-6">
+                <p className="font-serif text-brand-navy font-semibold mb-3">Prefer to order by phone or email?</p>
+                <div className="flex flex-col gap-2">
+                  <a href={COMPANY.phoneHref} className="flex items-center gap-2 text-brand-royal font-semibold text-sm hover:underline">
+                    <Phone size={14} /> {COMPANY.phone}
+                  </a>
+                  <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 text-brand-royal font-semibold text-sm hover:underline">
+                    <Mail size={14} /> {COMPANY.email}
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -166,7 +535,7 @@ export default function OrderFlowers() {
       </section>
 
       {/* Flower types */}
-      <section className="py-28 bg-brand-ivory">
+      <section className="py-20 bg-brand-ivory">
         <div className="container">
           <div className="text-center mb-14 scroll-reveal">
             <p className="section-label mb-3">Flower Arrangements</p>
@@ -186,8 +555,58 @@ export default function OrderFlowers() {
         </div>
       </section>
 
+      {/* ── Enquiry Form Section ── */}
+      <section id="enquiry-form" className="py-24 bg-white">
+        <div className="container">
+          <div className="grid lg:grid-cols-5 gap-14 items-start">
+            {/* Left: context */}
+            <div className="lg:col-span-2 scroll-reveal">
+              <p className="section-label mb-3">Place an Order</p>
+              <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold leading-tight mb-5">
+                Send a Flower Enquiry
+              </h2>
+              <p className="text-brand-navy/70 leading-relaxed mb-6">
+                Complete the form and our team will contact you to confirm your order, discuss your preferences, and arrange delivery to the service venue.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { icon: <Flower size={16} className="text-brand-gold" />, label: "Choose your arrangement type" },
+                  { icon: <MapPin size={16} className="text-brand-gold" />, label: "Tell us where and when to deliver" },
+                  { icon: <Phone size={16} className="text-brand-gold" />, label: "We'll call to confirm your order" },
+                  { icon: <Truck size={16} className="text-brand-gold" />, label: "Flowers delivered before the service" },
+                ].map((step, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-brand-light-blue/50 flex items-center justify-center shrink-0">
+                      {step.icon}
+                    </div>
+                    <p className="text-brand-navy/70 text-sm">{step.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-2xl bg-brand-ivory border border-brand-light-blue p-5">
+                <p className="font-serif text-brand-navy font-semibold text-sm mb-2">Urgent? Call us directly</p>
+                <a href={COMPANY.phoneHref} className="flex items-center gap-2 text-brand-royal font-semibold hover:underline mb-1">
+                  <Phone size={14} /> {COMPANY.phone}
+                </a>
+                <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 text-brand-royal font-semibold hover:underline text-sm">
+                  <Mail size={14} /> {COMPANY.email}
+                </a>
+                <p className="text-brand-navy/50 text-xs mt-2">Available 24 hours, 7 days a week</p>
+              </div>
+            </div>
+
+            {/* Right: form */}
+            <div className="lg:col-span-3 scroll-reveal">
+              <FlowerEnquiryForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Photo gallery strip */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-brand-ivory overflow-hidden">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <img src={BUTTERFLY_FLOWERS} alt="Funeral flowers" className="rounded-2xl object-cover w-full h-48 md:h-64" loading="lazy" />
@@ -206,16 +625,17 @@ export default function OrderFlowers() {
                 Ready to Order Flowers?
               </h2>
               <p className="text-white/75">
-                Call our team on <strong className="text-white">{COMPANY.phone}</strong> to arrange a beautiful floral tribute. We will handle everything.
+                Call <strong className="text-white">{COMPANY.phone}</strong> or email{" "}
+                <strong className="text-white">{COMPANY.email}</strong> — we are here 24/7.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">
                 <Phone size={15} /> {COMPANY.phone}
               </a>
-              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy flex items-center gap-2">
-                Send an Enquiry <ChevronRight size={14} />
-              </Link>
+              <a href="#enquiry-form" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy flex items-center gap-2">
+                Enquiry Form <ChevronRight size={14} />
+              </a>
             </div>
           </div>
         </div>

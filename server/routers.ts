@@ -47,7 +47,8 @@ export const appRouter = router({
           input.message || "(No message provided)",
           ``,
           `---`,
-          `Submitted via willowtreefunerals.com.au contact form`,
+          `Submitted via willowtreefunerals.com.au/contact`,
+          `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
         const sent = await notifyOwner({
           title: `New Funeral Enquiry from ${input.name} — ${input.phone}`,
@@ -88,7 +89,8 @@ export const appRouter = router({
           input.notes || "(No notes provided)",
           ``,
           `---`,
-          `Submitted via willowtreefunerals.com.au pre-arrangement form`,
+          `Submitted via willowtreefunerals.com.au/pre-arrange`,
+          `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
         const sent = await notifyOwner({
           title: `Pre-Arrangement Enquiry from ${input.name} — ${input.serviceType}`,
@@ -141,7 +143,8 @@ export const appRouter = router({
           `Special Requests: ${input.specialRequests || "None specified"}`,
           ``,
           `---`,
-          `Submitted via willowtreefunerals.com.au pre-arrangement form`,
+          `Submitted via willowtreefunerals.com.au/pre-arrange (full form)`,
+          `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
         const sent = await notifyOwner({
           title: `Pre-Arrangement Request from ${input.firstName} ${input.lastName} — ${input.phone}`,
@@ -150,6 +153,60 @@ export const appRouter = router({
         return { success: true, notified: sent };
       }),
   }),
+  // ── Flower enquiry form ────────────────────────────────────────────────────
+  flowers: router({
+    submitEnquiry: publicProcedure
+      .input(
+        z.object({
+          // Arrangement details
+          arrangementType: z.string().min(1, "Please select an arrangement type"),
+          customArrangement: z.string().optional(),
+          // Delivery details
+          deliveryAddress: z.string().min(5, "Delivery address is required"),
+          deliverySuburb: z.string().min(1, "Suburb is required"),
+          serviceDate: z.string().min(1, "Service date is required"),
+          serviceTime: z.string().optional(),
+          // Contact details
+          name: z.string().min(1, "Name is required"),
+          phone: z.string().min(6, "Phone number is required"),
+          email: z.string().email().optional().or(z.literal("")),
+          // Additional
+          additionalNotes: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        const lines = [
+          `FLOWER ENQUIRY`,
+          ``,
+          `=== Arrangement ===`,
+          `Type: ${input.arrangementType}`,
+          input.customArrangement ? `Custom Request: ${input.customArrangement}` : null,
+          ``,
+          `=== Delivery Details ===`,
+          `Address: ${input.deliveryAddress}`,
+          `Suburb: ${input.deliverySuburb}`,
+          `Service Date: ${input.serviceDate}`,
+          `Service Time: ${input.serviceTime || "Not specified"}`,
+          ``,
+          `=== Contact Details ===`,
+          `Name: ${input.name}`,
+          `Phone: ${input.phone}`,
+          `Email: ${input.email || "Not provided"}`,
+          ``,
+          input.additionalNotes ? `Additional Notes:\n${input.additionalNotes}` : null,
+          ``,
+          `---`,
+          `Submitted via willowtreefunerals.com.au/order-flowers`,
+          `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
+        ].filter((l): l is string => l !== null);
+        const sent = await notifyOwner({
+          title: `Flower Enquiry from ${input.name} — ${input.arrangementType} — ${input.serviceDate}`,
+          content: lines.join("\n"),
+        });
+        return { success: true, notified: sent };
+      }),
+  }),
+
   // ── Blog procedures (reads from blog_posts table populated by babylovegrowth.ai webhook) ──
   blog: router({
     getLatest: publicProcedure

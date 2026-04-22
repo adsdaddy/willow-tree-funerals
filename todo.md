@@ -108,3 +108,16 @@
 - [x] About Us page: compared against original and added all missing content (FAQ section, Who We Are, Timeless Legacy, Community sections)
 - [x] Facebook and Instagram social icons added to Nav (desktop + mobile) and Footer with correct URLs
 - [x] Social URLs in shared/company.ts updated to correct Facebook profile and Instagram page
+
+## Order Flowers Enquiry Form
+- [x] tRPC flowers.submitEnquiry mutation with notifyOwner notification
+- [x] Flower enquiry form UI on /order-flowers page (arrangement type, delivery address, service date, contact details)
+- [x] Success/error states with confirmation message
+- [x] Vitest test for flowers.submitEnquiry procedure (10 tests passing)
+
+## Contact Details Standardisation
+- [x] director@willowtreefunerals.com.au already in shared/company.ts (confirmed)
+- [x] All tRPC notification content (contact, preArrange, flowers) updated to include email + phone in footer line
+- [x] Director email shown on Order Flowers page (intro section + form footer + CTA)
+- [x] Flower enquiry form UI on /order-flowers (arrangement type, delivery address, service date, contact details)
+- [x] Vitest tests for flowers.submitEnquiry procedure (10 tests, all passing)
