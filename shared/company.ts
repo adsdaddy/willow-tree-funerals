@@ -43,8 +43,8 @@ export const COMPANY = {
   year: new Date().getFullYear(),
   established: 2018,
   social: {
-    facebook: "https://www.facebook.com/willowtreefunerals",
-    instagram: "https://www.instagram.com/willowtreefunerals",
+    facebook: "https://www.facebook.com/profile.php?id=100083040925564",
+    instagram: "https://www.instagram.com/willowtreefunerals/",
   },
   assets: {
     logoDark:  "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-dark_ecaf2959.png",

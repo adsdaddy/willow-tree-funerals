@@ -50,6 +50,11 @@ const BlogArticle = lazy(() => import("./pages/blog/BlogArticle"));
 // Pre-arrangement flow
 const PreArrange = lazy(() => import("./pages/PreArrange"));
 
+// New pages
+const CommunityEvents = lazy(() => import("./pages/CommunityEvents"));
+const OrderFlowers = lazy(() => import("./pages/OrderFlowers"));
+const Obituaries = lazy(() => import("./pages/Obituaries"));
+
 // Minimal page-transition fallback — no spinner flash for fast connections
 function PageFallback() {
   return <div className="min-h-screen bg-brand-ivory" aria-hidden="true" />;
@@ -98,6 +103,11 @@ function Router() {
 
         {/* Pre-arrangement flow */}
         <Route path="/pre-arrange" component={PreArrange} />
+
+        {/* Community & memorial pages */}
+        <Route path="/community-events" component={CommunityEvents} />
+        <Route path="/order-flowers" component={OrderFlowers} />
+        <Route path="/obituaries" component={Obituaries} />
 
         {/* Brand guide (preserved) */}
         <Route path="/brand-guide" component={BrandGuide} />

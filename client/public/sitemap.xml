@@ -172,6 +172,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Community & memorial pages -->
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/obituaries</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/order-flowers</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.willowtreefunerals.com.au/community-events</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal -->
   <url>
     <loc>https://www.willowtreefunerals.com.au/privacy</loc>

@@ -97,3 +97,14 @@
 - [ ] Meta Pixel (client-side) — fbq script in index.html
 - [ ] Meta Conversions API (server-side) — tRPC procedure sending events to Meta CAPI
 - [ ] Conversion events wired: contact form submit, phone click, "Arrange a Funeral" CTA click, pre-arrange form submit
+
+## New Pages to Build (from original site)
+- [x] Community Events page (/community-events) — with event cards, TryBooking links, Grief Care contact
+- [x] Celebration of Life page (/celebration-of-life) — replicate + improve original content
+- [x] Order Flowers page (/order-flowers) — replicate + improve original content
+- [x] Obituaries page (/obituaries) — replicate + improve original content
+- [x] Add all four to main navigation (desktop + mobile)
+- [x] Update sitemap.xml with all four new URLs
+- [x] About Us page: compared against original and added all missing content (FAQ section, Who We Are, Timeless Legacy, Community sections)
+- [x] Facebook and Instagram social icons added to Nav (desktop + mobile) and Footer with correct URLs
+- [x] Social URLs in shared/company.ts updated to correct Facebook profile and Instagram page

@@ -8,7 +8,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, Facebook, Instagram } from "lucide-react";
 import { COMPANY } from "../../../shared/company";
 
 const services = [
@@ -134,6 +134,24 @@ export default function Nav() {
                 About
               </Link>
               <Link
+                href="/obituaries"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+              >
+                Obituaries
+              </Link>
+              <Link
+                href="/order-flowers"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+              >
+                Flowers
+              </Link>
+              <Link
+                href="/community-events"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+              >
+                Community
+              </Link>
+              <Link
                 href="/pricing"
                 className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
               >
@@ -146,12 +164,6 @@ export default function Nav() {
                 Blog
               </Link>
               <Link
-                href="/faq"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
-              >
-                FAQ
-              </Link>
-              <Link
                 href="/contact"
                 className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
               >
@@ -159,8 +171,29 @@ export default function Nav() {
               </Link>
             </nav>
 
-            {/* CRO: Phone + CTA */}
+            {/* CRO: Phone + CTA + Social */}
             <div className="hidden lg:flex items-center gap-4">
+              {/* Social icons */}
+              <div className="flex items-center gap-2 border-r border-white/20 pr-4">
+                <a
+                  href={COMPANY.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Willow Tree Funerals on Facebook"
+                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
+                >
+                  <Facebook size={14} />
+                </a>
+                <a
+                  href={COMPANY.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Willow Tree Funerals on Instagram"
+                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
+                >
+                  <Instagram size={14} />
+                </a>
+              </div>
               <a
                 href={COMPANY.phoneHref}
                 className="flex items-center gap-2 text-brand-gold hover:text-white transition-colors"
@@ -210,6 +243,9 @@ export default function Nav() {
                 )}
               </div>
               <Link href="/about" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">About</Link>
+              <Link href="/obituaries" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Obituaries</Link>
+              <Link href="/order-flowers" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Order Flowers</Link>
+              <Link href="/community-events" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Community Events</Link>
               <Link href="/pricing" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Pricing</Link>
               <Link href="/blog" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Blog</Link>
               <Link href="/faq" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">FAQ</Link>
@@ -220,6 +256,27 @@ export default function Nav() {
               <Link href="/contact" className="btn-outline border-white text-white text-center">
                 Arrange a Funeral
               </Link>
+              {/* Social icons in mobile menu */}
+              <div className="flex items-center gap-3 pt-2">
+                <a
+                  href={COMPANY.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
+                >
+                  <Facebook size={15} />
+                </a>
+                <a
+                  href={COMPANY.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
+                >
+                  <Instagram size={15} />
+                </a>
+              </div>
             </div>
           </div>
         )}

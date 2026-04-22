@@ -71,6 +71,9 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "About Bruce Missen", href: "/about" },
+                { label: "Obituaries", href: "/obituaries" },
+                { label: "Order Flowers", href: "/order-flowers" },
+                { label: "Community Events", href: "/community-events" },
                 { label: "Transparent Pricing", href: "/pricing" },
                 { label: "Frequently Asked Questions", href: "/faq" },
                 { label: "Contact Us", href: "/contact" },
