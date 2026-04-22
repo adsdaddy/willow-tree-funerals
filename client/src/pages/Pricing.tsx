@@ -61,7 +61,7 @@ const packages: Package[] = [
   {
     name: "Direct Cremation",
     tagline: "Simple, dignified, and affordable",
-    priceFrom: "From $2,200",
+    priceFrom: "From $3,100",
     priceNote: "All-inclusive. No hidden fees.",
     includes: [
       "24/7 transfer into our care",
@@ -75,7 +75,7 @@ const packages: Package[] = [
   {
     name: "Cremation with Service",
     tagline: "A full farewell, followed by cremation",
-    priceFrom: "From $5,500",
+    priceFrom: "From $7,500",
     priceNote: "Crematorium fees included. Coffin selection extra.",
     highlight: true,
     includes: [
@@ -92,7 +92,7 @@ const packages: Package[] = [
   {
     name: "Traditional Burial",
     tagline: "A complete burial service with full ceremony",
-    priceFrom: "From $8,500",
+    priceFrom: "From $9,500",
     priceNote: "Cemetery fees are additional and vary by cemetery.",
     includes: [
       "24/7 transfer into our care",
@@ -112,11 +112,11 @@ const additionalItems = [
   { item: "Coffin upgrade (from standard)", price: "From $500" },
   { item: "Urn upgrade (from standard)", price: "From $150" },
   { item: "Floral arrangements", price: "From $250" },
-  { item: "Memorial video tribute", price: "From $350" },
-  { item: "Live streaming of service", price: "From $300" },
-  { item: "Celebrant fee (if required)", price: "From $450" },
+  { item: "Memorial video tribute", price: "From $375" },
+  { item: "Live streaming of service", price: "From $600" },
+  { item: "Celebrant fee (if required)", price: "From $600" },
   { item: "Catering coordination", price: "POA" },
-  { item: "Death notice / obituary", price: "From $200" },
+  { item: "Death notice / obituary", price: "From $400" },
   { item: "Ashes scattering service", price: "From $350" },
   { item: "Repatriation (international)", price: "POA" },
 ];

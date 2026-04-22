@@ -124,3 +124,12 @@
 
 ## Gallery Layout Fix
 - [x] Fixed 'Our Services in Action' gallery — replaced orphaned 3-photo bottom row with 2-row layout: large hero (2×2) + 3 right-side photos in row 1, then 4 equal photos in row 2
+
+## Pricing Updates (via visual editor)
+- [x] Direct Cremation: $2,200 → $3,100
+- [x] Cremation with Service: $5,500 → $7,500
+- [x] Traditional Burial: $8,500 → $9,500
+- [x] Memorial video tribute: $350 → $375
+- [x] Live streaming of service: $300 → $600
+- [x] Celebrant fee: $450 → $600
+- [x] Death notice / obituary: $200 → $400
