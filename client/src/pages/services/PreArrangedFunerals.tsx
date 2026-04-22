@@ -37,7 +37,7 @@ export default function PreArrangedFunerals() {
       featureImage={COMPANY.assets.bruceHeadshot}
       pullQuote="In my Father's house are many rooms. I am going there to prepare a place for you."
       steps={[
-        { num: "01", title: "Initial Conversation", desc: "Call Bruce or complete our online enquiry form. We will arrange a time to meet — at our office, or in your home." },
+        { num: "01", title: "Initial Conversation", desc: "Call us on 02 8776 1667 or complete our online enquiry form. We will arrange a time to meet — at our office, or in your home." },
         { num: "02", title: "Document Your Wishes", desc: "We record every detail of your preferences — the service, the music, the readings, the burial or cremation, and any personal touches." },
         { num: "03", title: "Secure Your Arrangements", desc: "Your wishes are securely stored and your family and executor are notified of the arrangements." },
         { num: "04", title: "Peace of Mind", desc: "You and your family have complete peace of mind, knowing everything is taken care of exactly as you wish." },

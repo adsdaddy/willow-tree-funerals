@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <img src={COMPANY.assets.logoWhite} alt="Willow Tree Funerals" className="h-14 w-auto mb-6 opacity-90" />
             <p className="text-sm leading-relaxed text-white/60 mb-6">
-              Serving families across St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast with dignity and compassion since {COMPANY.established}.
+              Serving families across Sydney, St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast with dignity and compassion since {COMPANY.established}.
             </p>
             <div className="flex gap-3">
               <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer"

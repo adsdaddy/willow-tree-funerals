@@ -285,7 +285,7 @@ export default function ServicePageTemplate({
               <h2 className="font-serif text-white text-2xl md:text-3xl font-semibold mb-2">
                 We're Available 24 Hours, 7 Days a Week
               </h2>
-              <p className="text-white/75">Call Bruce directly — no call centres, no delays.</p>
+              <p className="text-white/75">Call our office directly — no call centres, no delays.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">
