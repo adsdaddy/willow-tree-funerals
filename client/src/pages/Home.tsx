@@ -669,7 +669,7 @@ export default function Home() {
               <div className="text-center mb-14">
                 <p className="section-label mb-3">Serving All Faiths &amp; Beliefs</p>
                 <h2 className="font-serif text-brand-navy font-bold leading-tight" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
-                  Every Belief. Every Background.<br />Every Family.
+                  Every Faith. Every Culture.<br />Every Family.
                 </h2>
               </div>
             </Reveal>
