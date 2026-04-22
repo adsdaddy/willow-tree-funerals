@@ -133,3 +133,6 @@
 - [x] Live streaming of service: $300 → $600
 - [x] Celebrant fee: $450 → $600
 - [x] Death notice / obituary: $200 → $400
+
+## Homepage Pricing Table Update
+- [x] Updated 'Willow Tree vs. Sydney Average' comparison table to match new Pricing page values (Direct Cremation $3,100, Full Cremation Service $7,500, Burial Service $9,500)

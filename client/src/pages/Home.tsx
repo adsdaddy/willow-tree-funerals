@@ -635,9 +635,9 @@ export default function Home() {
                   </div>
                   {/* Table rows */}
                   {[
-                    { service: "Direct Cremation", us: "From $2,950", avg: "From $3,500–$5,000" },
-                    { service: "Full Cremation Service", us: "From $5,450", avg: "From $7,000–$10,000" },
-                    { service: "Burial Service", us: "From $6,950", avg: "From $9,000–$15,000" },
+                    { service: "Direct Cremation", us: "From $3,100", avg: "From $3,500–$5,000" },
+                    { service: "Full Cremation Service", us: "From $7,500", avg: "From $7,000–$10,000" },
+                    { service: "Burial Service", us: "From $9,500", avg: "From $9,000–$15,000" },
                   ].map((row, i) => (
                     <div key={row.service} className={`grid grid-cols-3 px-6 py-4 text-sm border-b border-[#E8EFF8] last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-brand-ivory/60"}`}>
                       <span className="font-medium text-brand-navy col-span-1 pr-2">{row.service}</span>
