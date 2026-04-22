@@ -18,10 +18,10 @@ export default function FuneralServices() {
       hero={{
         label: "Funeral Services",
         heading: "Compassionate Funeral Services in Hurstville & Sydney",
-        subheading: "Every service is personally arranged by Bruce Missen — a licensed funeral director who answers your call 24 hours a day, 7 days a week.",
+        subheading: "Every service is personally arranged by one of our friendly Family Care Specialists — who answers your call 24 hours a day, 7 days a week.",
         image: COMPANY.assets.heroBg,
       }}
-      intro={`Willow Tree Funerals provides a complete range of funeral services for families across Hurstville, the St George and Sutherland Shire area, and South West Sydney. Whether you are facing an unexpected loss or planning ahead, Bruce Missen will guide you through every decision with patience, honesty, and genuine compassion. There are no call centres, no corporate scripts — just a real person who cares deeply about your family and the life you are honouring.`}
+      intro={`Willow Tree Funerals provides a complete range of funeral services for families across Hurstville, the St George and Sutherland Shire area, and South West Sydney. Whether you are facing an unexpected loss or planning ahead, Bruce Missen and his team will guide you through every decision with patience, honesty, and genuine compassion. There are no call centres, no corporate scripts — just a real person who cares deeply about your family and the life you are honouring.`}
       includes={[
         "Immediate 24/7 transfer of your loved one into our care",
         "Professional preparation, embalming, and presentation",
