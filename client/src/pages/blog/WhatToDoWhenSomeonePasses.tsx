@@ -39,7 +39,7 @@ export default function WhatToDoWhenSomeonePasses() {
 
       <h2>Step 2: Call a Funeral Director</h2>
       <p>
-        Once the death has been certified, call a funeral director. You do not need to have everything decided — a good funeral director will guide you through the process step by step. At Willow Tree Funerals, we are available 24 hours a day, 7 days a week. When you call, you speak directly with Bruce Missen.
+        Once the death has been certified, call a funeral director. You do not need to have everything decided — a good funeral director will guide you through the process step by step. At Willow Tree Funerals, we are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our friendly Family Care Specialists.
       </p>
       <p>
         The funeral director will arrange the transfer of your loved one into their care. This can happen at home, at hospital, at a nursing home, or wherever your loved one has passed. There is no need to rush — take the time you need to say goodbye.
