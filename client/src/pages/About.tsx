@@ -80,7 +80,7 @@ const values = [
   {
     icon: <Award size={28} className="text-brand-gold" />,
     title: "Professional Excellence",
-    desc: "Bruce holds all required NSW funeral director licences and maintains the highest standards of professional practice, preparation, and care.",
+    desc: "Bruce holds all required NSW funeral director registrations and maintains the highest standards of professional practice, preparation, and care.",
   },
   {
     icon: <Phone size={28} className="text-brand-gold" />,
