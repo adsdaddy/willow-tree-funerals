@@ -125,7 +125,7 @@ export default function BlogArticleTemplate({
               <div className="bg-brand-navy rounded-2xl p-7 mb-6 sticky top-28">
                 <p className="section-label text-brand-gold mb-3">Need Help Now?</p>
                 <h3 className="font-serif text-white font-semibold text-xl mb-3 leading-snug">
-                  Speak Directly with Bruce Missen
+                  Speak Directly with one of our Family Care Specialists
                 </h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-6">
                   Available 24 hours a day, 7 days a week. Call our Family Care Specialists for immediate, compassionate support.

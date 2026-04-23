@@ -41,28 +41,28 @@ export default function UnderstandingFuneralCosts() {
         When comparing funeral directors, always ask for a full itemised quote that separates these three components. Beware of "all-inclusive" prices that bundle everything together — they can make it difficult to compare like for like.
       </p>
 
-      <h2>Direct Cremation: From $2,950</h2>
+      <h2>Direct Cremation: From $3,100</h2>
       <p>
         A direct cremation is the most affordable option. It involves the transfer of the deceased into the funeral director's care, preparation, and cremation — without a formal funeral service. The ashes are then returned to the family.
       </p>
       <p>
-        At Willow Tree Funerals, direct cremation starts from <strong>$2,950</strong>. The Sydney average for a direct cremation is $3,500–$5,000.
+        At Willow Tree Funerals, direct cremation starts from <strong>$3,100</strong>. The Sydney average for a direct cremation is $3,500–$5,000.
       </p>
 
-      <h2>Full Cremation Service: From $5,450</h2>
+      <h2>Full Cremation Service: From $7,500</h2>
       <p>
         A full cremation service includes a formal funeral ceremony — at a church, chapel, or another venue — followed by cremation. This is the most common choice for families who want a meaningful farewell without the ongoing costs of a burial plot.
       </p>
       <p>
-        At Willow Tree Funerals, a full cremation service starts from <strong>$5,450</strong>. The Sydney average is $7,000–$10,000.
+        At Willow Tree Funerals, a full cremation service starts from <strong>$7,500</strong>. The Sydney average is $7,000–$10,000.
       </p>
 
-      <h2>Burial Service: From $6,950</h2>
+      <h2>Burial Service: From $9,500</h2>
       <p>
         A burial service includes a formal funeral ceremony followed by burial at a cemetery. The cost of the burial plot and interment fees are additional and vary significantly by cemetery — from around $4,000 at a general cemetery to over $15,000 at a premium lawn cemetery.
       </p>
       <p>
-        At Willow Tree Funerals, a burial service starts from <strong>$6,950</strong> (excluding cemetery fees). The Sydney average is $9,000–$15,000 (excluding cemetery fees).
+        At Willow Tree Funerals, a burial service starts from <strong>$9,500</strong> (excluding cemetery fees). The Sydney average is $9,000–$15,000 (excluding cemetery fees).
       </p>
 
       <h2>What's Included in a Funeral Director's Fee?</h2>
