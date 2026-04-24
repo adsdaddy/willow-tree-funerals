@@ -66,9 +66,9 @@ export default function MacArthurMemorialParkGuide() {
       </p>
       <ul>
         <li>Lawn burial plots: from approximately $6,500–$10,000</li>
-        <li>Monumental burial plots: from approximately $7,000–$12,000</li>
-        <li>Mausoleum crypts: from approximately $10,000+</li>
-        <li>Interment (opening and closing) fees: approximately $1,500–$2,500</li>
+        <li>Monumental burial plots: from approximately $8,500–$14,000</li>
+        <li>Mausoleum crypts: from approximately $12,000+</li>
+        <li>Interment (opening and closing) fees: approximately $2,000–$3,000</li>
       </ul>
       <p>
         These are indicative prices only. For current pricing, contact Macquarie Memorial Park directly or ask your funeral director to obtain a quote on your behalf.
@@ -87,7 +87,7 @@ export default function MacArthurMemorialParkGuide() {
         Macquarie Memorial Park welcomes Catholic funerals and has dedicated Catholic burial sections. The park works closely with local parishes and funeral directors to accommodate Catholic funeral rites, including graveside blessings and the Rite of Committal.
       </p>
       <p>
-        Bruce Missen at Willow Tree Funerals has coordinated many Catholic funerals at Macquarie Memorial Park and can liaise with the parish priest and the cemetery on your behalf.
+        Our team at Willow Tree Funerals has coordinated many Catholic funerals at Macquarie Memorial Park and can liaise with the parish priest and the cemetery on your behalf.
       </p>
 
       <p>
