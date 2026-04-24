@@ -485,7 +485,7 @@ export default function OrderFlowers() {
                 Premium Floral Tributes
               </h2>
               <p className="text-brand-navy/70 text-lg leading-relaxed mb-5">
-                Willow Tree Funerals has partnered with two trusted local florists — <strong>Rays Florist</strong> and <strong>Lazy Daisy Florist</strong> — to provide beautiful, premium floral arrangements for funeral services and sympathy deliveries.
+                Willow Tree Funerals has partnered with multiple trusted local florists including — <strong>Rays Florist</strong> and <strong>Lazy Daisy Florist</strong> — to provide beautiful, premium floral arrangements for funeral services and sympathy deliveries.
               </p>
               <p className="text-brand-navy/70 leading-relaxed mb-5">
                 Funeral flowers include wreath tributes, casket flowers, tribute heart wreaths, standing sprays, and sympathy arrangements. Every order is crafted with care and delivered with dignity.
