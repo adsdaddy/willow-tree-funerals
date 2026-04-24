@@ -101,7 +101,7 @@ const faqCategories = [
       },
       {
         q: "Which cemeteries do you work with in Sydney?",
-        a: "We work with all major Sydney cemeteries including Rookwood, Woronora Memorial Park, Sutherland General Cemetery, Botany Cemetery, and the new MacArthur Memorial Park at Varroville. We handle all bookings and grave preparation on your behalf.",
+        a: "We work with all major Sydney cemeteries including Rookwood, Woronora Memorial Park, Sutherland General Cemetery, Botany Cemetery, and the new MacArthur Memorial Park at Varroville. We handle all bookings and grave preparation on your behalf. We also work with private and council owned cemeteries across Sydney and NSW.",
       },
       {
         q: "What is MacArthur Memorial Park?",
