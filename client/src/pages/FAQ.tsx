@@ -114,7 +114,7 @@ const faqCategories = [
     faqs: [
       {
         q: "How much does a funeral cost in Sydney?",
-        a: "Funeral costs vary depending on the type of service. A simple direct cremation starts from approximately $2,200. A full funeral service with cremation typically ranges from $5,000–$9,000. A full funeral service with burial typically ranges from $8,000–$15,000+, depending on cemetery fees. Please visit our Pricing page for more detail.",
+        a: "Funeral costs vary depending on the type of service. A simple direct cremation starts from approximately $3,100. A full funeral service with cremation typically ranges from $6,000–$9,000. A full funeral service with burial typically ranges from $8,000–$15,000+, depending on cemetery fees. Please visit our Pricing page for more detail.",
       },
       {
         q: "Are there any government funeral assistance payments?",
