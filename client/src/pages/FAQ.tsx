@@ -139,7 +139,7 @@ const faqCategories = [
       },
       {
         q: "Do you serve multicultural communities?",
-        a: "Yes. We have extensive experience serving Sydney's diverse communities, including Filipino, Italian, Lebanese, Greek, Indian, Vietnamese, and Pacific Islander families. We understand and honour the cultural and religious traditions that enrich funeral rites.",
+        a: "Yes. We have extensive experience serving Sydney's diverse communities, including Filipino, Italian, Lebanese, Greek, Indian, Vietnamese, Irish, Mauritian and Pacific Islander families. We understand and honour the cultural and religious traditions that enrich funeral rites.",
       },
       {
         q: "Do you provide repatriation services?",
@@ -245,7 +245,7 @@ export default function FAQ() {
             Speak to a Family Care Specialist
           </h2>
           <p className="text-white/70 leading-relaxed mb-10">
-            No call centres, no automated systems. When you call Willow Tree Funerals, Bruce Missen answers. He will take the time to answer every question you have, with patience and honesty.
+            No call centres, no automated systems. When you call Willow Tree Funerals, Bruce or one of his friendly team answers. They will take the time to listen to you carefully, provide emotional support and answer every question you have, with patience and honesty.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2">
