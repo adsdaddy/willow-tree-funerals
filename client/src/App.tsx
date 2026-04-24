@@ -38,6 +38,18 @@ const SuburbCampbelltown = lazy(() => import("./pages/suburbs/Campbelltown"));
 const SuburbWollongong = lazy(() => import("./pages/suburbs/Wollongong"));
 const SuburbCamden = lazy(() => import("./pages/suburbs/Camden"));
 const SuburbCentralCoast = lazy(() => import("./pages/suburbs/CentralCoast"));
+const SuburbHornsby = lazy(() => import("./pages/suburbs/Hornsby"));
+const SuburbChatswood = lazy(() => import("./pages/suburbs/Chatswood"));
+const SuburbNorthSydney = lazy(() => import("./pages/suburbs/NorthSydney"));
+const SuburbMosman = lazy(() => import("./pages/suburbs/Mosman"));
+const SuburbManly = lazy(() => import("./pages/suburbs/Manly"));
+const SuburbStrathfield = lazy(() => import("./pages/suburbs/Strathfield"));
+const SuburbLeichhardt = lazy(() => import("./pages/suburbs/Leichhardt"));
+const SuburbMarrickville = lazy(() => import("./pages/suburbs/Marrickville"));
+const SuburbPenrith = lazy(() => import("./pages/suburbs/Penrith"));
+const SuburbParramatta = lazy(() => import("./pages/suburbs/Parramatta"));
+const SuburbBlacktown = lazy(() => import("./pages/suburbs/Blacktown"));
+const SuburbKatoomba = lazy(() => import("./pages/suburbs/Katoomba"));
 
 // Blog pages — all lazy
 const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
@@ -91,6 +103,18 @@ function Router() {
         <Route path="/funeral-director-wollongong" component={SuburbWollongong} />
         <Route path="/funeral-director-camden" component={SuburbCamden} />
         <Route path="/funeral-director-central-coast" component={SuburbCentralCoast} />
+        <Route path="/funeral-director-hornsby" component={SuburbHornsby} />
+        <Route path="/funeral-director-chatswood" component={SuburbChatswood} />
+        <Route path="/funeral-director-north-sydney" component={SuburbNorthSydney} />
+        <Route path="/funeral-director-mosman" component={SuburbMosman} />
+        <Route path="/funeral-director-manly" component={SuburbManly} />
+        <Route path="/funeral-director-strathfield" component={SuburbStrathfield} />
+        <Route path="/funeral-director-leichhardt" component={SuburbLeichhardt} />
+        <Route path="/funeral-director-marrickville" component={SuburbMarrickville} />
+        <Route path="/funeral-director-penrith" component={SuburbPenrith} />
+        <Route path="/funeral-director-parramatta" component={SuburbParramatta} />
+        <Route path="/funeral-director-blacktown" component={SuburbBlacktown} />
+        <Route path="/funeral-director-katoomba" component={SuburbKatoomba} />
 
         {/* Blog */}
         <Route path="/blog" component={BlogIndex} />

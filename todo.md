@@ -141,3 +141,12 @@
 - [x] Found 20+ instances across 11 files: FAQSection, LocalAreaSEO, SuburbPageTemplate, Home, Contact, PreArrange, CatholicFunerals, PreArrangedFunerals, and all 6 suburb pages
 - [x] Replaced all with team-inclusive language ("our team", "our Family Care Specialists", "A Family Care Specialist", "Call us") — About/Meet Bruce sections intentionally preserved
 - [x] Final site-wide grep confirms zero remaining solo-attribution phrases outside About/Meet Bruce sections
+
+## Suburb Landing Pages Expansion & FAQ Update
+- [x] Update FAQ "Do you serve areas outside Hurstville?" answer to reflect expanded coverage
+- [x] Create suburb pages for new North Shore areas: Hornsby, Chatswood, North Sydney, Mosman, Manly
+- [x] Create suburb pages for new Inner West areas: Strathfield, Leichhardt, Marrickville
+- [x] Create suburb pages for new Western Sydney areas: Penrith, Blacktown, Parramatta
+- [x] Create suburb pages for Blue Mountains: Katoomba
+- [x] Wire all new suburb routes into App.tsx
+- [x] Update sitemap.xml with all new suburb URLs
