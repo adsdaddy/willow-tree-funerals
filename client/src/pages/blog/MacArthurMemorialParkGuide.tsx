@@ -65,7 +65,7 @@ export default function MacArthurMemorialParkGuide() {
         Burial plot prices at Macquarie Memorial Park vary depending on the section and type of burial. As a general guide:
       </p>
       <ul>
-        <li>Lawn burial plots: from approximately $5,000–$8,000</li>
+        <li>Lawn burial plots: from approximately $6,500–$10,000</li>
         <li>Monumental burial plots: from approximately $7,000–$12,000</li>
         <li>Mausoleum crypts: from approximately $10,000+</li>
         <li>Interment (opening and closing) fees: approximately $1,500–$2,500</li>
