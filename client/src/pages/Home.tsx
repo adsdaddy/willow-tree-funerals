@@ -215,7 +215,7 @@ const schema = {
       name: COMPANY.name,
       url: "https://willowtreefunerals.com.au",
       telephone: COMPANY.phone,
-      description: "Independent, family-owned funeral directors serving St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast. Specialising in Catholic, multi-faith, and secular funeral services.",
+      description: "Independent, family-owned funeral directors serving all of Sydney, North Shore, Hornsby, St George, Sutherland Shire, South West Sydney, Western Sydney and the Blue Mountains, Wollongong and the Central Coast. Specialising in Catholic, multi-faith, and secular funeral services.",
       address: [
         { "@type": "PostalAddress", streetAddress: COMPANY.locations[0].address, addressLocality: "Hurstville", addressRegion: "NSW", postalCode: "2220", addressCountry: "AU" },
         { "@type": "PostalAddress", streetAddress: COMPANY.locations[1].address, addressLocality: "Macquarie Links", addressRegion: "NSW", postalCode: "2565", addressCountry: "AU" },
@@ -306,7 +306,7 @@ export default function Home() {
               </Reveal>
               <Reveal delay={0.32}>
                 <p className="text-white/70 text-base leading-relaxed mb-10 max-w-md">
-                  Independent, family-owned funeral directors serving St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast. Catholic, multi-faith, and secular services.
+                  Independent, family-owned funeral directors serving all of Sydney, North Shore, Hornsby, St George, Sutherland Shire, South West Sydney, Western Sydney and the Blue Mountains, Wollongong and the Central Coast. Catholic, multi-faith, and secular services.
                 </p>
               </Reveal>
               <Reveal delay={0.4}>
