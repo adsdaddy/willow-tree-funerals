@@ -135,7 +135,7 @@ const faqCategories = [
     faqs: [
       {
         q: "Do you serve areas outside Hurstville?",
-        a: "Yes. We serve the entire St George and Sutherland Shire area, as well as South West Sydney including Campbelltown, Liverpool, Narellan, Gregory Hills, Ingleburn, and the MacArthur Memorial Park at Varroville. We also have a second location at Macquarie Links.",
+        a: "Yes. We serve all of Sydney, the North Shore, Inner West, Hornsby and the entire St George and Sutherland Shire area, as well as South and South West Sydney including Campbelltown, Liverpool, Narellan, Camden, Picton, Gregory Hills, Ingleburn, and the MacArthur Memorial Park at Varroville. We also service Wollongong and surrounding areas, as well as the Blue Mountains, Penrith, Richmond and Windsor. We also have a second location at Macquarie Links.",
       },
       {
         q: "Do you serve multicultural communities?",
