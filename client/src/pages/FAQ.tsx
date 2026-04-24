@@ -59,7 +59,7 @@ const faqCategories = [
       },
       {
         q: "Can we have a viewing before the funeral?",
-        a: "Yes. We offer viewing at our chapel or at your home, allowing family and friends to spend time with your loved one before the funeral service. This is available for both burial and cremation services.",
+        a: "Yes. We offer viewing at our chapel, a church or at your home, allowing family and friends to spend time with your loved one before the funeral service. This is available for both burial and cremation services.",
       },
       {
         q: "Can we choose where the funeral service is held?",
