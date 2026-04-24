@@ -155,12 +155,24 @@ const faqs = [
 ];
 
 const suburbs = [
+  // St George & Sutherland Shire
   "Hurstville", "Kogarah", "Rockdale", "Bexley", "Blakehurst",
   "Sutherland", "Miranda", "Cronulla", "Caringbah", "Engadine",
+  "Earlwood", "Arncliffe", "Penshurst", "Mortdale", "Revesby",
+  // South West Sydney & Macarthur
   "Campbelltown", "Narellan", "Gregory Hills", "Camden", "Menangle",
   "Picton", "Liverpool", "Fairfield", "Bankstown", "Macquarie Links",
+  "Ingleburn", "Minto", "Leumeah", "Glenfield", "Casula",
+  // North Shore & Hornsby
+  "Hornsby", "Wahroonga", "Turramurra", "Gordon", "Pymble",
+  "Chatswood", "North Sydney", "Mosman", "Manly", "St Ives",
+  // Inner West
+  "Strathfield", "Burwood", "Ashfield", "Leichhardt", "Marrickville",
+  // Western Sydney & Blue Mountains
+  "Penrith", "Richmond", "Windsor", "Blacktown", "Parramatta",
+  "Katoomba", "Springwood", "Lithgow",
+  // Wollongong & Central Coast
   "Wollongong", "Shellharbour", "Kiama", "Gosford", "Wyong",
-  "Earlwood", "Arncliffe", "Penshurst", "Mortdale", "Revesby",
 ];
 
 // ── Sub-components ────────────────────────────────────────────────────────────
