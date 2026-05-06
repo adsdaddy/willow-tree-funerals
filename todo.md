@@ -165,8 +165,18 @@
 - [x] Update todo.md and save checkpoint
 
 ## Email Notifications for Form Submissions
-- [ ] Build sendEmail helper using Nodemailer / SMTP
-- [ ] Wire email to contact form submission router
-- [ ] Wire email to pre-arrange form submission router
-- [ ] Wire email to flowers enquiry form submission router
-- [ ] Save checkpoint
+- [x] Build sendEmail helper using Nodemailer / SMTP
+- [x] Wire email to contact form submission router
+- [x] Wire email to pre-arrange form submission router
+- [x] Wire email to flowers enquiry form submission router
+
+## Hero Image Refresh & Email Notifications
+- [x] Generate high-res hero for Catholic Funerals page
+- [x] Generate high-res hero for Cremation page
+- [x] Generate high-res hero for Burial page
+- [x] Generate high-res hero for Pricing page
+- [x] Bruce's About page portrait confirmed high-quality (bruceHeadshot — 940KB professional headshot)
+- [x] Wire SMTP email to contact form submission
+- [x] Wire SMTP email to pre-arrange form submission
+- [x] Wire SMTP email to flowers enquiry form submission
+- [ ] Add SMTP secrets (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS) via Secrets panel to activate email delivery

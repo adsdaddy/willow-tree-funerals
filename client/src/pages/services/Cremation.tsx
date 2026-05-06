@@ -19,7 +19,7 @@ export default function Cremation() {
         label: "Cremation Services",
         heading: "Dignified Cremation Services Across Sydney",
         subheading: "From simple direct cremation to a full ceremony with viewing — we guide you through every option with honesty and care.",
-        image: COMPANY.assets.urnGreenery,
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-cremation-UEg2UAZKaPZjZyHzGmPiRb.webp",
       }}
       intro={`Cremation is chosen by an increasing number of Sydney families as a meaningful, flexible, and often more affordable alternative to traditional burial. At Willow Tree Funerals, we offer a full range of cremation options — from a simple, dignified direct cremation to a full funeral service with viewing, ceremony, and cremation. Whatever you choose, your loved one will be treated with the same respect and care as any other service we provide. We never use a third-party cremation provider — your loved one remains in our care throughout.`}
       includes={[

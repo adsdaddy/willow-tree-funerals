@@ -19,7 +19,7 @@ export default function Burial() {
         label: "Burial Services",
         heading: "Traditional Burial Services Across Sydney",
         subheading: "Arranging dignified burials at all Sydney cemeteries, including the new MacArthur Memorial Park at Varroville.",
-        image: COMPANY.assets.churchService,
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-burial-dyz2DwAytvkPKBsAubwnKU.webp",
       }}
       intro={`Traditional burial remains the choice of many Sydney families, particularly those of Catholic, Orthodox, and other faith traditions that hold the body sacred. At Willow Tree Funerals, we coordinate all aspects of the burial process — from cemetery selection and grave preparation to the funeral service and graveside committal. We work with every major Sydney cemetery, and we are one of the first funeral directors to establish a presence near the new MacArthur Memorial Park at Varroville, the first new Crown cemetery to open in Sydney in nearly a century.`}
       includes={[

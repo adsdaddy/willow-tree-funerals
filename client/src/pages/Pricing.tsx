@@ -204,8 +204,17 @@ export default function Pricing() {
       <Nav />
 
       {/* Hero */}
-      <section className="bg-brand-navy py-28 pt-36">
-        <div className="container max-w-3xl text-center">
+      <section
+        className="relative min-h-[55vh] flex items-end py-28 pt-36"
+        style={{
+          backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-pricing-JLQAcEeMk3Z9GnAibkXuwT.webp)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        aria-label="Pricing hero"
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-brand-navy/30" />
+        <div className="relative z-10 container max-w-3xl text-center mx-auto">
           <p className="section-label text-brand-gold mb-3">Transparent Pricing</p>
           <h1 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
             Honest Funeral Pricing — No Hidden Fees

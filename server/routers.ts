@@ -5,6 +5,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { getDb } from "./db";
+import { sendFormEmail } from "./email";
 import { blogPosts } from "../drizzle/schema";
 import { desc, eq, and } from "drizzle-orm";
 
@@ -50,9 +51,15 @@ export const appRouter = router({
           `Submitted via willowtreefunerals.com.au/contact`,
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
+        const content = lines.join("\n");
         const sent = await notifyOwner({
           title: `New Funeral Enquiry from ${input.name} — ${input.phone}`,
-          content: lines.join("\n"),
+          content,
+        });
+        await sendFormEmail({
+          subject: `New Funeral Enquiry from ${input.name} — ${input.phone}`,
+          body: content,
+          replyTo: input.email || undefined,
         });
         return { success: true, notified: sent };
       }),
@@ -92,9 +99,15 @@ export const appRouter = router({
           `Submitted via willowtreefunerals.com.au/pre-arrange`,
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
+        const content = lines.join("\n");
         const sent = await notifyOwner({
           title: `Pre-Arrangement Enquiry from ${input.name} — ${input.serviceType}`,
-          content: lines.join("\n"),
+          content,
+        });
+        await sendFormEmail({
+          subject: `Pre-Arrangement Enquiry from ${input.name} — ${input.serviceType}`,
+          body: content,
+          replyTo: input.email || undefined,
         });
         return { success: true, notified: sent };
       }),
@@ -146,9 +159,15 @@ export const appRouter = router({
           `Submitted via willowtreefunerals.com.au/pre-arrange (full form)`,
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
+        const content = lines.join("\n");
         const sent = await notifyOwner({
           title: `Pre-Arrangement Request from ${input.firstName} ${input.lastName} — ${input.phone}`,
-          content: lines.join("\n"),
+          content,
+        });
+        await sendFormEmail({
+          subject: `Pre-Arrangement Request from ${input.firstName} ${input.lastName} — ${input.phone}`,
+          body: content,
+          replyTo: input.email || undefined,
         });
         return { success: true, notified: sent };
       }),
@@ -199,9 +218,15 @@ export const appRouter = router({
           `Submitted via willowtreefunerals.com.au/order-flowers`,
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ].filter((l): l is string => l !== null);
+        const content = lines.join("\n");
         const sent = await notifyOwner({
           title: `Flower Enquiry from ${input.name} — ${input.arrangementType} — ${input.serviceDate}`,
-          content: lines.join("\n"),
+          content,
+        });
+        await sendFormEmail({
+          subject: `Flower Enquiry from ${input.name} — ${input.arrangementType} — ${input.serviceDate}`,
+          body: content,
+          replyTo: input.email || undefined,
         });
         return { success: true, notified: sent };
       }),
