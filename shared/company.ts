@@ -11,7 +11,7 @@ export const COMPANY = {
   scripture: "John 14:1-3",
   phone: "02 8776 1667",
   phoneHref: "tel:+61287761667",
-  whatsapp: "https://wa.me/61287761667?text=Hi%20Bruce%2C%20I%20need%20help%20with%20a%20funeral%20arrangement.",
+  whatsapp: "https://wa.me/61434365520?text=Hi%20Bruce%2C%20I%20need%20help%20with%20a%20funeral%20arrangement.",
   email: "director@willowtreefunerals.com.au",
   address: "118 Durham Street, Hurstville NSW 2220",
   street: "118 Durham Street",

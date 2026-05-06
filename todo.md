@@ -163,3 +163,10 @@
 - [x] Wire "Get a Quote" / "Call Us" CTA click events
 - [x] SPA route-change page view tracking (GA4 + Meta Pixel on every navigation)
 - [x] Update todo.md and save checkpoint
+
+## Email Notifications for Form Submissions
+- [ ] Build sendEmail helper using Nodemailer / SMTP
+- [ ] Wire email to contact form submission router
+- [ ] Wire email to pre-arrange form submission router
+- [ ] Wire email to flowers enquiry form submission router
+- [ ] Save checkpoint
