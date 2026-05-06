@@ -150,3 +150,16 @@
 - [x] Create suburb pages for Blue Mountains: Katoomba
 - [x] Wire all new suburb routes into App.tsx
 - [x] Update sitemap.xml with all new suburb URLs
+
+## Analytics & Conversion Tracking (Round 1)
+- [x] Add GA4 gtag.js base script to index.html
+- [x] Add Meta Pixel base script to index.html
+- [x] Build shared analytics utility (trackEvent wrapper for GA4 + Meta Pixel)
+- [x] Wire phone click conversion event (all phone number links site-wide)
+- [x] Wire contact form submit conversion event (/contact)
+- [x] Wire pre-arrange form submit conversion event (/pre-arrange)
+- [x] Wire flowers enquiry form submit conversion event (/order-flowers)
+- [x] Wire "Arrange a Funeral" CTA click conversion event (Nav + hero)
+- [x] Wire "Get a Quote" / "Call Us" CTA click events
+- [x] SPA route-change page view tracking (GA4 + Meta Pixel on every navigation)
+- [x] Update todo.md and save checkpoint

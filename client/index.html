@@ -34,6 +34,42 @@
     <!-- Robots -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
+    <!-- Google Analytics 4 — loads only when VITE_GA4_MEASUREMENT_ID is set -->
+    <script>
+      window.__GA4_ID = '%VITE_GA4_MEASUREMENT_ID%';
+      if (window.__GA4_ID && window.__GA4_ID !== '%VITE_GA4_MEASUREMENT_ID%' && window.__GA4_ID.startsWith('G-')) {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__GA4_ID;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', window.__GA4_ID, { send_page_view: true });
+      }
+    </script>
+
+    <!-- Meta Pixel — loads only when VITE_META_PIXEL_ID is set -->
+    <script>
+      window.__META_PIXEL_ID = '%VITE_META_PIXEL_ID%';
+      if (window.__META_PIXEL_ID && window.__META_PIXEL_ID !== '%VITE_META_PIXEL_ID%' && /^\d+$/.test(window.__META_PIXEL_ID)) {
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', window.__META_PIXEL_ID);
+        fbq('track', 'PageView');
+      }
+    </script>
+    <!-- Preconnect to analytics domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
+
     <!-- Resource hints (OptiCheck Playbook — eliminate render-blocking) -->
     <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossorigin />
     <link rel="dns-prefetch" href="https://d2xsxph8kpxj0f.cloudfront.net" />
@@ -188,6 +224,8 @@
     </style>
   </head>
   <body>
+    <!-- Meta Pixel noscript fallback -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=%VITE_META_PIXEL_ID%&ev=PageView&noscript=1" /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script

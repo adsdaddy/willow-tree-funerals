@@ -32,6 +32,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { COMPANY } from "@/../../shared/company";
+import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 
 // ── CDN Assets ───────────────────────────────────────────────────────────────
 const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-LSQmgP64pNExBCjB2t9kFG.webp";
@@ -326,12 +327,14 @@ export default function Home() {
                   <a
                     href={COMPANY.phoneHref}
                     className="btn-royal flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold tracking-wide"
+                    onClick={() => trackPhoneClick("home_hero")}
                   >
                     <Phone size={14} /> Call Our Family Care Specialists
                   </a>
                   <Link
                     href="/contact"
                     className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold"
+                    onClick={() => trackCTAClick("arrange_a_funeral", "home_hero")}
                   >
                     Send an Enquiry <ArrowRight size={14} />
                   </Link>
@@ -773,8 +776,7 @@ export default function Home() {
                       </div>
                     ))}
                     <div className="pt-4">
-                      <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
-                        <Phone size={13} /> Discuss Pre-Arrangement
+                      <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-10 py-4 text-sm font-semibold" onClick={() => trackPhoneClick("home_why_us")}>                        <Phone size={13} /> Discuss Pre-Arrangement
                       </a>
                     </div>
                   </div>
@@ -1039,10 +1041,10 @@ export default function Home() {
                   Call our Family Care Specialists any time of the day or night. We will answer, and we will help.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 px-10 py-4">
+                  <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 px-10 py-4" onClick={() => trackPhoneClick("home_final_cta")}>
                     <Phone size={15} /> {COMPANY.phone}
                   </a>
-                  <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-10 py-4 flex items-center justify-center gap-2">
+                  <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-10 py-4 flex items-center justify-center gap-2" onClick={() => trackCTAClick("send_enquiry", "home_final_cta")}>
                     Send an Enquiry <ArrowRight size={14} />
                   </Link>
                 </div>

@@ -1,11 +1,12 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import MobileCtaBar from "./components/MobileCtaBar";
 import WhatsAppButton from "./components/WhatsAppButton";
+import { trackPageView } from "@/lib/analytics";
 
 // ── Lazy-loaded pages (code splitting — OptiCheck Playbook) ──
 // Home is NOT lazy — it is the LCP page and must load immediately
@@ -71,10 +72,19 @@ const Obituaries = lazy(() => import("./pages/Obituaries"));
 function PageFallback() {
   return <div className="min-h-screen bg-brand-ivory" aria-hidden="true" />;
 }
+function RouteTracker() {
+  const [location] = useLocation();
+  useEffect(() => {
+    trackPageView(location);
+  }, [location]);
+  return null;
+}
+
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Suspense fallback={<PageFallback />}>
+      <RouteTracker />
       <Switch>
         {/* Core pages */}
         <Route path="/" component={Home} />

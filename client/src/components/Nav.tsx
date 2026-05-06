@@ -10,6 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, ChevronDown, Facebook, Instagram } from "lucide-react";
 import { COMPANY } from "../../../shared/company";
+import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 
 const services = [
   { label: "Funeral Services", href: "/services/funeral-services" },
@@ -60,7 +61,7 @@ export default function Nav() {
       {/* Top announcement bar */}
       <div className="bg-brand-navy text-white/80 text-center py-2 px-4 text-xs tracking-widest uppercase font-sans">
         Available 24 Hours · 7 Days a Week &nbsp;|&nbsp;
-        <a href={COMPANY.phoneHref} className="text-white/90 hover:text-white transition-colors font-semibold">
+        <a href={COMPANY.phoneHref} className="text-white/90 hover:text-white transition-colors font-semibold" onClick={() => trackPhoneClick("top_bar")}>
           {COMPANY.phone}
         </a>
       </div>
@@ -198,11 +199,12 @@ export default function Nav() {
                 href={COMPANY.phoneHref}
                 className="flex items-center gap-2 text-brand-gold hover:text-white transition-colors"
                 aria-label={`Call ${COMPANY.phone}`}
+                onClick={() => trackPhoneClick("nav_desktop")}
               >
                 <Phone size={15} />
                 <span className="font-sans font-semibold text-sm">{COMPANY.phone}</span>
               </a>
-              <Link href="/contact" className="btn-royal text-xs px-5 py-2.5">
+              <Link href="/contact" className="btn-royal text-xs px-5 py-2.5" onClick={() => trackCTAClick("arrange_a_funeral", "nav_desktop")}>
                 Arrange a Funeral
               </Link>
             </div>
@@ -250,10 +252,10 @@ export default function Nav() {
               <Link href="/blog" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Blog</Link>
               <Link href="/faq" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">FAQ</Link>
               <Link href="/contact" className="text-white/80 text-sm tracking-widest uppercase font-sans font-medium py-2 border-b border-white/10">Contact</Link>
-              <a href={COMPANY.phoneHref} className="btn-royal text-center mt-2">
+              <a href={COMPANY.phoneHref} className="btn-royal text-center mt-2" onClick={() => trackPhoneClick("nav_mobile")}>
                 Call {COMPANY.phone}
               </a>
-              <Link href="/contact" className="btn-outline border-white text-white text-center">
+              <Link href="/contact" className="btn-outline border-white text-white text-center" onClick={() => trackCTAClick("arrange_a_funeral", "nav_mobile")}>
                 Arrange a Funeral
               </Link>
               {/* Social icons in mobile menu */}

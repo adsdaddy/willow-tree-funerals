@@ -5,6 +5,7 @@
  */
 
 import { COMPANY } from "../../../shared/company";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export default function WhatsAppButton() {
   return (
@@ -13,6 +14,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
+      onClick={() => trackWhatsAppClick("floating_button")}
       className="fixed bottom-24 right-4 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 md:bottom-6"
       style={{ backgroundColor: "#25D366" }}
     >

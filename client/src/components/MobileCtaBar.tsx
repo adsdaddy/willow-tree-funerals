@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 import { Link } from "wouter";
 import { COMPANY } from "../../../shared/company";
+import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 
 export default function MobileCtaBar() {
   const [visible, setVisible] = useState(false);
@@ -32,6 +33,7 @@ export default function MobileCtaBar() {
           href={COMPANY.phoneHref}
           className="flex items-center justify-center gap-2 bg-brand-royal text-white py-4 text-xs font-sans font-semibold tracking-widest uppercase min-h-[52px] hover:bg-brand-mid-blue transition-colors"
           aria-label={`Call us on ${COMPANY.phone}`}
+          onClick={() => trackPhoneClick("mobile_cta_bar")}
         >
           <Phone size={16} />
           Call Now
@@ -39,6 +41,7 @@ export default function MobileCtaBar() {
         <Link
           href="/contact"
           className="flex items-center justify-center gap-2 bg-brand-gold text-white py-4 text-xs font-sans font-semibold tracking-widest uppercase min-h-[52px] hover:bg-brand-navy transition-colors"
+          onClick={() => trackCTAClick("arrange_a_funeral", "mobile_cta_bar")}
         >
           Arrange a Funeral
         </Link>

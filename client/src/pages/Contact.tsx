@@ -14,6 +14,7 @@ import SEOHead from "../components/SEOHead";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
 import { trpc } from "@/lib/trpc";
+import { trackContactFormSubmit, trackPhoneClick } from "@/lib/analytics";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -80,6 +81,7 @@ export default function Contact() {
     onSuccess: () => {
       setSubmitted(true);
       setSubmitError("");
+      trackContactFormSubmit();
     },
     onError: (err) => {
       setSubmitError(err.message || "Something went wrong. Please call us directly.");
@@ -118,7 +120,7 @@ export default function Contact() {
           </p>
           {/* Quick contact bar */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href={COMPANY.phoneHref} className="btn-royal flex items-center gap-2">
+            <a href={COMPANY.phoneHref} className="btn-royal flex items-center gap-2" onClick={() => trackPhoneClick("contact_page_hero")}>
               <Phone size={15} /> Call {COMPANY.phone}
             </a>
             <a href={`mailto:${COMPANY.email}`} className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy flex items-center gap-2">
@@ -237,7 +239,7 @@ export default function Contact() {
                       </li>
                     </ul>
                   </div>
-                  <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 mx-auto w-fit">
+                  <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 mx-auto w-fit" onClick={() => trackPhoneClick("contact_page_form")}>
                     <Phone size={15} /> Call {COMPANY.phone}
                   </a>
                 </div>

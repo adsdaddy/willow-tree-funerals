@@ -15,6 +15,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { trpc } from "@/lib/trpc";
 import { COMPANY } from "../../../shared/company";
+import { trackPreArrangeFormSubmit } from "@/lib/analytics";
 
 const HEARSE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded_c81955b1.png";
 
@@ -65,7 +66,7 @@ export default function PreArrange() {
   const [error, setError] = useState<string | null>(null);
 
   const submitMutation = trpc.preArrange.preArrange.useMutation({
-    onSuccess: () => { setSubmitted(true); },
+    onSuccess: () => { setSubmitted(true); trackPreArrangeFormSubmit(); },
     onError: (err: { message?: string }) => { setError(err.message || "Something went wrong. Please call us directly."); },
   });
 
