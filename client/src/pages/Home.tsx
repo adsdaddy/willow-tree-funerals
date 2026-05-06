@@ -266,8 +266,8 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title={`${COMPANY.name} — Funeral Directors Sydney | Catholic, Secular & Multi-Faith Services`}
-        description="Willow Tree Funerals — independent, family-owned funeral directors serving St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast. Available 24/7. Call our Family Care Specialists."
+        title="Willow Tree Funerals | Funeral Directors Sydney"
+        description="Family-owned funeral directors serving Sydney, St George, Sutherland Shire & South West Sydney. Catholic, multi-faith & secular services. Available 24/7."
         canonical="https://willowtreefunerals.com.au"
         ogImage={HEARSE_BRANDED}
       />
