@@ -68,6 +68,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){window.dataLayer.push(arguments);}
       window.gtag = gtag;
+      window.__GADS_ID = 'AW-16467075039';
 
       // Stub fbq immediately
       window.fbq = window.fbq || function() {
@@ -83,6 +84,14 @@
           document.head.appendChild(s);
           gtag('js', new Date());
           gtag('config', window.__GA4_ID, { send_page_view: false });
+        }
+        // Load Google Ads
+        if (window.__GADS_ID) {
+          var ga = document.createElement('script');
+          ga.async = true;
+          ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__GADS_ID;
+          document.head.appendChild(ga);
+          gtag('config', window.__GADS_ID);
         }
         // Load Meta Pixel
         if (window.__META_PIXEL_ID && /^\d+$/.test(window.__META_PIXEL_ID)) {

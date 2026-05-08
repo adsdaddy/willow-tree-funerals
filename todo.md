@@ -267,3 +267,8 @@
 - [x] Added Google 5.0 / 47 reviews trust badge below final CTA buttons
 - [x] Added pulsing green "Available right now 24/7" live indicator
 - [x] Added "No call centres" reassurance signal
+
+## Google Ads Integration (AW-16467075039)
+- [x] Added Google Ads global site tag (AW-16467075039) to index.html deferred loader
+- [x] Wired conversion events: phone_click, generate_lead (all 3 forms), whatsapp_click fire gtag('event','conversion') to AW-16467075039
+- [ ] Add conversion labels once created in Google Ads Goals → Conversions (paste into GADS_CONVERSION_LABELS in analytics.ts)

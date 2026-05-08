@@ -18,7 +18,32 @@ declare global {
     gtag?: (...args: unknown[]) => void;
     fbq?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    __GADS_ID?: string;
   }
+}
+
+// Google Ads conversion labels — create these in Google Ads → Goals → Conversions
+// then paste the label value (e.g. 'AbCdEfGhIjKlMnOp') from the tag setup screen.
+// Leave as empty string until you have the label; the event will still fire to the
+// account-level tag (AW-16467075039) which is sufficient for Smart Bidding.
+const GADS_CONVERSION_LABELS = {
+  phone_click: '',       // Google Ads conversion label for phone clicks
+  generate_lead: '',     // Google Ads conversion label for form submissions
+  whatsapp_click: '',    // Google Ads conversion label for WhatsApp clicks
+} as const;
+
+/** Fire a Google Ads conversion event. Safe to call even if Ads tag not loaded. */
+function trackGAdsConversion(conversionType: keyof typeof GADS_CONVERSION_LABELS, value = 1): void {
+  if (typeof window.gtag !== 'function') return;
+  const label = GADS_CONVERSION_LABELS[conversionType];
+  const sendTo = label
+    ? `AW-16467075039/${label}`
+    : 'AW-16467075039';
+  window.gtag('event', 'conversion', {
+    send_to: sendTo,
+    value,
+    currency: 'AUD',
+  });
 }
 
 // ── Core dispatcher ───────────────────────────────────────────────────────────
@@ -62,6 +87,7 @@ export function trackPhoneClick(source: string = "unknown"): void {
     "Contact",
     { content_name: "phone_click", source },
   );
+  trackGAdsConversion('phone_click');
 }
 
 /**
@@ -76,6 +102,7 @@ export function trackContactFormSubmit(): void {
     "Lead",
     { content_name: "contact_form" },
   );
+  trackGAdsConversion('generate_lead');
 }
 
 /**
@@ -90,6 +117,7 @@ export function trackPreArrangeFormSubmit(): void {
     "Lead",
     { content_name: "pre_arrange_form" },
   );
+  trackGAdsConversion('generate_lead');
 }
 
 /**
@@ -104,6 +132,7 @@ export function trackFlowersFormSubmit(): void {
     "Lead",
     { content_name: "flowers_enquiry_form" },
   );
+  trackGAdsConversion('generate_lead');
 }
 
 /**
@@ -146,6 +175,7 @@ export function trackWhatsAppClick(source: string = "unknown"): void {
     "Contact",
     { content_name: "whatsapp_click", source },
   );
+  trackGAdsConversion('whatsapp_click');
 }
 
 /**
