@@ -38,7 +38,7 @@ export default function AccreditationBar() {
             <div key={label} className="flex items-center gap-2">
               <Icon size={14} className="text-brand-royal shrink-0" />
               <span className="text-brand-navy text-xs font-semibold">{label}</span>
-              <span className="hidden sm:inline text-brand-navy/40 text-xs">·</span>
+              <span className="hidden sm:inline text-brand-navy/70 text-xs">·</span>
               <span className="hidden sm:inline text-brand-navy/75 text-xs">{sub}</span>
             </div>
           ))}

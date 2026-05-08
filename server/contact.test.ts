@@ -10,6 +10,11 @@ vi.mock("./_core/notification", () => ({
   notifyOwner: vi.fn().mockResolvedValue(true),
 }));
 
+// Mock sendFormEmail so we don't make real SMTP calls in tests
+vi.mock("./email", () => ({
+  sendFormEmail: vi.fn().mockResolvedValue(undefined),
+}));
+
 function createPublicContext(): { ctx: TrpcContext } {
   return {
     ctx: {

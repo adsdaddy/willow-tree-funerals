@@ -148,7 +148,7 @@ export default function Contact() {
                   <MapPin size={20} className="text-brand-gold mt-0.5 shrink-0" />
                   <div>
                     <h3 className="font-serif text-brand-navy text-xl font-semibold">Hurstville</h3>
-                    <p className="text-brand-navy/50 text-sm">Primary Location — St George &amp; Sutherland Shire</p>
+                    <p className="text-brand-navy/70 text-sm">Primary Location — St George &amp; Sutherland Shire</p>
                   </div>
                 </div>
                 <div className="space-y-2 pl-8">
@@ -174,12 +174,12 @@ export default function Contact() {
                   <MapPin size={20} className="text-brand-gold mt-0.5 shrink-0" />
                   <div>
                     <h3 className="font-serif text-brand-navy text-xl font-semibold">Macquarie Links</h3>
-                    <p className="text-brand-navy/50 text-sm">South West Sydney Location</p>
+                    <p className="text-brand-navy/70 text-sm">South West Sydney Location</p>
                   </div>
                 </div>
                 <div className="space-y-2 pl-8">
                   <p className="text-brand-navy/70 text-sm">Macquarie Links NSW 2565</p>
-                  <p className="text-brand-navy/50 text-xs">Serving Campbelltown, Liverpool, Narellan, Gregory Hills &amp; surrounds</p>
+                  <p className="text-brand-navy/70 text-xs">Serving Campbelltown, Liverpool, Narellan, Gregory Hills &amp; surrounds</p>
                   <div className="flex items-center gap-2">
                     <Phone size={13} className="text-brand-royal shrink-0" />
                     <a href={COMPANY.phoneHref} className="text-brand-royal hover:text-brand-navy text-sm transition-colors">{COMPANY.phone}</a>
@@ -217,7 +217,7 @@ export default function Contact() {
                   <div className="w-7 h-7 rounded-full bg-brand-royal flex items-center justify-center text-white text-[0.55rem] font-bold">DT</div>
                   <div>
                     <p className="text-brand-navy font-semibold text-xs">David &amp; Karen T.</p>
-                    <p className="text-brand-navy/50 text-[0.6rem]">Sutherland · Google Review</p>
+                    <p className="text-brand-navy/70 text-[0.6rem]">Sutherland · Google Review</p>
                   </div>
                   <div className="ml-auto flex gap-0.5">
                     {[1,2,3,4,5].map(s => <svg key={s} className="w-3 h-3 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}

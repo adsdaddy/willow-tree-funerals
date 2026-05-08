@@ -113,8 +113,13 @@
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
     <!-- Resource hints (OptiCheck Playbook — eliminate render-blocking) -->
-    <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossorigin />
+    <!-- Two preconnect tags for CDN: one for CORS requests (fonts/images), one for non-CORS -->
+    <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" />
     <link rel="dns-prefetch" href="https://d2xsxph8kpxj0f.cloudfront.net" />
+    <!-- Manus analytics preconnect (100ms LCP savings per Lighthouse) -->
+    <link rel="preconnect" href="https://manus-analytics.com" />
+    <link rel="dns-prefetch" href="https://manus-analytics.com" />
 
     <!-- Critical font preloads (eliminate FOUT for above-fold text) -->
     <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -200,7 +205,7 @@
           "name": "Bruce Missen",
           "jobTitle": "Funeral Director & Owner",
           "worksFor": {"@id": "https://www.willowtreefunerals.com.au/#business"},
-          "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot_18cf3f17.png"
+          "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot-opt_b68ffe5b.webp"
         },
         {
           "@type": "WebSite",

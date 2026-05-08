@@ -104,7 +104,7 @@ function ArticleCard({
           </span>
         </div>
         <div className="p-7 flex flex-col flex-1">
-          <div className="flex items-center gap-4 text-brand-navy/40 text-xs mb-3">
+          <div className="flex items-center gap-4 text-brand-navy/70 text-xs mb-3">
             <span className="flex items-center gap-1"><Calendar size={11} /> {date}</span>
             <span className="flex items-center gap-1"><Clock size={11} /> {readTime} read</span>
           </div>

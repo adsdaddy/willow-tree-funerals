@@ -249,11 +249,11 @@ export default function Pricing() {
                 )}
                 <div className="mb-6">
                   <h2 className="font-serif text-brand-navy text-2xl font-semibold mb-1">{pkg.name}</h2>
-                  <p className="text-brand-navy/50 text-sm">{pkg.tagline}</p>
+                  <p className="text-brand-navy/70 text-sm">{pkg.tagline}</p>
                 </div>
                 <div className="mb-6">
                   <p className="font-serif text-brand-navy text-3xl font-semibold">{pkg.priceFrom}</p>
-                  <p className="text-brand-navy/50 text-xs mt-1">{pkg.priceNote}</p>
+                  <p className="text-brand-navy/70 text-xs mt-1">{pkg.priceNote}</p>
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
                   {pkg.includes.map((item, i) => (
@@ -292,7 +292,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="text-brand-navy/40 text-xs mt-4">
+          <p className="text-brand-navy/70 text-xs mt-4">
             POA = Price on application. All prices are indicative and subject to confirmation. Contact our team for a personalised quote.
           </p>
         </div>

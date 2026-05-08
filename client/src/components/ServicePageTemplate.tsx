@@ -137,7 +137,7 @@ export default function ServicePageTemplate({
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/20" />
         <div className="relative z-10 container pb-16 pt-32">
           {/* Breadcrumb — ARIA nav */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-white/50 text-xs tracking-wider uppercase font-sans mb-6">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-white/60 text-xs tracking-wider uppercase font-sans mb-6">
             <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
             <ChevronRight size={12} aria-hidden="true" />
             <Link href="/services/funeral-services" className="hover:text-white/80 transition-colors">Services</Link>
@@ -201,7 +201,7 @@ export default function ServicePageTemplate({
               />
               <aside className="absolute -bottom-6 -left-6 bg-brand-navy p-6 max-w-xs hidden lg:block">
                 <p className="scripture text-brand-gold text-sm leading-relaxed">"{pullQuote}"</p>
-                <p className="font-sans text-white/40 text-xs tracking-widest uppercase mt-2">{COMPANY.scripture}</p>
+                <p className="font-sans text-white/60 text-xs tracking-widest uppercase mt-2">{COMPANY.scripture}</p>
               </aside>
             </div>
           </div>

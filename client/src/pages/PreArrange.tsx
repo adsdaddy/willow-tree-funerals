@@ -418,10 +418,10 @@ export default function PreArrange() {
                     <button onClick={() => setStep(1)} className="text-brand-royal text-xs font-semibold hover:underline">Edit</button>
                   </div>
                   <div className="bg-brand-ivory rounded-lg p-4 grid sm:grid-cols-2 gap-2 text-sm">
-                    <div><span className="text-brand-navy/50">Name:</span> <span className="text-brand-navy font-medium">{form.firstName} {form.lastName}</span></div>
-                    <div><span className="text-brand-navy/50">Phone:</span> <span className="text-brand-navy font-medium">{form.phone}</span></div>
-                    {form.email && <div><span className="text-brand-navy/50">Email:</span> <span className="text-brand-navy font-medium">{form.email}</span></div>}
-                    {form.suburb && <div><span className="text-brand-navy/50">Suburb:</span> <span className="text-brand-navy font-medium">{form.suburb}</span></div>}
+                    <div><span className="text-brand-navy/70">Name:</span> <span className="text-brand-navy font-medium">{form.firstName} {form.lastName}</span></div>
+                    <div><span className="text-brand-navy/70">Phone:</span> <span className="text-brand-navy font-medium">{form.phone}</span></div>
+                    {form.email && <div><span className="text-brand-navy/70">Email:</span> <span className="text-brand-navy font-medium">{form.email}</span></div>}
+                    {form.suburb && <div><span className="text-brand-navy/70">Suburb:</span> <span className="text-brand-navy font-medium">{form.suburb}</span></div>}
                   </div>
                 </div>
 
@@ -432,9 +432,9 @@ export default function PreArrange() {
                     <button onClick={() => setStep(2)} className="text-brand-royal text-xs font-semibold hover:underline">Edit</button>
                   </div>
                   <div className="bg-brand-ivory rounded-lg p-4 grid sm:grid-cols-2 gap-2 text-sm">
-                    {form.serviceType && <div><span className="text-brand-navy/50">Service Type:</span> <span className="text-brand-navy font-medium">{form.serviceType}</span></div>}
-                    {form.disposition && <div><span className="text-brand-navy/50">Burial/Cremation:</span> <span className="text-brand-navy font-medium">{form.disposition}</span></div>}
-                    {form.venue && <div><span className="text-brand-navy/50">Venue:</span> <span className="text-brand-navy font-medium">{form.venue}</span></div>}
+                    {form.serviceType && <div><span className="text-brand-navy/70">Service Type:</span> <span className="text-brand-navy font-medium">{form.serviceType}</span></div>}
+                    {form.disposition && <div><span className="text-brand-navy/70">Burial/Cremation:</span> <span className="text-brand-navy font-medium">{form.disposition}</span></div>}
+                    {form.venue && <div><span className="text-brand-navy/70">Venue:</span> <span className="text-brand-navy font-medium">{form.venue}</span></div>}
                   </div>
                 </div>
 
@@ -446,9 +446,9 @@ export default function PreArrange() {
                       <button onClick={() => setStep(3)} className="text-brand-royal text-xs font-semibold hover:underline">Edit</button>
                     </div>
                     <div className="bg-brand-ivory rounded-lg p-4 space-y-2 text-sm">
-                      {form.religiousPreferences && <div><span className="text-brand-navy/50">Faith:</span> <span className="text-brand-navy">{form.religiousPreferences}</span></div>}
-                      {form.musicPreferences && <div><span className="text-brand-navy/50">Music:</span> <span className="text-brand-navy">{form.musicPreferences}</span></div>}
-                      {form.specialRequests && <div><span className="text-brand-navy/50">Special Requests:</span> <span className="text-brand-navy">{form.specialRequests}</span></div>}
+                      {form.religiousPreferences && <div><span className="text-brand-navy/70">Faith:</span> <span className="text-brand-navy">{form.religiousPreferences}</span></div>}
+                      {form.musicPreferences && <div><span className="text-brand-navy/70">Music:</span> <span className="text-brand-navy">{form.musicPreferences}</span></div>}
+                      {form.specialRequests && <div><span className="text-brand-navy/70">Special Requests:</span> <span className="text-brand-navy">{form.specialRequests}</span></div>}
                     </div>
                   </div>
                 )}
@@ -495,7 +495,7 @@ export default function PreArrange() {
                   <Icon size={18} className="text-brand-royal" />
                 </div>
                 <p className="font-semibold text-brand-navy text-sm mb-1">{title}</p>
-                <p className="text-brand-navy/50 text-xs leading-relaxed">{desc}</p>
+                <p className="text-brand-navy/70 text-xs leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>

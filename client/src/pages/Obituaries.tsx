@@ -101,7 +101,7 @@ export default function Obituaries() {
             <p className="scripture text-brand-gold text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
               "I am the resurrection and the life. The one who believes in me will live, even though they die."
             </p>
-            <footer className="font-sans text-white/40 text-xs tracking-widest uppercase mt-3">John 11:25</footer>
+            <footer className="font-sans text-white/60 text-xs tracking-widest uppercase mt-3">John 11:25</footer>
           </blockquote>
         </div>
       </section>

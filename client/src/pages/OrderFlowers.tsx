@@ -296,7 +296,7 @@ function FlowerEnquiryForm() {
                   Service Date <span className="text-red-400">*</span>
                 </label>
                 <div className="relative">
-                  <CalendarDays size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-navy/40 pointer-events-none" />
+                  <CalendarDays size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-navy/70 pointer-events-none" />
                   <input
                     type="date"
                     value={form.serviceDate}
@@ -315,7 +315,7 @@ function FlowerEnquiryForm() {
 
             <div>
               <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
-                Service Time <span className="text-brand-navy/40 font-normal">(optional)</span>
+                Service Time <span className="text-brand-navy/70 font-normal">(optional)</span>
               </label>
               <input
                 type="time"
@@ -375,10 +375,10 @@ function FlowerEnquiryForm() {
 
             <div>
               <label className="block font-sans text-xs text-brand-navy/60 font-medium mb-1.5">
-                Email Address <span className="text-brand-navy/40 font-normal">(optional)</span>
+                Email Address <span className="text-brand-navy/70 font-normal">(optional)</span>
               </label>
               <div className="relative">
-                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-navy/40 pointer-events-none" />
+                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-navy/70 pointer-events-none" />
                 <input
                   type="email"
                   value={form.email}
@@ -400,7 +400,7 @@ function FlowerEnquiryForm() {
         {/* ── Section 4: Additional Notes ── */}
         <div>
           <label className="font-sans text-xs tracking-widest uppercase text-brand-royal font-semibold mb-4 flex items-center gap-2">
-            <MessageSquare size={13} /> Additional Notes <span className="text-brand-navy/40 font-normal normal-case tracking-normal">(optional)</span>
+            <MessageSquare size={13} /> Additional Notes <span className="text-brand-navy/70 font-normal normal-case tracking-normal">(optional)</span>
           </label>
           <textarea
             value={form.additionalNotes}
@@ -440,7 +440,7 @@ function FlowerEnquiryForm() {
           )}
         </button>
 
-        <p className="text-center text-brand-navy/40 text-xs leading-relaxed">
+        <p className="text-center text-brand-navy/70 text-xs leading-relaxed">
           By submitting this form you agree to be contacted by Willow Tree Funerals regarding your flower order.
           Alternatively, call us directly on{" "}
           <a href={COMPANY.phoneHref} className="text-brand-royal hover:underline">{COMPANY.phone}</a> or email{" "}
@@ -615,7 +615,7 @@ export default function OrderFlowers() {
                 <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 text-brand-royal font-semibold hover:underline text-sm">
                   <Mail size={14} /> {COMPANY.email}
                 </a>
-                <p className="text-brand-navy/50 text-xs mt-2">Available 24 hours, 7 days a week</p>
+                <p className="text-brand-navy/70 text-xs mt-2">Available 24 hours, 7 days a week</p>
               </div>
             </div>
 

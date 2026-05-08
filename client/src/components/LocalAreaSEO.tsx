@@ -53,7 +53,7 @@ export default function LocalAreaSEO() {
                   <p className="font-serif text-brand-navy font-semibold text-sm group-hover:text-brand-royal transition-colors">
                     {area.suburb}
                   </p>
-                  <p className="text-brand-navy/40 text-xs font-sans">NSW {area.postcode}</p>
+                  <p className="text-brand-navy/70 text-xs font-sans">NSW {area.postcode}</p>
                 </div>
               </div>
               <p className="text-brand-navy/55 text-xs leading-relaxed">{area.desc}</p>

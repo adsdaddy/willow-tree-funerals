@@ -278,3 +278,31 @@
 - [x] Pre-Arrange form: animated success card with fade-in, branded checkmark, numbered next steps, Loader2 spinner
 - [x] Order Flowers form: animated success card with fade-in, branded checkmark, numbered next steps, Loader2 spinner
 - [x] Obituary page: links to Contact form (no separate form needed)
+
+## Pricing Page Quote Form
+- [ ] Add "Get a Personalised Quote" inline form to Pricing page
+- [ ] Wire to new tRPC quoteRequest mutation with notifyOwner + sendEmail
+- [ ] Animated success card with "What Happens Next" steps
+- [ ] Vitest test for quoteRequest mutation
+
+## SMTP Email Activation
+- [ ] Add SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS secrets via Secrets panel
+
+## PageSpeed Round 2 Fixes (Target 100% everywhere)
+- [x] Fix canonical conflict: non-www redirect exists in server but SEOHead also injects www canonical creating duplicates
+- [x] Add Cache-Control headers for CDN assets (fonts, images) — currently no-cache causing 3,721 KB re-download on every visit
+- [x] Fix review card text contrast: text-brand-navy/70 and text-[0.65rem] text-brand-navy/60 failing WCAG AA
+- [x] Fix all failing contrast values site-wide (white/40-55 → /60, navy/40-50 → /70) across Home, BlogArticleTemplate, SuburbPageTemplate, and all other pages
+- [x] Compress bruce-headshot.png (940 KB) → WebP at 480px display width (bruce-headshot-opt.webp)
+- [x] Compress IMG-20250724-WA0048 (birdcage-garden, 891 KB) → WebP at 480px
+- [x] Compress IMG-20230517-WA0056 (butterfly-flowers, 430 KB) → WebP at 480px
+- [x] Compress IMG-20250724-WA0023 (procession, 295 KB) → WebP at 480px
+- [x] Compress IMG-20230518-WA0007 (bruce-hearse-1, 220 KB) → WebP at 480px
+- [x] Compress IMG-20240920-WA0186 (casket-church, 183 KB) → WebP at 480px
+- [x] Compress logo-white (46 KB, 538x268) → 17 KB WebP at 281px display width
+- [x] Compress casket-cathedral (235 KB, 960x1440) → 74 KB WebP at 480px display width
+- [x] Fix CDN preconnect: add crossorigin=anonymous + non-CORS preconnect for d2xsxph8kpxj0f.cloudfront.net
+- [x] Add preconnect for manus-analytics.com (est 100ms LCP savings)
+- [x] Fix stale tsbuildinfo referencing TypeScript 5.6.3 — moved to .tsbuildinfo in project root
+- [ ] Reduce CSS render-blocking: inline critical CSS or split above-fold styles (Vite limitation — CSS is already 22KB gzipped)
+- [ ] Fix framer-motion forced reflow (63ms): replace layout-querying animations with CSS transforms only

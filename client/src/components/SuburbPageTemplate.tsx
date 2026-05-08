@@ -170,7 +170,7 @@ export default function SuburbPageTemplate({
             ].map(({ value, label }) => (
               <div key={label}>
                 <p className="font-serif text-white font-bold text-3xl mb-1">{value}</p>
-                <p className="section-label text-white/50 text-[0.6rem]">{label}</p>
+                <p className="section-label text-white/60 text-[0.6rem]">{label}</p>
               </div>
             ))}
           </div>

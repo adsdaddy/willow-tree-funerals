@@ -29,7 +29,7 @@ export default function BlogArticle() {
         <div className="min-h-screen bg-brand-ivory flex items-center justify-center pt-24">
           <div className="text-center">
             <div className="w-10 h-10 border-2 border-brand-royal border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-brand-navy/50 text-sm">Loading article...</p>
+            <p className="text-brand-navy/70 text-sm">Loading article...</p>
           </div>
         </div>
         <Footer />
@@ -104,10 +104,10 @@ export default function BlogArticle() {
           <h1 className="font-serif text-white font-bold leading-tight mb-6" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", letterSpacing: "-0.025em" }}>
             {post.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-5 text-white/50 text-sm">
+          <div className="flex flex-wrap items-center gap-5 text-white/60 text-sm">
             <span className="flex items-center gap-1.5"><Calendar size={13} /> {publishDate}</span>
             <span className="flex items-center gap-1.5"><Clock size={13} /> {post.readingTime} min read</span>
-            <span className="text-white/40">By {post.author || COMPANY.name}</span>
+            <span className="text-white/60">By {post.author || COMPANY.name}</span>
           </div>
         </div>
       </section>

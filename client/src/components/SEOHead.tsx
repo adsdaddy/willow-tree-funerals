@@ -43,26 +43,31 @@ export default function SEOHead({ title, description, canonical, schema, ogImage
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", description);
 
-    // Canonical — always use www and handle both full URLs and paths
-    if (canonical) {
+    // Canonical — always update the EXISTING static canonical tag (never create a second one)
+    // The static <link rel="canonical"> in index.html is the single source of truth.
+    // We only update its href — this prevents Lighthouse from seeing two canonical tags.
+    {
+      const canonicalValue = canonical || '/';
+      // Normalise to absolute www URL
+      let canonicalHref: string;
+      if (canonicalValue.startsWith('http')) {
+        canonicalHref = canonicalValue
+          .replace('https://willowtreefunerals.com.au/', 'https://www.willowtreefunerals.com.au/')
+          .replace('http://willowtreefunerals.com.au/', 'https://www.willowtreefunerals.com.au/')
+          .replace('http://www.willowtreefunerals.com.au/', 'https://www.willowtreefunerals.com.au/');
+      } else {
+        canonicalHref = `https://www.willowtreefunerals.com.au${canonicalValue}`;
+      }
+      // Always update the existing tag — never append a new one
       let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
       if (!link) {
-        link = document.createElement("link");
-        link.rel = "canonical";
+        link = document.createElement('link');
+        link.rel = 'canonical';
         document.head.appendChild(link);
       }
-      // If a full URL is passed, normalise it to www form; otherwise prepend base
-      let canonicalHref: string;
-      if (canonical.startsWith('http')) {
-        // Replace any non-www or bare domain with www version
-        canonicalHref = canonical
-          .replace('https://willowtreefunerals.com.au', 'https://www.willowtreefunerals.com.au')
-          .replace('http://willowtreefunerals.com.au', 'https://www.willowtreefunerals.com.au')
-          .replace('http://www.willowtreefunerals.com.au', 'https://www.willowtreefunerals.com.au');
-      } else {
-        canonicalHref = `https://www.willowtreefunerals.com.au${canonical}`;
+      if (link.href !== canonicalHref) {
+        link.href = canonicalHref;
       }
-      link.href = canonicalHref;
     }
 
     // JSON-LD

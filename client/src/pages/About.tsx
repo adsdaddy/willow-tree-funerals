@@ -229,7 +229,7 @@ export default function About() {
                 <p className="scripture text-brand-gold text-sm leading-relaxed">
                   "Do not let your hearts be troubled. You believe in God; believe also in me."
                 </p>
-                <p className="font-sans text-white/40 text-xs tracking-widest uppercase mt-2">{COMPANY.scripture}</p>
+                <p className="font-sans text-white/60 text-xs tracking-widest uppercase mt-2">{COMPANY.scripture}</p>
               </div>
             </div>
 
@@ -255,7 +255,7 @@ export default function About() {
                 <p className="scripture text-brand-royal text-lg">
                   "I believe every person deserves a farewell that truly honours who they were. That is the promise I make to every family I serve."
                 </p>
-                <footer className="font-sans text-brand-navy/50 text-xs tracking-widest uppercase mt-2">
+                <footer className="font-sans text-brand-navy/70 text-xs tracking-widest uppercase mt-2">
                   — Bruce Missen, Managing Director &amp; Founder
                 </footer>
               </blockquote>
@@ -408,11 +408,11 @@ export default function About() {
                   <MapPin size={20} className="text-brand-gold mt-0.5 shrink-0" />
                   <div>
                     <h3 className="font-serif text-brand-navy text-xl font-semibold">{loc.name}</h3>
-                    <p className="text-brand-navy/50 text-sm font-sans">{loc.region}</p>
+                    <p className="text-brand-navy/70 text-sm font-sans">{loc.region}</p>
                   </div>
                 </div>
                 <p className="text-brand-navy/70 text-sm mb-2">{loc.address}</p>
-                <p className="text-brand-navy/50 text-xs font-sans">Established {loc.established}</p>
+                <p className="text-brand-navy/70 text-xs font-sans">Established {loc.established}</p>
               </div>
             ))}
           </div>

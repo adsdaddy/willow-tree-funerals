@@ -20,7 +20,7 @@ export default function Footer() {
         <p className="scripture text-brand-gold/90 text-base md:text-lg">
           "Do not let your hearts be troubled. You believe in God; believe also in me."
         </p>
-        {/* Raised from text-white/40 to text-white/60 for WCAG AA contrast */}
+        {/* Raised from text-white/60 to text-white/60 for WCAG AA contrast */}
         <p className="font-sans text-xs tracking-widest uppercase text-white/60 mt-1">{COMPANY.scripture}</p>
       </div>
 
@@ -116,7 +116,7 @@ export default function Footer() {
               <div className="flex gap-3">
                 <Phone size={15} className="text-brand-gold mt-0.5 shrink-0" />
                 <div>
-                  {/* Raised from text-white/40 to text-white/60 for WCAG AA contrast */}
+                  {/* Raised from text-white/60 to text-white/60 for WCAG AA contrast */}
                   <p className="text-xs text-white/60 uppercase tracking-wider mb-0.5">24/7 Phone</p>
                   <a href={COMPANY.phoneHref} className="text-white hover:text-brand-gold transition-colors font-semibold">
                     {COMPANY.phone}
@@ -149,7 +149,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="container py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          {/* Raised from text-white/40 to text-white/60 for WCAG AA contrast */}
+          {/* Raised from text-white/60 to text-white/60 for WCAG AA contrast */}
           <p className="text-xs text-white/60">
             &copy; {year} {COMPANY.name}. All rights reserved. ASIC Registered Funeral Director &amp; Funeral Home.
           </p>

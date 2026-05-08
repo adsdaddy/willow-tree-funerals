@@ -144,21 +144,21 @@ export default function CommunityEvents() {
                   <div className="flex items-start gap-3">
                     <Calendar size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-sans text-xs text-brand-navy/50 uppercase tracking-wider mb-0.5">Dates</p>
+                      <p className="font-sans text-xs text-brand-navy/70 uppercase tracking-wider mb-0.5">Dates</p>
                       <p className="text-brand-navy text-sm font-semibold">Saturdays, January 10–31, 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Clock size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-sans text-xs text-brand-navy/50 uppercase tracking-wider mb-0.5">Time</p>
+                      <p className="font-sans text-xs text-brand-navy/70 uppercase tracking-wider mb-0.5">Time</p>
                       <p className="text-brand-navy text-sm font-semibold">10:30 am</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-sans text-xs text-brand-navy/50 uppercase tracking-wider mb-0.5">Location</p>
+                      <p className="font-sans text-xs text-brand-navy/70 uppercase tracking-wider mb-0.5">Location</p>
                       <p className="text-brand-navy text-sm font-semibold">Our Lady of Mount Carmel</p>
                       <p className="text-brand-navy/60 text-sm">193 St Andrews Road, Varroville NSW 2566</p>
                     </div>
@@ -208,21 +208,21 @@ export default function CommunityEvents() {
                   <div className="flex items-start gap-3">
                     <Calendar size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-sans text-xs text-brand-navy/50 uppercase tracking-wider mb-0.5">Frequency</p>
+                      <p className="font-sans text-xs text-brand-navy/70 uppercase tracking-wider mb-0.5">Frequency</p>
                       <p className="text-brand-navy text-sm font-semibold">First Tuesday of every month</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Clock size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-sans text-xs text-brand-navy/50 uppercase tracking-wider mb-0.5">Time</p>
+                      <p className="font-sans text-xs text-brand-navy/70 uppercase tracking-wider mb-0.5">Time</p>
                       <p className="text-brand-navy text-sm font-semibold">7:00 pm – 9:00 pm</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-sans text-xs text-brand-navy/50 uppercase tracking-wider mb-0.5">Location</p>
+                      <p className="font-sans text-xs text-brand-navy/70 uppercase tracking-wider mb-0.5">Location</p>
                       <p className="text-brand-navy text-sm font-semibold">St Joachim's Parish, Lidcombe</p>
                       <p className="text-brand-navy/60 text-sm">2 Mills Street, Lidcombe NSW</p>
                     </div>
@@ -230,9 +230,9 @@ export default function CommunityEvents() {
                   <div className="flex items-start gap-3">
                     <Phone size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-sans text-xs text-brand-navy/50 uppercase tracking-wider mb-0.5">Contact Grief Care</p>
+                      <p className="font-sans text-xs text-brand-navy/70 uppercase tracking-wider mb-0.5">Contact Grief Care</p>
                       <a href="tel:0296466908" className="text-brand-navy text-sm font-semibold hover:text-brand-royal transition-colors">02 9646 6908</a>
-                      <span className="text-brand-navy/40 mx-2">·</span>
+                      <span className="text-brand-navy/70 mx-2">·</span>
                       <a href="mailto:team@griefcare.com.au" className="text-brand-navy/70 text-sm hover:text-brand-royal transition-colors">team@griefcare.com.au</a>
                     </div>
                   </div>

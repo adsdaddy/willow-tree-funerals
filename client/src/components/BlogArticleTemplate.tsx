@@ -93,7 +93,7 @@ export default function BlogArticleTemplate({
           >
             {title}
           </h1>
-          <div className="flex flex-wrap items-center gap-4 text-white/50 text-xs">
+          <div className="flex flex-wrap items-center gap-4 text-white/60 text-xs">
             <span className="flex items-center gap-1.5"><Calendar size={12} /> {publishDate}</span>
             <span className="flex items-center gap-1.5"><Clock size={12} /> {readTime} read</span>
             <span>By Bruce Missen, Funeral Director</span>
@@ -148,7 +148,7 @@ export default function BlogArticleTemplate({
                         <p className="text-brand-navy text-sm font-semibold group-hover:text-brand-royal transition-colors leading-snug mb-1">
                           {article.title}
                         </p>
-                        <p className="text-brand-navy/40 text-xs">{article.date}</p>
+                        <p className="text-brand-navy/70 text-xs">{article.date}</p>
                       </Link>
                     ))}
                   </div>

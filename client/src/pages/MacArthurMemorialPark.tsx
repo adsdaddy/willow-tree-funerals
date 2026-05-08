@@ -177,7 +177,7 @@ export default function MacArthurMemorialPark() {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/65 to-brand-navy/25" />
         <div className="relative z-10 container pb-16 pt-32">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-white/50 text-xs tracking-wider uppercase font-sans mb-6">
+          <nav className="flex items-center gap-2 text-white/60 text-xs tracking-wider uppercase font-sans mb-6">
             <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
             <ChevronRight size={12} />
             <span className="text-brand-gold">MacArthur Memorial Park</span>

@@ -699,7 +699,7 @@ export default function BrandGuide() {
                 Our founding location in the heart of the St George area. Serving Hurstville, Kogarah, Rockdale, Bexley, Penshurst, Mortdale, and the wider Sutherland Shire. A trusted name in the community for over six years.
               </p>
               <div className="border-t pt-5" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
-                <p className="font-sans text-[10px] text-white/40 uppercase tracking-[0.18em] mb-2">Service Area</p>
+                <p className="font-sans text-[10px] text-white/60 uppercase tracking-[0.18em] mb-2">Service Area</p>
                 <p className="font-sans text-white/75 text-xs">St George · Sutherland Shire · Inner South Sydney</p>
               </div>
             </div>

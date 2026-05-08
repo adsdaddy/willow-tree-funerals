@@ -37,16 +37,16 @@ import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 // ── CDN Assets ───────────────────────────────────────────────────────────────
 const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt_0864e4a3.webp";
 const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-walking_upscaled_a1fa6d59.jpg";
-const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230518-WA0007_91c5c66b.jpg";
+const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230518-WA0007_91c5c66b-opt_3cc00853.webp";
 const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded-opt_64d9aa81.webp";
 const CHURCH_MASS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg";
-const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral-opt_225adbdf.webp";
-const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4.jpg";
+const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral-opt-v2_12c23ec3.webp";
+const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4-opt_75fd0c29.webp";
 const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_124331_WhatsApp_upscaled_13fb4a7e.jpg";
 const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0006_596dbd5c.jpg";
-const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg";
-const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
-const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg";
+const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad-opt_9e353cd5.webp";
+const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615-opt_e93b8716.webp";
+const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37-opt_cbd86335.webp";
 const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-hearse-opt_70f7a244.webp";
 const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0033_2dba725d.jpg";
 const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0034_ca7fe50f.jpg";
@@ -350,7 +350,7 @@ export default function Home() {
                     <div className="flex items-center gap-0.5">
                       {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-amber-400 text-amber-400" />)}
                     </div>
-                    <p className="text-white/60 text-[0.6rem] font-medium">500+ Sydney families trust Willow Tree</p>
+                    <p className="text-white/70 text-[0.6rem] font-medium">500+ Sydney families trust Willow Tree</p>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 mb-4">
@@ -369,7 +369,7 @@ export default function Home() {
                     Send an Enquiry <ArrowRight size={14} />
                   </Link>
                 </div>
-                <p className="text-white/45 text-xs mb-10">No call centres. No queues. You speak directly with Bruce.</p>
+                <p className="text-white/60 text-xs mb-10">No call centres. No queues. You speak directly with Bruce.</p>
               </Reveal>
               {/* Trust badges */}
               <Reveal delay={0.48}>
@@ -379,7 +379,7 @@ export default function Home() {
                     "ASIC Registered Funeral Home",
                     "Cert IV Funeral Services",
                   ].map(badge => (
-                    <div key={badge} className="flex items-center gap-1.5 text-xs text-white/60 font-medium">
+                    <div key={badge} className="flex items-center gap-1.5 text-xs text-white/70 font-medium">
                       <CheckCircle2 size={12} className="text-brand-gold shrink-0" />
                       {badge}
                     </div>
@@ -390,7 +390,7 @@ export default function Home() {
           </div>
           {/* Scroll cue */}
           <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/40"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/60"
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
           >
@@ -410,7 +410,7 @@ export default function Home() {
               ].map(({ ref, display, label }) => (
                 <div key={label}>
                   <span ref={ref} className="block font-serif text-white font-bold text-3xl mb-1">{display}</span>
-                  <span className="section-label text-white/50 text-[0.6rem]">{label}</span>
+                  <span className="section-label text-white/60 text-[0.6rem]">{label}</span>
                 </div>
               ))}
             </div>
@@ -634,7 +634,7 @@ export default function Home() {
                         <Icon size={20} className="text-brand-gold" />
                       </div>
                       <h3 className="font-serif text-white font-semibold text-base mb-3">{item.title}</h3>
-                      <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
+                      <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </Reveal>
                 );
@@ -677,7 +677,7 @@ export default function Home() {
                   {/* Table header */}
                   <div className="bg-brand-navy px-6 py-4">
                     <p className="text-white font-serif font-semibold text-sm">Willow Tree vs. Sydney Average</p>
-                    <p className="text-white/50 text-xs mt-0.5">Indicative pricing — exact quotes provided on enquiry</p>
+                    <p className="text-white/60 text-xs mt-0.5">Indicative pricing — exact quotes provided on enquiry</p>
                   </div>
                   {/* Table rows */}
                   {[
@@ -688,7 +688,7 @@ export default function Home() {
                     <div key={row.service} className={`grid grid-cols-3 px-6 py-4 text-sm border-b border-[#E8EFF8] last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-brand-ivory/60"}`}>
                       <span className="font-medium text-brand-navy col-span-1 pr-2">{row.service}</span>
                       <span className="text-brand-royal font-semibold text-center">{row.us}</span>
-                      <span className="text-brand-navy/40 text-center text-xs self-center">{row.avg}</span>
+                      <span className="text-brand-navy/70 text-center text-xs self-center">{row.avg}</span>
                     </div>
                   ))}
                   {/* Column labels */}
@@ -698,7 +698,7 @@ export default function Home() {
                     <span className="text-center">Sydney Avg.</span>
                   </div>
                   <div className="px-6 py-4 bg-white">
-                    <p className="text-[0.65rem] text-brand-navy/40 leading-relaxed">
+                    <p className="text-[0.65rem] text-brand-navy/70 leading-relaxed">
                       * Cemetery, crematorium, and disbursement fees are additional and vary by location. All prices include GST. Full itemised quotes provided on request.
                     </p>
                   </div>
@@ -784,7 +784,7 @@ export default function Home() {
                     <h2 className="font-serif text-white font-bold leading-tight mb-4" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", letterSpacing: "-0.025em" }}>
                       The Most Thoughtful Gift<br />You Can Give Your Family
                     </h2>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <p className="text-white/70 text-sm leading-relaxed">
                       Pre-arranging your own funeral removes the burden of decision-making from your loved ones during the most difficult time of their lives. It also locks in today's prices, protecting your family from future cost increases.
                     </p>
                   </div>
@@ -802,7 +802,7 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="text-white font-semibold text-sm mb-0.5">{item.title}</p>
-                          <p className="text-white/50 text-xs leading-relaxed">{item.desc}</p>
+                          <p className="text-white/60 text-xs leading-relaxed">{item.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -860,7 +860,7 @@ export default function Home() {
                 {visibleReviews.map((review) => (
                   <div key={review.name} className="bg-white rounded-2xl p-7 shadow-sm border border-[#E8EFF8] flex flex-col">
                     <Quote size={20} className="text-brand-royal/30 mb-4 shrink-0" />
-                    <p className="text-brand-navy/70 text-sm leading-relaxed flex-1 mb-6 italic">"{review.text}"</p>
+                    <p className="text-brand-navy/80 text-sm leading-relaxed flex-1 mb-6 italic">"{review.text}"</p>
                     <div className="flex items-center gap-3 mt-auto">
                       <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-serif font-bold text-xs shrink-0">
                         {review.initials}
@@ -869,7 +869,7 @@ export default function Home() {
                         <p className="font-semibold text-brand-navy text-sm">{review.name}</p>
                         <div className="flex items-center gap-2">
                           <Stars count={review.rating} />
-                          <span className="text-brand-navy/60 text-[0.65rem]">{review.suburb} · {review.date}</span>
+                          <span className="text-brand-navy/75 text-[0.65rem]">{review.suburb} · {review.date}</span>
                         </div>
                       </div>
                     </div>
@@ -1055,7 +1055,7 @@ export default function Home() {
             <div className="max-w-2xl">
               <Reveal>
                 <div className="w-10 h-px bg-white/30 mb-6" />
-                <p className="section-label text-white/60 mb-4">We're Here for You</p>
+                <p className="section-label text-white/70 mb-4">We're Here for You</p>
                 <h2
                   className="font-serif text-white font-bold leading-tight mb-8"
                   style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", letterSpacing: "-0.025em" }}
@@ -1069,7 +1069,7 @@ export default function Home() {
                     We'll Take Care Of The Rest.
                   </span>
                 </h2>
-                <p className="text-white/60 text-sm leading-relaxed mb-10 max-w-lg">
+                <p className="text-white/70 text-sm leading-relaxed mb-10 max-w-lg">
                   Call our Family Care Specialists any time of the day or night. We will answer, and we will help.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -1086,13 +1086,13 @@ export default function Home() {
                     <div className="flex gap-0.5">
                       {[1,2,3,4,5].map(s => <Star key={s} size={12} className="fill-amber-400 text-amber-400" />)}
                     </div>
-                    <span className="text-white/60 text-xs">5.0 on Google · 47 reviews</span>
+                    <span className="text-white/70 text-xs">5.0 on Google · 47 reviews</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-white/50 text-xs">Available right now · 24/7</span>
+                    <span className="text-white/60 text-xs">Available right now · 24/7</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-white/50 text-xs">
+                  <div className="flex items-center gap-1.5 text-white/60 text-xs">
                     <CheckCircle2 size={11} className="text-brand-gold" />
                     No call centres
                   </div>
