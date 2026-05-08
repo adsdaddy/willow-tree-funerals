@@ -192,3 +192,34 @@
 
 ## SEO Alt Text Fix
 - [x] Fix hero image missing alt text on homepage — replaced empty alt="" with descriptive alt text for SEO compliance
+
+## PageSpeed 100% Target Fixes
+
+### SEO (92 → 100)
+- [x] Fix canonical URL conflict — 301 redirect non-www to www in Express server
+- [x] Fix footer h4 heading order — replaced h4 with p[role=heading aria-level=3]
+
+### Accessibility (95 → 100)
+- [x] Fix review card date text contrast — raised text-brand-navy/40 to /60
+- [x] Fix footer label contrast — raised text-white/40 to /60 for "24/7 PHONE", "EMAIL", location labels
+- [x] Fix footer copyright/links contrast — raised text-white/40 to /60
+- [x] Fix mobile CTA "ARRANGE A FUNERAL" contrast — changed text-white to text-brand-navy on brand-gold bg
+- [x] Fix CommunityEvents.tsx Education Series badge — changed text-white to text-brand-navy on brand-gold bg
+
+### Performance (58 → 100)
+- [x] Compress hearse-branded.png: 2.6 MB → 128 KB WebP (95% reduction)
+- [x] Compress casket-cathedral.jpg: 997 KB → 235 KB WebP (76% reduction)
+- [x] Compress hero-bg.webp: 300 KB → 104 KB WebP (65% reduction)
+- [x] Compress casket-hearse.jpg: 163 KB → 65 KB WebP (60% reduction)
+- [x] Compress logo-white.png: 92 KB → 46 KB WebP (50% reduction)
+- [x] Add width/height to Nav logo img to prevent CLS
+- [x] Add width/height to Footer logo img to prevent CLS
+- [x] Update hero preload link in index.html to use optimised hero-bg
+- [x] Reduce main JS bundle: 900 KB → 212 KB via Vite manual chunk splitting
+
+### Security Headers (Best Practices)
+- [x] Add Content-Security-Policy header
+- [x] Add HSTS header with long max-age
+- [x] Add Cross-Origin-Opener-Policy header
+- [x] Add X-Frame-Options header
+- [x] Add X-Content-Type-Options and Referrer-Policy headers

@@ -124,7 +124,7 @@ export default function CommunityEvents() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent" />
                 <div className="absolute bottom-4 left-6">
-                  <span className="inline-block bg-brand-gold text-white text-xs font-sans font-semibold tracking-widest uppercase px-3 py-1 rounded-full">
+                  <span className="inline-block bg-brand-gold text-brand-navy text-xs font-sans font-semibold tracking-widest uppercase px-3 py-1 rounded-full">
                     Education Series
                   </span>
                 </div>

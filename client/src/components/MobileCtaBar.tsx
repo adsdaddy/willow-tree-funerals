@@ -40,7 +40,7 @@ export default function MobileCtaBar() {
         </a>
         <Link
           href="/contact"
-          className="flex items-center justify-center gap-2 bg-brand-gold text-white py-4 text-xs font-sans font-semibold tracking-widest uppercase min-h-[52px] hover:bg-brand-navy transition-colors"
+          className="flex items-center justify-center gap-2 bg-brand-gold text-brand-navy py-4 text-xs font-sans font-semibold tracking-widest uppercase min-h-[52px] hover:bg-brand-navy hover:text-white transition-colors"
           onClick={() => trackCTAClick("arrange_a_funeral", "mobile_cta_bar")}
         >
           Arrange a Funeral

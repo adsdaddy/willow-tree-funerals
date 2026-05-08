@@ -48,7 +48,7 @@ export const COMPANY = {
   },
   assets: {
     logoDark:  "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-dark_ecaf2959.png",
-    logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-white_d76e5415.png",
+    logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-white-opt_d5d27101.webp",
     bruceHeadshot:           "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot_18cf3f17.png",
     brucePodium:             "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-podium_d5ec753d.png",
     churchService:           "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-service_a28d78fe.png",
@@ -58,7 +58,7 @@ export const COMPANY = {
     grandmotherGranddaughter:"https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/grandmother-granddaughter_157c2ea1.png",
     personPhone:             "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/person-phone_01a8551b.png",
     communityDinner:         "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/community-dinner_c327c9ef.png",
-    heroBg:                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-LSQmgP64pNExBCjB2t9kFG.webp",
+    heroBg:                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt_0864e4a3.webp",
     brandPattern:            "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/brand-pattern-VtoB4h6dmR6pqxUAduED4D.webp",
     chapelInterior:          "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/chapel-interior-gyoTcwJ3Xm6vrspnv6UwPg.webp",
   },

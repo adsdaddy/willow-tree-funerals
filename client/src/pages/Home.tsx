@@ -35,19 +35,19 @@ import { COMPANY } from "@/../../shared/company";
 import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 
 // ── CDN Assets ───────────────────────────────────────────────────────────────
-const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-LSQmgP64pNExBCjB2t9kFG.webp";
+const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt_0864e4a3.webp";
 const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-walking_upscaled_a1fa6d59.jpg";
 const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230518-WA0007_91c5c66b.jpg";
-const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded_c81955b1.png";
+const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded-opt_64d9aa81.webp";
 const CHURCH_MASS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg";
-const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg";
+const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral-opt_225adbdf.webp";
 const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4.jpg";
 const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_124331_WhatsApp_upscaled_13fb4a7e.jpg";
 const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0006_596dbd5c.jpg";
 const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg";
 const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
 const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg";
-const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250509-WA0033_e419dfcf.jpg";
+const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-hearse-opt_70f7a244.webp";
 const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0033_2dba725d.jpg";
 const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0034_ca7fe50f.jpg";
 const BRUCE_HEARSE_2  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0042_de2b1b80.jpg";
@@ -848,7 +848,7 @@ export default function Home() {
                         <p className="font-semibold text-brand-navy text-sm">{review.name}</p>
                         <div className="flex items-center gap-2">
                           <Stars count={review.rating} />
-                          <span className="text-brand-navy/40 text-[0.6rem]">{review.suburb} · {review.date}</span>
+                          <span className="text-brand-navy/60 text-[0.65rem]">{review.suburb} · {review.date}</span>
                         </div>
                       </div>
                     </div>

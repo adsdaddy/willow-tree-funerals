@@ -82,6 +82,8 @@ export default function Nav() {
                 src={COMPANY.assets.logoWhite}
                 alt="Willow Tree Funerals"
                 className="h-20 w-auto object-contain"
+                width={281}
+                height={140}
               />
             </Link>
 

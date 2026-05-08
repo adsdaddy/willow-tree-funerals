@@ -167,6 +167,28 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Keep node_modules in separate vendor chunks
+          if (id.includes("node_modules")) {
+            if (id.includes("framer-motion")) return "framer-motion";
+            if (id.includes("lucide-react")) return "lucide";
+            if (
+              id.includes("@radix-ui") ||
+              id.includes("@floating-ui") ||
+              id.includes("cmdk") ||
+              id.includes("vaul")
+            ) return "radix-ui";
+            if (
+              id.includes("@trpc") ||
+              id.includes("@tanstack")
+            ) return "trpc-vendor";
+            if (id.includes("react-dom") || id.includes("/react/")) return "react-vendor";
+          }
+        },
+      },
+    },
   },
   server: {
     host: true,

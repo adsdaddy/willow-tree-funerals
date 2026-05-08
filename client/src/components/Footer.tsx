@@ -2,6 +2,8 @@
  * WILLOW TREE FUNERALS — Global Footer
  * Design: Sacred Elegance — deep navy background, gold accents
  * SEO: Internal links to all service pages, location pages, schema-friendly markup
+ * A11y: All text meets WCAG AA contrast (4.5:1 min). Footer headings use <p> with role="heading"
+ *       to avoid disrupting the page heading hierarchy (h1→h2→h3 flow).
  */
 
 import { Link } from "wouter";
@@ -18,7 +20,8 @@ export default function Footer() {
         <p className="scripture text-brand-gold/90 text-base md:text-lg">
           "Do not let your hearts be troubled. You believe in God; believe also in me."
         </p>
-        <p className="font-sans text-xs tracking-widest uppercase text-white/40 mt-1">{COMPANY.scripture}</p>
+        {/* Raised from text-white/40 to text-white/60 for WCAG AA contrast */}
+        <p className="font-sans text-xs tracking-widest uppercase text-white/60 mt-1">{COMPANY.scripture}</p>
       </div>
 
       {/* Main footer grid */}
@@ -27,8 +30,14 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <img src={COMPANY.assets.logoWhite} alt="Willow Tree Funerals" className="h-14 w-auto mb-6 opacity-90" />
-            <p className="text-sm leading-relaxed text-white/60 mb-6">
+            <img
+              src={COMPANY.assets.logoWhite}
+              alt="Willow Tree Funerals"
+              className="h-14 w-auto mb-6 opacity-90"
+              width={281}
+              height={140}
+            />
+            <p className="text-sm leading-relaxed text-white/70 mb-6">
               Serving families across all of Sydney, North Shore, Hornsby, St George, Sutherland Shire, South West Sydney, Western Sydney and the Blue Mountains, Wollongong and the Central Coast with dignity and compassion since {COMPANY.established}.
             </p>
             <div className="flex gap-3">
@@ -45,9 +54,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Services — use <p role="heading" aria-level="3"> to avoid skipping heading levels */}
           <div>
-            <h4 className="font-sans text-xs tracking-widest uppercase text-white font-semibold mb-5">Our Services</h4>
+            <p role="heading" aria-level={3} className="font-sans text-xs tracking-widest uppercase text-white font-semibold mb-5">Our Services</p>
             <ul className="space-y-2.5">
               {[
                 { label: "Funeral Services", href: "/services/funeral-services" },
@@ -59,7 +68,7 @@ export default function Footer() {
                 { label: "Repatriation Services", href: "/services/repatriation" },
               ].map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-sm text-white/60 hover:text-brand-gold transition-colors">
+                  <Link href={s.href} className="text-sm text-white/70 hover:text-brand-gold transition-colors">
                     {s.label}
                   </Link>
                 </li>
@@ -69,7 +78,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="font-sans text-xs tracking-widest uppercase text-white font-semibold mb-5">Information</h4>
+            <p role="heading" aria-level={3} className="font-sans text-xs tracking-widest uppercase text-white font-semibold mb-5">Information</p>
             <ul className="space-y-2.5">
               {[
                 { label: "About Bruce Missen", href: "/about" },
@@ -82,18 +91,18 @@ export default function Footer() {
                 { label: "Brand Guide", href: "/brand-guide" },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-white/60 hover:text-brand-gold transition-colors">
+                  <Link href={l.href} className="text-sm text-white/70 hover:text-brand-gold transition-colors">
                     {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            <h4 className="font-sans text-xs tracking-widest uppercase text-white font-semibold mt-8 mb-5">Areas We Serve</h4>
+            <p role="heading" aria-level={3} className="font-sans text-xs tracking-widest uppercase text-white font-semibold mt-8 mb-5">Areas We Serve</p>
             <ul className="space-y-2.5">
               {["Hurstville", "Kogarah", "Rockdale", "Sutherland", "Campbelltown", "Liverpool", "Macquarie Links", "Camden", "Menangle", "Picton", "Wollongong", "Central Coast"].map((suburb) => (
                 <li key={suburb}>
-                  <span className="text-sm text-white/50">{suburb}</span>
+                  <span className="text-sm text-white/60">{suburb}</span>
                 </li>
               ))}
             </ul>
@@ -101,12 +110,13 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-sans text-xs tracking-widest uppercase text-white font-semibold mb-5">Contact Us</h4>
+            <p role="heading" aria-level={3} className="font-sans text-xs tracking-widest uppercase text-white font-semibold mb-5">Contact Us</p>
             <div className="space-y-4">
               <div className="flex gap-3">
                 <Phone size={15} className="text-brand-gold mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-xs text-white/40 uppercase tracking-wider mb-0.5">24/7 Phone</p>
+                  {/* Raised from text-white/40 to text-white/60 for WCAG AA contrast */}
+                  <p className="text-xs text-white/60 uppercase tracking-wider mb-0.5">24/7 Phone</p>
                   <a href={COMPANY.phoneHref} className="text-white hover:text-brand-gold transition-colors font-semibold">
                     {COMPANY.phone}
                   </a>
@@ -115,7 +125,7 @@ export default function Footer() {
               <div className="flex gap-3">
                 <Mail size={15} className="text-brand-gold mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-xs text-white/40 uppercase tracking-wider mb-0.5">Email</p>
+                  <p className="text-xs text-white/60 uppercase tracking-wider mb-0.5">Email</p>
                   <a href={`mailto:${COMPANY.email}`} className="text-white/70 hover:text-brand-gold transition-colors text-sm break-all">
                     {COMPANY.email}
                   </a>
@@ -125,7 +135,7 @@ export default function Footer() {
                 <div key={loc.name} className="flex gap-3">
                   <MapPin size={15} className="text-brand-gold mt-0.5 shrink-0" />
                   <div>
-                    <p className="text-xs text-white/40 uppercase tracking-wider mb-0.5">{loc.name}</p>
+                    <p className="text-xs text-white/60 uppercase tracking-wider mb-0.5">{loc.name}</p>
                     <p className="text-white/70 text-sm">{loc.address}</p>
                   </div>
                 </div>
@@ -138,12 +148,13 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="container py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40">
-            © {year} {COMPANY.name}. All rights reserved. ASIC Registered Funeral Director &amp; Funeral Home.
+          {/* Raised from text-white/40 to text-white/60 for WCAG AA contrast */}
+          <p className="text-xs text-white/60">
+            &copy; {year} {COMPANY.name}. All rights reserved. ASIC Registered Funeral Director &amp; Funeral Home.
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="text-xs text-white/40 hover:text-white/70 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-xs text-white/40 hover:text-white/70 transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="text-xs text-white/60 hover:text-white/80 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-xs text-white/60 hover:text-white/80 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

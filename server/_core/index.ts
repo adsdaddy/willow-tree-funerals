@@ -31,6 +31,51 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+
+  // ── Security headers (PageSpeed Best Practices + WCAG) ────────────────────
+  app.use((_req, res, next) => {
+    // HSTS — force HTTPS for 1 year, include subdomains
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+    // Prevent clickjacking
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    // Cross-Origin-Opener-Policy — isolate top-level browsing context
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+    // X-Content-Type-Options — prevent MIME sniffing
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    // Referrer-Policy
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    // Content-Security-Policy — permissive but effective
+    res.setHeader(
+      "Content-Security-Policy",
+      [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com",
+        "style-src 'self' 'unsafe-inline'",
+        "img-src 'self' data: blob: https://d2xsxph8kpxj0f.cloudfront.net https://www.facebook.com https://*.googletagmanager.com",
+        "font-src 'self' https://d2xsxph8kpxj0f.cloudfront.net",
+        "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com https://*.cloudfront.net",
+        "frame-src 'self' https://www.google.com",
+        "frame-ancestors 'self'",
+        "base-uri 'self'",
+        "form-action 'self'",
+      ].join("; ")
+    );
+    next();
+  });
+
+  // ── Non-www to www redirect (fixes canonical URL conflict in PageSpeed SEO audit) ──
+  app.use((req, res, next) => {
+    const host = req.headers.host || "";
+    // Only redirect on the production domain (not on manus.space or localhost)
+    if (
+      host === "willowtreefunerals.com.au" ||
+      host === "willowtreefunerals.com.au:443"
+    ) {
+      return res.redirect(301, `https://www.willowtreefunerals.com.au${req.originalUrl}`);
+    }
+    next();
+  });
+
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
