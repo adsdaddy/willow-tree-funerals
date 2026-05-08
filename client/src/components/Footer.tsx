@@ -36,6 +36,7 @@ export default function Footer() {
               className="h-14 w-auto mb-6 opacity-90"
               width={281}
               height={140}
+              decoding="async"
             />
             <p className="text-sm leading-relaxed text-white/70 mb-6">
               Serving families across all of Sydney, North Shore, Hornsby, St George, Sutherland Shire, South West Sydney, Western Sydney and the Blue Mountains, Wollongong and the Central Coast with dignity and compassion since {COMPANY.established}.

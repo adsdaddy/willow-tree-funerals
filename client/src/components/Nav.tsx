@@ -84,6 +84,7 @@ export default function Nav() {
                 className="h-20 w-auto object-contain"
                 width={281}
                 height={140}
+                decoding="async"
               />
             </Link>
 

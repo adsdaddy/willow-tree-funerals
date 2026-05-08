@@ -228,3 +228,13 @@
 - [x] Set VITE_GA4_MEASUREMENT_ID=G-ZPSZ3KQRF4 as environment secret
 - [x] Simplified GA4 loader condition in index.html (startsWith 'G-' check)
 - [x] GA4 tracking confirmed active in production build (G-ZPSZ3KQRF4)
+
+## Speed Optimiser Skill — Phase 2 Improvements
+- [x] Service worker (sw.js) with cache-first strategy for fonts, images, and JS chunks
+- [x] Offline fallback page (offline.html)
+- [x] Service worker registration + web-vitals reporting to GA4 in main.tsx
+- [x] Font preload hints for Montserrat 400, Montserrat 600, Playfair 400 in index.html
+- [x] decoding="async" added to Nav logo and Footer logo
+- [x] Verified all below-fold images have loading="lazy" decoding="async"
+- [x] Confirmed BlogArticle (923 KB shiki chunk) is already lazy-loaded — never loads on homepage
+- [x] Main JS bundle confirmed at 212 KB / 44 KB gzipped
