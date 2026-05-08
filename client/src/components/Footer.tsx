@@ -33,12 +33,14 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer"
+                aria-label="Willow Tree Funerals on Facebook"
                 className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors">
-                <Facebook size={15} />
+                <Facebook size={15} aria-hidden="true" />
               </a>
               <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer"
+                aria-label="Willow Tree Funerals on Instagram"
                 className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors">
-                <Instagram size={15} />
+                <Instagram size={15} aria-hidden="true" />
               </a>
             </div>
           </div>

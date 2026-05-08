@@ -265,7 +265,7 @@
   .scripture {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-style: italic;
-    color: #5B7FA6;
+    color: #3D6491; /* darkened from #5B7FA6 for WCAG AA contrast on white */
   }
 
   /* ── Modern Pill Badge ── */

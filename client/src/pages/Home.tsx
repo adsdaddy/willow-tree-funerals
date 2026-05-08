@@ -201,7 +201,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             className="overflow-hidden"
             role="region"
           >
-            <p className="pb-5 text-brand-navy/65 text-sm leading-relaxed">{a}</p>
+            <p className="pb-5 text-brand-navy/80 text-sm leading-relaxed">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -268,7 +268,7 @@ export default function Home() {
       <SEOHead
         title="Willow Tree Funerals | Funeral Directors Sydney"
         description="Family-owned funeral directors serving Sydney, St George, Sutherland Shire & South West Sydney. Catholic, multi-faith & secular services. Available 24/7."
-        canonical="https://willowtreefunerals.com.au"
+        canonical="/"
         ogImage={HEARSE_BRANDED}
       />
       <script
@@ -282,8 +282,18 @@ export default function Home() {
         {/* ── 1. HERO — Split editorial ──────────────────────────────────── */}
         <section
           className="relative min-h-screen flex items-center overflow-hidden"
-          style={{ backgroundImage: `url(${HERO_IMG})`, backgroundSize: "cover", backgroundPosition: "center 60%" }}
         >
+          {/* LCP hero image — explicit img tag so browser discovers it early */}
+          <img
+            src={HERO_IMG}
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            decoding="async"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 w-full h-full object-cover object-[center_60%]"
+          />
           {/* Dark gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/65 to-brand-navy/30" />
           {/* Copy */}
@@ -297,16 +307,17 @@ export default function Home() {
               </Reveal>
               <Reveal delay={0.15}>
                 <h1
-                  className="font-serif text-white font-bold leading-[1.05] mb-2"
+                  className="font-serif text-white font-bold leading-[1.05] mb-6"
                   style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", letterSpacing: "-0.03em" }}
                 >
                   Caring for Families
-                </h1>
-                <h1
-                  className="font-serif font-light leading-[1.05] mb-6"
-                  style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", letterSpacing: "-0.03em", color: "#8FA8C8", fontStyle: "italic" }}
-                >
-                  Across Sydney & Beyond
+                  <br />
+                  <span
+                    className="font-light"
+                    style={{ color: "#8FA8C8", fontStyle: "italic" }}
+                  >
+                    Across Sydney &amp; Beyond
+                  </span>
                 </h1>
               </Reveal>
               <Reveal delay={0.25}>
@@ -623,10 +634,10 @@ export default function Home() {
                   <h2 className="font-serif text-brand-navy font-bold leading-tight mb-6" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
                     No Hidden Fees.<br />No Surprises.
                   </h2>
-                  <p className="text-brand-navy/65 text-base leading-relaxed mb-5">
+                  <p className="text-brand-navy/80 text-base leading-relaxed mb-5">
                     We believe families deserve to know exactly what a funeral costs before they commit. That's why we publish our prices openly and provide a full itemised quote for every arrangement.
                   </p>
-                  <p className="text-brand-navy/65 text-base leading-relaxed mb-8">
+                  <p className="text-brand-navy/80 text-base leading-relaxed mb-8">
                     Our packages start from <strong className="text-brand-navy font-semibold">$3,100</strong> for a direct cremation and include everything you need, with no upselling and no pressure.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
@@ -661,7 +672,7 @@ export default function Home() {
                     </div>
                   ))}
                   {/* Column labels */}
-                  <div className="grid grid-cols-3 px-6 py-3 bg-brand-light-blue/30 text-[0.6rem] font-semibold tracking-widest uppercase text-brand-navy/50">
+                  <div className="grid grid-cols-3 px-6 py-3 bg-brand-light-blue/30 text-[0.6rem] font-semibold tracking-widest uppercase text-brand-navy/75">
                     <span>Service</span>
                     <span className="text-center text-brand-royal">Willow Tree</span>
                     <span className="text-center">Sydney Avg.</span>
@@ -725,7 +736,7 @@ export default function Home() {
                     </div>
                     <div className="p-8 bg-white">
                       <h3 className="font-serif text-brand-navy font-semibold text-xl mb-3 leading-snug">{item.title}</h3>
-                      <p className="text-brand-navy/60 text-sm leading-relaxed mb-6">{item.desc}</p>
+                      <p className="text-brand-navy/75 text-sm leading-relaxed mb-6">{item.desc}</p>
                       <Link href={item.href} className="inline-flex items-center gap-2 text-brand-royal text-sm font-semibold group-hover:gap-3 transition-all">
                         {item.cta} <ArrowRight size={13} />
                       </Link>
@@ -810,7 +821,7 @@ export default function Home() {
                       <Stars count={5} />
                       <span className="font-bold text-brand-navy text-sm ml-1">5.0</span>
                     </div>
-                    <p className="text-brand-navy/50 text-[0.65rem]">58 reviews</p>
+                    <p className="text-brand-navy/75 text-[0.65rem]">58 reviews</p>
                   </div>
                 </div>
               </div>
@@ -972,7 +983,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.25}>
               <div className="text-center">
-                <p className="text-brand-navy/50 text-xs mb-4">Don't see your suburb? We likely serve your area.</p>
+                <p className="text-brand-navy/75 text-xs mb-4">Don't see your suburb? We likely serve your area.</p>
                 <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
                   <Phone size={13} /> Call to Confirm Your Area
                 </a>
@@ -991,7 +1002,7 @@ export default function Home() {
                   <h2 className="font-serif text-brand-navy font-bold leading-tight mb-6" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.8rem)", letterSpacing: "-0.025em" }}>
                     We're Here to Answer<br />Your Questions
                   </h2>
-                  <p className="text-brand-navy/60 text-sm leading-relaxed mb-8">
+                  <p className="text-brand-navy/75 text-sm leading-relaxed mb-8">
                     If you can't find the answer you're looking for, please call our Family Care Specialists — we're available 24 hours a day, 7 days a week.
                   </p>
                   <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
@@ -1026,16 +1037,17 @@ export default function Home() {
                 <div className="w-10 h-px bg-white/30 mb-6" />
                 <p className="section-label text-white/60 mb-4">We're Here for You</p>
                 <h2
-                  className="font-serif text-white font-bold leading-tight mb-3"
+                  className="font-serif text-white font-bold leading-tight mb-8"
                   style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", letterSpacing: "-0.025em" }}
                 >
                   You Focus On Healing.
-                </h2>
-                <h2
-                  className="font-serif font-light leading-tight mb-8"
-                  style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", letterSpacing: "-0.025em", color: "#8FA8C8", fontStyle: "italic" }}
-                >
-                  We'll Take Care Of The Rest.
+                  <br />
+                  <span
+                    className="font-light"
+                    style={{ color: "#8FA8C8", fontStyle: "italic" }}
+                  >
+                    We'll Take Care Of The Rest.
+                  </span>
                 </h2>
                 <p className="text-white/60 text-sm leading-relaxed mb-10 max-w-lg">
                   Call our Family Care Specialists any time of the day or night. We will answer, and we will help.

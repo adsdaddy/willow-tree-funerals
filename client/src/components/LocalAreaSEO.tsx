@@ -34,7 +34,7 @@ export default function LocalAreaSEO() {
           <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold leading-tight mb-4">
             Serving Sydney's South &amp; South West Communities
           </h2>
-          <p className="text-brand-navy/65 leading-relaxed">
+          <p className="text-brand-navy/80 leading-relaxed">
             Willow Tree Funerals serves families across Sydney's southern suburbs from our Hurstville location,
             and South West Sydney from our Macquarie Links office. Wherever you are, we will come to you.
           </p>

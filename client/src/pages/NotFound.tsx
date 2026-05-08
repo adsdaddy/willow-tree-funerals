@@ -19,7 +19,7 @@ export default function NotFound() {
           <h1 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold mb-4">
             Page Not Found
           </h1>
-          <p className="text-brand-navy/60 leading-relaxed mb-10">
+          <p className="text-brand-navy/75 leading-relaxed mb-10">
             We couldn't find the page you were looking for. Please use the navigation above, or contact us directly — we're available 24 hours a day.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -180,3 +180,12 @@
 - [x] Wire SMTP email to pre-arrange form submission
 - [x] Wire SMTP email to flowers enquiry form submission
 - [ ] Add SMTP secrets (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS) via Secrets panel to activate email delivery
+
+## PageSpeed Insights Fixes (Mobile score: 76)
+- [ ] Fix canonical URL conflict — remove duplicate/conflicting canonical tags (SEO 92→100)
+- [ ] Fix LCP (5.6s) — ensure hero img tag has fetchpriority=high and explicit dimensions
+- [ ] Add explicit width/height to all images to eliminate layout shift warnings
+- [ ] Fix accessibility: background/foreground colour contrast ratios
+- [ ] Fix accessibility: icon-only links need aria-label (social icons, nav links)
+- [ ] Fix accessibility: heading elements not in sequentially-descending order (h1→h2→h3)
+- [ ] Save checkpoint

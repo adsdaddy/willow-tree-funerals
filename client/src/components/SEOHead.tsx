@@ -43,7 +43,7 @@ export default function SEOHead({ title, description, canonical, schema, ogImage
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", description);
 
-    // Canonical
+    // Canonical — always use www and handle both full URLs and paths
     if (canonical) {
       let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
       if (!link) {
@@ -51,7 +51,18 @@ export default function SEOHead({ title, description, canonical, schema, ogImage
         link.rel = "canonical";
         document.head.appendChild(link);
       }
-      link.href = `https://www.willowtreefunerals.com.au${canonical}`;
+      // If a full URL is passed, normalise it to www form; otherwise prepend base
+      let canonicalHref: string;
+      if (canonical.startsWith('http')) {
+        // Replace any non-www or bare domain with www version
+        canonicalHref = canonical
+          .replace('https://willowtreefunerals.com.au', 'https://www.willowtreefunerals.com.au')
+          .replace('http://willowtreefunerals.com.au', 'https://www.willowtreefunerals.com.au')
+          .replace('http://www.willowtreefunerals.com.au', 'https://www.willowtreefunerals.com.au');
+      } else {
+        canonicalHref = `https://www.willowtreefunerals.com.au${canonical}`;
+      }
+      link.href = canonicalHref;
     }
 
     // JSON-LD

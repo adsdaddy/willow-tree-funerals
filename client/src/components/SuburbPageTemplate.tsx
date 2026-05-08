@@ -201,7 +201,7 @@ export default function SuburbPageTemplate({
             {faqs.map(({ q, a }) => (
               <div key={q} className="bg-white border border-brand-light-blue/60 rounded-lg p-6">
                 <h3 className="font-serif text-brand-navy font-semibold text-base mb-3">{q}</h3>
-                <p className="text-brand-navy/65 text-sm leading-relaxed">{a}</p>
+                <p className="text-brand-navy/80 text-sm leading-relaxed">{a}</p>
               </div>
             ))}
           </div>

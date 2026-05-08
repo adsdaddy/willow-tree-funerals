@@ -267,7 +267,7 @@ export default function ServicePageTemplate({
                 <h3 className="font-serif text-brand-navy text-lg font-semibold mb-2 group-hover:text-brand-royal transition-colors">
                   {s.label}
                 </h3>
-                <p className="text-brand-navy/60 text-sm leading-relaxed mb-4">{s.desc}</p>
+                <p className="text-brand-navy/75 text-sm leading-relaxed mb-4">{s.desc}</p>
                 <span className="text-brand-royal text-xs tracking-widest uppercase font-sans font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                   Learn More <ChevronRight size={12} aria-hidden="true" />
                 </span>
