@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import {
   Phone, ArrowRight, ArrowLeft, CheckCircle2, Calendar,
-  Shield, Heart, DollarSign, User, FileText, Check,
+  Shield, Heart, DollarSign, User, FileText, Check, Loader2,
 } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -108,9 +108,17 @@ export default function PreArrange() {
         />
         <Nav />
         <section className="min-h-[70vh] bg-brand-ivory flex items-center py-20 pt-32">
-          <div className="container max-w-2xl text-center">
-            <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 size={36} className="text-green-600" />
+          <div
+            className="container max-w-2xl text-center"
+            style={{ animation: 'wtfFadeUp 0.5s ease forwards' }}
+          >
+            <style>{`
+              @keyframes wtfFadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+              @keyframes wtfScaleIn { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+              .wtf-check-ring { animation: wtfScaleIn 0.4s 0.25s ease both; }
+            `}</style>
+            <div className="wtf-check-ring w-20 h-20 rounded-full bg-brand-gold/10 border-2 border-brand-gold flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 size={36} className="text-brand-gold" />
             </div>
             <h1 className="font-serif text-brand-navy font-bold text-3xl mb-4">
               Thank You, {form.firstName}
@@ -465,8 +473,11 @@ export default function PreArrange() {
                   disabled={submitMutation.isPending}
                   className="btn-royal flex items-center gap-2 disabled:opacity-60"
                 >
-                  {submitMutation.isPending ? "Submitting..." : "Submit Pre-Arrangement"}
-                  {!submitMutation.isPending && <CheckCircle2 size={14} />}
+                  {submitMutation.isPending ? (
+                    <><Loader2 size={14} className="animate-spin" /> Submitting...</>
+                  ) : (
+                    <>Submit Pre-Arrangement <CheckCircle2 size={14} /></>
+                  )}
                 </button>
               </div>
             </div>

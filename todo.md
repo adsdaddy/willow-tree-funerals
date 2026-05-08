@@ -91,12 +91,12 @@
 - [x] Remove brucePodium/podium photo from all pages — replaced with: church-interior-mass (Catholic Funerals), casket-cathedral (Burial), chapelInterior (Graveside), church-service (Blog)
 
 ## Analytics & Tracking Integration
-- [ ] Google Analytics 4 (GA4) — gtag.js in index.html
-- [ ] Google Ads conversion tracking — linked to GA4 or standalone AW tag
-- [ ] Microsoft Clarity — script in index.html
-- [ ] Meta Pixel (client-side) — fbq script in index.html
+- [x] Google Analytics 4 (GA4) — gtag.js in index.html (G-ZPSZ3KQRF4)
+- [x] Google Ads conversion tracking — AW-16467075039 tag added, all conversion events wired
+- [ ] Microsoft Clarity — script in index.html (pending Clarity ID from client)
+- [x] Meta Pixel (client-side) — fbq script in index.html (pending Pixel ID from client)
 - [ ] Meta Conversions API (server-side) — tRPC procedure sending events to Meta CAPI
-- [ ] Conversion events wired: contact form submit, phone click, "Arrange a Funeral" CTA click, pre-arrange form submit
+- [x] Conversion events wired: contact form submit, phone click, "Arrange a Funeral" CTA click, pre-arrange form submit, whatsapp click, flowers enquiry
 
 ## New Pages to Build (from original site)
 - [x] Community Events page (/community-events) — with event cards, TryBooking links, Grief Care contact
@@ -272,3 +272,9 @@
 - [x] Added Google Ads global site tag (AW-16467075039) to index.html deferred loader
 - [x] Wired conversion events: phone_click, generate_lead (all 3 forms), whatsapp_click fire gtag('event','conversion') to AW-16467075039
 - [ ] Add conversion labels once created in Google Ads Goals → Conversions (paste into GADS_CONVERSION_LABELS in analytics.ts)
+
+## Form UX Improvements
+- [x] Contact form: animated success card with fade-in, branded checkmark, numbered next steps, Loader2 spinner
+- [x] Pre-Arrange form: animated success card with fade-in, branded checkmark, numbered next steps, Loader2 spinner
+- [x] Order Flowers form: animated success card with fade-in, branded checkmark, numbered next steps, Loader2 spinner
+- [x] Obituary page: links to Contact form (no separate form needed)

@@ -231,33 +231,42 @@ export default function Contact() {
               <p className="text-brand-navy/60 text-sm mb-8">Usually within the hour. For urgent matters, please call us directly.</p>
 
               {submitted ? (
-                <div className="bg-brand-navy p-10 text-center">
-                  <div className="w-16 h-16 border border-brand-gold/50 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle2 size={32} className="text-brand-gold" />
+                <div
+                  className="bg-brand-navy p-10 text-center"
+                  style={{ animation: 'wtfFadeUp 0.5s ease forwards' }}
+                >
+                  <style>{`
+                    @keyframes wtfFadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+                    @keyframes wtfScaleIn { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+                    .wtf-check-ring { animation: wtfScaleIn 0.4s 0.25s ease both; }
+                  `}</style>
+                  <div className="wtf-check-ring w-20 h-20 rounded-full bg-brand-gold/10 border-2 border-brand-gold flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle2 size={36} className="text-brand-gold" />
                   </div>
-                  <h3 className="font-serif text-white text-2xl font-semibold mb-3">Thank You — We've Received Your Enquiry</h3>
-                  <p className="text-white/70 leading-relaxed mb-4">
-                    Our family care specialists will review your message and call you back shortly. If you need immediate assistance, please call us now.
+                  <h3 className="font-serif text-white text-2xl font-semibold mb-2">Enquiry Received</h3>
+                  <p className="text-brand-gold text-sm font-medium tracking-wide uppercase mb-6">Thank you for reaching out</p>
+                  <p className="text-white/70 leading-relaxed mb-8">
+                    Our family care specialists have received your message and will be in touch shortly. For urgent matters, please call us directly.
                   </p>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-4 mb-6 text-left">
-                    <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-2">What Happens Next</p>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2 text-white/70 text-sm">
-                        <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />
-                        <span>Your enquiry has been sent directly to Bruce Missen</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/70 text-sm">
-                        <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />
-                        <span>One of our family care specialists will call you back as soon as possible — usually within the hour</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/70 text-sm">
-                        <CheckCircle2 size={14} className="text-brand-gold mt-0.5 shrink-0" />
-                        <span>For urgent matters, please call us directly on {COMPANY.phone}</span>
-                      </li>
-                    </ul>
+                  <div className="bg-white/5 border border-white/10 p-6 mb-8 text-left">
+                    <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-5">What Happens Next</p>
+                    <div className="space-y-5">
+                      {[
+                        { step: '1', text: 'Your enquiry has been received by our team and is being reviewed now.' },
+                        { step: '2', text: 'A family care specialist will call you back — usually within the hour during business hours.' },
+                        { step: '3', text: 'We will guide you through every step with care, compassion, and no pressure.' },
+                      ].map(({ step, text }) => (
+                        <div key={step} className="flex items-start gap-4">
+                          <div className="w-7 h-7 rounded-full bg-brand-gold/20 border border-brand-gold/40 flex items-center justify-center shrink-0 mt-0.5">
+                            <span className="text-brand-gold text-xs font-bold">{step}</span>
+                          </div>
+                          <p className="text-white/70 text-sm leading-relaxed">{text}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 mx-auto w-fit" onClick={() => trackPhoneClick("contact_page_form")}>
-                    <Phone size={15} /> Call {COMPANY.phone}
+                  <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 mx-auto w-fit" onClick={() => trackPhoneClick("contact_page_success")}>
+                    <Phone size={15} /> Call Us Now: {COMPANY.phone}
                   </a>
                 </div>
               ) : (

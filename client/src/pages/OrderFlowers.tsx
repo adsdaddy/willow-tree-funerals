@@ -7,7 +7,7 @@
 
 import { useState } from "react";
 import { Link } from "wouter";
-import { Phone, ChevronRight, Flower, Truck, Heart, Mail, CheckCircle2, AlertCircle, CalendarDays, MapPin, User, MessageSquare } from "lucide-react";
+import { Phone, ChevronRight, Flower, Truck, Heart, Mail, CheckCircle2, AlertCircle, CalendarDays, MapPin, User, MessageSquare, Loader2 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SEOHead from "../components/SEOHead";
@@ -138,30 +138,51 @@ function FlowerEnquiryForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-white border border-brand-light-blue p-10 text-center shadow-lg">
-        <div className="w-16 h-16 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center mx-auto mb-5">
-          <CheckCircle2 size={32} className="text-green-500" />
+      <div
+        className="rounded-2xl bg-brand-navy p-10 text-center shadow-lg"
+        style={{ animation: 'wtfFadeUp 0.5s ease forwards' }}
+      >
+        <style>{`
+          @keyframes wtfFadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+          @keyframes wtfScaleIn { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+          .wtf-check-ring { animation: wtfScaleIn 0.4s 0.25s ease both; }
+        `}</style>
+        <div className="wtf-check-ring w-20 h-20 rounded-full bg-brand-gold/10 border-2 border-brand-gold flex items-center justify-center mx-auto mb-6">
+          <CheckCircle2 size={36} className="text-brand-gold" />
         </div>
-        <h3 className="font-serif text-brand-navy text-2xl font-semibold mb-3">Enquiry Received</h3>
-        <p className="text-brand-navy/70 leading-relaxed mb-2">
-          Thank you for your flower enquiry. Our team will contact you shortly to confirm your order.
+        <h3 className="font-serif text-white text-2xl font-semibold mb-2">Flower Enquiry Received</h3>
+        <p className="text-brand-gold text-sm font-medium tracking-wide uppercase mb-6">Thank you for your order</p>
+        <p className="text-white/70 leading-relaxed mb-8">
+          Our team has received your flower enquiry and will be in touch shortly to confirm your arrangement and delivery details.
         </p>
-        <p className="text-brand-navy/60 text-sm mb-6">
-          If you need immediate assistance, please call us on{" "}
-          <a href={COMPANY.phoneHref} className="text-brand-royal font-semibold hover:underline">
-            {COMPANY.phone}
-          </a>{" "}
-          or email{" "}
-          <a href={`mailto:${COMPANY.email}`} className="text-brand-royal font-semibold hover:underline">
-            {COMPANY.email}
-          </a>.
-        </p>
-        <button
-          onClick={() => { setSubmitted(false); setForm({ arrangementType: "", customArrangement: "", deliveryAddress: "", deliverySuburb: "", serviceDate: "", serviceTime: "", name: "", phone: "", email: "", additionalNotes: "" }); }}
-          className="btn-outline text-sm"
-        >
-          Submit Another Enquiry
-        </button>
+        <div className="bg-white/5 border border-white/10 p-6 mb-8 text-left">
+          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-5">What Happens Next</p>
+          <div className="space-y-5">
+            {[
+              { step: '1', text: 'Your enquiry has been received and our floral team is reviewing your request.' },
+              { step: '2', text: 'A team member will call or email you to confirm the arrangement, delivery address, and timing.' },
+              { step: '3', text: 'Your flowers will be prepared with care and delivered to the service location.' },
+            ].map(({ step, text }) => (
+              <div key={step} className="flex items-start gap-4">
+                <div className="w-7 h-7 rounded-full bg-brand-gold/20 border border-brand-gold/40 flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="text-brand-gold text-xs font-bold">{step}</span>
+                </div>
+                <p className="text-white/70 text-sm leading-relaxed">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2">
+            <Phone size={14} /> Call Us: {COMPANY.phone}
+          </a>
+          <button
+            onClick={() => { setSubmitted(false); setForm({ arrangementType: "", customArrangement: "", deliveryAddress: "", deliverySuburb: "", serviceDate: "", serviceTime: "", name: "", phone: "", email: "", additionalNotes: "" }); }}
+            className="btn-outline border-white/30 text-white/70 hover:bg-white/10 text-sm"
+          >
+            Submit Another Enquiry
+          </button>
+        </div>
       </div>
     );
   }
@@ -409,8 +430,8 @@ function FlowerEnquiryForm() {
         >
           {mutation.isPending ? (
             <>
-              <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-              Sending Enquiry…
+              <Loader2 size={15} className="animate-spin" />
+              Sending Enquiry...
             </>
           ) : (
             <>
