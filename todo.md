@@ -189,3 +189,6 @@
 - [ ] Fix accessibility: icon-only links need aria-label (social icons, nav links)
 - [ ] Fix accessibility: heading elements not in sequentially-descending order (h1→h2→h3)
 - [ ] Save checkpoint
+
+## SEO Alt Text Fix
+- [x] Fix hero image missing alt text on homepage — replaced empty alt="" with descriptive alt text for SEO compliance

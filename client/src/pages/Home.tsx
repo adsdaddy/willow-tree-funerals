@@ -286,8 +286,7 @@ export default function Home() {
           {/* LCP hero image — explicit img tag so browser discovers it early */}
           <img
             src={HERO_IMG}
-            alt=""
-            aria-hidden="true"
+            alt="Willow Tree Funerals — Sydney funeral directors serving St George, Sutherland Shire and South West Sydney"
             fetchPriority="high"
             decoding="async"
             width={1920}
