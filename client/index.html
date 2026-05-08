@@ -44,7 +44,7 @@
     <!-- Google Analytics 4 — loads only when VITE_GA4_MEASUREMENT_ID is set -->
     <script>
       window.__GA4_ID = '%VITE_GA4_MEASUREMENT_ID%';
-      if (window.__GA4_ID && window.__GA4_ID !== '%VITE_GA4_MEASUREMENT_ID%' && window.__GA4_ID.startsWith('G-')) {
+      if (window.__GA4_ID && window.__GA4_ID.startsWith('G-')) {
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__GA4_ID;

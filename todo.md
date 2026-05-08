@@ -223,3 +223,8 @@
 - [x] Add Cross-Origin-Opener-Policy header
 - [x] Add X-Frame-Options header
 - [x] Add X-Content-Type-Options and Referrer-Policy headers
+
+## Google Analytics 4 Activation
+- [x] Set VITE_GA4_MEASUREMENT_ID=G-ZPSZ3KQRF4 as environment secret
+- [x] Simplified GA4 loader condition in index.html (startsWith 'G-' check)
+- [x] GA4 tracking confirmed active in production build (G-ZPSZ3KQRF4)
