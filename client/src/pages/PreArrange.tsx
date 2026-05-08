@@ -94,7 +94,7 @@ export default function PreArrange() {
     });
   };
 
-  const inputClass = "w-full border border-brand-light-blue/80 rounded-lg px-4 py-3 text-brand-navy text-sm focus:outline-none focus:ring-2 focus:ring-brand-royal/30 focus:border-brand-royal bg-white placeholder:text-brand-navy/30";
+  const inputClass = "w-full border border-brand-light-blue/80 rounded-lg px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:ring-2 focus:ring-brand-royal/30 focus:border-brand-royal bg-white placeholder:text-brand-navy/30";
   const labelClass = "block text-brand-navy text-sm font-semibold mb-1.5";
   const selectClass = `${inputClass} cursor-pointer`;
 

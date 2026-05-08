@@ -299,9 +299,15 @@ export default function Home() {
           <div className="relative z-10 container py-32 lg:py-0">
             <div className="max-w-xl">
               <Reveal delay={0.05}>
-                <div className="inline-flex items-center gap-2 mb-6">
-                  <div className="w-8 h-px bg-brand-gold" />
-                  <span className="section-label text-white/70">Available 24 Hours · 7 Days</span>
+                <div className="flex flex-wrap items-center gap-3 mb-6">
+                  <div className="inline-flex items-center gap-2">
+                    <div className="w-8 h-px bg-brand-gold" />
+                    <span className="section-label text-white/70">Available 24 Hours · 7 Days</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 bg-green-500/20 border border-green-400/30 rounded-full px-3 py-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-green-300 text-[0.6rem] font-semibold tracking-widest uppercase">Available Now</span>
+                  </div>
                 </div>
               </Reveal>
               <Reveal delay={0.15}>
@@ -333,13 +339,27 @@ export default function Home() {
                 </p>
               </Reveal>
               <Reveal delay={0.4}>
-                <div className="flex flex-col sm:flex-row gap-3 mb-12">
+                {/* Social proof avatars + count above CTA */}
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex -space-x-2">
+                    {["MS","DT","KF","PO","NF"].map(i => (
+                      <div key={i} className="w-7 h-7 rounded-full bg-brand-royal border-2 border-white/30 flex items-center justify-center text-white font-bold text-[0.5rem]">{i}</div>
+                    ))}
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-0.5">
+                      {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-amber-400 text-amber-400" />)}
+                    </div>
+                    <p className="text-white/60 text-[0.6rem] font-medium">500+ Sydney families trust Willow Tree</p>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 mb-4">
                   <a
                     href={COMPANY.phoneHref}
                     className="btn-royal flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold tracking-wide"
                     onClick={() => trackPhoneClick("home_hero")}
                   >
-                    <Phone size={14} /> Call Our Family Care Specialists
+                    <Phone size={14} /> Call Now — We Answer in Seconds
                   </a>
                   <Link
                     href="/contact"
@@ -349,6 +369,7 @@ export default function Home() {
                     Send an Enquiry <ArrowRight size={14} />
                   </Link>
                 </div>
+                <p className="text-white/45 text-xs mb-10">No call centres. No queues. You speak directly with Bruce.</p>
               </Reveal>
               {/* Trust badges */}
               <Reveal delay={0.48}>
@@ -1051,13 +1072,30 @@ export default function Home() {
                 <p className="text-white/60 text-sm leading-relaxed mb-10 max-w-lg">
                   Call our Family Care Specialists any time of the day or night. We will answer, and we will help.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2 px-10 py-4" onClick={() => trackPhoneClick("home_final_cta")}>
                     <Phone size={15} /> {COMPANY.phone}
                   </a>
                   <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-10 py-4 flex items-center justify-center gap-2" onClick={() => trackCTAClick("send_enquiry", "home_final_cta")}>
                     Send an Enquiry <ArrowRight size={14} />
                   </Link>
+                </div>
+                {/* Trust badge + urgency reassurance */}
+                <div className="flex flex-wrap items-center gap-6">
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      {[1,2,3,4,5].map(s => <Star key={s} size={12} className="fill-amber-400 text-amber-400" />)}
+                    </div>
+                    <span className="text-white/60 text-xs">5.0 on Google · 47 reviews</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-white/50 text-xs">Available right now · 24/7</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-white/50 text-xs">
+                    <CheckCircle2 size={11} className="text-brand-gold" />
+                    No call centres
+                  </div>
                 </div>
               </Reveal>
             </div>

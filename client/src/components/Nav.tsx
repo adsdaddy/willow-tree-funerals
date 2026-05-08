@@ -68,6 +68,7 @@ export default function Nav() {
 
       {/* Main nav */}
       <header
+        data-react-header="true"
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled || !isHome
             ? "bg-brand-navy shadow-lg shadow-brand-navy/30"

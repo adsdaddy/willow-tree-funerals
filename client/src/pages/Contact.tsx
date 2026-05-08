@@ -208,10 +208,27 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div>
+              {/* Testimonial above form — social proof at decision point */}
+              <div className="bg-brand-navy/5 border-l-4 border-brand-royal p-5 mb-8">
+                <p className="font-serif italic text-brand-navy text-sm leading-relaxed mb-3">
+                  "From the very first phone call at 2am, Bruce was calm, kind, and completely in control. He made an impossible situation feel manageable. We are forever grateful."
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full bg-brand-royal flex items-center justify-center text-white text-[0.55rem] font-bold">DT</div>
+                  <div>
+                    <p className="text-brand-navy font-semibold text-xs">David &amp; Karen T.</p>
+                    <p className="text-brand-navy/50 text-[0.6rem]">Sutherland · Google Review</p>
+                  </div>
+                  <div className="ml-auto flex gap-0.5">
+                    {[1,2,3,4,5].map(s => <svg key={s} className="w-3 h-3 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                  </div>
+                </div>
+              </div>
               <p className="section-label mb-3">Send an Enquiry</p>
-              <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold mb-8 leading-tight">
+              <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold mb-2 leading-tight">
                 We'll Respond Promptly
               </h2>
+              <p className="text-brand-navy/60 text-sm mb-8">Usually within the hour. For urgent matters, please call us directly.</p>
 
               {submitted ? (
                 <div className="bg-brand-navy p-10 text-center">
@@ -256,7 +273,8 @@ export default function Contact() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full border border-brand-light-blue bg-white px-4 py-3 text-brand-navy text-sm focus:outline-none focus:border-brand-royal transition-colors"
+                        className="w-full border border-brand-light-blue bg-white px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:border-brand-royal transition-colors"
+                        autoComplete="name"
                         placeholder="Your full name"
                       />
                     </div>
@@ -270,7 +288,9 @@ export default function Contact() {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full border border-brand-light-blue bg-white px-4 py-3 text-brand-navy text-sm focus:outline-none focus:border-brand-royal transition-colors"
+                        className="w-full border border-brand-light-blue bg-white px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:border-brand-royal transition-colors"
+                        autoComplete="tel"
+                        inputMode="tel"
                         placeholder="Your phone number"
                       />
                     </div>
@@ -285,7 +305,8 @@ export default function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full border border-brand-light-blue bg-white px-4 py-3 text-brand-navy text-sm focus:outline-none focus:border-brand-royal transition-colors"
+                        className="w-full border border-brand-light-blue bg-white px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:border-brand-royal transition-colors"
+                        autoComplete="email"
                         placeholder="Your email address"
                       />
                     </div>
@@ -298,7 +319,8 @@ export default function Contact() {
                         name="suburb"
                         value={formData.suburb}
                         onChange={handleChange}
-                        className="w-full border border-brand-light-blue bg-white px-4 py-3 text-brand-navy text-sm focus:outline-none focus:border-brand-royal transition-colors"
+                        className="w-full border border-brand-light-blue bg-white px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:border-brand-royal transition-colors"
+                        autoComplete="address-level2"
                         placeholder="e.g. Hurstville"
                       />
                     </div>
@@ -311,7 +333,7 @@ export default function Contact() {
                       name="enquiryType"
                       value={formData.enquiryType}
                       onChange={handleChange}
-                      className="w-full border border-brand-light-blue bg-white px-4 py-3 text-brand-navy text-sm focus:outline-none focus:border-brand-royal transition-colors"
+                      className="w-full border border-brand-light-blue bg-white px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:border-brand-royal transition-colors"
                     >
                       <option value="">Please select...</option>
                       <option value="immediate">Immediate need — someone has just passed away</option>
@@ -332,7 +354,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className="w-full border border-brand-light-blue bg-white px-4 py-3 text-brand-navy text-sm focus:outline-none focus:border-brand-royal transition-colors resize-none"
+                      className="w-full border border-brand-light-blue bg-white px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:border-brand-royal transition-colors resize-none"
                       placeholder="Please share any details that will help us assist you..."
                     />
                   </div>
@@ -357,7 +379,8 @@ export default function Contact() {
                       <Phone size={14} /> Or Call {COMPANY.phone}
                     </a>
                   </div>
-                  <p className="text-brand-navy/40 text-xs">
+                  <p className="text-brand-navy/60 text-xs flex items-center gap-1.5">
+                    <svg className="w-3 h-3 text-brand-royal shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                     Your information is kept strictly confidential and will only be used to respond to your enquiry.
                   </p>
                 </form>

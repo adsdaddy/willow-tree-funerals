@@ -217,7 +217,7 @@ function FlowerEnquiryForm() {
               onChange={(e) => set("customArrangement", e.target.value)}
               rows={3}
               placeholder="e.g. White lilies and roses, large standing spray..."
-              className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors resize-none ${errors.customArrangement ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+              className={`w-full rounded-xl border px-4 py-3.5 text-base text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors resize-none ${errors.customArrangement ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
             />
             {errors.customArrangement && (
               <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -242,7 +242,7 @@ function FlowerEnquiryForm() {
                 value={form.deliveryAddress}
                 onChange={(e) => set("deliveryAddress", e.target.value)}
                 placeholder="e.g. St George Catholic Church, 1 Park Road, Hurstville"
-                className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.deliveryAddress ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                className={`w-full rounded-xl border px-4 py-3.5 text-base text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.deliveryAddress ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
               />
               {errors.deliveryAddress && (
                 <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -261,7 +261,7 @@ function FlowerEnquiryForm() {
                   value={form.deliverySuburb}
                   onChange={(e) => set("deliverySuburb", e.target.value)}
                   placeholder="e.g. Hurstville"
-                  className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.deliverySuburb ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                  className={`w-full rounded-xl border px-4 py-3.5 text-base text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.deliverySuburb ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
                 />
                 {errors.deliverySuburb && (
                   <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -281,7 +281,7 @@ function FlowerEnquiryForm() {
                     value={form.serviceDate}
                     onChange={(e) => set("serviceDate", e.target.value)}
                     min={new Date().toISOString().split("T")[0]}
-                    className={`w-full rounded-xl border pl-10 pr-4 py-3 text-sm text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.serviceDate ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                    className={`w-full rounded-xl border pl-10 pr-4 py-3.5 text-base text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.serviceDate ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
                   />
                 </div>
                 {errors.serviceDate && (
@@ -300,7 +300,7 @@ function FlowerEnquiryForm() {
                 type="time"
                 value={form.serviceTime}
                 onChange={(e) => set("serviceTime", e.target.value)}
-                className="w-full sm:w-48 rounded-xl border border-brand-light-blue bg-brand-ivory/40 px-4 py-3 text-sm text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors"
+                className="w-full sm:w-48 rounded-xl border border-brand-light-blue bg-brand-ivory/40 px-4 py-3.5 text-base text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors"
               />
             </div>
           </div>
@@ -323,7 +323,7 @@ function FlowerEnquiryForm() {
                   onChange={(e) => set("name", e.target.value)}
                   placeholder="Your name"
                   autoComplete="name"
-                  className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.name ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                  className={`w-full rounded-xl border px-4 py-3.5 text-base text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.name ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -342,7 +342,7 @@ function FlowerEnquiryForm() {
                   onChange={(e) => set("phone", e.target.value)}
                   placeholder="e.g. 0400 000 000"
                   autoComplete="tel"
-                  className={`w-full rounded-xl border px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.phone ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                  className={`w-full rounded-xl border px-4 py-3.5 text-base text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.phone ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -364,7 +364,7 @@ function FlowerEnquiryForm() {
                   onChange={(e) => set("email", e.target.value)}
                   placeholder="your@email.com"
                   autoComplete="email"
-                  className={`w-full rounded-xl border pl-10 pr-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.email ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
+                  className={`w-full rounded-xl border pl-10 pr-4 py-3.5 text-base text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors ${errors.email ? "border-red-300 bg-red-50" : "border-brand-light-blue bg-brand-ivory/40"}`}
                 />
               </div>
               {errors.email && (
@@ -386,7 +386,7 @@ function FlowerEnquiryForm() {
             onChange={(e) => set("additionalNotes", e.target.value)}
             rows={3}
             placeholder="e.g. Preferred colours, specific flowers, any special requests..."
-            className="w-full rounded-xl border border-brand-light-blue bg-brand-ivory/40 px-4 py-3 text-sm text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors resize-none"
+            className="w-full rounded-xl border border-brand-light-blue bg-brand-ivory/40 px-4 py-3.5 text-base text-brand-navy placeholder-brand-navy/30 focus:outline-none focus:ring-2 focus:ring-brand-royal/30 transition-colors resize-none"
           />
         </div>
 

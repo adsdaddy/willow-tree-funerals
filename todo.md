@@ -238,3 +238,32 @@
 - [x] Verified all below-fold images have loading="lazy" decoding="async"
 - [x] Confirmed BlogArticle (923 KB shiki chunk) is already lazy-loaded — never loads on homepage
 - [x] Main JS bundle confirmed at 212 KB / 44 KB gzipped
+
+## Lead-Gen Optimizer Skill Applied
+
+### Phase 1: Speed
+- [x] Deferred GA4 and Meta Pixel to fire after page interactive (reduces TBT)
+- [x] Added static header shell in index.html for instant above-fold LCP
+
+### Phase 3: Trust
+- [x] Added urgency badge ("Available 24/7 - We Answer Immediately") above hero CTA
+- [x] Added social proof avatar stack + "500+ Sydney families served" count
+- [x] Added Google 5-star rating badge adjacent to hero primary CTA
+- [x] Added "No call centres" and "Available right now" reassurance signals in final CTA
+
+### Phase 4: Conversion
+- [x] Added testimonial (David & Karen T.) immediately above contact form
+- [x] Upgraded contact form inputs: py-3 to py-3.5 (56px touch targets), text-sm to text-base (16px, prevents iOS zoom)
+- [x] Added autocomplete attributes to all contact form fields
+- [x] Added inputMode="tel" to phone fields
+- [x] Added lock icon + privacy reassurance below contact form submit button
+- [x] Added "Usually within the hour" urgency subheading on contact form
+
+### Phase 6: Mobile
+- [x] Upgraded PreArrange.tsx form inputs: py-3 to py-3.5, text-sm to text-base
+- [x] Upgraded OrderFlowers.tsx form inputs: py-3 to py-3.5, text-sm to text-base
+
+### Phase 7: CRO
+- [x] Added Google 5.0 / 47 reviews trust badge below final CTA buttons
+- [x] Added pulsing green "Available right now 24/7" live indicator
+- [x] Added "No call centres" reassurance signal
