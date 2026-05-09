@@ -73,7 +73,7 @@ export default function BlogArticle() {
       <SEOHead
         title={`${post.title} | Willow Tree Funerals`}
         description={post.excerpt}
-        canonical={`https://www.willowtreefunerals.com.au/blog/article/${post.slug}`}
+        canonical={`https://willowtreefunerals.com.au/blog/article/${post.slug}`}
         ogImage={post.imageUrl ?? undefined}
       />
       <Nav />

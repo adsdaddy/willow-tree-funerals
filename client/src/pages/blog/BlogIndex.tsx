@@ -56,12 +56,12 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: `${COMPANY.name} — Resources & Guidance`,
-  url: "https://www.willowtreefunerals.com.au/blog",
+  url: "https://willowtreefunerals.com.au/blog",
   description: "Practical guidance and advice for families navigating funeral arrangements in Sydney and NSW.",
   publisher: {
     "@type": "Organization",
     name: COMPANY.name,
-    url: "https://www.willowtreefunerals.com.au",
+    url: "https://willowtreefunerals.com.au",
   },
 };
 
@@ -130,7 +130,7 @@ export default function BlogIndex() {
       <SEOHead
         title="Funeral Resources & Guidance | Willow Tree Funerals Sydney"
         description="Practical guidance for families navigating funeral arrangements in Sydney and NSW. Articles on Catholic funerals, funeral costs, what to do when someone passes, and more."
-        canonical="https://www.willowtreefunerals.com.au/blog"
+        canonical="https://willowtreefunerals.com.au/blog"
         schema={schema}
       />
       <Nav />

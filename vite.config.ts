@@ -172,7 +172,6 @@ export default defineConfig({
         manualChunks(id) {
           // Keep node_modules in separate vendor chunks
           if (id.includes("node_modules")) {
-            if (id.includes("framer-motion")) return "framer-motion";
             if (id.includes("lucide-react")) return "lucide";
             if (
               id.includes("@radix-ui") ||

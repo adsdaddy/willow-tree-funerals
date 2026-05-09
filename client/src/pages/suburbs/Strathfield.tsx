@@ -39,7 +39,7 @@ export default function Strathfield() {
           a: "Funeral costs in Strathfield vary depending on the type of service. Our packages start from $3,100 for a direct cremation. We provide full itemised quotes with no hidden fees. Call us or visit our Pricing page for details.",
         },
       ]}
-      canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-strathfield"
+      canonicalUrl="https://willowtreefunerals.com.au/funeral-director-strathfield"
       metaTitle="Funeral Director Strathfield | Willow Tree Funerals | 02 8776 1667"
       metaDescription="Compassionate funeral director in Strathfield. Willow Tree Funerals offers Catholic, secular, and multi-faith funeral services across the Inner West. Available 24/7. Call 02 8776 1667."
       heroImage={HERO_IMG}

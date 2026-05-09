@@ -83,8 +83,8 @@ export default function Nav() {
                 src={COMPANY.assets.logoWhite}
                 alt="Willow Tree Funerals"
                 className="h-20 w-auto object-contain"
-                width={281}
-                height={140}
+                width={200}
+                height={99}
                 decoding="async"
               />
             </Link>
@@ -93,7 +93,7 @@ export default function Nav() {
             <nav className="hidden lg:flex items-center gap-8">
               <Link
                 href="/"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 Home
               </Link>
@@ -109,7 +109,7 @@ export default function Nav() {
                   onClick={() => setServicesOpen((prev) => !prev)}
                   aria-expanded={servicesOpen}
                   aria-haspopup="true"
-                  className="flex items-center gap-1 text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                  className="flex items-center gap-1 text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3"
                 >
                   Services <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
@@ -134,43 +134,43 @@ export default function Nav() {
 
               <Link
                 href="/about"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 About
               </Link>
               <Link
                 href="/obituaries"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 Obituaries
               </Link>
               <Link
                 href="/order-flowers"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 Flowers
               </Link>
               <Link
                 href="/community-events"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 Community
               </Link>
               <Link
                 href="/pricing"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 Pricing
               </Link>
               <Link
                 href="/blog"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 Blog
               </Link>
               <Link
                 href="/contact"
-                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors"
+                className="text-white/80 hover:text-white text-xs tracking-widest uppercase font-sans font-medium transition-colors py-3 inline-block"
               >
                 Contact
               </Link>
@@ -185,7 +185,7 @@ export default function Nav() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Willow Tree Funerals on Facebook"
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
+                  className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
                 >
                   <Facebook size={14} />
                 </a>
@@ -194,7 +194,7 @@ export default function Nav() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Willow Tree Funerals on Instagram"
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
+                  className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-brand-gold hover:text-brand-gold transition-colors"
                 >
                   <Instagram size={14} />
                 </a>

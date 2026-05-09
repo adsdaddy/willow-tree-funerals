@@ -15,7 +15,7 @@ export default function WhatToDoWhenSomeonePasses() {
       title="What to Do When Someone Passes Away in NSW"
       metaTitle="What to Do When Someone Passes Away in NSW | Willow Tree Funerals"
       metaDescription="A step-by-step guide for families in NSW — from the moment of death through to the funeral service. Written by Bruce Missen, funeral director at Willow Tree Funerals."
-      canonicalUrl="https://www.willowtreefunerals.com.au/blog/what-to-do-when-someone-passes-away-nsw"
+      canonicalUrl="https://willowtreefunerals.com.au/blog/what-to-do-when-someone-passes-away-nsw"
       publishDate="April 2026"
       readTime="8 min"
       heroImage={HERO_IMG}

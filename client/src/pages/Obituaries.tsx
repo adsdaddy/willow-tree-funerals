@@ -47,7 +47,7 @@ const schema = {
     "@type": "FuneralHome",
     "name": COMPANY.name,
     "telephone": COMPANY.phone,
-    "url": "https://www.willowtreefunerals.com.au"
+    "url": "https://willowtreefunerals.com.au"
   }
 };
 
@@ -55,8 +55,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-    { "@type": "ListItem", "position": 2, "name": "Obituaries", "item": "https://www.willowtreefunerals.com.au/obituaries" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Obituaries", "item": "https://willowtreefunerals.com.au/obituaries" }
   ]
 };
 

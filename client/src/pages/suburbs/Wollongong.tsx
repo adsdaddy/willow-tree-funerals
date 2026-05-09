@@ -39,7 +39,7 @@ export default function Wollongong() {
           a: "We serve the entire Illawarra region including Wollongong, Shellharbour, Kiama, and surrounding areas. There is no additional travel charge for families in these areas.",
         },
       ]}
-      canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-wollongong"
+      canonicalUrl="https://willowtreefunerals.com.au/funeral-director-wollongong"
       metaTitle="Funeral Director Wollongong | Willow Tree Funerals | 02 8776 1667"
       metaDescription="Compassionate funeral director serving Wollongong and the Illawarra. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}

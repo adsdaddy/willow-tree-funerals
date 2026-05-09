@@ -1,6 +1,6 @@
 import SuburbPageTemplate from "@/components/SuburbPageTemplate";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0033_2dba725d.jpg";
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/pallbearers-opt_d4cc1ad8.webp";
 
 export default function Camden() {
   return (
@@ -39,7 +39,7 @@ export default function Camden() {
           a: "Our funeral packages start from $2,950 for a direct cremation. We provide full itemised quotes with no hidden fees. Call us or visit our Pricing page for a detailed breakdown.",
         },
       ]}
-      canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-camden"
+      canonicalUrl="https://willowtreefunerals.com.au/funeral-director-camden"
       metaTitle="Funeral Director Camden | Willow Tree Funerals | 02 8776 1667"
       metaDescription="Independent funeral director serving Camden and the Macarthur region. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}

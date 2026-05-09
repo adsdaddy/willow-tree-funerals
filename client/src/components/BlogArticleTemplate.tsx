@@ -51,7 +51,7 @@ export default function BlogArticleTemplate({
     publisher: {
       "@type": "Organization",
       name: COMPANY.name,
-      url: "https://www.willowtreefunerals.com.au",
+      url: "https://willowtreefunerals.com.au",
     },
   };
 

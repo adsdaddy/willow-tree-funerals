@@ -44,19 +44,18 @@ export default function SEOHead({ title, description, canonical, schema, ogImage
     setMeta("twitter:description", description);
 
     // Canonical — always update the EXISTING static canonical tag (never create a second one)
-    // The static <link rel="canonical"> in index.html is the single source of truth.
-    // We only update its href — this prevents Lighthouse from seeing two canonical tags.
+    // Manus redirects www → non-www (301), so non-www is the canonical URL.
     {
       const canonicalValue = canonical || '/';
-      // Normalise to absolute www URL
+      // Normalise to absolute non-www URL
       let canonicalHref: string;
       if (canonicalValue.startsWith('http')) {
         canonicalHref = canonicalValue
-          .replace('https://willowtreefunerals.com.au/', 'https://www.willowtreefunerals.com.au/')
-          .replace('http://willowtreefunerals.com.au/', 'https://www.willowtreefunerals.com.au/')
-          .replace('http://www.willowtreefunerals.com.au/', 'https://www.willowtreefunerals.com.au/');
+          .replace('https://willowtreefunerals.com.au/', 'https://willowtreefunerals.com.au/')
+          .replace('http://www.willowtreefunerals.com.au/', 'https://willowtreefunerals.com.au/')
+          .replace('http://willowtreefunerals.com.au/', 'https://willowtreefunerals.com.au/');
       } else {
-        canonicalHref = `https://www.willowtreefunerals.com.au${canonicalValue}`;
+        canonicalHref = `https://willowtreefunerals.com.au${canonicalValue}`;
       }
       // Always update the existing tag — never append a new one
       let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;

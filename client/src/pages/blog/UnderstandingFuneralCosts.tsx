@@ -15,7 +15,7 @@ export default function UnderstandingFuneralCosts() {
       title="Understanding Funeral Costs in Sydney 2026"
       metaTitle="Understanding Funeral Costs in Sydney 2026 | Willow Tree Funerals"
       metaDescription="A transparent breakdown of what funerals cost in Sydney in 2026 — including what's included, what's extra, and how to compare funeral directors without being misled."
-      canonicalUrl="https://www.willowtreefunerals.com.au/blog/understanding-funeral-costs-sydney"
+      canonicalUrl="https://willowtreefunerals.com.au/blog/understanding-funeral-costs-sydney"
       publishDate="February 2026"
       readTime="7 min"
       heroImage={HERO_IMG}

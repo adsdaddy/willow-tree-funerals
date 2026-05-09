@@ -49,7 +49,7 @@ export default function SuburbPageTemplate({
       {
         "@type": "FuneralHome",
         name: COMPANY.name,
-        url: `https://www.willowtreefunerals.com.au/funeral-director-${slug}`,
+        url: `https://willowtreefunerals.com.au/funeral-director-${slug}`,
         telephone: COMPANY.phone,
         description: metaDescription,
         areaServed: { "@type": "City", name: suburb, addressRegion: "NSW", addressCountry: "AU" },
@@ -58,8 +58,8 @@ export default function SuburbPageTemplate({
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.willowtreefunerals.com.au/" },
-          { "@type": "ListItem", position: 2, name: `Funeral Director ${suburb}`, item: `https://www.willowtreefunerals.com.au/funeral-director-${slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://willowtreefunerals.com.au/" },
+          { "@type": "ListItem", position: 2, name: `Funeral Director ${suburb}`, item: `https://willowtreefunerals.com.au/funeral-director-${slug}` },
         ],
       },
       {

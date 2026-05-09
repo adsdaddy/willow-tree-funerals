@@ -20,8 +20,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-    { "@type": "ListItem", "position": 2, "name": "Funeral Pricing", "item": "https://www.willowtreefunerals.com.au/pricing" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Funeral Pricing", "item": "https://willowtreefunerals.com.au/pricing" }
   ]
 };
 

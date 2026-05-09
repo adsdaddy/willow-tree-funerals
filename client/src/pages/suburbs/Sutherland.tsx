@@ -39,7 +39,7 @@ export default function Sutherland() {
           a: "We work with all cemeteries in the Sutherland Shire area including Woronora Cemetery, Sutherland General Cemetery, and others. We handle all cemetery liaison on your behalf.",
         },
       ]}
-      canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-sutherland"
+      canonicalUrl="https://willowtreefunerals.com.au/funeral-director-sutherland"
       metaTitle="Funeral Director Sutherland Shire | Willow Tree Funerals | 02 8776 1667"
       metaDescription="Trusted funeral director serving Sutherland and the Sutherland Shire. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}

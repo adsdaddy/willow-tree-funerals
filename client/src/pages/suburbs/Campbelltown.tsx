@@ -39,7 +39,7 @@ export default function Campbelltown() {
           a: "Our funeral packages start from $2,950 for a direct cremation. We provide full itemised quotes with no hidden fees. Call us or visit our Pricing page for a detailed breakdown.",
         },
       ]}
-      canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-campbelltown"
+      canonicalUrl="https://willowtreefunerals.com.au/funeral-director-campbelltown"
       metaTitle="Funeral Director Campbelltown | Willow Tree Funerals | 02 8776 1667"
       metaDescription="Independent funeral director serving Campbelltown and South West Sydney. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}

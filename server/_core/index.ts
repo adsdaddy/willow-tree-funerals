@@ -63,15 +63,15 @@ async function startServer() {
     next();
   });
 
-  // ── Non-www to www redirect (fixes canonical URL conflict in PageSpeed SEO audit) ──
+  // ── www → non-www redirect (canonical: willowtreefunerals.com.au) ──────────
   app.use((req, res, next) => {
     const host = req.headers.host || "";
-    // Only redirect on the production domain (not on manus.space or localhost)
+    // Redirect www to non-www on the production domain
     if (
-      host === "willowtreefunerals.com.au" ||
-      host === "willowtreefunerals.com.au:443"
+      host === "www.willowtreefunerals.com.au" ||
+      host === "www.willowtreefunerals.com.au:443"
     ) {
-      return res.redirect(301, `https://www.willowtreefunerals.com.au${req.originalUrl}`);
+      return res.redirect(301, `https://willowtreefunerals.com.au${req.originalUrl}`);
     }
     next();
   });

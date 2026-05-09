@@ -22,7 +22,7 @@ const schema = {
     {
       "@type": "FuneralHome",
       "name": COMPANY.name,
-      "url": "https://www.willowtreefunerals.com.au",
+      "url": "https://willowtreefunerals.com.au",
       "telephone": COMPANY.phone,
       "email": COMPANY.email,
       "address": {
@@ -136,8 +136,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-    { "@type": "ListItem", "position": 2, "name": "About Willow Tree Funerals", "item": "https://www.willowtreefunerals.com.au/about" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "About Willow Tree Funerals", "item": "https://willowtreefunerals.com.au/about" }
   ]
 };
 
@@ -472,9 +472,6 @@ export default function About() {
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -490,20 +487,17 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           {open ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
         </span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: EASE }}
-            className="overflow-hidden"
-            role="region"
-          >
-            <p className="pb-5 text-brand-navy/65 text-sm leading-relaxed">{a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className="overflow-hidden"
+        role="region"
+        style={{
+          maxHeight: open ? "500px" : "0",
+          opacity: open ? 1 : 0,
+          transition: "max-height 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease",
+        }}
+      >
+        <p className="pb-5 text-brand-navy/80 text-sm leading-relaxed">{a}</p>
+      </div>
     </div>
   );
 }

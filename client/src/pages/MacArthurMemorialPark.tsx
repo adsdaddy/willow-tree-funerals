@@ -19,8 +19,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-    { "@type": "ListItem", "position": 2, "name": "MacArthur Memorial Park", "item": "https://www.willowtreefunerals.com.au/macarthur-memorial-park" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "MacArthur Memorial Park", "item": "https://willowtreefunerals.com.au/macarthur-memorial-park" }
   ]
 };
 
@@ -30,7 +30,7 @@ const schema = {
     {
       "@type": "FuneralHome",
       "name": COMPANY.name,
-      "url": "https://www.willowtreefunerals.com.au",
+      "url": "https://willowtreefunerals.com.au",
       "telephone": COMPANY.phone,
       "address": {
         "@type": "PostalAddress",

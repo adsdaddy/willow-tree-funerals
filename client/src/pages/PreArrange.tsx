@@ -104,7 +104,7 @@ export default function PreArrange() {
         <SEOHead
           title="Pre-Arrangement Request Received | Willow Tree Funerals"
           description="Thank you for submitting your pre-arrangement request. Our team will be in touch within 24 hours."
-          canonical="https://www.willowtreefunerals.com.au/pre-arrange"
+          canonical="https://willowtreefunerals.com.au/pre-arrange"
         />
         <Nav />
         <section className="min-h-[70vh] bg-brand-ivory flex items-center py-20 pt-32">
@@ -166,7 +166,7 @@ export default function PreArrange() {
       <SEOHead
         title="Pre-Arrange Your Funeral | Willow Tree Funerals Sydney"
         description="Pre-arrange your own funeral with Willow Tree Funerals — the most thoughtful gift you can give your family. No obligation. Lock in today's prices."
-        canonical="https://www.willowtreefunerals.com.au/pre-arrange"
+        canonical="https://willowtreefunerals.com.au/pre-arrange"
       />
       <Nav />
 

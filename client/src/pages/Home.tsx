@@ -20,8 +20,7 @@
  * 14. Final CTA — hearse background
  */
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import {
   Phone, ArrowRight, ChevronDown, ChevronUp, Star,
@@ -35,52 +34,75 @@ import { COMPANY } from "@/../../shared/company";
 import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 
 // ── CDN Assets ───────────────────────────────────────────────────────────────
-const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt_0864e4a3.webp";
-const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-walking_upscaled_a1fa6d59.jpg";
+const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt-v2_e04c2bfa.webp";
+const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-opt_73636581.webp";
 const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230518-WA0007_91c5c66b-opt_3cc00853.webp";
-const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded-opt_64d9aa81.webp";
+const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded-v2_dbb50328.webp";
 const CHURCH_MASS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg";
 const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral-opt-v2_12c23ec3.webp";
 const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4-opt_75fd0c29.webp";
-const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/Screenshot_20260409_124331_WhatsApp_upscaled_13fb4a7e.jpg";
-const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0006_596dbd5c.jpg";
+const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/priest-blessing-opt_fe1b6c81.webp";
+const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bagpiper-opt_abade4d9.webp";
 const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad-opt_9e353cd5.webp";
 const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615-opt_e93b8716.webp";
 const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37-opt_cbd86335.webp";
-const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-hearse-opt_70f7a244.webp";
-const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0033_2dba725d.jpg";
-const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0034_ca7fe50f.jpg";
-const BRUCE_HEARSE_2  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0042_de2b1b80.jpg";
-const BRUCE_HEARSE_3  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20260105-WA0044_688d04e3.jpg";
-const SERVICE_CHURCH  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0023_d520aec6.jpg";
+const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-hearse-v2_42939cc7.webp";
+const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/pallbearers-opt_d4cc1ad8.webp";
+const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-yellow-opt_35477fea.webp";
+const BRUCE_HEARSE_2  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-hearse-2-opt_56ac8ed2.webp";
+const BRUCE_HEARSE_3  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-hearse-3-opt_db6c6668.webp";
+const SERVICE_CHURCH  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/service-church-opt_55dc524f.webp";
 
-// ── Animation helpers ─────────────────────────────────────────────────────────
-const EASE = [0.22, 1, 0.36, 1] as const;
+// ── Animation helpers (CSS-based, no framer-motion) ──────────────────────────
 function Reveal({
   children, delay = 0, className = "", from = "bottom",
 }: {
   children: React.ReactNode; delay?: number; className?: string; from?: "bottom" | "left" | "right";
 }) {
-  const y = from === "bottom" ? 28 : 0;
-  const x = from === "left" ? -28 : from === "right" ? 28 : 0;
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { rootMargin: "-50px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  const translateInit = from === "bottom" ? "translateY(28px)" : from === "left" ? "translateX(-28px)" : "translateX(28px)";
   return (
-    <motion.div
+    <div
+      ref={ref}
       className={className}
-      initial={{ opacity: 0, y, x }}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.75, delay, ease: EASE }}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : translateInit,
+        transition: `opacity 0.75s cubic-bezier(0.22,1,0.36,1) ${delay}s, transform 0.75s cubic-bezier(0.22,1,0.36,1) ${delay}s`,
+        willChange: "opacity, transform",
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-// ── Count-up hook ─────────────────────────────────────────────────────────────
+// ── Count-up hook (native IntersectionObserver, no framer-motion) ─────────────────
 function useCountUp(target: number, duration = 1.6, suffix = "") {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [inView, setInView] = useState(false);
   const [display, setDisplay] = useState("0");
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { rootMargin: "-80px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
   useEffect(() => {
     if (!inView) return;
     const start = performance.now();
@@ -191,20 +213,17 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           {open ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
         </span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: EASE }}
-            className="overflow-hidden"
-            role="region"
-          >
-            <p className="pb-5 text-brand-navy/80 text-sm leading-relaxed">{a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className="overflow-hidden"
+        role="region"
+        style={{
+          maxHeight: open ? "500px" : "0",
+          opacity: open ? 1 : 0,
+          transition: "max-height 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease",
+        }}
+      >
+        <p className="pb-5 text-brand-navy/80 text-sm leading-relaxed">{a}</p>
+      </div>
     </div>
   );
 }
@@ -389,14 +408,13 @@ export default function Home() {
             </div>
           </div>
           {/* Scroll cue */}
-          <motion.div
+          <div
             className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/60"
-            animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+            style={{ animation: "scrollBounce 2.4s ease-in-out infinite" }}
           >
             <span className="text-[0.6rem] tracking-[0.15em] uppercase font-medium">Scroll</span>
             <ChevronDown size={14} />
-          </motion.div>
+          </div>
         </section>
                 {/* ── 2. STATS BAR ──────────────────────────────────────────────── */}
         <section className="bg-brand-navy py-10">
@@ -540,10 +558,10 @@ export default function Home() {
                 <div className="relative">
                   <div className="rounded-2xl overflow-hidden max-w-sm mx-auto lg:mx-0 shadow-2xl">
                     <img
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot_18cf3f17.png"
+                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot-v2_c7f0cb68.webp"
                       alt="Bruce Missen, Managing Director & Founder of Willow Tree Funerals"
                       className="w-full h-auto block"
-                      width={480} height={480}
+                      width={384} height={384}
                       loading="lazy"
                       decoding="async"
                     />
@@ -848,35 +866,30 @@ export default function Home() {
             </Reveal>
 
             {/* Review cards */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={reviewIndex}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.5, ease: EASE }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-              >
-                {visibleReviews.map((review) => (
-                  <div key={review.name} className="bg-white rounded-2xl p-7 shadow-sm border border-[#E8EFF8] flex flex-col">
-                    <Quote size={20} className="text-brand-royal/30 mb-4 shrink-0" />
-                    <p className="text-brand-navy/80 text-sm leading-relaxed flex-1 mb-6 italic">"{review.text}"</p>
-                    <div className="flex items-center gap-3 mt-auto">
-                      <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-serif font-bold text-xs shrink-0">
-                        {review.initials}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-brand-navy text-sm">{review.name}</p>
-                        <div className="flex items-center gap-2">
-                          <Stars count={review.rating} />
-                          <span className="text-brand-navy/75 text-[0.65rem]">{review.suburb} · {review.date}</span>
-                        </div>
+            <div
+              key={reviewIndex}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+              style={{ animation: "reviewFadeIn 0.5s ease forwards" }}
+            >
+              {visibleReviews.map((review) => (
+                <div key={review.name} className="bg-white rounded-2xl p-7 shadow-sm border border-[#E8EFF8] flex flex-col">
+                  <Quote size={20} className="text-brand-royal/30 mb-4 shrink-0" />
+                  <p className="text-brand-navy/80 text-sm leading-relaxed flex-1 mb-6 italic">"{review.text}"</p>
+                  <div className="flex items-center gap-3 mt-auto">
+                    <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-serif font-bold text-xs shrink-0">
+                      {review.initials}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-brand-navy text-sm">{review.name}</p>
+                      <div className="flex items-center gap-2">
+                        <Stars count={review.rating} />
+                        <span className="text-brand-navy/75 text-[0.65rem]">{review.suburb} · {review.date}</span>
                       </div>
                     </div>
                   </div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+                </div>
+              ))}
+            </div>
 
             {/* Carousel controls */}
             <div className="flex items-center justify-center gap-4 mt-10">

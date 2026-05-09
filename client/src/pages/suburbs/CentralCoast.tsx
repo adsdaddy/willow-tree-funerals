@@ -39,7 +39,7 @@ export default function CentralCoast() {
           a: "We serve the Central Coast as part of our standard service area. Please call us to discuss your specific needs and we will provide a full itemised quote with no hidden fees.",
         },
       ]}
-      canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-central-coast"
+      canonicalUrl="https://willowtreefunerals.com.au/funeral-director-central-coast"
       metaTitle="Funeral Director Central Coast NSW | Willow Tree Funerals | 02 8776 1667"
       metaDescription="Independent funeral director serving the Central Coast NSW. Catholic, secular, and multi-faith services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}

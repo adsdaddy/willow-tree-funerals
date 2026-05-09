@@ -102,9 +102,9 @@ export default function ServicePageTemplate({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.willowtreefunerals.com.au/services/funeral-services" },
-      { "@type": "ListItem", "position": 3, "name": hero.label, "item": `https://www.willowtreefunerals.com.au${seo.canonical}` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://willowtreefunerals.com.au/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://willowtreefunerals.com.au/services/funeral-services" },
+      { "@type": "ListItem", "position": 3, "name": hero.label, "item": `https://willowtreefunerals.com.au${seo.canonical}` }
     ]
   };
 

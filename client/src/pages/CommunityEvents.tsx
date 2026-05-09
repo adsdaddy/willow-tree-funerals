@@ -23,7 +23,7 @@ const schema = {
   "organizer": {
     "@type": "Organization",
     "name": COMPANY.name,
-    "url": "https://www.willowtreefunerals.com.au"
+    "url": "https://willowtreefunerals.com.au"
   },
   "location": {
     "@type": "Place",
@@ -43,8 +43,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-    { "@type": "ListItem", "position": 2, "name": "Community Events", "item": "https://www.willowtreefunerals.com.au/community-events" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Community Events", "item": "https://willowtreefunerals.com.au/community-events" }
   ]
 };
 

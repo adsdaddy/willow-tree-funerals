@@ -15,7 +15,7 @@ export default function HowToPlanCatholicFuneral() {
       title="How to Plan a Catholic Funeral Mass in Sydney"
       metaTitle="How to Plan a Catholic Funeral Mass in Sydney | Willow Tree Funerals"
       metaDescription="Everything you need to know about arranging a Catholic funeral Mass in Sydney — from liaising with the parish priest to choosing readings, music, and the Mass booklet. Written by Bruce Missen."
-      canonicalUrl="https://www.willowtreefunerals.com.au/blog/how-to-plan-catholic-funeral-sydney"
+      canonicalUrl="https://willowtreefunerals.com.au/blog/how-to-plan-catholic-funeral-sydney"
       publishDate="March 2026"
       readTime="10 min"
       heroImage={HERO_IMG}

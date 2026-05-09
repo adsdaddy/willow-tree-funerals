@@ -306,3 +306,32 @@
 - [x] Fix stale tsbuildinfo referencing TypeScript 5.6.3 — moved to .tsbuildinfo in project root
 - [ ] Reduce CSS render-blocking: inline critical CSS or split above-fold styles (Vite limitation — CSS is already 22KB gzipped)
 - [ ] Fix framer-motion forced reflow (63ms): replace layout-querying animations with CSS transforms only
+
+## PageSpeed Round 3 Fixes (Target 100% everywhere — Mobile 75, Desktop 97, SEO 92)
+- [ ] Fix SEO canonical conflict: both www and non-www still appearing in deployed build
+- [ ] Remove unused GTM preconnect (www.googletagmanager.com) from index.html
+- [ ] Re-compress bruce-headshot at 384px display width (currently 940KB PNG, needs WebP)
+- [ ] Re-compress hero-bg to v2 (74 KB) — old URL still in deployed build
+- [ ] Re-compress casket-cathedral-opt-v2 at 480x208 actual display dimensions
+- [ ] Re-compress casket-hearse-opt at 447x208 actual display dimensions
+- [ ] Re-compress birdcage-garden at 480x208 actual display dimensions
+- [ ] Re-compress casket-church/burial at 480x208 actual display dimensions
+- [ ] Re-compress butterfly-flowers at 480x208 actual display dimensions
+- [ ] Re-compress bruce-hearse-1 at 168x224 actual display dimensions
+- [ ] Re-compress logo-white-opt-v2 at 98x48 actual display dimensions
+- [ ] Remove framer-motion from Home page critical path (replace with CSS IntersectionObserver + max-height accordion)
+- [ ] Fix desktop Accessibility 96 → 100 (identify and fix the failing item)
+
+## PageSpeed Round 4 (9 May 2026)
+
+- [x] Fix Nav desktop social icons touch targets: w-8 h-8 (32px) → w-11 h-11 (44px) for WCAG compliance
+- [x] Fix Nav desktop nav links touch targets: added py-3 padding to all links for 48px touch target height
+- [x] Compress bruce-headshot.png: 940 KB → 8.8 KB WebP at 384x384px (99% reduction)
+- [x] Compress logo-white: 17.5 KB → 1.1 KB WebP at 200x99px (94% reduction)
+- [x] Compress casket-hearse: 65 KB → 24 KB WebP at 480x250px (63% reduction)
+- [x] Fix www → non-www redirect in server/_core/index.ts (was a no-op redirect)
+- [x] Remove framer-motion from vite.config.ts manualChunks (no longer used)
+- [x] Update all bruce-headshot references to new CDN URL (Home.tsx, shared/company.ts, index.html JSON-LD)
+- [x] Update logoWhite reference to new CDN URL (shared/company.ts)
+- [x] TypeScript: 0 errors confirmed
+- [x] All 21 tests passing confirmed

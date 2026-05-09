@@ -15,7 +15,7 @@ export default function MacArthurMemorialParkGuide() {
       title="Macarthur Memorial Park — Sydney's Newest Cemetery Guide"
       metaTitle="Macarthur Memorial Park Campbelltown — Cemetery Guide | Willow Tree Funerals"
       metaDescription="Everything families need to know about Macarthur Memorial Park in Campbelltown — location, burial options, pricing, and how to arrange a service there. Written by Bruce Missen."
-      canonicalUrl="https://www.willowtreefunerals.com.au/blog/macarthur-memorial-park-guide"
+      canonicalUrl="https://willowtreefunerals.com.au/blog/macarthur-memorial-park-guide"
       publishDate="January 2026"
       readTime="6 min"
       heroImage={HERO_IMG}

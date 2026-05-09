@@ -20,8 +20,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.willowtreefunerals.com.au/" },
-    { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://www.willowtreefunerals.com.au/contact" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://willowtreefunerals.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://willowtreefunerals.com.au/contact" }
   ]
 };
 
@@ -29,7 +29,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "FuneralHome",
   "name": COMPANY.name,
-  "url": "https://www.willowtreefunerals.com.au",
+  "url": "https://willowtreefunerals.com.au",
   "telephone": COMPANY.phone,
   "email": COMPANY.email,
   "address": {

@@ -39,7 +39,7 @@ export default function Kogarah() {
           a: "Funeral costs in Kogarah vary depending on the type of service. Our packages start from $2,950 for a direct cremation. We provide full itemised quotes with no hidden fees. Call us or visit our Pricing page for details.",
         },
       ]}
-      canonicalUrl="https://www.willowtreefunerals.com.au/funeral-director-kogarah"
+      canonicalUrl="https://willowtreefunerals.com.au/funeral-director-kogarah"
       metaTitle="Funeral Director Kogarah | Willow Tree Funerals | 02 8776 1667"
       metaDescription="Compassionate funeral director in Kogarah. Willow Tree Funerals offers Catholic, secular, and multi-faith funeral services. Available 24/7. Call us on 02 8776 1667."
       heroImage={HERO_IMG}
