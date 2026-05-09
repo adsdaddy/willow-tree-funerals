@@ -48,7 +48,7 @@ export const COMPANY = {
   },
   assets: {
     logoDark:  "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-dark_ecaf2959.png",
-    logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-white-v3_b916b8e4.webp",
+    logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/logo-white-v4_3a392b62.webp",
     bruceHeadshot:           "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot-v2_c7f0cb68.webp",
     brucePodium:             "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-podium_d5ec753d.png",
     churchService:           "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-service_a28d78fe.png",

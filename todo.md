@@ -357,3 +357,7 @@
 ## Logo & Nav Fix (9 May 2026)
 - [x] Fix oversized logo in Nav — reduced from h-20 (80px) to h-12 (48px), nav bar from h-28 (112px) to h-20 (80px)
 - [ ] Submit updated sitemap.xml to Google Search Console (to be done manually by client)
+
+## Bug Fixes — Stretched Images & Logo (9 May 2026)
+- [x] Fix stretched service card images (re-compressed to 480x320 with smart center-crop, v4)
+- [x] Fix logo white box (logo-white-v4 re-exported as RGBA WebP with transparency preserved)
