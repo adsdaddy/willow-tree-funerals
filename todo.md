@@ -353,3 +353,7 @@
 - [x] Remove willChange from Reveal component after animation completes (reduces Style & Layout work)
 - [x] Defer review carousel setInterval by 2s to reduce initial TBT
 - [x] Remove framer-motion from vite.config.ts manualChunks
+
+## Logo & Nav Fix (9 May 2026)
+- [x] Fix oversized logo in Nav — reduced from h-20 (80px) to h-12 (48px), nav bar from h-28 (112px) to h-20 (80px)
+- [ ] Submit updated sitemap.xml to Google Search Console (to be done manually by client)

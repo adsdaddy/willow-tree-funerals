@@ -76,13 +76,13 @@ export default function Nav() {
         }`}
       >
         <div className="container">
-          <div className="flex items-center justify-between h-28">
+          <div className="flex items-center justify-between h-20">
             {/* Logo — enlarged for visibility */}
             <Link href="/">
               <img
                 src={COMPANY.assets.logoWhite}
                 alt="Willow Tree Funerals"
-                className="h-20 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 width={200}
                 height={99}
                 decoding="async"
