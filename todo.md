@@ -361,3 +361,6 @@
 ## Bug Fixes — Stretched Images & Logo (9 May 2026)
 - [x] Fix stretched service card images (re-compressed to 480x320 with smart center-crop, v4)
 - [x] Fix logo white box (logo-white-v4 re-exported as RGBA WebP with transparency preserved)
+## Accessibility Fix — Review Cards (9 May 2026)
+- [x] Fix review card review text: text-brand-navy/80 -> text-brand-navy (full opacity, eliminates contrast failure)
+- [x] Fix review card date/suburb: text-brand-navy/75 text-[0.65rem] -> text-brand-navy/70 text-xs (6.19:1 contrast ratio, WCAG AA pass)

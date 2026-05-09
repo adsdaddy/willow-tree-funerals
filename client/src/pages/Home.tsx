@@ -882,7 +882,7 @@ export default function Home() {
               {visibleReviews.map((review) => (
                 <div key={review.name} className="bg-white rounded-2xl p-7 shadow-sm border border-[#E8EFF8] flex flex-col">
                   <Quote size={20} className="text-brand-royal/30 mb-4 shrink-0" />
-                  <p className="text-brand-navy/80 text-sm leading-relaxed flex-1 mb-6 italic">"{review.text}"</p>
+                  <p className="text-brand-navy text-sm leading-relaxed flex-1 mb-6 italic">"{review.text}"</p>
                   <div className="flex items-center gap-3 mt-auto">
                     <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-serif font-bold text-xs shrink-0">
                       {review.initials}
@@ -891,7 +891,7 @@ export default function Home() {
                       <p className="font-semibold text-brand-navy text-sm">{review.name}</p>
                       <div className="flex items-center gap-2">
                         <Stars count={review.rating} />
-                        <span className="text-brand-navy/75 text-[0.65rem]">{review.suburb} · {review.date}</span>
+                        <span className="text-brand-navy/70 text-xs">{review.suburb} · {review.date}</span>
                       </div>
                     </div>
                   </div>
