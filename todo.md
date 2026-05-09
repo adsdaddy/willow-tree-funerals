@@ -364,3 +364,8 @@
 ## Accessibility Fix — Review Cards (9 May 2026)
 - [x] Fix review card review text: text-brand-navy/80 -> text-brand-navy (full opacity, eliminates contrast failure)
 - [x] Fix review card date/suburb: text-brand-navy/75 text-[0.65rem] -> text-brand-navy/70 text-xs (6.19:1 contrast ratio, WCAG AA pass)
+
+## Mobile Performance Optimisation (9 May 2026)
+- [x] Add mobile hero srcset: 480px (17KB) and 768px (36KB) variants vs 75KB full image
+- [x] Update hero preload link with imagesrcset/imagesizes for responsive preloading
+- [x] Inline critical above-fold CSS in index.html to reduce render-blocking penalty

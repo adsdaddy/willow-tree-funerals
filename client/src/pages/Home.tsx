@@ -35,6 +35,8 @@ import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 
 // ── CDN Assets ───────────────────────────────────────────────────────────────
 const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt-v2_e04c2bfa.webp";
+const HERO_IMG_MD     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-mobile_v1_5a7cde54.webp";
+const HERO_IMG_SM     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-mobile-sm_v1_a5f78808.webp";
 const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-opt_73636581.webp";
 const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-hearse-1-v4_a4a0e861.webp";
 const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded-v2_dbb50328.webp";
@@ -313,6 +315,8 @@ export default function Home() {
           {/* LCP hero image — explicit img tag so browser discovers it early */}
           <img
             src={HERO_IMG}
+            srcSet={`${HERO_IMG_SM} 480w, ${HERO_IMG_MD} 768w, ${HERO_IMG} 1200w`}
+            sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
             alt="Willow Tree Funerals — Sydney funeral directors serving St George, Sutherland Shire and South West Sydney"
             fetchPriority="high"
             decoding="async"

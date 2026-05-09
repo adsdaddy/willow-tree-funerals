@@ -133,11 +133,13 @@
     <link rel="preload" as="font" type="font/woff2" crossorigin
       href="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/playfair-400_89c3d01a.woff2" />
 
-    <!-- Hero image preload (LCP optimisation) -->
+    <!-- Hero image preload (LCP optimisation) — responsive srcset so mobile gets 17KB not 75KB -->
     <link
       rel="preload"
       as="image"
       href="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt-v2_e04c2bfa.webp"
+      imagesrcset="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-mobile-sm_v1_a5f78808.webp 480w, https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-mobile_v1_5a7cde54.webp 768w, https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt-v2_e04c2bfa.webp 1200w"
+      imagesizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
       fetchpriority="high"
       type="image/webp"
     />
@@ -229,6 +231,56 @@
       ]
     }
     </script>
+
+    <!-- Critical above-fold CSS: prevents FOUC before full stylesheet loads -->
+    <style>
+      /* Body defaults — prevents white flash on ivory background */
+      html { box-sizing: border-box; }
+      *, *::before, *::after { box-sizing: inherit; }
+      body {
+        margin: 0;
+        background-color: #FAF8F2;
+        color: #0B1F3A;
+        font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Skip-to-content link */
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        padding: 0.5rem 1rem;
+        background: #0B1F3A;
+        color: #FAF8F2;
+        z-index: 9999;
+      }
+      /* Hero section: full-viewport, navy background prevents layout shift */
+      #root > div > main > section:first-of-type,
+      .hero-section {
+        position: relative;
+        min-height: 100svh;
+        background-color: #0B1F3A;
+        overflow: hidden;
+      }
+      /* Nav placeholder: reserves 80px so content doesn't jump */
+      nav, header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background-color: transparent;
+      }
+    </style>
 
     <!-- Self-hosted fonts: Playfair Display + Montserrat + Libre Baskerville -->
     <style>
