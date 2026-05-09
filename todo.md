@@ -344,3 +344,12 @@
 - [x] Compress logo-white-opt-v2 to logo-white-v3 (smaller file)
 - [x] Remove framer-motion from vite.config.ts manualChunks (no longer used)
 - [x] All 21 tests passing, 0 TypeScript errors
+
+## PageSpeed Round 6 (9 May 2026)
+- [x] Compress 5 service card images to display size (casket-cathedral 75KB→20KB, casket-church 59KB→13KB, procession 20KB→5KB, birdcage-garden 97KB→19KB, butterfly-flowers 40KB→16KB)
+- [x] Compress bruce-hearse-1 portrait 68KB→17KB
+- [x] Fix GTM double-load: consolidate GA4+Ads into single gtag.js script (saves 141KB)
+- [x] Remove duplicate CloudFront preconnect tag (was showing "Unused preconnect" warning)
+- [x] Remove willChange from Reveal component after animation completes (reduces Style & Layout work)
+- [x] Defer review carousel setInterval by 2s to reduce initial TBT
+- [x] Remove framer-motion from vite.config.ts manualChunks

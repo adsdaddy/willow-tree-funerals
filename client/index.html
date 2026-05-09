@@ -76,22 +76,28 @@
       };
 
       _loadAfterInteractive(function() {
-        // Load GA4
+        // Load GA4 + Google Ads via a SINGLE gtag.js script (avoids double-load)
+        // Both GA4 and Google Ads share the same gtag.js infrastructure
         if (window.__GA4_ID && window.__GA4_ID.startsWith('G-')) {
           var s = document.createElement('script');
           s.async = true;
           s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__GA4_ID;
           document.head.appendChild(s);
-          gtag('js', new Date());
-          gtag('config', window.__GA4_ID, { send_page_view: false });
-        }
-        // Load Google Ads
-        if (window.__GADS_ID) {
+          s.onload = function() {
+            gtag('js', new Date());
+            gtag('config', window.__GA4_ID, { send_page_view: false });
+            // Configure Google Ads on the same gtag instance (no second script needed)
+            if (window.__GADS_ID) {
+              gtag('config', window.__GADS_ID);
+            }
+          };
+        } else if (window.__GADS_ID) {
+          // No GA4 — load Ads-only script
           var ga = document.createElement('script');
           ga.async = true;
           ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__GADS_ID;
           document.head.appendChild(ga);
-          gtag('config', window.__GADS_ID);
+          ga.onload = function() { gtag('js', new Date()); gtag('config', window.__GADS_ID); };
         }
         // Load Meta Pixel
         if (window.__META_PIXEL_ID && /^\d+$/.test(window.__META_PIXEL_ID)) {
@@ -112,9 +118,8 @@
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
     <!-- Resource hints (OptiCheck Playbook — eliminate render-blocking) -->
-    <!-- Two preconnect tags for CDN: one for CORS requests (fonts/images), one for non-CORS -->
+    <!-- Single preconnect for CDN (fonts use crossorigin, images do not — one tag covers both) -->
     <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" />
     <link rel="dns-prefetch" href="https://d2xsxph8kpxj0f.cloudfront.net" />
     <!-- Manus analytics preconnect (100ms LCP savings per Lighthouse) -->
     <link rel="preconnect" href="https://manus-analytics.com" />
