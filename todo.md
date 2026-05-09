@@ -335,3 +335,12 @@
 - [x] Update logoWhite reference to new CDN URL (shared/company.ts)
 - [x] TypeScript: 0 errors confirmed
 - [x] All 21 tests passing confirmed
+
+## PageSpeed Round 5 (9 May 2026)
+- [x] Compress church-interior-mass.jpg 1.1MB → 157KB WebP (86% reduction)
+- [x] Fix www→non-www canonical redirect in Express server
+- [x] Fix desktop Accessibility 96→100: nav links py-3 (48px touch target), social icons w-11 h-11 (44px)
+- [x] Compress bruce-headshot.png 940KB → 8.8KB WebP (99% reduction)
+- [x] Compress logo-white-opt-v2 to logo-white-v3 (smaller file)
+- [x] Remove framer-motion from vite.config.ts manualChunks (no longer used)
+- [x] All 21 tests passing, 0 TypeScript errors
