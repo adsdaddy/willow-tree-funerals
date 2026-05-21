@@ -232,47 +232,15 @@
     }
     </script>
 
-    <!-- Critical above-fold CSS: prevents FOUC before full stylesheet loads -->
+    <!-- Critical above-fold CSS: MINIMUM safe rules only.
+         RULE: Never set color, font, or layout on body/html here — it bleeds into every page.
+         Only set background-color (prevents white flash) and skip-link accessibility styles.
+         The full Tailwind stylesheet handles everything else. -->
     <style>
-      /* Body defaults — prevents white flash on ivory background */
-      html { box-sizing: border-box; }
-      *, *::before, *::after { box-sizing: inherit; }
-      body {
-        margin: 0;
-        background-color: #0B1F3A;
-        color: #FAF8F2;
-        font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      /* Skip-to-content link */
-      .skip-link {
-        position: absolute;
-        left: -9999px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-      }
-      .skip-link:focus {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: auto;
-        height: auto;
-        padding: 0.5rem 1rem;
-        background: #0B1F3A;
-        color: #FAF8F2;
-        z-index: 9999;
-      }
-      /* Hero section: full-viewport, navy background prevents layout shift */
-      #root > div > main > section:first-of-type,
-      .hero-section {
-        position: relative;
-        min-height: 100svh;
-        background-color: #0B1F3A;
-        overflow: hidden;
-      }
+      body { margin: 0; background-color: #0B1F3A; }
+      /* Skip-to-content accessibility link */
+      .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+      .skip-link:focus { position: fixed; top: 0; left: 0; width: auto; height: auto; padding: 0.5rem 1rem; background: #0B1F3A; color: #FAF8F2; z-index: 9999; }
     </style>
 
     <!-- Self-hosted fonts: Playfair Display + Montserrat + Libre Baskerville -->
