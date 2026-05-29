@@ -478,15 +478,15 @@ export default function BlogIndex() {
                   <p className="text-white/60 max-w-xl leading-relaxed text-sm">
                     Compassionate articles on Catholic funerals, cremation, burial, costs,
                     grief support, and planning ahead - written by Bruce Missen, funeral
-                    director with over 15 years of experience.
+                    director with over {new Date().getFullYear() - COMPANY.established} years of experience.
                   </p>
                 </div>
                 <div className="flex gap-8 shrink-0">
-                  <AnimatedCounter value={50} label="Articles" />
+                  <AnimatedCounter value={allPosts.length} label="Articles" />
                   <div className="w-px bg-white/10" />
-                  <AnimatedCounter value={12} label="Topics" />
+                  <AnimatedCounter value={allTags.length} label="Topics" />
                   <div className="w-px bg-white/10" />
-                  <AnimatedCounter value={15} label="Years Experience" />
+                  <AnimatedCounter value={new Date().getFullYear() - COMPANY.established} label="Years Experience" />
                 </div>
               </div>
             </motion.div>
