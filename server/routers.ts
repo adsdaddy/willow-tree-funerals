@@ -234,6 +234,76 @@ export const appRouter = router({
 
   // ── Blog procedures (reads from blog_posts table populated by babylovegrowth.ai webhook) ──
   blog: router({
+    getAll: publicProcedure
+      .input(
+        z.object({
+          page: z.number().min(1).default(1),
+          limit: z.number().min(1).max(24).default(12),
+          tag: z.string().optional(),
+          search: z.string().optional(),
+        })
+      )
+      .query(async ({ input }) => {
+        const db = await getDb();
+        if (!db) return { posts: [], total: 0, totalPages: 0 };
+        const allPosts = await db
+          .select()
+          .from(blogPosts)
+          .where(eq(blogPosts.isPublished, 1))
+          .orderBy(desc(blogPosts.publishedAt));
+        let filtered = allPosts;
+        if (input.tag && input.tag !== "All") {
+          filtered = filtered.filter((p) =>
+            p.tags.split(",").map((t) => t.trim()).includes(input.tag!)
+          );
+        }
+        if (input.search && input.search.trim()) {
+          const q = input.search.toLowerCase();
+          filtered = filtered.filter(
+            (p) =>
+              p.title.toLowerCase().includes(q) ||
+              p.excerpt.toLowerCase().includes(q) ||
+              p.tags.toLowerCase().includes(q)
+          );
+        }
+        const total = filtered.length;
+        const totalPages = Math.max(1, Math.ceil(total / input.limit));
+        const offset = (input.page - 1) * input.limit;
+        const posts = filtered.slice(offset, offset + input.limit);
+        return { posts, total, totalPages };
+      }),
+
+    getRelated: publicProcedure
+      .input(z.object({ slug: z.string(), limit: z.number().min(1).max(6).default(3) }))
+      .query(async ({ input }) => {
+        const db = await getDb();
+        if (!db) return [];
+        const [current] = await db
+          .select()
+          .from(blogPosts)
+          .where(and(eq(blogPosts.slug, input.slug), eq(blogPosts.isPublished, 1)))
+          .limit(1);
+        if (!current) return [];
+        const currentTags = current.tags.split(",").map((t) => t.trim()).filter(Boolean);
+        const others = await db
+          .select()
+          .from(blogPosts)
+          .where(and(eq(blogPosts.isPublished, 1)))
+          .orderBy(desc(blogPosts.publishedAt))
+          .limit(20);
+        const scored = others
+          .filter((p) => p.slug !== input.slug)
+          .map((p) => {
+            const pTags = p.tags.split(",").map((t) => t.trim()).filter(Boolean);
+            const shared = pTags.filter((t) => currentTags.includes(t)).length;
+            return { post: p, score: shared };
+          })
+          .sort((a, b) => b.score - a.score || (b.post.publishedAt > a.post.publishedAt ? 1 : -1))
+          .slice(0, input.limit)
+          .map((x) => x.post);
+        return scored;
+      }),
+
     getLatest: publicProcedure
       .input(
         z.object({

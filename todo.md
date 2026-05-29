@@ -371,3 +371,9 @@
 - [x] Inline critical above-fold CSS in index.html to reduce render-blocking penalty
 - [x] Fix nav contrast regression: body background-color in inlined CSS changed from #FAF8F2 to #0B1F3A so Lighthouse contrast checker sees white text on navy (15:1 ratio) not white on ivory
 - [x] Investigated GTM double-load (mobile 82->70): second script (gtag/js?id=AW-...&cx=c&gtm=...) is fired by Google Ads GTM container integration, not our code - requires client to remove GTM container link in Google Ads account settings
+
+## Premium Blog System (29 May 2026)
+- [x] Add blog.getAll (paginated + searchable) tRPC endpoint
+- [x] Add blog.getRelated tRPC endpoint
+- [x] Build premium Blog Overview page (hero, animated counters, search, featured post, tag filter, 3-col grid, pagination, bottom CTA)
+- [x] Build premium Blog Article page (reading progress bar, breadcrumb, 2-col layout, TOC with progress, in-content CTA, FAQ accordion, share buttons, author box, related posts, sticky mobile CTA)
