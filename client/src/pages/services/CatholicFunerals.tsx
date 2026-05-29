@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Catholic Funerals Service Page
+ * WILLOW TREE FUNERALS  -  Catholic Funerals Service Page
  * SEO Target: "catholic funerals sydney", "catholic funeral director hurstville",
  *             "requiem mass sydney", "catholic funeral mass st george"
  * CRO: Phone CTA above fold, trust signals, FAQ schema
@@ -16,7 +16,7 @@ export default function CatholicFunerals() {
     <ServicePageTemplate
       seo={{
         title: "Catholic Funerals Sydney | Catholic Funeral Director Hurstville",
-        description: "Willow Tree Funerals — Sydney's trusted Catholic funeral director. Requiem Masses, Catholic burial services, and faith-centred farewells across St George, Sutherland Shire & South West Sydney. Call 02 8776 1667.",
+        description: "Willow Tree Funerals  -  Sydney's trusted Catholic funeral director. Requiem Masses, Catholic burial services, and faith-centred farewells across St George, Sutherland Shire & South West Sydney. Call 02 8776 1667.",
         canonical: "/services/catholic-funerals",
       }}
       hero={{
@@ -25,7 +25,7 @@ export default function CatholicFunerals() {
         subheading: "Coordinating Requiem Masses and Catholic burial services with your parish priest across all of Sydney's southern communities.",
         image: HERO_IMG,
       }}
-      intro={`At Willow Tree Funerals, we understand that for Catholic families, a funeral is not merely a farewell — it is a sacred liturgical celebration of the resurrection and the promise of eternal life. Our team has deep experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney dioceses. From the initial notification of death through to the Rite of Committal at the graveside, every step is conducted with the reverence and care your faith demands.`}
+      intro={`At Willow Tree Funerals, we understand that for Catholic families, a funeral is not merely a farewell  -  it is a sacred liturgical celebration of the resurrection and the promise of eternal life. Our team has deep experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney dioceses. From the initial notification of death through to the Rite of Committal at the graveside, every step is conducted with the reverence and care your faith demands.`}
       includes={[
         "Coordination with your parish priest and church booking",
         "Full Requiem Mass or Funeral Mass arrangements",
@@ -46,7 +46,7 @@ export default function CatholicFunerals() {
         {
           num: "01",
           title: "First Call",
-          desc: "Call our Family Care Specialists on 02 8776 1667 — any time, day or night. We will come to you immediately.",
+          desc: "Call our Family Care Specialists on 02 8776 1667  -  any time, day or night. We will come to you immediately.",
         },
         {
           num: "02",
@@ -75,14 +75,14 @@ export default function CatholicFunerals() {
         },
         {
           q: "Can we have a Rosary and Vigil the evening before the funeral?",
-          a: "Absolutely. A Vigil service — often including the Rosary — the evening before the funeral is a beautiful Catholic tradition. We can arrange this at the church, our chapel, or another venue of your choosing.",
+          a: "Absolutely. A Vigil service  -  often including the Rosary  -  the evening before the funeral is a beautiful Catholic tradition. We can arrange this at the church, our chapel, or another venue of your choosing.",
         },
         {
           q: "Which Catholic cemeteries do you work with in Sydney?",
           a: "We work with all Catholic cemeteries in Sydney, including Rookwood Catholic Cemetery, Woronora Memorial Park, Sutherland General Cemetery, and the new MacArthur Memorial Park at Varroville. We handle all cemetery bookings and grave preparation.",
         },
         {
-          q: "My loved one was not a regular churchgoer — can we still have a Catholic funeral?",
+          q: "My loved one was not a regular churchgoer  -  can we still have a Catholic funeral?",
           a: "Yes. The Catholic Church welcomes all baptised Catholics to receive a Catholic funeral. We can speak with you and your parish priest about the most appropriate form of service.",
         },
         {

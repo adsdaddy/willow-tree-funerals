@@ -1,5 +1,5 @@
 /**
- * analytics.ts — Willow Tree Funerals
+ * analytics.ts  -  Willow Tree Funerals
  *
  * Unified event tracking for Google Analytics 4 and Meta Pixel.
  * Both trackers are loaded conditionally in index.html only when
@@ -8,7 +8,7 @@
  * Usage:
  *   import { trackPhoneClick, trackFormSubmit, trackCTAClick } from "@/lib/analytics";
  *
- * All functions are safe to call even when the trackers are not loaded —
+ * All functions are safe to call even when the trackers are not loaded  - 
  * they check for window.gtag / window.fbq before firing.
  */
 
@@ -22,7 +22,7 @@ declare global {
   }
 }
 
-// Google Ads conversion labels — create these in Google Ads → Goals → Conversions
+// Google Ads conversion labels  -  create these in Google Ads → Goals → Conversions
 // then paste the label value (e.g. 'AbCdEfGhIjKlMnOp') from the tag setup screen.
 // Leave as empty string until you have the label; the event will still fire to the
 // account-level tag (AW-16467075039) which is sufficient for Smart Bidding.

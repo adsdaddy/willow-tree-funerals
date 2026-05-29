@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Terms of Service Page
+ * WILLOW TREE FUNERALS  -  Terms of Service Page
  */
 
 import Nav from "../components/Nav";
@@ -12,7 +12,7 @@ export default function Terms() {
     <>
       <SEOHead
         title="Terms of Service | Willow Tree Funerals"
-        description="Terms of service for Willow Tree Funerals — the terms governing the use of our website and services."
+        description="Terms of service for Willow Tree Funerals  -  the terms governing the use of our website and services."
         canonical="/terms"
       />
       <Nav />

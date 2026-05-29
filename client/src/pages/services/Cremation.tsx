@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Cremation Services Page
+ * WILLOW TREE FUNERALS  -  Cremation Services Page
  * SEO Target: "cremation services sydney", "cremation hurstville",
  *             "direct cremation sydney", "affordable cremation st george"
  */
@@ -18,10 +18,10 @@ export default function Cremation() {
       hero={{
         label: "Cremation Services",
         heading: "Dignified Cremation Services Across Sydney",
-        subheading: "From simple direct cremation to a full ceremony with viewing — we guide you through every option with honesty and care.",
+        subheading: "From simple direct cremation to a full ceremony with viewing  -  we guide you through every option with honesty and care.",
         image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-cremation-UEg2UAZKaPZjZyHzGmPiRb.webp",
       }}
-      intro={`Cremation is chosen by an increasing number of Sydney families as a meaningful, flexible, and often more affordable alternative to traditional burial. At Willow Tree Funerals, we offer a full range of cremation options — from a simple, dignified direct cremation to a full funeral service with viewing, ceremony, and cremation. Whatever you choose, your loved one will be treated with the same respect and care as any other service we provide. We never use a third-party cremation provider — your loved one remains in our care throughout.`}
+      intro={`Cremation is chosen by an increasing number of Sydney families as a meaningful, flexible, and often more affordable alternative to traditional burial. At Willow Tree Funerals, we offer a full range of cremation options  -  from a simple, dignified direct cremation to a full funeral service with viewing, ceremony, and cremation. Whatever you choose, your loved one will be treated with the same respect and care as any other service we provide. We never use a third-party cremation provider  -  your loved one remains in our care throughout.`}
       includes={[
         "Transfer of your loved one into our care, 24/7",
         "Professional preparation and presentation",
@@ -40,7 +40,7 @@ export default function Cremation() {
         {
           num: "01",
           title: "First Call",
-          desc: "Call us any time — we will come to you immediately and transfer your loved one into our care.",
+          desc: "Call us any time  -  we will come to you immediately and transfer your loved one into our care.",
         },
         {
           num: "02",
@@ -61,7 +61,7 @@ export default function Cremation() {
       faqs={[
         {
           q: "What is the difference between direct cremation and a cremation with a service?",
-          a: "Direct cremation is a simple, no-ceremony cremation where the body is transferred directly to the crematorium. A cremation with a service includes a funeral ceremony — at a chapel, church, or other venue — before the cremation takes place. We offer both options and everything in between.",
+          a: "Direct cremation is a simple, no-ceremony cremation where the body is transferred directly to the crematorium. A cremation with a service includes a funeral ceremony  -  at a chapel, church, or other venue  -  before the cremation takes place. We offer both options and everything in between.",
         },
         {
           q: "Can we have a viewing before cremation?",

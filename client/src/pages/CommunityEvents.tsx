@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Community Events Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Community Events Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * SEO: "funeral community events sydney", "grief support sydney", "art of dying well"
  */
 
@@ -19,7 +19,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "The Art of Dying Well",
-  "description": "A series of talks exploring death, dying, and the Catholic faith — presented by Bruce Missen of Willow Tree Funerals.",
+  "description": "A series of talks exploring death, dying, and the Catholic faith  -  presented by Bruce Missen of Willow Tree Funerals.",
   "organizer": {
     "@type": "Organization",
     "name": COMPANY.name,
@@ -54,7 +54,7 @@ export default function CommunityEvents() {
   return (
     <>
       <SEOHead
-        title="Community Events | Willow Tree Funerals — Grief Support & Education Sydney"
+        title="Community Events | Willow Tree Funerals  -  Grief Support & Education Sydney"
         description="Join Willow Tree Funerals for community events including The Art of Dying Well talks and the Compassionate Companions Men's Grief Support Group across South West Sydney."
         canonical="/community-events"
         schema={schema}
@@ -77,7 +77,7 @@ export default function CommunityEvents() {
             Healing Begins with Connection
           </h1>
           <p className="text-white/75 text-lg max-w-2xl leading-relaxed">
-            At Willow Tree Funerals, we believe that healing begins with connection — with community, with faith, and with one another.
+            At Willow Tree Funerals, we believe that healing begins with connection  -  with community, with faith, and with one another.
           </p>
         </div>
       </section>
@@ -134,7 +134,7 @@ export default function CommunityEvents() {
                   The Art of Dying Well
                 </h3>
                 <p className="text-brand-navy/60 text-sm font-sans mb-5">
-                  Eternal Rest Series by the Augustine Institute — Presented by Bruce Missen
+                  Eternal Rest Series by the Augustine Institute  -  Presented by Bruce Missen
                 </p>
                 <p className="text-brand-navy/70 leading-relaxed mb-6">
                   A series of talks exploring the Catholic understanding of death, dying, and eternal life. Presented by Bruce Missen of Willow Tree Funerals, this series draws on the Eternal Rest program by the Augustine Institute to help individuals and families prepare for death with faith, peace, and dignity.
@@ -198,7 +198,7 @@ export default function CommunityEvents() {
                   Compassionate Companions Men's Group
                 </h3>
                 <p className="text-brand-navy/60 text-sm font-sans mb-5">
-                  Monthly Grief Support for Men — In Partnership with Grief Care
+                  Monthly Grief Support for Men  -  In Partnership with Grief Care
                 </p>
                 <p className="text-brand-navy/70 leading-relaxed mb-6">
                   A safe, supportive space for men navigating grief. The Compassionate Companions Men's Group meets monthly to provide peer support, shared stories, and a community of understanding for men who have experienced loss. Facilitated in partnership with Grief Care.
@@ -267,7 +267,7 @@ export default function CommunityEvents() {
                 We proudly assist with International Women's Day, Australia's Biggest Morning Tea, monthly Dinner with Dignity for those in need, and supporting women who experience miscarriage.
               </p>
               <p className="text-white/70 leading-relaxed">
-                By fostering compassion and understanding, Willow Tree Funerals strives to make a difference in the lives of those we serve — beyond the funeral itself.
+                By fostering compassion and understanding, Willow Tree Funerals strives to make a difference in the lives of those we serve  -  beyond the funeral itself.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">

@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Sticky Mobile CTA Bar
- * OptiCheck Playbook: Sticky bottom CTA bar on mobile — major CRO pattern
+ * WILLOW TREE FUNERALS  -  Sticky Mobile CTA Bar
+ * OptiCheck Playbook: Sticky bottom CTA bar on mobile  -  major CRO pattern
  * Appears after user scrolls 200px. Hidden on desktop (lg+).
  * WCAG AA: min 44px touch targets, visible focus ring.
  */

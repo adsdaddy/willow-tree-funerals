@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — FAQ Section
+ * WILLOW TREE FUNERALS  -  FAQ Section
  * SEO: FAQPage schema markup embedded
  * Keywords: funeral home Hurstville, cremation Sydney, funeral cost, funeral director
  */
@@ -9,7 +9,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "How do I arrange a funeral in Hurstville?",
-    a: "Simply call Willow Tree Funerals on 02 8776 1667 — we are available 24 hours a day, 7 days a week. Our Family Care Specialists will guide you through every step of the arrangement process with care and clarity, either in person, by phone, or via video call."
+    a: "Simply call Willow Tree Funerals on 02 8776 1667  -  we are available 24 hours a day, 7 days a week. Our Family Care Specialists will guide you through every step of the arrangement process with care and clarity, either in person, by phone, or via video call."
   },
   {
     q: "What areas do you serve in Sydney?",
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "What is the difference between a traditional funeral and a celebration of life?",
-    a: "A traditional funeral typically follows a structured religious or cultural format with burial or cremation. A celebration of life is a more personalised, contemporary tribute that focuses on honouring the unique personality and legacy of your loved one — often with music, photos, and personal tributes that reflect who they truly were."
+    a: "A traditional funeral typically follows a structured religious or cultural format with burial or cremation. A celebration of life is a more personalised, contemporary tribute that focuses on honouring the unique personality and legacy of your loved one  -  often with music, photos, and personal tributes that reflect who they truly were."
   },
   {
     q: "How much does a funeral cost in Sydney?",
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Can I pre-arrange my own funeral?",
-    a: "Yes — pre-arranging your funeral is one of the most thoughtful gifts you can give your family. It relieves them of the burden of decision-making during a difficult time and ensures your wishes are honoured exactly as you intend. Our team will guide you through the process at your own pace."
+    a: "Yes  -  pre-arranging your funeral is one of the most thoughtful gifts you can give your family. It relieves them of the burden of decision-making during a difficult time and ensures your wishes are honoured exactly as you intend. Our team will guide you through the process at your own pace."
   },
   {
     q: "Do you offer eco-friendly or green funeral options?",
@@ -33,11 +33,11 @@ const faqs = [
   },
   {
     q: "Are you available on weekends and public holidays?",
-    a: "Yes — Willow Tree Funerals is available 24 hours a day, 7 days a week, including weekends and all public holidays. When you need us most, we are here."
+    a: "Yes  -  Willow Tree Funerals is available 24 hours a day, 7 days a week, including weekends and all public holidays. When you need us most, we are here."
   },
   {
     q: "Do you cater to all faiths and cultures?",
-    a: "Absolutely. We honour the funeral and interment customs of all faiths, cultures, and backgrounds — including Christian, Catholic, Buddhist, Hindu, Muslim, and non-religious services. Every life deserves to be celebrated in a way that is true to who they were."
+    a: "Absolutely. We honour the funeral and interment customs of all faiths, cultures, and backgrounds  -  including Christian, Catholic, Buddhist, Hindu, Muslim, and non-religious services. Every life deserves to be celebrated in a way that is true to who they were."
   },
 ];
 

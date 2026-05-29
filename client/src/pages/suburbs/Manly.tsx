@@ -10,7 +10,7 @@ export default function Manly() {
       slug="manly"
       heroHeading="Funeral Director Manly"
       heroSubheading="Compassionate, independent funeral services for families in Manly and across the Northern Beaches. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals serves families in Manly and throughout the Northern Beaches with the same care and dedication we bring to every family we support. Our experienced team is available around the clock and can be with your family quickly when you need us most. We offer the full range of funeral services — from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations, all personalised to honour your loved one."
+      intro="Willow Tree Funerals serves families in Manly and throughout the Northern Beaches with the same care and dedication we bring to every family we support. Our experienced team is available around the clock and can be with your family quickly when you need us most. We offer the full range of funeral services  -  from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations, all personalised to honour your loved one."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",
@@ -28,11 +28,11 @@ export default function Manly() {
         },
         {
           q: "What types of funerals do you arrange in Manly?",
-          a: "We arrange the full range of funeral services in Manly — Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
+          a: "We arrange the full range of funeral services in Manly  -  Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
         },
         {
           q: "How quickly can you respond to a death in Manly?",
-          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists — not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
+          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists  -  not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
         },
         {
           q: "What does a funeral cost in Manly?",

@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Privacy Policy Page
+ * WILLOW TREE FUNERALS  -  Privacy Policy Page
  */
 
 import Nav from "../components/Nav";
@@ -12,7 +12,7 @@ export default function Privacy() {
     <>
       <SEOHead
         title="Privacy Policy | Willow Tree Funerals"
-        description="Privacy policy for Willow Tree Funerals — how we collect, use, and protect your personal information."
+        description="Privacy policy for Willow Tree Funerals  -  how we collect, use, and protect your personal information."
         canonical="/privacy"
       />
       <Nav />

@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Global Navigation
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Global Navigation
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * Sticky header, transparent-to-solid on scroll, mobile hamburger menu
  * CRO: Phone number always visible, "Arrange a Funeral" CTA button
  * Fix: Services dropdown works on both hover (desktop) and click (touch/keyboard)
@@ -77,7 +77,7 @@ export default function Nav() {
       >
         <div className="container">
           <div className="flex items-center justify-between h-20">
-            {/* Logo — enlarged for visibility */}
+            {/* Logo  -  enlarged for visibility */}
             <Link href="/">
               <img
                 src={COMPANY.assets.logoWhite}
@@ -98,7 +98,7 @@ export default function Nav() {
                 Home
               </Link>
 
-              {/* Services dropdown — works on hover AND click */}
+              {/* Services dropdown  -  works on hover AND click */}
               <div
                 ref={dropdownRef}
                 className="relative"

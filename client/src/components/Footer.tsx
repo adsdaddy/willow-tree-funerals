@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Global Footer
- * Design: Sacred Elegance — deep navy background, gold accents
+ * WILLOW TREE FUNERALS  -  Global Footer
+ * Design: Sacred Elegance  -  deep navy background, gold accents
  * SEO: Internal links to all service pages, location pages, schema-friendly markup
  * A11y: All text meets WCAG AA contrast (4.5:1 min). Footer headings use <p> with role="heading"
  *       to avoid disrupting the page heading hierarchy (h1→h2→h3 flow).
@@ -55,7 +55,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services — use <p role="heading" aria-level="3"> to avoid skipping heading levels */}
+          {/* Services  -  use <p role="heading" aria-level="3"> to avoid skipping heading levels */}
           <div>
             <p role="heading" aria-level={3} className="font-sans text-xs tracking-widest uppercase text-white font-semibold mb-5">Our Services</p>
             <ul className="space-y-2.5">

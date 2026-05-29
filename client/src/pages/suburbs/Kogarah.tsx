@@ -10,7 +10,7 @@ export default function Kogarah() {
       slug="kogarah"
       heroHeading="Funeral Director Kogarah"
       heroSubheading="Compassionate, independent funeral services for families in Kogarah and the St George area. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals has been serving families in Kogarah and the broader St George area since 2018. Our Hurstville office is just minutes from Kogarah, ensuring we can be with your family quickly when you need us most. We offer the full range of funeral services — from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations."
+      intro="Willow Tree Funerals has been serving families in Kogarah and the broader St George area since 2018. Our Hurstville office is just minutes from Kogarah, ensuring we can be with your family quickly when you need us most. We offer the full range of funeral services  -  from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",
@@ -28,11 +28,11 @@ export default function Kogarah() {
         },
         {
           q: "What types of funerals do you arrange in Kogarah?",
-          a: "We arrange the full range of funeral services in Kogarah — Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
+          a: "We arrange the full range of funeral services in Kogarah  -  Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
         },
         {
           q: "How quickly can you respond to a death in Kogarah?",
-          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with Bruce Missen — not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
+          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with Bruce Missen  -  not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
         },
         {
           q: "What does a funeral cost in Kogarah?",

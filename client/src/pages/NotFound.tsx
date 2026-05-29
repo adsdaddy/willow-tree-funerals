@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — 404 Not Found Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  404 Not Found Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  */
 
 import { Link } from "wouter";
@@ -20,7 +20,7 @@ export default function NotFound() {
             Page Not Found
           </h1>
           <p className="text-brand-navy/75 leading-relaxed mb-10">
-            We couldn't find the page you were looking for. Please use the navigation above, or contact us directly — we're available 24 hours a day.
+            We couldn't find the page you were looking for. Please use the navigation above, or contact us directly  -  we're available 24 hours a day.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/" className="btn-primary flex items-center justify-center gap-2">

@@ -1,5 +1,5 @@
 /**
- * SuburbPageTemplate — Reusable template for suburb-level SEO landing pages.
+ * SuburbPageTemplate  -  Reusable template for suburb-level SEO landing pages.
  * Each suburb page renders this with suburb-specific data.
  * Includes: hero, services, about Bruce, FAQ, CTA, JSON-LD schema.
  */
@@ -137,7 +137,7 @@ export default function SuburbPageTemplate({
               </h2>
               <p className="text-brand-navy/70 text-base leading-relaxed mb-6">{intro}</p>
               <p className="text-brand-navy/70 text-base leading-relaxed mb-8">
-                Our team personally oversees every arrangement — you will always speak directly with your funeral director, not a call centre. We are available 24 hours a day, 7 days a week, including weekends and public holidays.
+                Our team personally oversees every arrangement  -  you will always speak directly with your funeral director, not a call centre. We are available 24 hours a day, 7 days a week, including weekends and public holidays.
               </p>
               <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2">
                 <Phone size={14} /> Call Us Now
@@ -218,7 +218,7 @@ export default function SuburbPageTemplate({
             Need a Funeral Director in {suburb}?
           </h2>
           <p className="text-white/65 text-base leading-relaxed mb-8">
-            Call us directly — available 24 hours a day, 7 days a week. We serve {suburb} and all surrounding areas.
+            Call us directly  -  available 24 hours a day, 7 days a week. We serve {suburb} and all surrounding areas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={COMPANY.phoneHref} className="btn-royal flex items-center justify-center gap-2">

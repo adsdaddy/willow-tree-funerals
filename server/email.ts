@@ -1,5 +1,5 @@
 /**
- * email.ts — Postmark transactional email helper
+ * email.ts  -  Postmark transactional email helper
  * Sends form submission notifications to director@willowtreefunerals.com.au
  *
  * Primary:  Postmark (POSTMARK_API_TOKEN)
@@ -54,7 +54,7 @@ function parseFields(body: string): Array<{ type: "section" | "field" | "message
     if (colonIdx > 0) {
       const label = line.slice(0, colonIdx).trim();
       const value = line.slice(colonIdx + 1).trim();
-      rows.push({ type: "field", label, value: value || "—" });
+      rows.push({ type: "field", label, value: value || " - " });
     } else {
       rows.push({ type: "field", value: line });
     }
@@ -252,6 +252,6 @@ export async function sendFormEmail(opts: {
     const sent = await sendViaSMTP(opts);
     if (sent) return true;
   }
-  console.warn("[Email] No email provider configured — add POSTMARK_API_TOKEN to enable email delivery.");
+  console.warn("[Email] No email provider configured  -  add POSTMARK_API_TOKEN to enable email delivery.");
   return false;
 }

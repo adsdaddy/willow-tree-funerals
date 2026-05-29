@@ -1,9 +1,9 @@
 /**
- * WILLOW TREE FUNERALS — Pricing Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Pricing Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * SEO: "funeral cost sydney", "funeral pricing hurstville",
  *      "how much does a funeral cost", "transparent funeral pricing"
- * CRO: Transparent pricing is a MAJOR competitive gap — most Sydney funeral homes hide prices
+ * CRO: Transparent pricing is a MAJOR competitive gap  -  most Sydney funeral homes hide prices
  * Schema: PriceSpecification
  */
 
@@ -157,7 +157,7 @@ const pricingFaqs = [
   },
   {
     q: "Can I get a personalised quote?",
-    a: "Yes. Call us on " + COMPANY.phone + " or complete our contact form. We will provide a fully itemised, written quote tailored to your family's specific needs and wishes — with no obligation.",
+    a: "Yes. Call us on " + COMPANY.phone + " or complete our contact form. We will provide a fully itemised, written quote tailored to your family's specific needs and wishes  -  with no obligation.",
   },
   {
     q: "What is not included in the package price?",
@@ -173,7 +173,7 @@ const pricingFaqs = [
   },
   {
     q: "What if I cannot afford a funeral?",
-    a: "We understand that cost is a real concern for many families. We will always work with you to find a dignified solution within your budget. Please call our team and speak openly — we will do our best to help.",
+    a: "We understand that cost is a real concern for many families. We will always work with you to find a dignified solution within your budget. Please call our team and speak openly  -  we will do our best to help.",
   },
 ];
 
@@ -217,7 +217,7 @@ export default function Pricing() {
         <div className="relative z-10 container max-w-3xl text-center mx-auto">
           <p className="section-label text-brand-gold mb-3">Transparent Pricing</p>
           <h1 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-            Honest Funeral Pricing — No Hidden Fees
+            Honest Funeral Pricing  -  No Hidden Fees
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8">
             We believe every family deserves to know exactly what they are paying for. All prices are clearly itemised, fully explained, and confirmed in writing before any commitment is made.
@@ -306,7 +306,7 @@ export default function Pricing() {
             Understanding Cemetery Costs
           </h2>
           <p className="text-brand-navy/65 leading-relaxed mb-8">
-            Cemetery and crematorium fees are set by the cemetery authority — not by us — and are charged separately. The figures below are approximate guides only. We will obtain an exact quote from your chosen cemetery as part of your funeral arrangement.
+            Cemetery and crematorium fees are set by the cemetery authority  -  not by us  -  and are charged separately. The figures below are approximate guides only. We will obtain an exact quote from your chosen cemetery as part of your funeral arrangement.
           </p>
           <div className="border border-brand-light-blue overflow-hidden">
             <div className="grid grid-cols-3 bg-brand-navy px-6 py-3">
@@ -349,7 +349,7 @@ export default function Pricing() {
               <h2 className="font-serif text-white text-2xl md:text-3xl font-semibold mb-2">
                 Get a Personalised, Itemised Quote
               </h2>
-              <p className="text-white/75">Call our Family Care Specialists — no obligation, no pressure.</p>
+              <p className="text-white/75">Call our Family Care Specialists  -  no obligation, no pressure.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">

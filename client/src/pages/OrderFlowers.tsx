@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Order Flowers Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Order Flowers Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * SEO: "funeral flowers sydney", "sympathy flowers hurstville", "order funeral flowers"
  * Includes: Flower enquiry form with arrangement type, delivery address, service date, contact details
  */
@@ -33,7 +33,7 @@ const ARRANGEMENT_TYPES = [
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Funeral Flower Delivery — Willow Tree Funerals",
+  "name": "Funeral Flower Delivery  -  Willow Tree Funerals",
   "description": "Order funeral and sympathy flowers through Willow Tree Funerals. Partnered with Rays Florist and Lazy Daisy Florist for premium delivery to church services, funeral homes, and memorials across Sydney.",
   "provider": {
     "@type": "FuneralHome",
@@ -71,7 +71,7 @@ const flowerTypes = [
   },
   {
     title: "Sympathy Arrangements",
-    desc: "Thoughtful floral gifts delivered to the family home or service venue — a meaningful way to express your condolences and support.",
+    desc: "Thoughtful floral gifts delivered to the family home or service venue  -  a meaningful way to express your condolences and support.",
     icon: <Flower size={28} className="text-brand-gold" />,
   },
 ];
@@ -227,7 +227,7 @@ function FlowerEnquiryForm() {
           )}
         </div>
 
-        {/* Custom arrangement description — shown when "Other / Custom" selected */}
+        {/* Custom arrangement description  -  shown when "Other / Custom" selected */}
         {form.arrangementType === "Other / Custom" && (
           <div>
             <label className="block font-sans text-xs tracking-widest uppercase text-brand-navy/60 font-semibold mb-2">
@@ -458,7 +458,7 @@ export default function OrderFlowers() {
   return (
     <>
       <SEOHead
-        title="Order Funeral Flowers | Willow Tree Funerals — Sydney Delivery"
+        title="Order Funeral Flowers | Willow Tree Funerals  -  Sydney Delivery"
         description="Order funeral and sympathy flowers through Willow Tree Funerals. Partnered with Rays Florist and Lazy Daisy Florist for premium delivery to church services, funeral homes, and memorials across Sydney."
         canonical="/order-flowers"
         schema={schema}
@@ -491,7 +491,7 @@ export default function OrderFlowers() {
         <div className="container">
           <blockquote className="text-center">
             <p className="scripture text-brand-gold text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-              "Those we love don't go away, they walk beside us everyday — unseen, unheard, but always near, still loved, still missed and very dear."
+              "Those we love don't go away, they walk beside us everyday  -  unseen, unheard, but always near, still loved, still missed and very dear."
             </p>
           </blockquote>
         </div>
@@ -507,7 +507,7 @@ export default function OrderFlowers() {
                 Premium Floral Tributes
               </h2>
               <p className="text-brand-navy/70 text-lg leading-relaxed mb-5">
-                Willow Tree Funerals has partnered with multiple trusted local florists including — <strong>Rays Florist</strong> and <strong>Lazy Daisy Florist</strong> — to provide beautiful, premium floral arrangements for funeral services and sympathy deliveries.
+                Willow Tree Funerals has partnered with multiple trusted local florists including  -  <strong>Rays Florist</strong> and <strong>Lazy Daisy Florist</strong>  -  to provide beautiful, premium floral arrangements for funeral services and sympathy deliveries.
               </p>
               <p className="text-brand-navy/70 leading-relaxed mb-5">
                 Funeral flowers include wreath tributes, casket flowers, tribute heart wreaths, standing sprays, and sympathy arrangements. Every order is crafted with care and delivered with dignity.
@@ -520,7 +520,7 @@ export default function OrderFlowers() {
                 <div className="flex items-start gap-3">
                   <Truck size={20} className="text-brand-royal mt-0.5 shrink-0" />
                   <div>
-                    <p className="font-serif text-brand-navy font-semibold mb-1">Premium Delivery — No Extra Cost</p>
+                    <p className="font-serif text-brand-navy font-semibold mb-1">Premium Delivery  -  No Extra Cost</p>
                     <p className="text-brand-navy/65 text-sm leading-relaxed">
                       We deliver to church services, funeral homes, memorials, and the family home. Always delivered well in advance of the service.
                     </p>
@@ -545,7 +545,7 @@ export default function OrderFlowers() {
             <div className="scroll-reveal">
               <img
                 src={CASKET_CATHEDRAL}
-                alt="Floral tribute at a funeral service — Willow Tree Funerals"
+                alt="Floral tribute at a funeral service  -  Willow Tree Funerals"
                 className="rounded-2xl shadow-2xl w-full object-cover"
                 style={{ maxHeight: "520px" }}
                 loading="lazy"
@@ -648,7 +648,7 @@ export default function OrderFlowers() {
               </h2>
               <p className="text-white/75">
                 Call <strong className="text-white">{COMPANY.phone}</strong> or email{" "}
-                <strong className="text-white">{COMPANY.email}</strong> — we are here 24/7.
+                <strong className="text-white">{COMPANY.email}</strong>  -  we are here 24/7.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">

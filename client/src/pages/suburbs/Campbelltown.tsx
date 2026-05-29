@@ -10,7 +10,7 @@ export default function Campbelltown() {
       slug="campbelltown"
       heroHeading="Funeral Director Campbelltown"
       heroSubheading="Independent, compassionate funeral services for families in Campbelltown and South West Sydney. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals serves families across Campbelltown, Narellan, Gregory Hills, Camden, and all of South West Sydney from our Macquarie Links office. Bruce Missen brings the same personal care and attention to every family — whether you need a Catholic Mass, a secular celebration of life, or a simple direct cremation."
+      intro="Willow Tree Funerals serves families across Campbelltown, Narellan, Gregory Hills, Camden, and all of South West Sydney from our Macquarie Links office. Bruce Missen brings the same personal care and attention to every family  -  whether you need a Catholic Mass, a secular celebration of life, or a simple direct cremation."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",
@@ -28,7 +28,7 @@ export default function Campbelltown() {
         },
         {
           q: "What funeral services do you offer in Campbelltown?",
-          a: "We offer the full range of funeral services in Campbelltown — Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, graveside services, and pre-arranged funerals.",
+          a: "We offer the full range of funeral services in Campbelltown  -  Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, graveside services, and pre-arranged funerals.",
         },
         {
           q: "Which cemeteries do you use near Campbelltown?",

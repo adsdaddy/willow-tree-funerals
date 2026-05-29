@@ -1,9 +1,9 @@
 /**
- * WILLOW TREE FUNERALS — MacArthur Memorial Park Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  MacArthur Memorial Park Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * SEO: "macarthur memorial park funeral", "macarthur memorial park varroville",
  *      "funeral director macarthur memorial park", "varroville cemetery funeral"
- * UNCONTESTED KEYWORD — highest priority South West Sydney SEO page
+ * UNCONTESTED KEYWORD  -  highest priority South West Sydney SEO page
  */
 
 import { useState, useEffect } from "react";
@@ -74,7 +74,7 @@ const schema = {
 };
 
 const features = [
-  "Sydney's newest Crown cemetery — opened 2024",
+  "Sydney's newest Crown cemetery  -  opened 2024",
   "Located at Varroville, South West Sydney",
   "Beautifully landscaped natural grounds",
   "Multi-denominational chapel on site",
@@ -91,7 +91,7 @@ const faqs = [
   },
   {
     q: "Where is MacArthur Memorial Park located?",
-    a: "MacArthur Memorial Park is located at Varroville, NSW 2566 — in South West Sydney, near Campbelltown, Liverpool, Narellan, and Gregory Hills. It is easily accessible from the Hume Highway and the South Western Motorway.",
+    a: "MacArthur Memorial Park is located at Varroville, NSW 2566  -  in South West Sydney, near Campbelltown, Liverpool, Narellan, and Gregory Hills. It is easily accessible from the Hume Highway and the South Western Motorway.",
   },
   {
     q: "Can I have a Catholic burial at MacArthur Memorial Park?",
@@ -99,7 +99,7 @@ const faqs = [
   },
   {
     q: "How do I book a burial at MacArthur Memorial Park?",
-    a: "Call Willow Tree Funerals on 02 8776 1667. We handle all cemetery bookings, grave selection, and preparation on your behalf. You do not need to contact the cemetery directly — we take care of everything.",
+    a: "Call Willow Tree Funerals on 02 8776 1667. We handle all cemetery bookings, grave selection, and preparation on your behalf. You do not need to contact the cemetery directly  -  we take care of everything.",
   },
   {
     q: "What types of burial are available at MacArthur Memorial Park?",
@@ -159,7 +159,7 @@ export default function MacArthurMemorialPark() {
     <>
       <SEOHead
         title="MacArthur Memorial Park Funeral Director | Varroville Cemetery | Willow Tree Funerals"
-        description="Willow Tree Funerals — funeral directors serving MacArthur Memorial Park at Varroville, South West Sydney. Catholic funerals, burial & cremation at Sydney's newest Crown cemetery. Call 02 8776 1667."
+        description="Willow Tree Funerals  -  funeral directors serving MacArthur Memorial Park at Varroville, South West Sydney. Catholic funerals, burial & cremation at Sydney's newest Crown cemetery. Call 02 8776 1667."
         canonical="/macarthur-memorial-park"
         schema={schema}
       />
@@ -190,7 +190,7 @@ export default function MacArthurMemorialPark() {
             Funeral Services at MacArthur Memorial Park
           </h1>
           <p className="text-white/75 text-lg max-w-2xl leading-relaxed mb-8">
-            Willow Tree Funerals is one of the first funeral directors to serve families choosing Sydney's newest Crown cemetery at Varroville — with our Macquarie Links location right on your doorstep.
+            Willow Tree Funerals is one of the first funeral directors to serve families choosing Sydney's newest Crown cemetery at Varroville  -  with our Macquarie Links location right on your doorstep.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href={COMPANY.phoneHref} className="btn-royal flex items-center gap-2">
@@ -219,7 +219,7 @@ export default function MacArthurMemorialPark() {
                 The park features a multi-denominational chapel, dedicated Catholic and Christian sections, lawn burial areas, mausoleum options, and cremation memorial gardens. It is ideally located for families from Campbelltown, Liverpool, Narellan, Gregory Hills, and all of the MacArthur region.
               </p>
               <p className="text-brand-navy/70 leading-relaxed mb-8">
-                Willow Tree Funerals established our Macquarie Links location specifically to serve the growing South West Sydney community — and to be the natural choice for families choosing MacArthur Memorial Park.
+                Willow Tree Funerals established our Macquarie Links location specifically to serve the growing South West Sydney community  -  and to be the natural choice for families choosing MacArthur Memorial Park.
               </p>
               <Link href="/services/burial" className="btn-primary">Learn About Burial Services</Link>
             </div>
@@ -250,7 +250,7 @@ export default function MacArthurMemorialPark() {
             {[
               {
                 title: "Local Presence",
-                desc: "Our Macquarie Links location means we are right in the MacArthur region — close to you, and close to the cemetery. We know the park, the staff, and the processes.",
+                desc: "Our Macquarie Links location means we are right in the MacArthur region  -  close to you, and close to the cemetery. We know the park, the staff, and the processes.",
               },
               {
                 title: "Catholic Expertise",
@@ -258,7 +258,7 @@ export default function MacArthurMemorialPark() {
               },
               {
                 title: "All Arrangements Handled",
-                desc: "We manage everything — cemetery booking, grave selection, preparation, the funeral service, and the graveside committal. You focus on your family; we handle the rest.",
+                desc: "We manage everything  -  cemetery booking, grave selection, preparation, the funeral service, and the graveside committal. You focus on your family; we handle the rest.",
               },
             ].map((p, i) => (
               <div key={i} className="border border-white/10 p-8 hover:border-brand-gold/40 transition-colors">
@@ -298,7 +298,7 @@ export default function MacArthurMemorialPark() {
         <div className="container max-w-3xl">
           <p className="section-label mb-3">Frequently Asked Questions</p>
           <h2 className="font-serif text-brand-navy text-3xl md:text-4xl font-semibold mb-10">
-            MacArthur Memorial Park — Your Questions Answered
+            MacArthur Memorial Park  -  Your Questions Answered
           </h2>
           {faqs.map((faq, i) => (
             <FAQItem key={i} {...faq} />
@@ -314,7 +314,7 @@ export default function MacArthurMemorialPark() {
               <h2 className="font-serif text-white text-2xl md:text-3xl font-semibold mb-2">
                 Arranging a Funeral at MacArthur Memorial Park?
               </h2>
-              <p className="text-white/75">Call our family care specialists — we will take care of everything, from the first call to the final farewell.</p>
+              <p className="text-white/75">Call our family care specialists  -  we will take care of everything, from the first call to the final farewell.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">

@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Local Area SEO Section
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Local Area SEO Section
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * Used on homepage to target suburb-level SEO keywords
  * Updated: teal colours removed, now uses brand-navy / brand-royal / brand-gold tokens
  */
@@ -21,7 +21,7 @@ const serviceAreas = [
   { suburb: "Liverpool", postcode: "2170", desc: "Serving Liverpool and surrounds from South West Sydney." },
   { suburb: "Narellan", postcode: "2567", desc: "Funeral services for the growing Narellan community." },
   { suburb: "Gregory Hills", postcode: "2557", desc: "Caring for Gregory Hills and Camden families." },
-  { suburb: "Varroville", postcode: "2566", desc: "MacArthur Memorial Park — South West Sydney's premier cemetery." },
+  { suburb: "Varroville", postcode: "2566", desc: "MacArthur Memorial Park  -  South West Sydney's premier cemetery." },
 ];
 
 export default function LocalAreaSEO() {

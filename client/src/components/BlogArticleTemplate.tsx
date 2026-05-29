@@ -1,5 +1,5 @@
 /**
- * BlogArticleTemplate — Reusable template for SEO blog articles.
+ * BlogArticleTemplate  -  Reusable template for SEO blog articles.
  * Includes: hero, article content, sidebar CTA, related articles, JSON-LD schema.
  */
 

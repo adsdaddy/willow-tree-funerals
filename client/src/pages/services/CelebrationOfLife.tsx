@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Celebration of Life Page
+ * WILLOW TREE FUNERALS  -  Celebration of Life Page
  * SEO: "celebration of life sydney", "celebration of life funeral hurstville",
  *      "non-religious funeral sydney", "life celebration service st george"
  */
@@ -21,11 +21,11 @@ export default function CelebrationOfLife() {
         subheading: "Personalised celebration of life services that honour your loved one's passions, stories, and the lives they touched.",
         image: COMPANY.assets.chapelInterior,
       }}
-      intro={`A Celebration of Life is a beautiful, personalised service that focuses on honouring who your loved one truly was — their passions, their humour, their relationships, and the legacy they leave behind. While a traditional funeral centres on the solemnity of loss, a Celebration of Life embraces joy, gratitude, and the richness of a life fully lived. At Willow Tree Funerals, we help families create deeply meaningful tributes that feel authentic, warm, and uniquely personal — whether held at a chapel, a garden, a favourite venue, or even a sporting club.`}
+      intro={`A Celebration of Life is a beautiful, personalised service that focuses on honouring who your loved one truly was  -  their passions, their humour, their relationships, and the legacy they leave behind. While a traditional funeral centres on the solemnity of loss, a Celebration of Life embraces joy, gratitude, and the richness of a life fully lived. At Willow Tree Funerals, we help families create deeply meaningful tributes that feel authentic, warm, and uniquely personal  -  whether held at a chapel, a garden, a favourite venue, or even a sporting club.`}
       includes={[
         "Personalised service design consultation with our arrangers",
         "Photo and video tribute presentation",
-        "Music of your choice — live or recorded",
+        "Music of your choice  -  live or recorded",
         "Personalised order of service booklet",
         "Venue coordination (chapel, garden, club, or any location)",
         "Floral arrangements reflecting your loved one's personality",
@@ -37,7 +37,7 @@ export default function CelebrationOfLife() {
       featureImage={COMPANY.assets.grandmotherGranddaughter}
       pullQuote="Give thanks in all circumstances; for this is the will of God in Christ Jesus for you."
       steps={[
-        { num: "01", title: "Share Their Story", desc: "Tell us about your loved one — their life, their passions, their favourite things. This is where the service begins." },
+        { num: "01", title: "Share Their Story", desc: "Tell us about your loved one  -  their life, their passions, their favourite things. This is where the service begins." },
         { num: "02", title: "Design Together", desc: "We work with your family to design a service that feels authentic, personal, and genuinely celebratory." },
         { num: "03", title: "The Celebration", desc: "A warm, joyful tribute that brings people together to laugh, cry, remember, and celebrate." },
         { num: "04", title: "The Farewell", desc: "Whether cremation or burial follows, we ensure the transition is handled with the same care and dignity." },
@@ -45,7 +45,7 @@ export default function CelebrationOfLife() {
       faqs={[
         {
           q: "What is the difference between a Celebration of Life and a traditional funeral?",
-          a: "A traditional funeral tends to follow a more formal, structured format — often religious — and focuses on the solemnity of loss. A Celebration of Life is more flexible and personalised, focusing on joy, gratitude, and the unique character of the person who has died. Both can include religious or spiritual elements if desired.",
+          a: "A traditional funeral tends to follow a more formal, structured format  -  often religious  -  and focuses on the solemnity of loss. A Celebration of Life is more flexible and personalised, focusing on joy, gratitude, and the unique character of the person who has died. Both can include religious or spiritual elements if desired.",
         },
         {
           q: "Can we have a Celebration of Life at a non-traditional venue?",

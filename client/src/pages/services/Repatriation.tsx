@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Repatriation Service Page
+ * WILLOW TREE FUNERALS  -  Repatriation Service Page
  * SEO: "repatriation funeral sydney", "body repatriation australia",
  *      "overseas repatriation sydney", "international funeral transfer"
  */
@@ -18,10 +18,10 @@ export default function Repatriation() {
       hero={{
         label: "Repatriation Services",
         heading: "Bringing Your Loved One Home",
-        subheading: "International and interstate repatriation managed with complete care — from consular documentation to safe transport, wherever home may be.",
+        subheading: "International and interstate repatriation managed with complete care  -  from consular documentation to safe transport, wherever home may be.",
         image: COMPANY.assets.heroBg,
       }}
-      intro={`When a loved one passes away overseas or interstate, the process of bringing them home can feel overwhelming. At Willow Tree Funerals, we manage the entire repatriation process on your behalf — from liaising with overseas funeral homes and consulates, to arranging all documentation, permits, and transport. We also receive loved ones being repatriated to Sydney from abroad, ensuring they are cared for with the same dignity and respect as any local service. Our experience with Sydney's multicultural communities — including Filipino, Lebanese, Italian, Indian, and Pacific Islander families — means we understand the cultural and religious sensitivities involved.`}
+      intro={`When a loved one passes away overseas or interstate, the process of bringing them home can feel overwhelming. At Willow Tree Funerals, we manage the entire repatriation process on your behalf  -  from liaising with overseas funeral homes and consulates, to arranging all documentation, permits, and transport. We also receive loved ones being repatriated to Sydney from abroad, ensuring they are cared for with the same dignity and respect as any local service. Our experience with Sydney's multicultural communities  -  including Filipino, Lebanese, Italian, Indian, and Pacific Islander families  -  means we understand the cultural and religious sensitivities involved.`}
       includes={[
         "24/7 initial advice and coordination",
         "Liaison with overseas or interstate funeral directors",
@@ -37,7 +37,7 @@ export default function Repatriation() {
       featureImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg"
       pullQuote="Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me."
       steps={[
-        { num: "01", title: "First Call", desc: "Call us immediately — our team will take over all coordination so your family can focus on grieving, not logistics." },
+        { num: "01", title: "First Call", desc: "Call us immediately  -  our team will take over all coordination so your family can focus on grieving, not logistics." },
         { num: "02", title: "Documentation", desc: "We manage all consular, embassy, and government documentation required for international transport." },
         { num: "03", title: "Transport", desc: "We coordinate with airlines and overseas funeral homes to ensure safe, dignified transport." },
         { num: "04", title: "Home", desc: "Your loved one arrives in Sydney in our care, ready for the funeral service your family chooses." },

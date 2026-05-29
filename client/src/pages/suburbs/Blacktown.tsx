@@ -28,11 +28,11 @@ export default function Blacktown() {
         },
         {
           q: "What types of funerals do you arrange in Blacktown?",
-          a: "We arrange the full range of funeral services in Blacktown — Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. We have extensive experience serving Blacktown's multicultural community.",
+          a: "We arrange the full range of funeral services in Blacktown  -  Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. We have extensive experience serving Blacktown's multicultural community.",
         },
         {
           q: "How quickly can you respond to a death in Blacktown?",
-          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists — not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
+          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists  -  not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
         },
         {
           q: "What does a funeral cost in Blacktown?",

@@ -23,7 +23,7 @@ export const appRouter = router({
     }),
   }),
 
-  // ── Contact form — sends email notification to Bruce ──────────────────────
+  // ── Contact form  -  sends email notification to Bruce ──────────────────────
   contact: router({
     submit: publicProcedure
       .input(
@@ -53,11 +53,11 @@ export const appRouter = router({
         ];
         const content = lines.join("\n");
         const sent = await notifyOwner({
-          title: `New Funeral Enquiry from ${input.name} — ${input.phone}`,
+          title: `New Funeral Enquiry from ${input.name}  -  ${input.phone}`,
           content,
         });
         await sendFormEmail({
-          subject: `New Funeral Enquiry from ${input.name} — ${input.phone}`,
+          subject: `New Funeral Enquiry from ${input.name}  -  ${input.phone}`,
           body: content,
           replyTo: input.email || undefined,
         });
@@ -65,7 +65,7 @@ export const appRouter = router({
       }),
   }),
 
-  // ── Pre-arrangement enquiry — multi-step form ─────────────────────────────
+  // ── Pre-arrangement enquiry  -  multi-step form ─────────────────────────────
   preArrange: router({
     submit: publicProcedure
       .input(
@@ -101,11 +101,11 @@ export const appRouter = router({
         ];
         const content = lines.join("\n");
         const sent = await notifyOwner({
-          title: `Pre-Arrangement Enquiry from ${input.name} — ${input.serviceType}`,
+          title: `Pre-Arrangement Enquiry from ${input.name}  -  ${input.serviceType}`,
           content,
         });
         await sendFormEmail({
-          subject: `Pre-Arrangement Enquiry from ${input.name} — ${input.serviceType}`,
+          subject: `Pre-Arrangement Enquiry from ${input.name}  -  ${input.serviceType}`,
           body: content,
           replyTo: input.email || undefined,
         });
@@ -161,11 +161,11 @@ export const appRouter = router({
         ];
         const content = lines.join("\n");
         const sent = await notifyOwner({
-          title: `Pre-Arrangement Request from ${input.firstName} ${input.lastName} — ${input.phone}`,
+          title: `Pre-Arrangement Request from ${input.firstName} ${input.lastName}  -  ${input.phone}`,
           content,
         });
         await sendFormEmail({
-          subject: `Pre-Arrangement Request from ${input.firstName} ${input.lastName} — ${input.phone}`,
+          subject: `Pre-Arrangement Request from ${input.firstName} ${input.lastName}  -  ${input.phone}`,
           body: content,
           replyTo: input.email || undefined,
         });
@@ -220,11 +220,11 @@ export const appRouter = router({
         ].filter((l): l is string => l !== null);
         const content = lines.join("\n");
         const sent = await notifyOwner({
-          title: `Flower Enquiry from ${input.name} — ${input.arrangementType} — ${input.serviceDate}`,
+          title: `Flower Enquiry from ${input.name}  -  ${input.arrangementType}  -  ${input.serviceDate}`,
           content,
         });
         await sendFormEmail({
-          subject: `Flower Enquiry from ${input.name} — ${input.arrangementType} — ${input.serviceDate}`,
+          subject: `Flower Enquiry from ${input.name}  -  ${input.arrangementType}  -  ${input.serviceDate}`,
           body: content,
           replyTo: input.email || undefined,
         });

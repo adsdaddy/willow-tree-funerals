@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Pre-Arrangement Form
+ * WILLOW TREE FUNERALS  -  Pre-Arrangement Form
  * Multi-step form for families wishing to pre-arrange their own funeral.
  * Steps: Personal Details → Service Preferences → Final Wishes → Confirmation
  */
@@ -22,7 +22,7 @@ const HEARSE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxn
 type Step = 1 | 2 | 3 | 4;
 
 interface FormData {
-  // Step 1 — Personal Details
+  // Step 1  -  Personal Details
   firstName: string;
   lastName: string;
   dateOfBirth: string;
@@ -31,11 +31,11 @@ interface FormData {
   address: string;
   suburb: string;
   postcode: string;
-  // Step 2 — Service Preferences
+  // Step 2  -  Service Preferences
   serviceType: string;
   disposition: string;
   venue: string;
-  // Step 3 — Final Wishes
+  // Step 3  -  Final Wishes
   specialRequests: string;
   religiousPreferences: string;
   musicPreferences: string;
@@ -165,7 +165,7 @@ export default function PreArrange() {
     <>
       <SEOHead
         title="Pre-Arrange Your Funeral | Willow Tree Funerals Sydney"
-        description="Pre-arrange your own funeral with Willow Tree Funerals — the most thoughtful gift you can give your family. No obligation. Lock in today's prices."
+        description="Pre-arrange your own funeral with Willow Tree Funerals  -  the most thoughtful gift you can give your family. No obligation. Lock in today's prices."
         canonical="https://willowtreefunerals.com.au/pre-arrange"
       />
       <Nav />
@@ -233,7 +233,7 @@ export default function PreArrange() {
             })}
           </div>
 
-          {/* Step 1 — Personal Details */}
+          {/* Step 1  -  Personal Details */}
           {step === 1 && (
             <div className="bg-white rounded-2xl border border-brand-light-blue/60 p-8 shadow-sm">
               <h2 className="font-serif text-brand-navy font-bold text-2xl mb-2">Your Personal Details</h2>
@@ -284,11 +284,11 @@ export default function PreArrange() {
             </div>
           )}
 
-          {/* Step 2 — Service Preferences */}
+          {/* Step 2  -  Service Preferences */}
           {step === 2 && (
             <div className="bg-white rounded-2xl border border-brand-light-blue/60 p-8 shadow-sm">
               <h2 className="font-serif text-brand-navy font-bold text-2xl mb-2">Service Preferences</h2>
-              <p className="text-brand-navy/55 text-sm mb-8">Tell us about the type of service you would like. These are your wishes — we will ensure they are respected.</p>
+              <p className="text-brand-navy/55 text-sm mb-8">Tell us about the type of service you would like. These are your wishes  -  we will ensure they are respected.</p>
               <div className="space-y-5">
                 <div>
                   <label className={labelClass}>Type of Service</label>
@@ -346,11 +346,11 @@ export default function PreArrange() {
             </div>
           )}
 
-          {/* Step 3 — Final Wishes */}
+          {/* Step 3  -  Final Wishes */}
           {step === 3 && (
             <div className="bg-white rounded-2xl border border-brand-light-blue/60 p-8 shadow-sm">
               <h2 className="font-serif text-brand-navy font-bold text-2xl mb-2">Your Final Wishes</h2>
-              <p className="text-brand-navy/55 text-sm mb-8">Share any specific wishes, preferences, or requests. There are no right or wrong answers — this is about honouring who you are.</p>
+              <p className="text-brand-navy/55 text-sm mb-8">Share any specific wishes, preferences, or requests. There are no right or wrong answers  -  this is about honouring who you are.</p>
               <div className="space-y-5">
                 <div>
                   <label className={labelClass}>Religious or Faith Preferences</label>
@@ -389,7 +389,7 @@ export default function PreArrange() {
                     rows={4}
                     value={form.specialRequests}
                     onChange={e => update("specialRequests", e.target.value)}
-                    placeholder="e.g. Flowers — white lilies only. Dress me in my blue suit. I would like a horse-drawn hearse..."
+                    placeholder="e.g. Flowers  -  white lilies only. Dress me in my blue suit. I would like a horse-drawn hearse..."
                   />
                 </div>
               </div>
@@ -404,7 +404,7 @@ export default function PreArrange() {
             </div>
           )}
 
-          {/* Step 4 — Review & Confirm */}
+          {/* Step 4  -  Review & Confirm */}
           {step === 4 && (
             <div className="bg-white rounded-2xl border border-brand-light-blue/60 p-8 shadow-sm">
               <h2 className="font-serif text-brand-navy font-bold text-2xl mb-2">Review Your Details</h2>

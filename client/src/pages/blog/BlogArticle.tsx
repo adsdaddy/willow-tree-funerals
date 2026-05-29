@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Dynamic Blog Article Page
+ * WILLOW TREE FUNERALS  -  Dynamic Blog Article Page
  * Loads AI-generated articles from the database (populated by babylovegrowth.ai webhook)
  * Route: /blog/article/:slug
  */

@@ -1,7 +1,7 @@
 /**
- * WILLOW TREE FUNERALS — Company Constants
+ * WILLOW TREE FUNERALS  -  Company Constants
  * Single source of truth for all company data.
- * Import this everywhere — never hardcode contact details in components.
+ * Import this everywhere  -  never hardcode contact details in components.
  */
 
 export const COMPANY = {

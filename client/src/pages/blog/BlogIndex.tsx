@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Blog / Resources Index
+ * WILLOW TREE FUNERALS  -  Blog / Resources Index
  * Shows static hand-written articles + AI-generated articles from babylovegrowth.ai webhook
  * SEO: "funeral advice sydney", "what to do when someone dies nsw"
  */
@@ -17,7 +17,7 @@ const staticArticles = [
   {
     slug: "/blog/what-to-do-when-someone-passes-away-nsw",
     title: "What to Do When Someone Passes Away in NSW",
-    excerpt: "A step-by-step guide for families in New South Wales — from the moment of death through to the funeral service.",
+    excerpt: "A step-by-step guide for families in New South Wales  -  from the moment of death through to the funeral service.",
     date: "April 2026",
     readTime: "8 min",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/person-phone_01a8551b.png",
@@ -26,7 +26,7 @@ const staticArticles = [
   {
     slug: "/blog/how-to-plan-catholic-funeral-sydney",
     title: "How to Plan a Catholic Funeral Mass in Sydney",
-    excerpt: "Everything you need to know about arranging a Catholic funeral Mass in Sydney — from liaising with the parish priest to choosing readings, music, and the Mass booklet.",
+    excerpt: "Everything you need to know about arranging a Catholic funeral Mass in Sydney  -  from liaising with the parish priest to choosing readings, music, and the Mass booklet.",
     date: "March 2026",
     readTime: "10 min",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg",
@@ -35,7 +35,7 @@ const staticArticles = [
   {
     slug: "/blog/understanding-funeral-costs-sydney",
     title: "Understanding Funeral Costs in Sydney 2026",
-    excerpt: "A transparent breakdown of what funerals cost in Sydney in 2026 — including what's included, what's extra, and how to compare funeral directors without being misled.",
+    excerpt: "A transparent breakdown of what funerals cost in Sydney in 2026  -  including what's included, what's extra, and how to compare funeral directors without being misled.",
     date: "February 2026",
     readTime: "7 min",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg",
@@ -43,8 +43,8 @@ const staticArticles = [
   },
   {
     slug: "/blog/macarthur-memorial-park-guide",
-    title: "Macquarie Memorial Park — Sydney's Newest Cemetery Guide",
-    excerpt: "Everything families need to know about Macquarie Memorial Park in Campbelltown — location, burial options, pricing, and how to arrange a service there.",
+    title: "Macquarie Memorial Park  -  Sydney's Newest Cemetery Guide",
+    excerpt: "Everything families need to know about Macquarie Memorial Park in Campbelltown  -  location, burial options, pricing, and how to arrange a service there.",
     date: "January 2026",
     readTime: "6 min",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg",
@@ -55,7 +55,7 @@ const staticArticles = [
 const schema = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: `${COMPANY.name} — Resources & Guidance`,
+  name: `${COMPANY.name}  -  Resources & Guidance`,
   url: "https://willowtreefunerals.com.au/blog",
   description: "Practical guidance and advice for families navigating funeral arrangements in Sydney and NSW.",
   publisher: {

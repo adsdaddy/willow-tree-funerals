@@ -10,7 +10,7 @@ export default function NorthSydney() {
       slug="north-sydney"
       heroHeading="Funeral Director North Sydney"
       heroSubheading="Compassionate, independent funeral services for families in North Sydney and across the Lower North Shore. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals serves families in North Sydney and throughout the Lower North Shore with genuine care and professionalism. Our team is available around the clock and can be with your family quickly when you need us most. We offer the full range of funeral services — from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations."
+      intro="Willow Tree Funerals serves families in North Sydney and throughout the Lower North Shore with genuine care and professionalism. Our team is available around the clock and can be with your family quickly when you need us most. We offer the full range of funeral services  -  from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",
@@ -28,11 +28,11 @@ export default function NorthSydney() {
         },
         {
           q: "What types of funerals do you arrange in North Sydney?",
-          a: "We arrange the full range of funeral services in North Sydney — Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
+          a: "We arrange the full range of funeral services in North Sydney  -  Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
         },
         {
           q: "How quickly can you respond to a death in North Sydney?",
-          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists — not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
+          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists  -  not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
         },
         {
           q: "What does a funeral cost in North Sydney?",

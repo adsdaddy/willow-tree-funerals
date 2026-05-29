@@ -56,7 +56,7 @@ const trpcClient = trpc.createClient({
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch(() => {
-      // SW registration failed — continue without caching
+      // SW registration failed  -  continue without caching
     });
   });
 }

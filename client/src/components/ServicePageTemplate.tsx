@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Service Page Template
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Service Page Template
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * OptiCheck Playbook applied:
  *   - BreadcrumbList JSON-LD on every service page
  *   - scroll-reveal on all sections
@@ -97,7 +97,7 @@ export default function ServicePageTemplate({
     }))
   };
 
-  // BreadcrumbList schema — OptiCheck Playbook
+  // BreadcrumbList schema  -  OptiCheck Playbook
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -136,7 +136,7 @@ export default function ServicePageTemplate({
       >
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/20" />
         <div className="relative z-10 container pb-16 pt-32">
-          {/* Breadcrumb — ARIA nav */}
+          {/* Breadcrumb  -  ARIA nav */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-white/60 text-xs tracking-wider uppercase font-sans mb-6">
             <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
             <ChevronRight size={12} aria-hidden="true" />
@@ -285,7 +285,7 @@ export default function ServicePageTemplate({
               <h2 className="font-serif text-white text-2xl md:text-3xl font-semibold mb-2">
                 We're Available 24 Hours, 7 Days a Week
               </h2>
-              <p className="text-white/75">Call our office directly — no call centres, no delays.</p>
+              <p className="text-white/75">Call our office directly  -  no call centres, no delays.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a href={COMPANY.phoneHref} className="btn-primary bg-white text-brand-navy border-white hover:bg-brand-ivory flex items-center gap-2">

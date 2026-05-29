@@ -1,5 +1,5 @@
 /**
- * email.test.ts — Validates Postmark API token by sending a real test email
+ * email.test.ts  -  Validates Postmark API token by sending a real test email
  */
 import { describe, it, expect } from "vitest";
 import * as postmark from "postmark";
@@ -19,7 +19,7 @@ describe("Postmark email delivery", () => {
     const result = await client.sendEmail({
       From: "Willow Tree Funerals Website <noreply@adsdaddy.com>",
       To: "director@willowtreefunerals.com.au",
-      Subject: "Willow Tree Funerals — Postmark Integration Test",
+      Subject: "Willow Tree Funerals  -  Postmark Integration Test",
       TextBody: "This confirms Postmark is correctly configured. Form submissions will now be delivered to this inbox.",
       HtmlBody: `<div style="font-family:Arial,sans-serif;padding:24px;max-width:500px;">
         <h2 style="color:#1B3A5C;">Postmark Integration Test</h2>

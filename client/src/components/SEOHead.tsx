@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — SEO Head Component
+ * WILLOW TREE FUNERALS  -  SEO Head Component
  * Injects per-page title, meta description, OG tags, and JSON-LD schema
  */
 
@@ -43,7 +43,7 @@ export default function SEOHead({ title, description, canonical, schema, ogImage
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", description);
 
-    // Canonical — always update the EXISTING static canonical tag (never create a second one)
+    // Canonical  -  always update the EXISTING static canonical tag (never create a second one)
     // Manus redirects www → non-www (301), so non-www is the canonical URL.
     {
       const canonicalValue = canonical || '/';
@@ -57,7 +57,7 @@ export default function SEOHead({ title, description, canonical, schema, ogImage
       } else {
         canonicalHref = `https://willowtreefunerals.com.au${canonicalValue}`;
       }
-      // Always update the existing tag — never append a new one
+      // Always update the existing tag  -  never append a new one
       let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
       if (!link) {
         link = document.createElement('link');

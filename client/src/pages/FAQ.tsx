@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — FAQ Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  FAQ Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * SEO: "funeral faq sydney", "funeral questions hurstville",
  *      "what to do when someone dies sydney"
  * Schema: FAQPage (rich snippets)
@@ -38,7 +38,7 @@ const faqCategories = [
       },
       {
         q: "What if someone passes away in hospital?",
-        a: "The hospital will contact you. Once you have been notified, call us and we will liaise with the hospital to arrange transfer of your loved one into our care. You do not need to do anything else — we take care of all the logistics.",
+        a: "The hospital will contact you. Once you have been notified, call us and we will liaise with the hospital to arrange transfer of your loved one into our care. You do not need to do anything else  -  we take care of all the logistics.",
       },
       {
         q: "What if someone passes away overseas?",
@@ -55,7 +55,7 @@ const faqCategories = [
       },
       {
         q: "Can we personalise the funeral service?",
-        a: "Absolutely. We encourage personalisation — music, readings, photos, videos, meaningful objects, and tributes from family and friends all make a service truly unique. We will work with you to create a farewell that genuinely reflects who your loved one was.",
+        a: "Absolutely. We encourage personalisation  -  music, readings, photos, videos, meaningful objects, and tributes from family and friends all make a service truly unique. We will work with you to create a farewell that genuinely reflects who your loved one was.",
       },
       {
         q: "Can we have a viewing before the funeral?",
@@ -80,7 +80,7 @@ const faqCategories = [
       },
       {
         q: "Can we have a Rosary and Vigil the evening before the funeral?",
-        a: "Absolutely. A Vigil service — often including the Rosary — the evening before the funeral is a beautiful Catholic tradition. We can arrange this at the church, our chapel, or another venue of your choosing.",
+        a: "Absolutely. A Vigil service  -  often including the Rosary  -  the evening before the funeral is a beautiful Catholic tradition. We can arrange this at the church, our chapel, or another venue of your choosing.",
       },
       {
         q: "Is cremation permitted in the Catholic faith?",
@@ -122,7 +122,7 @@ const faqCategories = [
       },
       {
         q: "What is pre-arranging a funeral?",
-        a: "Pre-arranging your funeral means documenting your wishes in advance — the type of service, the music, the readings, the burial or cremation, and any personal touches. This removes the burden of decision-making from your family during grief. There is no obligation to pre-pay when you pre-arrange.",
+        a: "Pre-arranging your funeral means documenting your wishes in advance  -  the type of service, the music, the readings, the burial or cremation, and any personal touches. This removes the burden of decision-making from your family during grief. There is no obligation to pre-pay when you pre-arrange.",
       },
       {
         q: "Can I pre-pay for my funeral?",
@@ -143,7 +143,7 @@ const faqCategories = [
       },
       {
         q: "Do you provide repatriation services?",
-        a: "Yes. We manage international and interstate repatriation — both bringing loved ones home to Sydney and arranging transport overseas. We handle all documentation, consular liaison, and transport coordination.",
+        a: "Yes. We manage international and interstate repatriation  -  both bringing loved ones home to Sydney and arranging transport overseas. We handle all documentation, consular liaison, and transport coordination.",
       },
     ],
   },
@@ -202,7 +202,7 @@ export default function FAQ() {
     <>
       <SEOHead
         title="Funeral FAQ Sydney | Common Funeral Questions Answered | Willow Tree Funerals"
-        description="Answers to common questions about arranging a funeral in Sydney — Catholic funerals, cremation, burial, costs, pre-planning, and more. Willow Tree Funerals, Hurstville. Call 02 8776 1667."
+        description="Answers to common questions about arranging a funeral in Sydney  -  Catholic funerals, cremation, burial, costs, pre-planning, and more. Willow Tree Funerals, Hurstville. Call 02 8776 1667."
         canonical="/faq"
         schema={schema}
       />

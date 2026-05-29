@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Pre-Arranged Funerals Page
+ * WILLOW TREE FUNERALS  -  Pre-Arranged Funerals Page
  * SEO: "pre-arranged funerals sydney", "pre-plan funeral hurstville",
  *      "funeral pre-planning st george", "pre-paid funeral sydney"
  */
@@ -18,10 +18,10 @@ export default function PreArrangedFunerals() {
       hero={{
         label: "Pre-Arranged Funerals",
         heading: "Give Your Family the Gift of Certainty",
-        subheading: "Pre-arranging your funeral is one of the most loving things you can do — sparing your family from difficult decisions at the hardest time.",
+        subheading: "Pre-arranging your funeral is one of the most loving things you can do  -  sparing your family from difficult decisions at the hardest time.",
         image: COMPANY.assets.personPhone,
       }}
-      intro={`Pre-arranging your funeral is a profound act of love and care for the people you will leave behind. When your wishes are clearly documented and your arrangements are in place, your family is spared the burden of making difficult decisions while they are grieving. At Willow Tree Funerals, our team will meet with you personally — at our Hurstville office, our Macquarie Links location, or in your own home — to discuss your wishes, document your preferences, and ensure everything is prepared exactly as you want it. There is no pressure, no obligation, and no rush.`}
+      intro={`Pre-arranging your funeral is a profound act of love and care for the people you will leave behind. When your wishes are clearly documented and your arrangements are in place, your family is spared the burden of making difficult decisions while they are grieving. At Willow Tree Funerals, our team will meet with you personally  -  at our Hurstville office, our Macquarie Links location, or in your own home  -  to discuss your wishes, document your preferences, and ensure everything is prepared exactly as you want it. There is no pressure, no obligation, and no rush.`}
       includes={[
         "Personal consultation with our team at a time and place of your choosing",
         "Documentation of all your funeral wishes",
@@ -37,19 +37,19 @@ export default function PreArrangedFunerals() {
       featureImage={COMPANY.assets.bruceHeadshot}
       pullQuote="In my Father's house are many rooms. I am going there to prepare a place for you."
       steps={[
-        { num: "01", title: "Initial Conversation", desc: "Call us on 02 8776 1667 or complete our online enquiry form. We will arrange a time to meet — at our office, or in your home." },
-        { num: "02", title: "Document Your Wishes", desc: "We record every detail of your preferences — the service, the music, the readings, the burial or cremation, and any personal touches." },
+        { num: "01", title: "Initial Conversation", desc: "Call us on 02 8776 1667 or complete our online enquiry form. We will arrange a time to meet  -  at our office, or in your home." },
+        { num: "02", title: "Document Your Wishes", desc: "We record every detail of your preferences  -  the service, the music, the readings, the burial or cremation, and any personal touches." },
         { num: "03", title: "Secure Your Arrangements", desc: "Your wishes are securely stored and your family and executor are notified of the arrangements." },
         { num: "04", title: "Peace of Mind", desc: "You and your family have complete peace of mind, knowing everything is taken care of exactly as you wish." },
       ]}
       faqs={[
         {
           q: "What is the difference between pre-arranging and pre-paying?",
-          a: "Pre-arranging means documenting your funeral wishes in advance — no money changes hands. Pre-paying means paying for your funeral now, locking in today's prices and ensuring the cost is covered. Both options are available, and there is no obligation to pre-pay when you pre-arrange.",
+          a: "Pre-arranging means documenting your funeral wishes in advance  -  no money changes hands. Pre-paying means paying for your funeral now, locking in today's prices and ensuring the cost is covered. Both options are available, and there is no obligation to pre-pay when you pre-arrange.",
         },
         {
           q: "Can I pre-arrange a Catholic funeral?",
-          a: "Yes. We can document all your Catholic funeral preferences — your parish, the type of Mass, readings, hymns, and any other liturgical wishes — so your family and parish priest have clear guidance.",
+          a: "Yes. We can document all your Catholic funeral preferences  -  your parish, the type of Mass, readings, hymns, and any other liturgical wishes  -  so your family and parish priest have clear guidance.",
         },
         {
           q: "What happens to my pre-arrangement if I move interstate or overseas?",

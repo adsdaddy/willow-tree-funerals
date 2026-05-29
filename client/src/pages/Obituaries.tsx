@@ -1,8 +1,8 @@
 /**
- * WILLOW TREE FUNERALS — Obituaries Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Obituaries Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * SEO: "funeral obituaries sydney", "willow tree funerals obituaries"
- * Note: Names sourced from original site — no individual detail pages (privacy)
+ * Note: Names sourced from original site  -  no individual detail pages (privacy)
  */
 
 import { Link } from "wouter";
@@ -41,7 +41,7 @@ function getInitials(name: string) {
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Obituaries — Willow Tree Funerals",
+  "name": "Obituaries  -  Willow Tree Funerals",
   "description": "A memorial directory honouring those who have passed through the care of Willow Tree Funerals in Sydney.",
   "publisher": {
     "@type": "FuneralHome",
@@ -66,7 +66,7 @@ export default function Obituaries() {
   return (
     <>
       <SEOHead
-        title="Obituaries | Willow Tree Funerals — In Loving Memory"
+        title="Obituaries | Willow Tree Funerals  -  In Loving Memory"
         description="A memorial directory honouring those who have passed through the care of Willow Tree Funerals in Sydney. Each life remembered with dignity and love."
         canonical="/obituaries"
         schema={schema}
@@ -177,7 +177,7 @@ export default function Obituaries() {
                 <BookOpen size={24} className="text-brand-royal mb-3" />
                 <h3 className="font-serif text-brand-navy text-lg font-semibold mb-2">Write an Obituary</h3>
                 <p className="text-brand-navy/60 text-sm leading-relaxed">
-                  An obituary is a meaningful way to share your loved one's story — their life, their passions, their family, and their legacy. Our team can help you craft a tribute that truly honours who they were.
+                  An obituary is a meaningful way to share your loved one's story  -  their life, their passions, their family, and their legacy. Our team can help you craft a tribute that truly honours who they were.
                 </p>
               </div>
               <div className="rounded-2xl bg-brand-light-blue/30 border border-brand-light-blue p-6">
@@ -204,7 +204,7 @@ export default function Obituaries() {
                 We Are Here for Your Family
               </h2>
               <p className="text-white/75">
-                Our Family Care Specialists are available 24 hours, 7 days a week — call any time.
+                Our Family Care Specialists are available 24 hours, 7 days a week  -  call any time.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">

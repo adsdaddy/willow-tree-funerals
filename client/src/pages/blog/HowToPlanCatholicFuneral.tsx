@@ -6,7 +6,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFE
 const relatedArticles = [
   { title: "What to Do When Someone Passes Away in NSW", href: "/blog/what-to-do-when-someone-passes-away-nsw", date: "April 2026" },
   { title: "Understanding Funeral Costs in Sydney 2026", href: "/blog/understanding-funeral-costs-sydney", date: "February 2026" },
-  { title: "Macquarie Memorial Park — Sydney's Newest Cemetery Guide", href: "/blog/macarthur-memorial-park-guide", date: "January 2026" },
+  { title: "Macquarie Memorial Park  -  Sydney's Newest Cemetery Guide", href: "/blog/macarthur-memorial-park-guide", date: "January 2026" },
 ];
 
 export default function HowToPlanCatholicFuneral() {
@@ -14,7 +14,7 @@ export default function HowToPlanCatholicFuneral() {
     <BlogArticleTemplate
       title="How to Plan a Catholic Funeral Mass in Sydney"
       metaTitle="How to Plan a Catholic Funeral Mass in Sydney | Willow Tree Funerals"
-      metaDescription="Everything you need to know about arranging a Catholic funeral Mass in Sydney — from liaising with the parish priest to choosing readings, music, and the Mass booklet. Written by Bruce Missen."
+      metaDescription="Everything you need to know about arranging a Catholic funeral Mass in Sydney  -  from liaising with the parish priest to choosing readings, music, and the Mass booklet. Written by Bruce Missen."
       canonicalUrl="https://willowtreefunerals.com.au/blog/how-to-plan-catholic-funeral-sydney"
       publishDate="March 2026"
       readTime="10 min"
@@ -22,7 +22,7 @@ export default function HowToPlanCatholicFuneral() {
       relatedArticles={relatedArticles}
     >
       <p>
-        A Catholic funeral Mass is one of the most sacred and meaningful ways to farewell a loved one. For Catholic families in Sydney, it is both a deeply personal tribute and a sacramental act of the Church — a final commendation of the soul to God's mercy.
+        A Catholic funeral Mass is one of the most sacred and meaningful ways to farewell a loved one. For Catholic families in Sydney, it is both a deeply personal tribute and a sacramental act of the Church  -  a final commendation of the soul to God's mercy.
       </p>
       <p>
         Planning a Catholic funeral Mass involves coordinating with the parish priest, the church, the funeral director, and the family. This guide walks you through every step.
@@ -33,7 +33,7 @@ export default function HowToPlanCatholicFuneral() {
         The first step is to contact the parish priest of the deceased's home parish. In most cases, the funeral Mass will be celebrated at the parish church where the deceased was a member. If the family has a preference for a different church, this can usually be arranged with the agreement of both parishes.
       </p>
       <p>
-        Your funeral director can liaise with the parish priest on your behalf — handling the booking, the Mass booklet, and all coordination. At Willow Tree Funerals, Bruce Missen has extensive experience working with parish priests across St George, Sutherland Shire, and South West Sydney.
+        Your funeral director can liaise with the parish priest on your behalf  -  handling the booking, the Mass booklet, and all coordination. At Willow Tree Funerals, Bruce Missen has extensive experience working with parish priests across St George, Sutherland Shire, and South West Sydney.
       </p>
 
       <h2>Step 2: Choose the Readings and Music</h2>
@@ -44,13 +44,13 @@ export default function HowToPlanCatholicFuneral() {
         Common readings for Catholic funerals include:
       </p>
       <ul>
-        <li><strong>John 14:1-6</strong> — "Do not let your hearts be troubled..."</li>
-        <li><strong>Romans 8:31-35, 37-39</strong> — "Nothing can separate us from the love of God..."</li>
-        <li><strong>Psalm 23</strong> — "The Lord is my shepherd..."</li>
-        <li><strong>1 Corinthians 15:51-57</strong> — "Death is swallowed up in victory..."</li>
+        <li><strong>John 14:1-6</strong>  -  "Do not let your hearts be troubled..."</li>
+        <li><strong>Romans 8:31-35, 37-39</strong>  -  "Nothing can separate us from the love of God..."</li>
+        <li><strong>Psalm 23</strong>  -  "The Lord is my shepherd..."</li>
+        <li><strong>1 Corinthians 15:51-57</strong>  -  "Death is swallowed up in victory..."</li>
       </ul>
       <p>
-        For music, the church organist or choir can provide traditional Catholic hymns. Families may also wish to include a favourite secular song as a tribute — this is usually played before or after the Mass, not during the liturgy itself.
+        For music, the church organist or choir can provide traditional Catholic hymns. Families may also wish to include a favourite secular song as a tribute  -  this is usually played before or after the Mass, not during the liturgy itself.
       </p>
 
       <h2>Step 3: Plan the Order of Service</h2>
@@ -101,7 +101,7 @@ export default function HowToPlanCatholicFuneral() {
         Choosing a funeral director with genuine experience in Catholic funerals makes a significant difference. At Willow Tree Funerals, Bruce Missen has deep roots in the Catholic community and has coordinated hundreds of Catholic funeral Masses across Sydney. He understands the liturgy, the protocols, and the importance of getting every detail right.
       </p>
       <p>
-        To discuss arranging a Catholic funeral Mass in Sydney, call us on <a href={COMPANY.phoneHref}>{COMPANY.phone}</a> — available 24 hours a day, 7 days a week.
+        To discuss arranging a Catholic funeral Mass in Sydney, call us on <a href={COMPANY.phoneHref}>{COMPANY.phone}</a>  -  available 24 hours a day, 7 days a week.
       </p>
     </BlogArticleTemplate>
   );

@@ -32,7 +32,7 @@ export default function Sutherland() {
         },
         {
           q: "Are you available on weekends and public holidays in Sutherland?",
-          a: "Yes. We are available 24 hours a day, 7 days a week — including weekends and public holidays. When you call, you speak directly with Bruce Missen, not a call centre.",
+          a: "Yes. We are available 24 hours a day, 7 days a week  -  including weekends and public holidays. When you call, you speak directly with Bruce Missen, not a call centre.",
         },
         {
           q: "What cemeteries do you use in the Sutherland Shire?",

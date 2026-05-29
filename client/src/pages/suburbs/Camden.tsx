@@ -10,7 +10,7 @@ export default function Camden() {
       slug="camden"
       heroHeading="Funeral Director Camden"
       heroSubheading="Independent, caring funeral services for families in Camden and the Macarthur region. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals serves families in Camden, Narellan, Elderslie, and the broader Macarthur region from our Macquarie Links office. We are proud to be an independent, family-owned funeral home — not part of any corporate group. Every arrangement is personally overseen by Bruce Missen, who brings both professional expertise and genuine compassion to every family."
+      intro="Willow Tree Funerals serves families in Camden, Narellan, Elderslie, and the broader Macarthur region from our Macquarie Links office. We are proud to be an independent, family-owned funeral home  -  not part of any corporate group. Every arrangement is personally overseen by Bruce Missen, who brings both professional expertise and genuine compassion to every family."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",

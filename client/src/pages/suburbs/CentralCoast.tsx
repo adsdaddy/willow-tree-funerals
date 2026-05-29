@@ -10,7 +10,7 @@ export default function CentralCoast() {
       slug="central-coast"
       heroHeading="Funeral Director Central Coast"
       heroSubheading="Compassionate, independent funeral services for families on the Central Coast. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals extends its services to families on the Central Coast of NSW. We serve Gosford, Wyong, Terrigal, The Entrance, and all surrounding areas. Our team will travel to the Central Coast to meet your family and personally oversee every aspect of the funeral arrangement — bringing the same care and dignity that has earned us a 5-star Google rating."
+      intro="Willow Tree Funerals extends its services to families on the Central Coast of NSW. We serve Gosford, Wyong, Terrigal, The Entrance, and all surrounding areas. Our team will travel to the Central Coast to meet your family and personally oversee every aspect of the funeral arrangement  -  bringing the same care and dignity that has earned us a 5-star Google rating."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",

@@ -34,17 +34,17 @@ async function startServer() {
 
   // ── Security headers (PageSpeed Best Practices + WCAG) ────────────────────
   app.use((_req, res, next) => {
-    // HSTS — force HTTPS for 1 year, include subdomains
+    // HSTS  -  force HTTPS for 1 year, include subdomains
     res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
     // Prevent clickjacking
     res.setHeader("X-Frame-Options", "SAMEORIGIN");
-    // Cross-Origin-Opener-Policy — isolate top-level browsing context
+    // Cross-Origin-Opener-Policy  -  isolate top-level browsing context
     res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-    // X-Content-Type-Options — prevent MIME sniffing
+    // X-Content-Type-Options  -  prevent MIME sniffing
     res.setHeader("X-Content-Type-Options", "nosniff");
     // Referrer-Policy
     res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-    // Content-Security-Policy — permissive but effective
+    // Content-Security-Policy  -  permissive but effective
     res.setHeader(
       "Content-Security-Policy",
       [

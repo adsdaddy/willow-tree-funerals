@@ -1,8 +1,8 @@
 /**
- * useScrollReveal — OptiCheck SEO & CRO Playbook
+ * useScrollReveal  -  OptiCheck SEO & CRO Playbook
  * Applies IntersectionObserver to all .scroll-reveal and .scroll-reveal-stagger
  * elements within the document, adding .revealed when they enter the viewport.
- * 0KB overhead — pure CSS transitions, no framer-motion.
+ * 0KB overhead  -  pure CSS transitions, no framer-motion.
  */
 
 import { useEffect } from "react";

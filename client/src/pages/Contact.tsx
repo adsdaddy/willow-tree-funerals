@@ -1,6 +1,6 @@
 /**
- * WILLOW TREE FUNERALS — Contact Page
- * Design: Sacred Elegance — Royal Blue / Catholic-inspired
+ * WILLOW TREE FUNERALS  -  Contact Page
+ * Design: Sacred Elegance  -  Royal Blue / Catholic-inspired
  * SEO: "contact willow tree funerals", "funeral director hurstville contact",
  *      "funeral home hurstville phone"
  * CRO: Phone number above fold, both locations, contact form
@@ -113,10 +113,10 @@ export default function Contact() {
         <div className="container max-w-3xl">
           <p className="section-label text-brand-gold mb-3">Contact Us</p>
           <h1 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-            We're Here For You — Any Time, Day Or Night!
+            We're Here For You  -  Any Time, Day Or Night!
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8">
-            Call our Family Care Specialists on <a href={COMPANY.phoneHref} className="text-brand-gold hover:text-white transition-colors font-semibold">{COMPANY.phone}</a> — available 24 hours a day, 7 days a week. Or send us an enquiry below and we will respond promptly.
+            Call our Family Care Specialists on <a href={COMPANY.phoneHref} className="text-brand-gold hover:text-white transition-colors font-semibold">{COMPANY.phone}</a>  -  available 24 hours a day, 7 days a week. Or send us an enquiry below and we will respond promptly.
           </p>
           {/* Quick contact bar */}
           <div className="flex flex-col sm:flex-row gap-4">
@@ -148,7 +148,7 @@ export default function Contact() {
                   <MapPin size={20} className="text-brand-gold mt-0.5 shrink-0" />
                   <div>
                     <h3 className="font-serif text-brand-navy text-xl font-semibold">Hurstville</h3>
-                    <p className="text-brand-navy/70 text-sm">Primary Location — St George &amp; Sutherland Shire</p>
+                    <p className="text-brand-navy/70 text-sm">Primary Location  -  St George &amp; Sutherland Shire</p>
                   </div>
                 </div>
                 <div className="space-y-2 pl-8">
@@ -194,7 +194,7 @@ export default function Contact() {
               {/* Map embed */}
               <div className="w-full h-64 bg-brand-light-blue/30 border border-brand-light-blue overflow-hidden">
                 <iframe
-                  title="Willow Tree Funerals — Hurstville"
+                  title="Willow Tree Funerals  -  Hurstville"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.6!2d151.1!3d-33.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b9f0a1234567%3A0x0!2sHurstville+NSW+2220!5e0!3m2!1sen!2sau!4v1"
                   width="100%"
                   height="100%"
@@ -208,7 +208,7 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div>
-              {/* Testimonial above form — social proof at decision point */}
+              {/* Testimonial above form  -  social proof at decision point */}
               <div className="bg-brand-navy/5 border-l-4 border-brand-royal p-5 mb-8">
                 <p className="font-serif italic text-brand-navy text-sm leading-relaxed mb-3">
                   "From the very first phone call at 2am, Bruce was calm, kind, and completely in control. He made an impossible situation feel manageable. We are forever grateful."
@@ -253,7 +253,7 @@ export default function Contact() {
                     <div className="space-y-5">
                       {[
                         { step: '1', text: 'Your enquiry has been received by our team and is being reviewed now.' },
-                        { step: '2', text: 'A family care specialist will call you back — usually within the hour during business hours.' },
+                        { step: '2', text: 'A family care specialist will call you back  -  usually within the hour during business hours.' },
                         { step: '3', text: 'We will guide you through every step with care, compassion, and no pressure.' },
                       ].map(({ step, text }) => (
                         <div key={step} className="flex items-start gap-4">
@@ -345,7 +345,7 @@ export default function Contact() {
                       className="w-full border border-brand-light-blue bg-white px-4 py-3.5 text-brand-navy text-base focus:outline-none focus:border-brand-royal transition-colors"
                     >
                       <option value="">Please select...</option>
-                      <option value="immediate">Immediate need — someone has just passed away</option>
+                      <option value="immediate">Immediate need  -  someone has just passed away</option>
                       <option value="planning">Planning a funeral service</option>
                       <option value="prearranging">Pre-arranging my own funeral</option>
                       <option value="pricing">Pricing enquiry</option>

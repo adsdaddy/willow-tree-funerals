@@ -1,5 +1,5 @@
 /**
- * AccreditationBar — Trust signal strip
+ * AccreditationBar  -  Trust signal strip
  * Displays ASIC registration, Cert IV, Google rating, and independence badge.
  * Used below the Nav on the homepage and key service pages.
  */

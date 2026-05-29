@@ -12,9 +12,9 @@ const relatedArticles = [
 export default function MacArthurMemorialParkGuide() {
   return (
     <BlogArticleTemplate
-      title="Macarthur Memorial Park — Sydney's Newest Cemetery Guide"
-      metaTitle="Macarthur Memorial Park Campbelltown — Cemetery Guide | Willow Tree Funerals"
-      metaDescription="Everything families need to know about Macarthur Memorial Park in Campbelltown — location, burial options, pricing, and how to arrange a service there. Written by Bruce Missen."
+      title="Macarthur Memorial Park  -  Sydney's Newest Cemetery Guide"
+      metaTitle="Macarthur Memorial Park Campbelltown  -  Cemetery Guide | Willow Tree Funerals"
+      metaDescription="Everything families need to know about Macarthur Memorial Park in Campbelltown  -  location, burial options, pricing, and how to arrange a service there. Written by Bruce Missen."
       canonicalUrl="https://willowtreefunerals.com.au/blog/macarthur-memorial-park-guide"
       publishDate="January 2026"
       readTime="6 min"
@@ -25,7 +25,7 @@ export default function MacArthurMemorialParkGuide() {
         Macarthur Memorial Park is one of Sydney's newest and most beautifully designed cemeteries, located in the heart of the Macarthur region in South West Sydney. Since opening, it has become a popular choice for families across Campbelltown, Camden, Narellan, and surrounding areas.
       </p>
       <p>
-        This guide covers everything you need to know about Macarthur Memorial Park — from its location and burial options to pricing and how to arrange a funeral service there.
+        This guide covers everything you need to know about Macarthur Memorial Park  -  from its location and burial options to pricing and how to arrange a funeral service there.
       </p>
 
       <h2>Location</h2>
@@ -54,10 +54,10 @@ export default function MacArthurMemorialParkGuide() {
         Macarthur Memorial Park offers a range of burial options to suit different preferences and budgets:
       </p>
       <ul>
-        <li><strong>Lawn burials</strong> — simple, dignified burial in a well-maintained lawn section</li>
-        <li><strong>Monumental burials</strong> — burial with a headstone or monument</li>
-        <li><strong>Above-ground mausoleum</strong> — interment in a mausoleum crypt above ground</li>
-        <li><strong>Cremation memorials</strong> — placement of ashes in a dedicated memorial area</li>
+        <li><strong>Lawn burials</strong>  -  simple, dignified burial in a well-maintained lawn section</li>
+        <li><strong>Monumental burials</strong>  -  burial with a headstone or monument</li>
+        <li><strong>Above-ground mausoleum</strong>  -  interment in a mausoleum crypt above ground</li>
+        <li><strong>Cremation memorials</strong>  -  placement of ashes in a dedicated memorial area</li>
       </ul>
 
       <h2>Pricing</h2>
@@ -76,7 +76,7 @@ export default function MacArthurMemorialParkGuide() {
 
       <h2>Arranging a Funeral at Macarthur Memorial Park</h2>
       <p>
-        Your funeral director will handle all coordination with Macarthur Memorial Park on your behalf — including booking the burial plot, arranging the interment, and coordinating the graveside service.
+        Your funeral director will handle all coordination with Macarthur Memorial Park on your behalf  -  including booking the burial plot, arranging the interment, and coordinating the graveside service.
       </p>
       <p>
         At Willow Tree Funerals, we have extensive experience working with Macarthur Memorial Park and can guide your family through every step of the process. We serve families across the Macarthur region from our Macquarie Links office.
@@ -91,7 +91,7 @@ export default function MacArthurMemorialParkGuide() {
       </p>
 
       <p>
-        To arrange a funeral at Macarthur Memorial Park or to discuss your options, call us on <a href={COMPANY.phoneHref}>{COMPANY.phone}</a> — available 24 hours a day, 7 days a week.
+        To arrange a funeral at Macarthur Memorial Park or to discuss your options, call us on <a href={COMPANY.phoneHref}>{COMPANY.phone}</a>  -  available 24 hours a day, 7 days a week.
       </p>
     </BlogArticleTemplate>
   );

@@ -1,23 +1,23 @@
 /**
- * Home.tsx — Willow Tree Funerals
+ * Home.tsx  -  Willow Tree Funerals
  * Design: Modern editorial, Royal Blue + Periwinkle accent, Playfair Display serif
- * Philosophy: "Modern in design, traditional in values" — trust, status, reverence
+ * Philosophy: "Modern in design, traditional in values"  -  trust, status, reverence
  *
  * Sections:
- *  1. Hero — split editorial, bright willow tree image, tagline
- *  2. Stats bar — count-up numbers
- *  3. Process timeline — "How we help" 4-step journey (competitor improvement #1)
- *  4. Services grid — numbered cards
- *  5. About Bruce — asymmetric portrait
- *  6. Why Willow Tree — dark trust section
- *  7. Pricing trust section — transparent pricing comparison (competitor improvement #5)
- *  8. Catholic + Secular — split image faith section
- *  9. Planning Ahead banner — pre-arrangement CTA (competitor improvement #8)
- * 10. Google Reviews — auto-scroll carousel (competitor improvement #4)
- * 11. Photo gallery — real event photos
- * 12. Service areas — suburb pills (competitor improvement #7)
+ *  1. Hero  -  split editorial, bright willow tree image, tagline
+ *  2. Stats bar  -  count-up numbers
+ *  3. Process timeline  -  "How we help" 4-step journey (competitor improvement #1)
+ *  4. Services grid  -  numbered cards
+ *  5. About Bruce  -  asymmetric portrait
+ *  6. Why Willow Tree  -  dark trust section
+ *  7. Pricing trust section  -  transparent pricing comparison (competitor improvement #5)
+ *  8. Catholic + Secular  -  split image faith section
+ *  9. Planning Ahead banner  -  pre-arrangement CTA (competitor improvement #8)
+ * 10. Google Reviews  -  auto-scroll carousel (competitor improvement #4)
+ * 11. Photo gallery  -  real event photos
+ * 12. Service areas  -  suburb pills (competitor improvement #7)
  * 13. FAQ accordion
- * 14. Final CTA — hearse background
+ * 14. Final CTA  -  hearse background
  */
 
 import { useState, useEffect, useRef, useCallback } from "react";
@@ -79,7 +79,7 @@ function Reveal({
       ref={ref}
       className={className}
       style={visible ? {
-        // Already visible — no willChange, no transform, minimal style overhead
+        // Already visible  -  no willChange, no transform, minimal style overhead
         opacity: 1,
         transform: "none",
       } : {
@@ -138,7 +138,7 @@ const processSteps = [
     number: "01",
     icon: Phone,
     title: "We Answer Your Call",
-    desc: "Day or night, our Family Care Specialists answer immediately. No call centres, no queues — you speak directly with someone who cares.",
+    desc: "Day or night, our Family Care Specialists answer immediately. No call centres, no queues  -  you speak directly with someone who cares.",
   },
   {
     number: "02",
@@ -150,7 +150,7 @@ const processSteps = [
     number: "03",
     icon: Shield,
     title: "We Handle Everything",
-    desc: "From transfer and preparation to church liaison, cemetery coordination, and every detail in between — we take care of it all.",
+    desc: "From transfer and preparation to church liaison, cemetery coordination, and every detail in between  -  we take care of it all.",
   },
   {
     number: "04",
@@ -164,20 +164,20 @@ const reviews = [
   { name: "Maria S.", suburb: "Hurstville", rating: 5, date: "2 weeks ago", text: "Bruce was absolutely wonderful. He guided our family through the most difficult time with such grace and professionalism. The Catholic Mass was perfectly coordinated and deeply moving.", initials: "MS" },
   { name: "David & Karen T.", suburb: "Sutherland", rating: 5, date: "1 month ago", text: "From the very first phone call at 2am, Bruce was calm, kind, and completely in control. He made an impossible situation feel manageable. We are forever grateful.", initials: "DT" },
   { name: "The Kowalski Family", suburb: "Campbelltown", rating: 5, date: "2 months ago", text: "We cannot speak highly enough of Willow Tree Funerals. Every detail was handled with such care and dignity. Bruce treated our father as if he were his own family.", initials: "KF" },
-  { name: "Father Patrick O.", suburb: "Rockdale", rating: 5, date: "5 months ago", text: "Bruce Missen stands apart — his faith, professionalism, and care for families is exceptional. As a parish priest I have worked with many funeral directors, and I recommend Willow Tree without hesitation.", initials: "PO" },
+  { name: "Father Patrick O.", suburb: "Rockdale", rating: 5, date: "5 months ago", text: "Bruce Missen stands apart  -  his faith, professionalism, and care for families is exceptional. As a parish priest I have worked with many funeral directors, and I recommend Willow Tree without hesitation.", initials: "PO" },
   { name: "The Nguyen Family", suburb: "Sutherland", rating: 5, date: "6 months ago", text: "We didn't know where to turn when Dad passed suddenly. Bruce answered immediately and guided us through everything with such patience and kindness. The service was beautiful and deeply personal.", initials: "NF" },
   { name: "Angela B.", suburb: "Miranda", rating: 5, date: "7 months ago", text: "Such a compassionate and dignified service. Bruce made us feel supported every step of the way. He remembered every detail we shared about Mum and made the service feel truly personal.", initials: "AB" },
   { name: "The Rossi Family", suburb: "Bexley", rating: 5, date: "8 months ago", text: "From the first call to the final farewell, everything was handled with grace and care. Willow Tree Funerals is truly exceptional. We are so grateful to Bruce for everything he did for our family.", initials: "RF" },
   { name: "Thomas M.", suburb: "Cronulla", rating: 5, date: "3 months ago", text: "I've attended many funerals over the years. The service Bruce conducted for my mother was the most dignified and heartfelt I have ever witnessed. He has a rare gift.", initials: "TM" },
   { name: "Kellie Bell", suburb: "Sydney", rating: 5, date: "3 months ago", text: "Bruce and his team were amazing, even before our loved one passed and we were preparing for the inevitable. His warmth and care is second to none and his organisation and assistance of everything really took the pressure off.", initials: "KB" },
-  { name: "Jane Xie", suburb: "Sydney", rating: 5, date: "2 months ago", text: "Thank you so much, Bruce and your beautiful team! Your sincere generosity, sensitivity and professionalism have been heaven sent in our most difficult moments with mum's passing. You've made everything so smooth and easy — a true witness in this sacred vocation.", initials: "JX" },
+  { name: "Jane Xie", suburb: "Sydney", rating: 5, date: "2 months ago", text: "Thank you so much, Bruce and your beautiful team! Your sincere generosity, sensitivity and professionalism have been heaven sent in our most difficult moments with mum's passing. You've made everything so smooth and easy  -  a true witness in this sacred vocation.", initials: "JX" },
   { name: "Simon Yeak", suburb: "Sydney", rating: 5, date: "2 months ago", text: "Bruce is not only an old friend, but the only person that came to mind in entrusting my mother-in-law to. He held the service with such faith and devotion that all who were present felt his respect for someone he never met. Thank you, brother. The love you showed my family and I will never be forgotten.", initials: "SY" },
 ];
 
 const faqs = [
-  { q: "What should I do when someone passes away?", a: `Call our Family Care Specialists on ${COMPANY.phone} — we are available 24 hours a day, 7 days a week. We will guide you through every step, starting with the transfer of your loved one into our care.` },
+  { q: "What should I do when someone passes away?", a: `Call our Family Care Specialists on ${COMPANY.phone}  -  we are available 24 hours a day, 7 days a week. We will guide you through every step, starting with the transfer of your loved one into our care.` },
   { q: "Do you arrange Catholic funeral Masses?", a: "Yes. Bruce Missen has extensive experience coordinating Catholic funeral Masses with parish priests across the St George, Sutherland Shire, and South West Sydney areas. We handle all church liaison on your behalf." },
-  { q: "Do you arrange secular and non-religious services?", a: "Absolutely. We arrange a full range of services — from traditional Catholic Masses and multi-faith ceremonies to completely secular celebrations of life. Every service is tailored to your family's wishes, beliefs, and values." },
+  { q: "Do you arrange secular and non-religious services?", a: "Absolutely. We arrange a full range of services  -  from traditional Catholic Masses and multi-faith ceremonies to completely secular celebrations of life. Every service is tailored to your family's wishes, beliefs, and values." },
   { q: "How much does a funeral cost in Sydney?", a: "Funeral costs vary depending on the type of service. We offer transparent, itemised pricing with no hidden fees. Please visit our Pricing page or call our Family Care Specialists for a personalised quote." },
   { q: "Do you serve areas outside Hurstville?", a: "Yes. We serve the entire St George and Sutherland Shire area, South West Sydney including Campbelltown, Camden, Menangle, Picton, Liverpool, and Narellan, as well as Wollongong and the Central Coast." },
   { q: "Can I pre-arrange my own funeral?", a: "Yes. Pre-arranging your funeral is one of the most thoughtful gifts you can give your family. It removes the burden of decision-making during grief and locks in today's prices. Call us to discuss your options." },
@@ -308,16 +308,16 @@ export default function Home() {
       <Nav />
       <main id="main-content">
 
-        {/* ── 1. HERO — Split editorial ──────────────────────────────────── */}
+        {/* ── 1. HERO  -  Split editorial ──────────────────────────────────── */}
         <section
           className="relative min-h-screen flex items-center overflow-hidden"
         >
-          {/* LCP hero image — explicit img tag so browser discovers it early */}
+          {/* LCP hero image  -  explicit img tag so browser discovers it early */}
           <img
             src={HERO_IMG}
             srcSet={`${HERO_IMG_SM} 480w, ${HERO_IMG_MD} 768w, ${HERO_IMG} 1200w`}
             sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
-            alt="Willow Tree Funerals — Sydney funeral directors serving St George, Sutherland Shire and South West Sydney"
+            alt="Willow Tree Funerals  -  Sydney funeral directors serving St George, Sutherland Shire and South West Sydney"
             fetchPriority="high"
             decoding="async"
             width={1920}
@@ -390,7 +390,7 @@ export default function Home() {
                     className="btn-royal flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold tracking-wide"
                     onClick={() => trackPhoneClick("home_hero")}
                   >
-                    <Phone size={14} /> Call Now — We Answer in Seconds
+                    <Phone size={14} /> Call Now  -  We Answer in Seconds
                   </a>
                   <Link
                     href="/contact"
@@ -447,7 +447,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 3. PROCESS TIMELINE — "How We Help" ───────────────────────── */}
+        {/* ── 3. PROCESS TIMELINE  -  "How We Help" ───────────────────────── */}
         <section className="py-28 bg-white overflow-hidden">
           <div className="container">
             <Reveal>
@@ -457,7 +457,7 @@ export default function Home() {
                   From First Call to Final Farewell
                 </h2>
                 <p className="text-brand-navy/55 text-sm mt-4 max-w-xl mx-auto leading-relaxed">
-                  We guide you through every step with calm, clarity, and compassion — so you never feel alone.
+                  We guide you through every step with calm, clarity, and compassion  -  so you never feel alone.
                 </p>
               </div>
             </Reveal>
@@ -561,7 +561,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 5. ABOUT BRUCE — Asymmetric editorial ─────────────────────── */}
+        {/* ── 5. ABOUT BRUCE  -  Asymmetric editorial ─────────────────────── */}
         <section className="py-28 bg-white overflow-hidden">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -606,7 +606,7 @@ export default function Home() {
                   <div className="w-10 h-px bg-brand-royal/40 mb-6" />
 
                   <p className="text-brand-navy/70 text-base leading-relaxed mb-5">
-                    Bruce founded Willow Tree Funerals with a single conviction: that every family deserves the same level of care, dignity, and personal attention — regardless of their background, faith, or budget.
+                    Bruce founded Willow Tree Funerals with a single conviction: that every family deserves the same level of care, dignity, and personal attention  -  regardless of their background, faith, or budget.
                   </p>
                   <p className="text-brand-navy/70 text-base leading-relaxed mb-5">
                     With deep roots in the Catholic community and extensive experience across multi-faith and secular services, Bruce brings both professional expertise and genuine compassion to every family he serves.
@@ -616,7 +616,7 @@ export default function Home() {
                     <p className="font-serif italic text-brand-navy text-base leading-relaxed">
                       "I started Willow Tree because I believe every family deserves to be treated like my own. That's a promise I keep personally, every single time."
                     </p>
-                    <cite className="not-italic section-label text-[0.6rem] mt-2 block">— Bruce Missen, Managing Director &amp; Founder</cite>
+                    <cite className="not-italic section-label text-[0.6rem] mt-2 block"> -  Bruce Missen, Managing Director &amp; Founder</cite>
                   </blockquote>
 
                   <div className="flex flex-wrap gap-3 mb-8">
@@ -636,7 +636,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 6. WHY WILLOW TREE — Dark trust section ───────────────────── */}
+        {/* ── 6. WHY WILLOW TREE  -  Dark trust section ───────────────────── */}
         <section className="py-28 bg-brand-navy">
           <div className="container">
             <Reveal>
@@ -649,9 +649,9 @@ export default function Home() {
             </Reveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: Shield, title: "Truly Independent", desc: "We are not part of any corporate group. Every decision we make is guided by your family's needs — not shareholder returns." },
+                { icon: Shield, title: "Truly Independent", desc: "We are not part of any corporate group. Every decision we make is guided by your family's needs  -  not shareholder returns." },
                 { icon: Heart, title: "Personal from Start to Finish", desc: "Our team personally oversees every arrangement. You will always speak to the same person, who knows your family and your loved one's story." },
-                { icon: Clock, title: "Available 24 Hours a Day", desc: "When you call, we answer. Day or night, weekends and public holidays — our Family Care Specialists are always available." },
+                { icon: Clock, title: "Available 24 Hours a Day", desc: "When you call, we answer. Day or night, weekends and public holidays  -  our Family Care Specialists are always available." },
                 { icon: CheckCircle2, title: "Transparent Pricing", desc: "No hidden fees, no upselling, no surprises. We publish our prices openly and provide itemised quotes so you know exactly what you're paying for." },
                 { icon: MapPin, title: "Two Sydney Locations", desc: "With offices in Hurstville and Campbelltown, we serve families across St George, Sutherland Shire, South West Sydney, Wollongong and the Central Coast." },
                 { icon: Star, title: "5-Star Google Rating", desc: "Our families' trust is our greatest honour. Read their words on Google and you'll understand why families choose Willow Tree again and again." },
@@ -707,7 +707,7 @@ export default function Home() {
                   {/* Table header */}
                   <div className="bg-brand-navy px-6 py-4">
                     <p className="text-white font-serif font-semibold text-sm">Willow Tree vs. Sydney Average</p>
-                    <p className="text-white/60 text-xs mt-0.5">Indicative pricing — exact quotes provided on enquiry</p>
+                    <p className="text-white/60 text-xs mt-0.5">Indicative pricing  -  exact quotes provided on enquiry</p>
                   </div>
                   {/* Table rows */}
                   {[
@@ -738,7 +738,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 8. CATHOLIC + SECULAR SERVICES — Split image ──────────────── */}
+        {/* ── 8. CATHOLIC + SECULAR SERVICES  -  Split image ──────────────── */}
         <section className="py-28 bg-white overflow-hidden">
           <div className="container">
             <Reveal>
@@ -755,7 +755,7 @@ export default function Home() {
                   img: CHURCH_MASS,
                   tag: "Faith-Based Services",
                   title: "Catholic & Multi-Faith Funerals",
-                  desc: "Bruce has deep experience coordinating Catholic funeral Masses, Orthodox services, and multi-faith ceremonies with clergy across Sydney. Every detail — from the Mass booklet to the church liaison — is handled with reverence and precision.",
+                  desc: "Bruce has deep experience coordinating Catholic funeral Masses, Orthodox services, and multi-faith ceremonies with clergy across Sydney. Every detail  -  from the Mass booklet to the church liaison  -  is handled with reverence and precision.",
                   href: "/services/catholic-funerals",
                   cta: "Catholic Funerals",
                 },
@@ -763,7 +763,7 @@ export default function Home() {
                   img: BIRDCAGE_GARDEN,
                   tag: "Secular Services",
                   title: "Celebrations of Life",
-                  desc: "Not all farewells are religious — and that's perfectly fine. We create deeply meaningful, personalised celebrations of life for families of all beliefs and backgrounds, honouring your loved one exactly as they were.",
+                  desc: "Not all farewells are religious  -  and that's perfectly fine. We create deeply meaningful, personalised celebrations of life for families of all beliefs and backgrounds, honouring your loved one exactly as they were.",
                   href: "/services/secular-funerals",
                   cta: "Secular Services",
                 },
@@ -822,7 +822,7 @@ export default function Home() {
                 <Reveal from="right">
                   <div className="space-y-4">
                     {[
-                      { title: "Peace of Mind", desc: "Your wishes are documented and respected — no guesswork for your family." },
+                      { title: "Peace of Mind", desc: "Your wishes are documented and respected  -  no guesswork for your family." },
                       { title: "Financial Protection", desc: "Lock in today's prices and protect your family from rising funeral costs." },
                       { title: "No Obligation", desc: "We'll talk through your options with no pressure and no commitment required." },
                     ].map(item => (
@@ -957,7 +957,7 @@ export default function Home() {
             </Reveal>
             {/* Row 1: large hero photo (2×2) + 3 smaller photos */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
-              {/* Hero — spans 2 cols × 2 rows */}
+              {/* Hero  -  spans 2 cols × 2 rows */}
               <Reveal delay={0} className="col-span-1 md:col-span-2 row-span-1 md:row-span-2">
                 <div className="rounded-xl overflow-hidden h-52 md:h-[380px]">
                   <img src={CASKET_CATHEDRAL} alt="Casket with roses at cathedral altar"
@@ -1000,7 +1000,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 12. SERVICE AREAS — Suburb pills ──────────────────────────── */}
+        {/* ── 12. SERVICE AREAS  -  Suburb pills ──────────────────────────── */}
         <section className="py-20 bg-brand-light-blue/20">
           <div className="container">
             <Reveal>
@@ -1010,7 +1010,7 @@ export default function Home() {
                   Serving Sydney, Wollongong &amp; the Central Coast
                 </h2>
                 <p className="text-brand-navy/55 text-sm max-w-xl mx-auto leading-relaxed">
-                  From St George and Sutherland Shire to South West Sydney, Wollongong, and the Central Coast — we come to you, wherever you are.
+                  From St George and Sutherland Shire to South West Sydney, Wollongong, and the Central Coast  -  we come to you, wherever you are.
                 </p>
               </div>
             </Reveal>
@@ -1048,7 +1048,7 @@ export default function Home() {
                     We're Here to Answer<br />Your Questions
                   </h2>
                   <p className="text-brand-navy/75 text-sm leading-relaxed mb-8">
-                    If you can't find the answer you're looking for, please call our Family Care Specialists — we're available 24 hours a day, 7 days a week.
+                    If you can't find the answer you're looking for, please call our Family Care Specialists  -  we're available 24 hours a day, 7 days a week.
                   </p>
                   <a href={COMPANY.phoneHref} className="btn-royal inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold">
                     <Phone size={13} /> {COMPANY.phone}

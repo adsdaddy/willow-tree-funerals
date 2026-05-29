@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Burial Services Page
+ * WILLOW TREE FUNERALS  -  Burial Services Page
  * SEO: "burial services sydney", "funeral burial hurstville",
  *      "macarthur memorial park burial", "catholic burial sydney"
  */
@@ -12,7 +12,7 @@ export default function Burial() {
     <ServicePageTemplate
       seo={{
         title: "Burial Services Sydney | Funeral Burial Hurstville & South West Sydney",
-        description: "Traditional burial services at all Sydney cemeteries including MacArthur Memorial Park Varroville. Willow Tree Funerals — trusted burial funeral directors in Hurstville. Call 02 8776 1667.",
+        description: "Traditional burial services at all Sydney cemeteries including MacArthur Memorial Park Varroville. Willow Tree Funerals  -  trusted burial funeral directors in Hurstville. Call 02 8776 1667.",
         canonical: "/services/burial",
       }}
       hero={{
@@ -21,7 +21,7 @@ export default function Burial() {
         subheading: "Arranging dignified burials at all Sydney cemeteries, including the new MacArthur Memorial Park at Varroville.",
         image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-burial-dyz2DwAytvkPKBsAubwnKU.webp",
       }}
-      intro={`Traditional burial remains the choice of many Sydney families, particularly those of Catholic, Orthodox, and other faith traditions that hold the body sacred. At Willow Tree Funerals, we coordinate all aspects of the burial process — from cemetery selection and grave preparation to the funeral service and graveside committal. We work with every major Sydney cemetery, and we are one of the first funeral directors to establish a presence near the new MacArthur Memorial Park at Varroville, the first new Crown cemetery to open in Sydney in nearly a century.`}
+      intro={`Traditional burial remains the choice of many Sydney families, particularly those of Catholic, Orthodox, and other faith traditions that hold the body sacred. At Willow Tree Funerals, we coordinate all aspects of the burial process  -  from cemetery selection and grave preparation to the funeral service and graveside committal. We work with every major Sydney cemetery, and we are one of the first funeral directors to establish a presence near the new MacArthur Memorial Park at Varroville, the first new Crown cemetery to open in Sydney in nearly a century.`}
       includes={[
         "Transfer of your loved one into our care, 24/7",
         "Professional embalming and presentation for viewing",
@@ -37,9 +37,9 @@ export default function Burial() {
       featureImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg"
       pullQuote="Blessed are those who mourn, for they shall be comforted."
       steps={[
-        { num: "01", title: "First Call", desc: "Call us 24/7 — we will come to you immediately and take care of your loved one." },
+        { num: "01", title: "First Call", desc: "Call us 24/7  -  we will come to you immediately and take care of your loved one." },
         { num: "02", title: "Cemetery Selection", desc: "We guide you through all cemetery options, including Catholic cemeteries, general cemeteries, and MacArthur Memorial Park." },
-        { num: "03", title: "The Funeral Service", desc: "A personalised service at a church, chapel, or graveside — conducted with full dignity." },
+        { num: "03", title: "The Funeral Service", desc: "A personalised service at a church, chapel, or graveside  -  conducted with full dignity." },
         { num: "04", title: "Graveside Committal", desc: "We accompany your family to the graveside and remain with you through the final farewell." },
       ]}
       faqs={[

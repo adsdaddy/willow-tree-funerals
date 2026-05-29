@@ -8,8 +8,8 @@ import MobileCtaBar from "./components/MobileCtaBar";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { trackPageView } from "@/lib/analytics";
 
-// ── Lazy-loaded pages (code splitting — OptiCheck Playbook) ──
-// Home is NOT lazy — it is the LCP page and must load immediately
+// ── Lazy-loaded pages (code splitting  -  OptiCheck Playbook) ──
+// Home is NOT lazy  -  it is the LCP page and must load immediately
 import Home from "./pages/Home";
 
 const About = lazy(() => import("./pages/About"));
@@ -22,7 +22,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 const BrandGuide = lazy(() => import("./pages/BrandGuide"));
 const MacArthurMemorialPark = lazy(() => import("./pages/MacArthurMemorialPark"));
 
-// Service pages — all lazy
+// Service pages  -  all lazy
 const FuneralServices = lazy(() => import("./pages/services/FuneralServices"));
 const CatholicFunerals = lazy(() => import("./pages/services/CatholicFunerals"));
 const Cremation = lazy(() => import("./pages/services/Cremation"));
@@ -32,7 +32,7 @@ const PreArrangedFunerals = lazy(() => import("./pages/services/PreArrangedFuner
 const GravesideServices = lazy(() => import("./pages/services/GravesideServices"));
 const Repatriation = lazy(() => import("./pages/services/Repatriation"));
 
-// Suburb SEO pages — all lazy
+// Suburb SEO pages  -  all lazy
 const SuburbKogarah = lazy(() => import("./pages/suburbs/Kogarah"));
 const SuburbSutherland = lazy(() => import("./pages/suburbs/Sutherland"));
 const SuburbCampbelltown = lazy(() => import("./pages/suburbs/Campbelltown"));
@@ -52,7 +52,7 @@ const SuburbParramatta = lazy(() => import("./pages/suburbs/Parramatta"));
 const SuburbBlacktown = lazy(() => import("./pages/suburbs/Blacktown"));
 const SuburbKatoomba = lazy(() => import("./pages/suburbs/Katoomba"));
 
-// Blog pages — all lazy
+// Blog pages  -  all lazy
 const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
 const BlogWhatToDo = lazy(() => import("./pages/blog/WhatToDoWhenSomeonePasses"));
 const BlogCatholicFuneral = lazy(() => import("./pages/blog/HowToPlanCatholicFuneral"));
@@ -68,7 +68,7 @@ const CommunityEvents = lazy(() => import("./pages/CommunityEvents"));
 const OrderFlowers = lazy(() => import("./pages/OrderFlowers"));
 const Obituaries = lazy(() => import("./pages/Obituaries"));
 
-// Minimal page-transition fallback — no spinner flash for fast connections
+// Minimal page-transition fallback  -  no spinner flash for fast connections
 function PageFallback() {
   return <div className="min-h-screen bg-brand-ivory" aria-hidden="true" />;
 }
@@ -162,7 +162,7 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          {/* Skip to content — WCAG AA (OptiCheck Playbook) */}
+          {/* Skip to content  -  WCAG AA (OptiCheck Playbook) */}
           <a href="#main-content" className="skip-to-content">
             Skip to main content
           </a>
@@ -174,7 +174,7 @@ function App() {
             <Router />
           </main>
 
-          {/* Sticky mobile CTA bar — CRO pattern */}
+          {/* Sticky mobile CTA bar  -  CRO pattern */}
           <MobileCtaBar />
 
           {/* WhatsApp floating button */}

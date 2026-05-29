@@ -1,5 +1,5 @@
 /**
- * WhatsAppButton — Floating WhatsApp CTA
+ * WhatsAppButton  -  Floating WhatsApp CTA
  * Appears bottom-right on all pages. On mobile it sits above the MobileCtaBar.
  * Uses Bruce's direct WhatsApp number from COMPANY constants.
  */

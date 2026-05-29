@@ -10,7 +10,7 @@ export default function Katoomba() {
       slug="katoomba"
       heroHeading="Funeral Director Katoomba"
       heroSubheading="Compassionate, independent funeral services for families in Katoomba and across the Blue Mountains. Available 24 hours a day, 7 days a week."
-      intro="Willow Tree Funerals serves families in Katoomba and throughout the Blue Mountains with the same care and dedication we bring to every family we support. Our Macquarie Links office means we are well-placed to serve Blue Mountains families efficiently and with a personal touch. We offer the full range of funeral services — from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations, all personalised to honour your loved one."
+      intro="Willow Tree Funerals serves families in Katoomba and throughout the Blue Mountains with the same care and dedication we bring to every family we support. Our Macquarie Links office means we are well-placed to serve Blue Mountains families efficiently and with a personal touch. We offer the full range of funeral services  -  from Catholic Masses and multi-faith ceremonies to secular celebrations of life and direct cremations, all personalised to honour your loved one."
       services={[
         "Catholic Funeral Masses",
         "Cremation Services",
@@ -28,11 +28,11 @@ export default function Katoomba() {
         },
         {
           q: "What types of funerals do you arrange in Katoomba?",
-          a: "We arrange the full range of funeral services in Katoomba — Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
+          a: "We arrange the full range of funeral services in Katoomba  -  Catholic Masses, multi-faith ceremonies, secular celebrations of life, cremations, burials, and graveside services. Every service is personalised to your family's wishes.",
         },
         {
           q: "How quickly can you respond to a death in Katoomba?",
-          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists — not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
+          a: "We are available 24 hours a day, 7 days a week. When you call, you speak directly with one of our Family Care Specialists  -  not a call centre. We can transfer your loved one into our care promptly and be with your family within hours.",
         },
         {
           q: "What does a funeral cost in Katoomba?",

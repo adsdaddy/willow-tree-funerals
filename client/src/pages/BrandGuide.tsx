@@ -1,12 +1,12 @@
 /*
- * WILLOW TREE FUNERALS — Brand Guide Page
+ * WILLOW TREE FUNERALS  -  Brand Guide Page
  * Route: /brand-guide
  * 9 Sections: Hero, Logo, Colours, Typography, Photography, Brand Values, Voice & Tone, Locations, Application
  *
  * Design Philosophy: "Sacred Elegance"
  * Fonts: Playfair Display (headings, max weight 600) + Montserrat (body/nav/buttons) + Libre Baskerville (quotes/scripture)
  * Colours: Navy #0B1F3A · Royal Blue #1B4B8A · Mid Blue #2E6DB4 · Light Blue #D4E3F5 · Ivory #FAF8F2 · Gold #B8973A
- * Mood: Classy, elegant, Catholic-inspired, dignified — never mournful.
+ * Mood: Classy, elegant, Catholic-inspired, dignified  -  never mournful.
  *
  * Skill compliance:
  * - All heading weights ≤ 600 (font-semibold)
@@ -80,7 +80,7 @@ function LogoCard({ bg, src, label }: { bg: string; src: string; label: string }
     <div className="flex flex-col gap-3">
       <div className="overflow-hidden flex items-center justify-center p-12"
            style={{ backgroundColor: bg, minHeight: 200, maxWidth: "100%" }}>
-        <img src={src} alt={`Willow Tree Funerals logo — ${label}`}
+        <img src={src} alt={`Willow Tree Funerals logo  -  ${label}`}
              className="object-contain" style={{ maxWidth: 260, maxHeight: 120 }} />
       </div>
       <p className="font-sans text-xs text-gray-500 text-center tracking-wide">{label}</p>
@@ -115,7 +115,7 @@ export default function BrandGuide() {
     <div className="min-h-screen" style={{ backgroundColor: IVORY }}>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 1 — HERO
+          SECTION 1  -  HERO
           Layout: text top-left, logo absolute bottom-right (skill spec)
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex flex-col overflow-hidden">
@@ -153,7 +153,7 @@ export default function BrandGuide() {
           </div>
         </nav>
 
-        {/* Hero text — top-left */}
+        {/* Hero text  -  top-left */}
         <div className="relative z-10 flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 pb-32 pt-8">
           <p className="font-sans text-[11px] tracking-[0.22em] uppercase mb-5"
              style={{ color: GOLD }}>Identity Manual · {COMPANY.year}</p>
@@ -162,7 +162,7 @@ export default function BrandGuide() {
             Brand<br />Guide
           </h1>
           <p className="font-sans text-white/80 text-lg max-w-lg mb-10 leading-relaxed" style={{ fontWeight: 400 }}>
-            The visual identity and communication standards for {COMPANY.name} —<br />
+            The visual identity and communication standards for {COMPANY.name}  - <br />
             Hurstville &amp; Macquarie Links, Sydney NSW.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -173,7 +173,7 @@ export default function BrandGuide() {
           </div>
         </div>
 
-        {/* Logo — absolute bottom-right (skill spec: never overlapping text) */}
+        {/* Logo  -  absolute bottom-right (skill spec: never overlapping text) */}
         <div className="absolute bottom-10 right-10 z-10 opacity-20 hidden md:block">
           <img src={COMPANY.assets.logoWhite} alt="" className="h-20 object-contain" />
         </div>
@@ -186,7 +186,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 2 — LOGO
+          SECTION 2  -  LOGO
           Layout: text left, logo grid right (alternating: odd = text-left)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="logo" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: IVORY }}>
@@ -195,7 +195,7 @@ export default function BrandGuide() {
           {/* Asymmetric intro: label + heading left, description right */}
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div>
-              <p className="section-label mb-4">02 — Logo</p>
+              <p className="section-label mb-4">02  -  Logo</p>
               <h2 className="font-serif leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600, color: NAVY }}>
                 The Willow<br />Tree Mark
@@ -203,11 +203,11 @@ export default function BrandGuide() {
             </div>
             <div>
               <p className="font-sans text-gray-600 text-sm leading-[1.9]">
-                The logo combines a detailed willow tree illustration with refined spaced capitals. The cross motif within the "O" reflects the brand's Christian faith foundation. The scripture reference "John 14:1-3" anchors the brand in hope and eternal comfort — a cornerstone of Catholic and Christian funeral tradition.
+                The logo combines a detailed willow tree illustration with refined spaced capitals. The cross motif within the "O" reflects the brand's Christian faith foundation. The scripture reference "John 14:1-3" anchors the brand in hope and eternal comfort  -  a cornerstone of Catholic and Christian funeral tradition.
               </p>
               <div className="mt-8 pt-6" style={{ borderTop: `1px solid ${LIGHT}` }}>
                 <p className="font-baskerville italic text-sm" style={{ color: GOLD }}>
-                  "I am going there to prepare a place for you." — John 14:2
+                  "I am going there to prepare a place for you."  -  John 14:2
                 </p>
               </div>
             </div>
@@ -215,8 +215,8 @@ export default function BrandGuide() {
 
           {/* Logo variants grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-            <LogoCard bg={IVORY}  src={COMPANY.assets.logoDark}  label="Primary — Dark on Ivory" />
-            <LogoCard bg={NAVY}   src={COMPANY.assets.logoWhite} label="Reversed — White on Navy" />
+            <LogoCard bg={IVORY}  src={COMPANY.assets.logoDark}  label="Primary  -  Dark on Ivory" />
+            <LogoCard bg={NAVY}   src={COMPANY.assets.logoWhite} label="Reversed  -  White on Navy" />
             <LogoCard bg={ROYAL}  src={COMPANY.assets.logoWhite} label="On Royal Blue (Hero / Header)" />
             <LogoCard bg={LIGHT}  src={COMPANY.assets.logoDark}  label="On Light Blue (Section Backgrounds)" />
           </div>
@@ -246,7 +246,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 3 — COLOURS
+          SECTION 3  -  COLOURS
           Layout: heading right, swatches full-width below (even = reversed)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="colours" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: NAVY }}>
@@ -256,11 +256,11 @@ export default function BrandGuide() {
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div>
               <p className="font-sans text-sm leading-[1.9] text-white/75">
-                Inspired by the deep, reverent tones of Catholic tradition — the rich royal blue of vestments, the warmth of candlelight gold, and the purity of ivory. Click any swatch to copy the HEX value.
+                Inspired by the deep, reverent tones of Catholic tradition  -  the rich royal blue of vestments, the warmth of candlelight gold, and the purity of ivory. Click any swatch to copy the HEX value.
               </p>
             </div>
             <div className="md:text-right">
-              <p className="section-label mb-4" style={{ color: GOLD }}>03 — Colours</p>
+              <p className="section-label mb-4" style={{ color: GOLD }}>03  -  Colours</p>
               <h2 className="font-serif text-white leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600 }}>
                 Colour<br />Palette
@@ -281,20 +281,20 @@ export default function BrandGuide() {
             <ColourSwatch name="Silver"              hex="#C8C8C8" oklch="oklch(0.80 0.00 0)"  usage="Subtle borders, disabled states" textDark />
           </div>
 
-          {/* Colour philosophy — three columns */}
+          {/* Colour philosophy  -  three columns */}
           <div className="grid md:grid-cols-3 gap-10">
             {[
               {
                 title: "The Blue of Faith",
-                desc: "Royal Blue (#1B4B8A) is the soul of the brand — evoking the deep blue of the Virgin Mary's mantle, the dignity of Catholic vestments, and the trust of a steady presence in times of grief."
+                desc: "Royal Blue (#1B4B8A) is the soul of the brand  -  evoking the deep blue of the Virgin Mary's mantle, the dignity of Catholic vestments, and the trust of a steady presence in times of grief."
               },
               {
                 title: "The Gold of Reverence",
-                desc: "Ecclesiastical Gold (#B8973A) is used sparingly — for scripture references, premium touches, and moments of sacred emphasis. It echoes the gold of church altars and candlelight."
+                desc: "Ecclesiastical Gold (#B8973A) is used sparingly  -  for scripture references, premium touches, and moments of sacred emphasis. It echoes the gold of church altars and candlelight."
               },
               {
                 title: "The Ivory of Peace",
-                desc: "Ivory (#FAF8F2) replaces cold white throughout — it is warm, calm, and welcoming. It is the colour of a chapel wall bathed in morning light, never clinical or sterile."
+                desc: "Ivory (#FAF8F2) replaces cold white throughout  -  it is warm, calm, and welcoming. It is the colour of a chapel wall bathed in morning light, never clinical or sterile."
               },
             ].map(rule => (
               <div key={rule.title} className="border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.12)" }}>
@@ -307,7 +307,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 4 — TYPOGRAPHY
+          SECTION 4  -  TYPOGRAPHY
           Layout: large specimen left, details right (odd = text-left)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="typography" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: IVORY }}>
@@ -315,7 +315,7 @@ export default function BrandGuide() {
 
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div>
-              <p className="section-label mb-4">04 — Typography</p>
+              <p className="section-label mb-4">04  -  Typography</p>
               <h2 className="font-serif leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600, color: NAVY }}>
                 Type<br />System
@@ -323,15 +323,15 @@ export default function BrandGuide() {
             </div>
             <div>
               <p className="font-sans text-gray-600 text-sm leading-[1.9]">
-                Three typefaces work in harmony: Playfair Display brings warmth and heritage to headings; Montserrat provides clarity and modernity for body text and UI; Libre Baskerville adds gravitas to scripture and pull quotes — the voice of the sacred text.
+                Three typefaces work in harmony: Playfair Display brings warmth and heritage to headings; Montserrat provides clarity and modernity for body text and UI; Libre Baskerville adds gravitas to scripture and pull quotes  -  the voice of the sacred text.
               </p>
               <p className="font-sans text-xs mt-4 tracking-widest uppercase" style={{ color: ROYAL }}>
-                Max heading weight: 600 (SemiBold) — never bold or heavier
+                Max heading weight: 600 (SemiBold)  -  never bold or heavier
               </p>
             </div>
           </div>
 
-          {/* Three font specimens — large editorial display */}
+          {/* Three font specimens  -  large editorial display */}
           <div className="space-y-0 mb-24">
             {[
               {
@@ -365,7 +365,7 @@ export default function BrandGuide() {
               <div key={font.name}
                    className="grid md:grid-cols-3 items-center"
                    style={{ backgroundColor: font.bg, padding: "3rem 2.5rem" }}>
-                {/* Specimen — 2 cols */}
+                {/* Specimen  -  2 cols */}
                 <div className="md:col-span-2 pr-0 md:pr-12 mb-6 md:mb-0">
                   <p className="font-sans text-[11px] tracking-[0.2em] uppercase mb-4"
                      style={{ color: i === 2 ? GOLD : ROYAL }}>
@@ -399,7 +399,7 @@ export default function BrandGuide() {
               { label: "Body Large",  size: "1.125rem",  weight: "400", family: "'Montserrat', sans-serif",     sample: "Compassionate care for families across Sydney." },
               { label: "Body",        size: "0.9375rem", weight: "400", family: "'Montserrat', sans-serif",     sample: "We journey with you through every step of the process." },
               { label: "Label / Nav", size: "0.75rem",   weight: "500", family: "'Montserrat', sans-serif",     sample: "ABOUT US · SERVICES · CONTACT" },
-              { label: "Scripture",   size: "1.125rem",  weight: "400", family: "'Libre Baskerville', serif",   sample: '"Do not let your hearts be troubled." — John 14:1' },
+              { label: "Scripture",   size: "1.125rem",  weight: "400", family: "'Libre Baskerville', serif",   sample: '"Do not let your hearts be troubled."  -  John 14:1' },
             ].map(row => (
               <div key={row.label} className="flex items-baseline gap-6 py-5 last:border-0"
                    style={{ borderBottom: `1px solid ${LIGHT}` }}>
@@ -418,7 +418,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 5 — PHOTOGRAPHY
+          SECTION 5  -  PHOTOGRAPHY
           Layout: description right, grid left (even = reversed)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="photography" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: LIGHT }}>
@@ -426,7 +426,7 @@ export default function BrandGuide() {
 
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div className="md:order-2">
-              <p className="section-label mb-4">05 — Photography</p>
+              <p className="section-label mb-4">05  -  Photography</p>
               <h2 className="font-serif leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600, color: NAVY }}>
                 Photography<br />Style
@@ -434,19 +434,19 @@ export default function BrandGuide() {
             </div>
             <div className="md:order-1">
               <p className="font-sans text-sm leading-[1.9]" style={{ color: `${NAVY}cc` }}>
-                Photography should feel hopeful, warm, and dignified — never clinical or mournful. Soft natural light, genuine human connection, sacred spaces, and the beauty of nature are the core visual themes.
+                Photography should feel hopeful, warm, and dignified  -  never clinical or mournful. Soft natural light, genuine human connection, sacred spaces, and the beauty of nature are the core visual themes.
               </p>
             </div>
           </div>
 
-          {/* Photo grid — asymmetric masonry */}
+          {/* Photo grid  -  asymmetric masonry */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-20">
             <div className="col-span-2 overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <img src={COMPANY.assets.brucePodium} alt="Bruce Missen conducting a funeral service"
                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
             </div>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src={COMPANY.assets.bruceHeadshot} alt="Bruce Missen — Funeral Director"
+              <img src={COMPANY.assets.bruceHeadshot} alt="Bruce Missen  -  Funeral Director"
                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105" />
             </div>
             <div className="overflow-hidden" style={{ aspectRatio: "1/1" }}>
@@ -470,13 +470,13 @@ export default function BrandGuide() {
                 ✓ Do Use
               </p>
               <ul className="font-sans text-sm space-y-3 leading-relaxed" style={{ color: `${NAVY}cc` }}>
-                {["Soft, diffused natural light — golden hour preferred",
-                  "Genuine human connection — holding hands, supportive gestures",
-                  "Sacred spaces — churches, chapels, memorial parks",
-                  "Nature imagery — willow trees, calm water, soft florals",
-                  "Dignified ceremony photography — respectful and composed",
-                  "Warm tonal palette — ivories, blues, and soft golds"].map(t => (
-                  <li key={t} className="flex gap-3"><span style={{ color: ROYAL }}>—</span>{t}</li>
+                {["Soft, diffused natural light  -  golden hour preferred",
+                  "Genuine human connection  -  holding hands, supportive gestures",
+                  "Sacred spaces  -  churches, chapels, memorial parks",
+                  "Nature imagery  -  willow trees, calm water, soft florals",
+                  "Dignified ceremony photography  -  respectful and composed",
+                  "Warm tonal palette  -  ivories, blues, and soft golds"].map(t => (
+                  <li key={t} className="flex gap-3"><span style={{ color: ROYAL }}> - </span>{t}</li>
                 ))}
               </ul>
             </div>
@@ -490,7 +490,7 @@ export default function BrandGuide() {
                   "Images that feel mournful or distressing",
                   "Busy, cluttered backgrounds that distract from the subject",
                   "Oversaturated or heavily filtered photography"].map(t => (
-                  <li key={t} className="flex gap-3"><span style={{ color: GOLD }}>—</span>{t}</li>
+                  <li key={t} className="flex gap-3"><span style={{ color: GOLD }}> - </span>{t}</li>
                 ))}
               </ul>
             </div>
@@ -499,7 +499,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 6 — BRAND VALUES
+          SECTION 6  -  BRAND VALUES
           Layout: large numbered list, full-width alternating (odd = text-left)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="values" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: IVORY }}>
@@ -507,7 +507,7 @@ export default function BrandGuide() {
 
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div>
-              <p className="section-label mb-4">06 — Brand Values</p>
+              <p className="section-label mb-4">06  -  Brand Values</p>
               <h2 className="font-serif leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600, color: NAVY }}>
                 What We<br />Stand For
@@ -519,13 +519,13 @@ export default function BrandGuide() {
                   "Do not let your hearts be troubled. You believe in God; believe also in me. My Father's house has many rooms… I am going there to prepare a place for you."
                 </p>
                 <cite className="font-sans text-xs tracking-[0.18em] uppercase mt-4 block not-italic" style={{ color: GOLD }}>
-                  — John 14:1-3
+                   -  John 14:1-3
                 </cite>
               </blockquote>
             </div>
           </div>
 
-          {/* Values — large editorial numbered list */}
+          {/* Values  -  large editorial numbered list */}
           <div className="space-y-0 mb-24">
             {[
               {
@@ -549,7 +549,7 @@ export default function BrandGuide() {
               {
                 number: "04",
                 title: "Community Commitment",
-                desc: "We actively give back — supporting International Women's Day, Australia's Biggest Morning Tea, and providing specific care for families experiencing miscarriage. We are part of this community.",
+                desc: "We actively give back  -  supporting International Women's Day, Australia's Biggest Morning Tea, and providing specific care for families experiencing miscarriage. We are part of this community.",
                 bg: LIGHT,
               },
             ].map((value, i) => (
@@ -576,7 +576,7 @@ export default function BrandGuide() {
           {/* Director card */}
           <div className="grid md:grid-cols-3 gap-0 overflow-hidden">
             <div className="overflow-hidden" style={{ minHeight: 320 }}>
-              <img src={COMPANY.assets.bruceHeadshot} alt="Bruce Missen — Funeral Director & Owner"
+              <img src={COMPANY.assets.bruceHeadshot} alt="Bruce Missen  -  Funeral Director & Owner"
                    className="w-full h-full object-cover object-top" />
             </div>
             <div className="md:col-span-2 flex flex-col justify-center p-10 md:p-14"
@@ -587,7 +587,7 @@ export default function BrandGuide() {
                 {COMPANY.director}
               </h3>
               <p className="font-sans text-white/75 text-sm leading-[1.9]">
-                Bruce Missen founded Willow Tree Funerals with a deep commitment to serving families across Sydney's St George, Sutherland Shire, and South West regions. His approach is personal, compassionate, and guided by faith — ensuring every farewell is as unique as the life it honours.
+                Bruce Missen founded Willow Tree Funerals with a deep commitment to serving families across Sydney's St George, Sutherland Shire, and South West regions. His approach is personal, compassionate, and guided by faith  -  ensuring every farewell is as unique as the life it honours.
               </p>
             </div>
           </div>
@@ -595,7 +595,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 7 — VOICE & TONE
+          SECTION 7  -  VOICE & TONE
           Layout: traits right, examples left (even = reversed)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="voice" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: NAVY }}>
@@ -603,7 +603,7 @@ export default function BrandGuide() {
 
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div className="md:order-2">
-              <p className="section-label mb-4" style={{ color: GOLD }}>07 — Voice &amp; Tone</p>
+              <p className="section-label mb-4" style={{ color: GOLD }}>07  -  Voice &amp; Tone</p>
               <h2 className="font-serif text-white leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600 }}>
                 How We<br />Speak
@@ -611,7 +611,7 @@ export default function BrandGuide() {
             </div>
             <div className="md:order-1">
               <p className="font-sans text-white/75 text-sm leading-[1.9]">
-                We speak as a trusted guide and a comforting friend. Our language is warm, clear, and uplifting — focusing on the celebration of life and the healing journey, not the logistics of death.
+                We speak as a trusted guide and a comforting friend. Our language is warm, clear, and uplifting  -  focusing on the celebration of life and the healing journey, not the logistics of death.
               </p>
             </div>
           </div>
@@ -662,7 +662,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 8 — LOCATIONS
+          SECTION 8  -  LOCATIONS
           Layout: text left, location cards right (odd = text-left)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="locations" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: IVORY }}>
@@ -670,7 +670,7 @@ export default function BrandGuide() {
 
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div>
-              <p className="section-label mb-4">08 — Locations &amp; Market Strategy</p>
+              <p className="section-label mb-4">08  -  Locations &amp; Market Strategy</p>
               <h2 className="font-serif leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600, color: NAVY }}>
                 Two Locations.<br />One Standard<br />of Care.
@@ -678,7 +678,7 @@ export default function BrandGuide() {
             </div>
             <div>
               <p className="font-sans text-gray-600 text-sm leading-[1.9]">
-                Willow Tree Funerals operates from two strategic locations — serving the established St George community from Hurstville, and pioneering a premium presence in Sydney's rapidly growing South West corridor from Macquarie Links.
+                Willow Tree Funerals operates from two strategic locations  -  serving the established St George community from Hurstville, and pioneering a premium presence in Sydney's rapidly growing South West corridor from Macquarie Links.
               </p>
             </div>
           </div>
@@ -715,7 +715,7 @@ export default function BrandGuide() {
                       style={{ border: "1px solid rgba(255,255,255,0.3)" }}>New</span>
               </div>
               <p className="font-sans text-white/85 text-sm leading-[1.9] mb-8">
-                Strategically positioned between Campbelltown and Liverpool — the only premium, faith-based funeral home in the area. Serving families across South West Sydney and the rapidly growing Macarthur region, with direct access to the new MacArthur Memorial Park at Varroville.
+                Strategically positioned between Campbelltown and Liverpool  -  the only premium, faith-based funeral home in the area. Serving families across South West Sydney and the rapidly growing Macarthur region, with direct access to the new MacArthur Memorial Park at Varroville.
               </p>
               <div className="border-t pt-5" style={{ borderColor: "rgba(255,255,255,0.2)" }}>
                 <p className="font-sans text-[10px] text-white/60 uppercase tracking-[0.18em] mb-2">Service Area</p>
@@ -735,10 +735,10 @@ export default function BrandGuide() {
             <div className="md:col-span-10 p-10">
               <p className="section-label mb-3">Strategic Opportunity</p>
               <h3 className="font-serif mb-4" style={{ fontSize: "1.5rem", fontWeight: 600, color: NAVY }}>
-                MacArthur Memorial Park — Sydney's Newest Cemetery
+                MacArthur Memorial Park  -  Sydney's Newest Cemetery
               </h3>
               <p className="font-sans text-sm leading-[1.9] text-gray-600">
-                MacArthur Memorial Park (166-176 St Andrews Rd, Varroville NSW 2566) is Sydney's first new greenfield Crown cemetery since the 1920s — 113 hectares, multi-denominational, with an architecturally designed chapel and over 136,000 burial plots. Now open. Willow Tree Funerals at Macquarie Links is positioned as the closest premium funeral director to this landmark cemetery, making us the natural first choice for South West Sydney families.
+                MacArthur Memorial Park (166-176 St Andrews Rd, Varroville NSW 2566) is Sydney's first new greenfield Crown cemetery since the 1920s  -  113 hectares, multi-denominational, with an architecturally designed chapel and over 136,000 burial plots. Now open. Willow Tree Funerals at Macquarie Links is positioned as the closest premium funeral director to this landmark cemetery, making us the natural first choice for South West Sydney families.
               </p>
             </div>
           </div>
@@ -759,7 +759,7 @@ export default function BrandGuide() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 9 — APPLICATION
+          SECTION 9  -  APPLICATION
           Layout: description right, mockups left (even = reversed)
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="application" className="py-36 md:py-44 px-8 md:px-16 lg:px-24" style={{ backgroundColor: LIGHT }}>
@@ -767,7 +767,7 @@ export default function BrandGuide() {
 
           <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
             <div className="md:order-2">
-              <p className="section-label mb-4">09 — Application</p>
+              <p className="section-label mb-4">09  -  Application</p>
               <h2 className="font-serif leading-tight tracking-tight"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 600, color: NAVY }}>
                 Design<br />in Action
@@ -775,7 +775,7 @@ export default function BrandGuide() {
             </div>
             <div className="md:order-1">
               <p className="font-sans text-gray-600 text-sm leading-[1.9]">
-                The brand system applied across digital touchpoints — buttons, form elements, cards, and mobile UI. Every element reinforces the same values: dignified, warm, and trustworthy.
+                The brand system applied across digital touchpoints  -  buttons, form elements, cards, and mobile UI. Every element reinforces the same values: dignified, warm, and trustworthy.
               </p>
             </div>
           </div>
@@ -819,7 +819,7 @@ export default function BrandGuide() {
                 {[
                   { title: "Traditional Funeral",   desc: "A full funeral service with burial or cremation, conducted with dignity and personalised to honour your loved one's life.", icon: "✦" },
                   { title: "Catholic Funeral Mass",  desc: "A reverent Requiem Mass coordinated with your parish priest, honouring the Catholic tradition of commending the soul to God.", icon: "✝" },
-                  { title: "Celebration of Life",   desc: "A personalised, uplifting service that focuses on the joy and legacy of a life well lived — in any venue, any style.", icon: "✦" },
+                  { title: "Celebration of Life",   desc: "A personalised, uplifting service that focuses on the joy and legacy of a life well lived  -  in any venue, any style.", icon: "✦" },
                 ].map(card => (
                   <div key={card.title} className="p-6 flex gap-5 items-start"
                        style={{ border: `1px solid ${LIGHT}`, backgroundColor: IVORY }}>
@@ -833,7 +833,7 @@ export default function BrandGuide() {
               </div>
             </div>
 
-            {/* iPhone 14 Pro mockup — skill spec proportions */}
+            {/* iPhone 14 Pro mockup  -  skill spec proportions */}
             <div>
               <p className="section-label mb-6">Mobile UI Mockup</p>
               <div className="flex justify-center">

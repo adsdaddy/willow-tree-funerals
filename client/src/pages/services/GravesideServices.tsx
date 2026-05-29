@@ -1,5 +1,5 @@
 /**
- * WILLOW TREE FUNERALS — Graveside Services Page
+ * WILLOW TREE FUNERALS  -  Graveside Services Page
  * SEO: "graveside funeral sydney", "graveside service hurstville",
  *      "graveside committal sydney", "simple graveside funeral"
  */
@@ -18,10 +18,10 @@ export default function GravesideServices() {
       hero={{
         label: "Graveside Services",
         heading: "Simple, Dignified Graveside Farewells",
-        subheading: "An intimate graveside service that brings family and friends together at the place of final rest — simple, meaningful, and completely dignified.",
+        subheading: "An intimate graveside service that brings family and friends together at the place of final rest  -  simple, meaningful, and completely dignified.",
         image: COMPANY.assets.churchService,
       }}
-      intro={`A graveside service is a beautiful, intimate alternative to a full chapel or church funeral. The entire service takes place at the graveside, bringing family and friends together in the open air for a simple, heartfelt farewell. Graveside services are often chosen for their simplicity, their connection to the earth, and their sense of quiet dignity. At Willow Tree Funerals, we conduct graveside services at all Sydney cemeteries — from Rookwood and Woronora to the new MacArthur Memorial Park at Varroville — with the same care and personalisation we bring to every service.`}
+      intro={`A graveside service is a beautiful, intimate alternative to a full chapel or church funeral. The entire service takes place at the graveside, bringing family and friends together in the open air for a simple, heartfelt farewell. Graveside services are often chosen for their simplicity, their connection to the earth, and their sense of quiet dignity. At Willow Tree Funerals, we conduct graveside services at all Sydney cemeteries  -  from Rookwood and Woronora to the new MacArthur Memorial Park at Varroville  -  with the same care and personalisation we bring to every service.`}
       includes={[
         "Transfer of your loved one into our care, 24/7",
         "Professional preparation and presentation",
@@ -37,15 +37,15 @@ export default function GravesideServices() {
       featureImage={COMPANY.assets.chapelInterior}
       pullQuote="The Lord is my shepherd; I shall not want. He makes me lie down in green pastures."
       steps={[
-        { num: "01", title: "First Call", desc: "Call us on 02 8776 1667 — any time. Our family care specialists will come to you and take care of everything." },
+        { num: "01", title: "First Call", desc: "Call us on 02 8776 1667  -  any time. Our family care specialists will come to you and take care of everything." },
         { num: "02", title: "Cemetery Selection", desc: "We help you choose the right cemetery and arrange the grave booking and all preparation." },
-        { num: "03", title: "The Service", desc: "A simple, personalised service at the graveside — conducted with complete dignity and care." },
-        { num: "04", title: "The Committal", desc: "The final farewell at the graveside — a moment of peace, closure, and love." },
+        { num: "03", title: "The Service", desc: "A simple, personalised service at the graveside  -  conducted with complete dignity and care." },
+        { num: "04", title: "The Committal", desc: "The final farewell at the graveside  -  a moment of peace, closure, and love." },
       ]}
       faqs={[
         {
           q: "What is a graveside service?",
-          a: "A graveside service is a funeral service conducted entirely at the cemetery, at the graveside. There is no separate chapel or church service — family and friends gather at the grave for the farewell. It is simple, intimate, and often deeply meaningful.",
+          a: "A graveside service is a funeral service conducted entirely at the cemetery, at the graveside. There is no separate chapel or church service  -  family and friends gather at the grave for the farewell. It is simple, intimate, and often deeply meaningful.",
         },
         {
           q: "Can a graveside service be Catholic?",
@@ -61,7 +61,7 @@ export default function GravesideServices() {
         },
         {
           q: "Is a graveside service less expensive than a full funeral?",
-          a: "Generally, yes. A graveside service avoids the cost of a separate chapel or church hire. We provide transparent, itemised pricing — please call our team or visit our Pricing page for details.",
+          a: "Generally, yes. A graveside service avoids the cost of a separate chapel or church hire. We provide transparent, itemised pricing  -  please call our team or visit our Pricing page for details.",
         },
       ]}
       relatedServices={[
