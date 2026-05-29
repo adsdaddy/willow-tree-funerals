@@ -721,16 +721,53 @@ function ArticleContent({ content }: { content: string }) {
   const before = paragraphs.slice(0, insertAt).join("\n\n");
   const after = paragraphs.slice(insertAt).join("\n\n");
 
-  const proseClasses = "prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-brand-navy prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600 prose-blockquote:bg-blue-50/50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-h2:scroll-mt-20 prose-h2:border-b prose-h2:border-gray-100 prose-h2:pb-2 prose-img:rounded-xl prose-img:w-full prose-img:my-8 prose-img:shadow-md";
+  const proseClasses = "prose prose-lg max-w-none prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-l-4 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600 prose-blockquote:bg-blue-50/50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:pl-4 prose-blockquote:not-italic prose-img:rounded-xl prose-img:w-full prose-img:my-8 prose-img:shadow-md";
+
+  // Premium heading components matching premium-blog-layout skill spec
+  const markdownComponents = {
+    h1: ({ children, id }: { children?: React.ReactNode; id?: string }) => (
+      <h1
+        id={id}
+        className="scroll-mt-24 text-3xl lg:text-4xl font-bold font-serif text-brand-navy leading-tight mt-10 mb-4"
+      >
+        {children}
+      </h1>
+    ),
+    h2: ({ children, id }: { children?: React.ReactNode; id?: string }) => (
+      <h2
+        id={id}
+        className="scroll-mt-24 flex items-center gap-3 text-2xl lg:text-3xl font-bold font-serif text-brand-navy mt-10 mb-4 pt-2"
+      >
+        <span className="shrink-0 w-1 h-7 rounded-full bg-gradient-to-b from-brand-royal to-brand-periwinkle" aria-hidden="true" />
+        {children}
+      </h2>
+    ),
+    h3: ({ children, id }: { children?: React.ReactNode; id?: string }) => (
+      <h3
+        id={id}
+        className="scroll-mt-24 text-xl font-bold font-serif text-brand-navy mt-8 mb-3"
+      >
+        {children}
+      </h3>
+    ),
+    h4: ({ children, id }: { children?: React.ReactNode; id?: string }) => (
+      <h4
+        id={id}
+        className="scroll-mt-24 text-lg font-semibold text-brand-navy mt-6 mb-2"
+      >
+        {children}
+      </h4>
+    ),
+  };
 
   return (
     <div>
       <div className={proseClasses}>
-        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>{before}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]} components={markdownComponents as never}>{before}</ReactMarkdown>
       </div>
       <InContentCTA />
       <div className={proseClasses}>
-        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>{after.replace("<!-- profi_tipp -->", "").replace("<!-- key_takeaway -->", "")}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]} components={markdownComponents as never}>{after.replace("<!-- profi_tipp -->", "").replace("<!-- key_takeaway -->", "")}</ReactMarkdown>
       </div>
       {profiTippText && <ProfiTipp text={profiTippText} />}
       {keyTakeawayItems.length > 0 && <KeyTakeaway items={keyTakeawayItems} />}
