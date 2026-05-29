@@ -45,10 +45,36 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-/** Extract the first markdown image URL from content, e.g. ![alt](url) */
-function extractFirstImageUrl(markdown: string): string | null {
-  const match = markdown.match(/!\[[^\]]*\]\(([^)]+)\)/);
-  return match ? match[1] : null;
+/** Extract all markdown image URLs from content */
+function extractAllImageUrls(markdown: string): string[] {
+  return Array.from(markdown.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)).map(m => m[1]);
+}
+
+/**
+ * Extract the best hero image from content.
+ * Skips images whose filename contains keywords unrelated to funeral/memorial topics
+ * (cross-contamination from other babylovegrowth.ai clients).
+ * Falls back to the first image if none pass the filter.
+ */
+function extractBestHeroImage(markdown: string, title: string): string | null {
+  const urls = extractAllImageUrls(markdown);
+  if (urls.length === 0) return null;
+
+  // Keywords that indicate a cross-contaminated image from another client's article
+  const UNRELATED_PATTERNS = [
+    /disability/i, /ssdi/i, /medicaid/i, /medicare/i, /insurance-claim/i,
+    /tax-return/i, /tax-form/i, /divorce/i, /bankruptcy/i, /immigration/i,
+    /visa/i, /passport/i, /crypto/i, /bitcoin/i, /stock-market/i,
+    /real-estate/i, /mortgage/i, /car-accident/i, /personal-injury/i,
+  ];
+
+  // Try to find an image whose filename doesn't match unrelated patterns
+  const filtered = urls.filter(url => {
+    const filename = url.split('/').pop()?.toLowerCase() ?? '';
+    return !UNRELATED_PATTERNS.some(p => p.test(filename));
+  });
+
+  return filtered[0] ?? urls[0];
 }
 
 // ── Auth middleware ───────────────────────────────────────────────────────────
@@ -166,8 +192,27 @@ export function registerBlogApiRoutes(app: { use: Function }) {
       const readingTime = estimateReadingTime(content);
       const publishedAt = body.createdAt ? new Date(body.createdAt) : new Date();
 
-      // Extract hero image: prefer explicit heroImageUrl, fall back to first image in markdown
-      const heroImage = body.heroImageUrl ?? extractFirstImageUrl(content) ?? null;
+      // Extract hero image: prefer explicit heroImageUrl if it looks relevant,
+      // otherwise fall back to best image extracted from content
+      const heroImageFromContent = extractBestHeroImage(content, body.title);
+      let heroImage: string | null = null;
+      if (body.heroImageUrl) {
+        // Validate heroImageUrl isn't a cross-contaminated image from another client
+        const heroFilename = body.heroImageUrl.split('/').pop()?.toLowerCase() ?? '';
+        const UNRELATED_PATTERNS = [
+          /disability/i, /ssdi/i, /medicaid/i, /medicare/i, /insurance-claim/i,
+          /tax-return/i, /tax-form/i, /divorce/i, /bankruptcy/i, /immigration/i,
+          /visa/i, /passport/i, /crypto/i, /bitcoin/i, /stock-market/i,
+          /real-estate/i, /mortgage/i, /car-accident/i, /personal-injury/i,
+        ];
+        const isUnrelated = UNRELATED_PATTERNS.some(p => p.test(heroFilename));
+        heroImage = isUnrelated ? heroImageFromContent : body.heroImageUrl;
+        if (isUnrelated) {
+          console.warn(`[Blog Webhook] heroImageUrl appears unrelated to article topic, using content image instead. heroImageUrl: ${body.heroImageUrl}`);
+        }
+      } else {
+        heroImage = heroImageFromContent;
+      }
 
       let postId: number | undefined;
       let isUpdate = false;
