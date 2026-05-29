@@ -353,7 +353,12 @@ export default function BlogIndex() {
       ...p,
       href: undefined,
     })),
-  ];
+  ].sort((a, b) => {
+    // Sort newest first by publishedAt
+    const dateA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const dateB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return dateB - dateA;
+  });
 
   // Filter
   let filtered = allPosts;
