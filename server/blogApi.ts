@@ -127,10 +127,8 @@ export function registerBlogApiRoutes(app: { use: Function }) {
 
       // Build slug
       let slug = body.slug ? toSlug(body.slug) : toSlug(body.title);
-      const existing = await db.select({ slug: blogPosts.slug }).from(blogPosts).where(eq(blogPosts.slug, slug)).limit(1);
-      if (existing.length > 0) {
-        slug = `${slug}-${Date.now()}`;
-      }
+      const existing = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug)).limit(1);
+      const existingPost = existing[0] ?? null;
 
       // Content: prefer markdown, fall back to HTML
       // babylovegrowth.ai sometimes sends content with ";" as line separators instead of "\n"
@@ -171,33 +169,58 @@ export function registerBlogApiRoutes(app: { use: Function }) {
       // Extract hero image: prefer explicit heroImageUrl, fall back to first image in markdown
       const heroImage = body.heroImageUrl ?? extractFirstImageUrl(content) ?? null;
 
-      const [result] = await db.insert(blogPosts).values({
-        title: body.title.trim(),
-        slug,
-        excerpt,
-        content: finalContent,
-        imageUrl: heroImage,
-        tags,
-        author: "Willow Tree Funerals",
-        readingTime,
-        isPublished: 1,
-        publishedAt,
-      });
+      let postId: number | undefined;
+      let isUpdate = false;
 
-      // Notify owner
-      await notifyOwner({
-        title: `📝 New Blog Post: ${body.title}`,
-        content: `Slug: ${slug}\nTags: ${tags}\nReading time: ${readingTime} min\nURL: /blog/${slug}`,
-      }).catch(() => {});
+      if (existingPost) {
+        // Update existing post (idempotent upsert - babylovegrowth.ai may resend)
+        isUpdate = true;
+        await db.update(blogPosts).set({
+          title: body.title.trim(),
+          excerpt,
+          content: finalContent,
+          imageUrl: heroImage,
+          tags,
+          readingTime,
+          isPublished: 1,
+          publishedAt,
+        }).where(eq(blogPosts.slug, slug));
+        postId = existingPost.id;
+      } else {
+        // Insert new post
+        const [result] = await db.insert(blogPosts).values({
+          title: body.title.trim(),
+          slug,
+          excerpt,
+          content: finalContent,
+          imageUrl: heroImage,
+          tags,
+          author: "Willow Tree Funerals",
+          readingTime,
+          isPublished: 1,
+          publishedAt,
+        });
+        postId = (result as { insertId?: number })?.insertId;
+      }
+
+      // Notify owner (only for new posts)
+      if (!isUpdate) {
+        await notifyOwner({
+          title: `📝 New Blog Post: ${body.title}`,
+          content: `Slug: ${slug}\nTags: ${tags}\nReading time: ${readingTime} min\nURL: /blog/${slug}`,
+        }).catch(() => {});
+      }
 
       // Return 200 with post info (babylovegrowth.ai expects HTTP 200)
       res.status(200).json({
         success: true,
-        id: (result as { insertId?: number })?.insertId,
+        id: postId,
         slug,
         url: `/blog/${slug}`,
         publicUrl: `https://willowtreefunerals.com.au/blog/${slug}`,
-        message: `Post "${body.title}" published successfully`,
+        message: isUpdate
+          ? `Post "${body.title}" updated successfully`
+          : `Post "${body.title}" published successfully`,
       });
     } catch (err) {
       console.error("[Blog Webhook] error:", err);

@@ -238,7 +238,7 @@ export const appRouter = router({
       .input(
         z.object({
           page: z.number().min(1).default(1),
-          limit: z.number().min(1).max(24).default(12),
+          limit: z.number().min(1).max(100).default(12),
           tag: z.string().optional(),
           search: z.string().optional(),
         })

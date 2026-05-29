@@ -377,3 +377,7 @@
 - [x] Add blog.getRelated tRPC endpoint
 - [x] Build premium Blog Overview page (hero, animated counters, search, featured post, tag filter, 3-col grid, pagination, bottom CTA)
 - [x] Build premium Blog Article page (reading progress bar, breadcrumb, 2-col layout, TOC with progress, in-content CTA, FAQ accordion, share buttons, author box, related posts, sticky mobile CTA)
+- [x] Fix babylovegrowth.ai webhook: upsert (update if slug exists) instead of creating timestamp-suffixed duplicates
+- [x] Fix blog.getAll tRPC limit validator: raised max from 24 to 100 so BlogIndex.tsx limit:100 query works
+- [x] Remove 2 duplicate DB articles (IDs 60001, 30002) created by old webhook double-send behaviour
+- [x] Blog page now shows all 6 articles: 4 static + 2 babylovegrowth.ai DB articles
