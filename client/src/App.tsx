@@ -54,11 +54,7 @@ const SuburbKatoomba = lazy(() => import("./pages/suburbs/Katoomba"));
 
 // Blog pages  -  all lazy
 const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
-const BlogWhatToDo = lazy(() => import("./pages/blog/WhatToDoWhenSomeonePasses"));
-const BlogCatholicFuneral = lazy(() => import("./pages/blog/HowToPlanCatholicFuneral"));
-const BlogFuneralCosts = lazy(() => import("./pages/blog/UnderstandingFuneralCosts"));
-const BlogMacArthurPark = lazy(() => import("./pages/blog/MacArthurMemorialParkGuide"));
-const BlogArticle = lazy(() => import("./pages/blog/BlogArticle"));
+const UnifiedBlogArticle = lazy(() => import("./pages/blog/UnifiedBlogArticle"));
 
 // Pre-arrangement flow
 const PreArrange = lazy(() => import("./pages/PreArrange"));
@@ -128,12 +124,9 @@ function Router() {
 
         {/* Blog */}
         <Route path="/blog" component={BlogIndex} />
-        <Route path="/blog/what-to-do-when-someone-passes-away-nsw" component={BlogWhatToDo} />
-        <Route path="/blog/how-to-plan-catholic-funeral-sydney" component={BlogCatholicFuneral} />
-        <Route path="/blog/understanding-funeral-costs-sydney" component={BlogFuneralCosts} />
-        <Route path="/blog/macarthur-memorial-park-guide" component={BlogMacArthurPark} />
-        {/* Dynamic AI-generated article pages from babylovegrowth.ai */}
-        <Route path="/blog/article/:slug" component={BlogArticle} />
+        {/* Unified article renderer: handles both static hand-written and dynamic babylovegrowth.ai articles */}
+        <Route path="/blog/article/:slug" component={UnifiedBlogArticle} />
+        <Route path="/blog/:slug" component={UnifiedBlogArticle} />
 
         {/* Pre-arrangement flow */}
         <Route path="/pre-arrange" component={PreArrange} />

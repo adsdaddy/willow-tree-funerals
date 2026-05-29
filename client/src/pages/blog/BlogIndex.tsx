@@ -28,7 +28,6 @@ const STATIC_ARTICLES = [
   {
     id: -1,
     slug: "what-to-do-when-someone-passes-away-nsw",
-    href: "/blog/what-to-do-when-someone-passes-away-nsw",
     title: "What to Do When Someone Passes Away in NSW",
     excerpt:
       "A step-by-step guide for families in New South Wales - from the moment of death through to the funeral service.",
@@ -43,7 +42,6 @@ const STATIC_ARTICLES = [
   {
     id: -2,
     slug: "how-to-plan-catholic-funeral-sydney",
-    href: "/blog/how-to-plan-catholic-funeral-sydney",
     title: "How to Plan a Catholic Funeral Mass in Sydney",
     excerpt:
       "Everything you need to know about arranging a Catholic funeral Mass in Sydney - from liaising with the parish priest to choosing readings, music, and the Mass booklet.",
@@ -58,7 +56,6 @@ const STATIC_ARTICLES = [
   {
     id: -3,
     slug: "understanding-funeral-costs-sydney",
-    href: "/blog/understanding-funeral-costs-sydney",
     title: "Understanding Funeral Costs in Sydney 2026",
     excerpt:
       "A transparent breakdown of what funerals cost in Sydney in 2026 - including what's included, what's extra, and how to compare funeral directors without being misled.",
@@ -73,7 +70,6 @@ const STATIC_ARTICLES = [
   {
     id: -4,
     slug: "macarthur-memorial-park-guide",
-    href: "/blog/macarthur-memorial-park-guide",
     title: "Macquarie Memorial Park - Sydney's Newest Cemetery Guide",
     excerpt:
       "Everything families need to know about Macquarie Memorial Park in Campbelltown - location, burial options, pricing, and how to arrange a service there.",
@@ -144,7 +140,6 @@ function AnimatedCounter({ value, label }: { value: number; label: string }) {
 type UnifiedPost = {
   id: number;
   slug: string;
-  href?: string;
   title: string;
   excerpt: string;
   imageUrl: string | null;
@@ -165,7 +160,7 @@ function BlogCard({
   index: number;
   onTagClick: (tag: string) => void;
 }) {
-  const href = post.href ?? `/blog/article/${post.slug}`;
+  const href = `/blog/${post.slug}`;
 
   return (
     <motion.article
@@ -250,7 +245,7 @@ function BlogCard({
 
 // ── FeaturedPostCard ──────────────────────────────────────────────────────────
 function FeaturedPostCard({ post }: { post: UnifiedPost }) {
-  const href = post.href ?? `/blog/article/${post.slug}`;
+  const href = `/blog/${post.slug}`;
 
   return (
     <motion.div
