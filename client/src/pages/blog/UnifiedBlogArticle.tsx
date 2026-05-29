@@ -40,7 +40,9 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { COMPANY } from "../../../../shared/company";
-import { Streamdown } from "streamdown";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 import { getStaticArticle, STATIC_ARTICLES, type StaticArticle } from "./staticArticles";
 
 // ── Utility ───────────────────────────────────────────────────────────────────
@@ -724,11 +726,11 @@ function ArticleContent({ content }: { content: string }) {
   return (
     <div>
       <div className={proseClasses}>
-        <Streamdown>{before}</Streamdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>{before}</ReactMarkdown>
       </div>
       <InContentCTA />
       <div className={proseClasses}>
-        <Streamdown>{after.replace("<!-- profi_tipp -->", "").replace("<!-- key_takeaway -->", "")}</Streamdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>{after.replace("<!-- profi_tipp -->", "").replace("<!-- key_takeaway -->", "")}</ReactMarkdown>
       </div>
       {profiTippText && <ProfiTipp text={profiTippText} />}
       {keyTakeawayItems.length > 0 && <KeyTakeaway items={keyTakeawayItems} />}

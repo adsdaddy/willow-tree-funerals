@@ -21,7 +21,9 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { COMPANY } from "../../../../shared/company";
-import { Streamdown } from "streamdown";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 
 // ── Utility ───────────────────────────────────────────────────────────────────
 function formatDate(d: Date | string | null | undefined) {
@@ -534,12 +536,12 @@ function ArticleContent({ content }: { content: string }) {
 
   return (
     <div>
-      <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-brand-navy prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600">
-        <Streamdown>{before}</Streamdown>
+      <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-brand-navy prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600 prose-img:rounded-lg prose-img:my-6">
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>{before}</ReactMarkdown>
       </div>
       <InContentCTA />
-      <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-brand-navy prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600">
-        <Streamdown>{after}</Streamdown>
+      <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-brand-navy prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600 prose-img:rounded-lg prose-img:my-6">
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>{after}</ReactMarkdown>
       </div>
       {faqItems.length > 0 && <FAQAccordion items={faqItems} />}
     </div>
