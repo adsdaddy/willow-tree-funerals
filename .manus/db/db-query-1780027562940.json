@@ -1,0 +1,27 @@
+{
+  "query": "UPDATE blog_posts \nSET content = REGEXP_REPLACE(content, '^# [^\\n]+\\n+', '')\nWHERE content REGEXP '^# ';\nSELECT id, slug, SUBSTRING(content, 1, 200) as content_start FROM blog_posts ORDER BY id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2RFa2Pjc5FP5KeX.182b4064fe88 --database mxnFESxuEjBzvxvPzCeyFt --execute UPDATE blog_posts \nSET content = REGEXP_REPLACE(content, '^# [^\\n]+\\n+', '')\nWHERE content REGEXP '^# ';\nSELECT id, slug, SUBSTRING(content, 1, 200) as content_start FROM blog_posts ORDER BY id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "30003",
+      "slug": "updating-your-pre-arranged-funeral-plan-a-guide",
+      "content_start": "![What Are Red Flags on Disability Update Report | SSDI Guide](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disab"
+    },
+    {
+      "id": "30002",
+      "slug": "what-is-a-celebration-of-life-a-family-guide-1780027321337",
+      "content_start": "![Recommended Image](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021292889_memorial-celebration-table-with-photos-and-flowers.jpeg)"
+    },
+    {
+      "id": "30001",
+      "slug": "what-is-a-celebration-of-life-a-family-guide",
+      "content_start": "![Family gathering in living room remembering loved one](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021357753_Family-gathering-in-living-room-r"
+    }
+  ],
+  "messages": [
+    "A celebrati"
+  ],
+  "stdout": "id\tslug\tcontent_start\n30003\tupdating-your-pre-arranged-funeral-plan-a-guide\t![What Are Red Flags on Disability Update Report | SSDI Guide](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disab\n30002\twhat-is-a-celebration-of-life-a-family-guide-1780027321337\t![Recommended Image](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021292889_memorial-celebration-table-with-photos-and-flowers.jpeg)\n\nA celebrati\n30001\twhat-is-a-celebration-of-life-a-family-guide\t![Family gathering in living room remembering loved one](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021357753_Family-gathering-in-living-room-r\n",
+  "stderr": "",
+  "execution_time_ms": 276
+}

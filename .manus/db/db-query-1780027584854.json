@@ -1,0 +1,15 @@
+{
+  "query": "UPDATE blog_posts \nSET \n  imageUrl = NULL,\n  content = REGEXP_REPLACE(content, '^!\\\\[[^\\\\]]*\\\\]\\\\([^)]+\\\\)\\\\n*', '')\nWHERE id = 30003;\nSELECT id, imageUrl, SUBSTRING(content, 1, 300) as content_start FROM blog_posts WHERE id = 30003;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2RFa2Pjc5FP5KeX.182b4064fe88 --database mxnFESxuEjBzvxvPzCeyFt --execute UPDATE blog_posts \nSET \n  imageUrl = NULL,\n  content = REGEXP_REPLACE(content, '^!\\\\[[^\\\\]]*\\\\]\\\\([^)]+\\\\)\\\\n*', '')\nWHERE id = 30003;\nSELECT id, imageUrl, SUBSTRING(content, 1, 300) as content_start FROM blog_posts WHERE id = 30003;",
+  "rows": [
+    {
+      "id": "30003",
+      "imageUrl": "NULL",
+      "content_start": "A pre-arranged funeral plan is a formal contract with a funeral provider that locks in your service preferences and, in most cases, today’s pricing. Updating a pre-arranged funeral plan means revising that contract to reflect your current wishes, life circumstances, and personal preferences. This up"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\timageUrl\tcontent_start\n30003\tNULL\tA pre-arranged funeral plan is a formal contract with a funeral provider that locks in your service preferences and, in most cases, today’s pricing. Updating a pre-arranged funeral plan means revising that contract to reflect your current wishes, life circumstances, and personal preferences. This up\n",
+  "stderr": "",
+  "execution_time_ms": 278
+}

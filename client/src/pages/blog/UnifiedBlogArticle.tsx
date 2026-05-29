@@ -670,7 +670,11 @@ function RelatedPostsSection({ slug, staticRelatedSlugs }: { slug: string; stati
 
 // ── ArticleContent ────────────────────────────────────────────────────────────
 function ArticleContent({ content }: { content: string }) {
-  const cleaned = content.replace(/<!--\s*jsonld:[^>]*-->/g, "");
+  // Remove leading H1 (title already shown in hero header) and strip JSON-LD comments
+  const cleaned = content
+    .replace(/^#\s+.+\n?/, "")  // strip leading H1
+    .replace(/<!--\s*jsonld:[^>]*-->/g, "")  // strip JSON-LD comments
+    .trim();
 
   // Extract FAQ section
   const faqMatch = cleaned.match(
@@ -715,7 +719,7 @@ function ArticleContent({ content }: { content: string }) {
   const before = paragraphs.slice(0, insertAt).join("\n\n");
   const after = paragraphs.slice(insertAt).join("\n\n");
 
-  const proseClasses = "prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-brand-navy prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600 prose-blockquote:bg-blue-50/50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-h2:scroll-mt-20 prose-h2:border-b prose-h2:border-gray-100 prose-h2:pb-2";
+  const proseClasses = "prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-brand-navy prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-brand-royal prose-strong:text-brand-navy prose-li:text-gray-700 prose-blockquote:border-brand-royal prose-blockquote:text-gray-600 prose-blockquote:bg-blue-50/50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-h2:scroll-mt-20 prose-h2:border-b prose-h2:border-gray-100 prose-h2:pb-2 prose-img:rounded-xl prose-img:w-full prose-img:my-8 prose-img:shadow-md";
 
   return (
     <div>

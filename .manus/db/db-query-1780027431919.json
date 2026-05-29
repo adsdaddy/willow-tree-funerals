@@ -1,0 +1,22 @@
+{
+  "query": "\nUPDATE blog_posts \nSET imageUrl = REGEXP_SUBSTR(content, 'https?://[^)]+\\\\.(?:jpeg|jpg|png|webp|gif)')\nWHERE imageUrl IS NULL \n  AND content REGEXP '!\\\\[.*?\\\\]\\\\(https?://';\nSELECT id, title, slug, imageUrl FROM blog_posts ORDER BY id DESC LIMIT 20;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2RFa2Pjc5FP5KeX.182b4064fe88 --database mxnFESxuEjBzvxvPzCeyFt --execute \nUPDATE blog_posts \nSET imageUrl = REGEXP_SUBSTR(content, 'https?://[^)]+\\\\.(?:jpeg|jpg|png|webp|gif)')\nWHERE imageUrl IS NULL \n  AND content REGEXP '!\\\\[.*?\\\\]\\\\(https?://';\nSELECT id, title, slug, imageUrl FROM blog_posts ORDER BY id DESC LIMIT 20;\n",
+  "rows": [
+    {
+      "id": "30002",
+      "title": "What is a celebration of life? A family guide",
+      "slug": "what-is-a-celebration-of-life-a-family-guide-1780027321337",
+      "imageUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021292889_memorial-celebration-table-with-photos-and-flowers.jpeg"
+    },
+    {
+      "id": "30001",
+      "title": "What is a celebration of life? A family guide",
+      "slug": "what-is-a-celebration-of-life-a-family-guide",
+      "imageUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021357753_Family-gathering-in-living-room-remembering-loved-one.jpeg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tslug\timageUrl\n30002\tWhat is a celebration of life? A family guide\twhat-is-a-celebration-of-life-a-family-guide-1780027321337\thttps://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021292889_memorial-celebration-table-with-photos-and-flowers.jpeg\n30001\tWhat is a celebration of life? A family guide\twhat-is-a-celebration-of-life-a-family-guide\thttps://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021357753_Family-gathering-in-living-room-remembering-loved-one.jpeg\n",
+  "stderr": "",
+  "execution_time_ms": 284
+}

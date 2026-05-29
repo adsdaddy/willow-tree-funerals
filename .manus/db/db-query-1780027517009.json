@@ -1,0 +1,31 @@
+{
+  "query": "SELECT id, slug, \n  LENGTH(content) as total_len,\n  LENGTH(content) - LENGTH(REPLACE(content, '\\n', '')) as newline_count,\n  LENGTH(content) - LENGTH(REPLACE(content, ';', '')) as semicolon_count,\n  SUBSTRING(content, 1, 500) as preview\nFROM blog_posts ORDER BY id DESC LIMIT 2;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2RFa2Pjc5FP5KeX.182b4064fe88 --database mxnFESxuEjBzvxvPzCeyFt --execute SELECT id, slug, \n  LENGTH(content) as total_len,\n  LENGTH(content) - LENGTH(REPLACE(content, '\\n', '')) as newline_count,\n  LENGTH(content) - LENGTH(REPLACE(content, ';', '')) as semicolon_count,\n  SUBSTRING(content, 1, 500) as preview\nFROM blog_posts ORDER BY id DESC LIMIT 2;",
+  "rows": [
+    {
+      "id": "30003",
+      "slug": "updating-your-pre-arranged-funeral-plan-a-guide",
+      "total_len": "19438",
+      "newline_count": "181",
+      "semicolon_count": "2",
+      "preview": "# Updating your pre-arranged funeral plan: a guide"
+    },
+    {
+      "id": "30002",
+      "slug": "what-is-a-celebration-of-life-a-family-guide-1780027321337",
+      "total_len": "21225",
+      "newline_count": "172",
+      "semicolon_count": "0",
+      "preview": "# What is a celebration of life? A family guide"
+    }
+  ],
+  "messages": [
+    "![What Are Red Flags on Disability Update Report | SSDI Guide](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disability-update-report-ssdi-guide.jpeg)",
+    "A pre-arranged funeral plan is a formal contract with a funeral provider that locks in your service preferences and, in most cases, today’s pricing. Updating a pre-arranged funeral plan means revising that cont",
+    "![Recommended Image](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021292889_memorial-celebration-table-with-photos-and-flowers.jpeg)",
+    "A celebration of life is a personalised gathering that honours the unique personality, passions, and memories of someone who has passed away, with the focus placed firmly on joy and remembrance rather than mourning. Known in the funeral industry as a “life celeb"
+  ],
+  "stdout": "id\tslug\ttotal_len\tnewline_count\tsemicolon_count\tpreview\n30003\tupdating-your-pre-arranged-funeral-plan-a-guide\t19438\t181\t2\t# Updating your pre-arranged funeral plan: a guide\n\n![What Are Red Flags on Disability Update Report | SSDI Guide](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disability-update-report-ssdi-guide.jpeg)\n\nA pre-arranged funeral plan is a formal contract with a funeral provider that locks in your service preferences and, in most cases, today’s pricing. Updating a pre-arranged funeral plan means revising that cont\n30002\twhat-is-a-celebration-of-life-a-family-guide-1780027321337\t21225\t172\t0\t# What is a celebration of life? A family guide\n\n![Recommended Image](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021292889_memorial-celebration-table-with-photos-and-flowers.jpeg)\n\nA celebration of life is a personalised gathering that honours the unique personality, passions, and memories of someone who has passed away, with the focus placed firmly on joy and remembrance rather than mourning. Known in the funeral industry as a “life celeb\n",
+  "stderr": "",
+  "execution_time_ms": 265
+}

@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, title, imageUrl, SUBSTRING(content, 1, 1000) as content_start FROM blog_posts WHERE id = 30003;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2RFa2Pjc5FP5KeX.182b4064fe88 --database mxnFESxuEjBzvxvPzCeyFt --execute SELECT id, title, imageUrl, SUBSTRING(content, 1, 1000) as content_start FROM blog_posts WHERE id = 30003;",
+  "rows": [
+    {
+      "id": "30003",
+      "title": "Updating your pre-arranged funeral plan: a guide",
+      "imageUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disability-update-report-ssdi-guide.jpeg",
+      "content_start": "![What Are Red Flags on Disability Update Report | SSDI Guide](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disability-update-report-ssdi-guide.jpeg)"
+    }
+  ],
+  "messages": [
+    "A pre-arranged funeral plan is a formal contract with a funeral provider that locks in your service preferences and, in most cases, today’s pricing. Updating a pre-arranged funeral plan means revising that contract to reflect your current wishes, life circumstances, and personal preferences. This updating pre-arranged funeral plan guide covers the key triggers for change, the legal and contractual steps involved, how to personalise your arrangements, and how to keep your updated plan accessible to the people who need it most. Families who treat this as a living document rather than a one-time task spare their loved ones considerable distress.",
+    "## When and why should you update your pre-arranged funeral plan?",
+    "[Major life events](https://oaktreememorial"
+  ],
+  "stdout": "id\ttitle\timageUrl\tcontent_start\n30003\tUpdating your pre-arranged funeral plan: a guide\thttps://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disability-update-report-ssdi-guide.jpeg\t![What Are Red Flags on Disability Update Report | SSDI Guide](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780027386372_what-are-red-flags-on-disability-update-report-ssdi-guide.jpeg)\n\nA pre-arranged funeral plan is a formal contract with a funeral provider that locks in your service preferences and, in most cases, today’s pricing. Updating a pre-arranged funeral plan means revising that contract to reflect your current wishes, life circumstances, and personal preferences. This updating pre-arranged funeral plan guide covers the key triggers for change, the legal and contractual steps involved, how to personalise your arrangements, and how to keep your updated plan accessible to the people who need it most. Families who treat this as a living document rather than a one-time task spare their loved ones considerable distress.\n\n## When and why should you update your pre-arranged funeral plan?\n\n[Major life events](https://oaktreememorial\n",
+  "stderr": "",
+  "execution_time_ms": 263
+}

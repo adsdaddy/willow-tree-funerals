@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, title, slug, imageUrl, LEFT(content, 500) as content_preview FROM blog_posts WHERE slug = 'what-is-a-celebration-of-life-a-family-guide';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2RFa2Pjc5FP5KeX.182b4064fe88 --database mxnFESxuEjBzvxvPzCeyFt --execute SELECT id, title, slug, imageUrl, LEFT(content, 500) as content_preview FROM blog_posts WHERE slug = 'what-is-a-celebration-of-life-a-family-guide';",
+  "rows": [
+    {
+      "id": "30001",
+      "title": "What is a celebration of life? A family guide",
+      "slug": "what-is-a-celebration-of-life-a-family-guide",
+      "imageUrl": "NULL",
+      "content_preview": "# What is a celebration of life? A family guide"
+    }
+  ],
+  "messages": [
+    "![Family gathering in living room remembering loved one](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021357753_Family-gathering-in-living-room-remembering-loved-one.jpeg)",
+    "A celebration of life is a personalised gathering that honours the unique personality, passions, and memories of someone who has passed away, with the focus placed firmly on joy and remembrance rather than mourning. Known i"
+  ],
+  "stdout": "id\ttitle\tslug\timageUrl\tcontent_preview\n30001\tWhat is a celebration of life? A family guide\twhat-is-a-celebration-of-life-a-family-guide\tNULL\t# What is a celebration of life? A family guide\n\n![Family gathering in living room remembering loved one](https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-6784/1780021357753_Family-gathering-in-living-room-remembering-loved-one.jpeg)\n\nA celebration of life is a personalised gathering that honours the unique personality, passions, and memories of someone who has passed away, with the focus placed firmly on joy and remembrance rather than mourning. Known i\n",
+  "stderr": "",
+  "execution_time_ms": 270
+}

@@ -45,6 +45,12 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
+/** Extract the first markdown image URL from content, e.g. ![alt](url) */
+function extractFirstImageUrl(markdown: string): string | null {
+  const match = markdown.match(/!\[[^\]]*\]\(([^)]+)\)/);
+  return match ? match[1] : null;
+}
+
 // ── Auth middleware ───────────────────────────────────────────────────────────
 
 function requireApiKey(req: Request, res: Response, next: () => void) {
@@ -127,7 +133,14 @@ export function registerBlogApiRoutes(app: { use: Function }) {
       }
 
       // Content: prefer markdown, fall back to HTML
-      const content = body.content_markdown?.trim() || stripHtml(body.content_html ?? "") || "";
+      // babylovegrowth.ai sometimes sends content with ";" as line separators instead of "\n"
+      // Normalise to proper markdown newlines so the renderer works correctly
+      const rawContent = body.content_markdown?.trim() || stripHtml(body.content_html ?? "") || "";
+      const normalised = rawContent.includes("\n")
+        ? rawContent  // already has newlines, use as-is
+        : rawContent.replace(/;\s*/g, "\n\n").trim();  // convert semicolons to paragraph breaks
+      // Strip leading H1 (title is stored in the title field, no need to repeat in content)
+      const content = normalised.replace(/^#\s+.+\n?/, "").trim();
       if (!content) {
         res.status(400).json({ error: "content_markdown or content_html is required" });
         return;
@@ -155,12 +168,15 @@ export function registerBlogApiRoutes(app: { use: Function }) {
       const readingTime = estimateReadingTime(content);
       const publishedAt = body.createdAt ? new Date(body.createdAt) : new Date();
 
+      // Extract hero image: prefer explicit heroImageUrl, fall back to first image in markdown
+      const heroImage = body.heroImageUrl ?? extractFirstImageUrl(content) ?? null;
+
       const [result] = await db.insert(blogPosts).values({
         title: body.title.trim(),
         slug,
         excerpt,
         content: finalContent,
-        imageUrl: body.heroImageUrl ?? null,
+        imageUrl: heroImage,
         tags,
         author: "Willow Tree Funerals",
         readingTime,
