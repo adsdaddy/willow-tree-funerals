@@ -51,7 +51,7 @@ async function startServer() {
         "default-src 'self'",
         "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com",
         "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data: blob: https://d2xsxph8kpxj0f.cloudfront.net https://www.facebook.com https://*.googletagmanager.com",
+        "img-src 'self' data: blob: https://d2xsxph8kpxj0f.cloudfront.net https://www.facebook.com https://*.googletagmanager.com https://*.supabase.co https://*.supabase.in https://images.unsplash.com https://*.amazonaws.com https://*.cloudinary.com",
         "font-src 'self' https://d2xsxph8kpxj0f.cloudfront.net",
         "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com https://*.cloudfront.net",
         "frame-src 'self' https://www.google.com",
