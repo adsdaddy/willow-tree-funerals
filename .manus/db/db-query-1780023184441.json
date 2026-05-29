@@ -1,0 +1,9 @@
+{
+  "query": "SELECT id, title, slug, tags, author, readingTime, publishedAt, createdAt FROM blog_posts ORDER BY createdAt DESC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2RFa2Pjc5FP5KeX.182b4064fe88 --database mxnFESxuEjBzvxvPzCeyFt --execute SELECT id, title, slug, tags, author, readingTime, publishedAt, createdAt FROM blog_posts ORDER BY createdAt DESC LIMIT 20;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 262
+}
