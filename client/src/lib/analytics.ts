@@ -77,15 +77,22 @@ export function trackEvent(
 
 /**
  * Track a phone number click.
- * GA4: phone_click (custom)
+ * GA4: Ads_Phone_Call_Click (imported as Google Ads conversion)
+ * GA4: phone_click (legacy, kept for historical continuity)
  * Meta: Contact (standard)
  */
 export function trackPhoneClick(source: string = "unknown"): void {
+  // Fire the GA4 event that Google Ads imports as a conversion
   trackEvent(
-    "phone_click",
+    "Ads_Phone_Call_Click",
     { event_category: "contact", event_label: source, value: 1 },
     "Contact",
     { content_name: "phone_click", source },
+  );
+  // Also fire legacy event name for GA4 reporting continuity
+  trackEvent(
+    "phone_click",
+    { event_category: "contact", event_label: source, value: 1 },
   );
   trackGAdsConversion('phone_click');
 }

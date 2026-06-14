@@ -381,3 +381,4 @@
 - [x] Fix blog.getAll tRPC limit validator: raised max from 24 to 100 so BlogIndex.tsx limit:100 query works
 - [x] Remove 2 duplicate DB articles (IDs 60001, 30002) created by old webhook double-send behaviour
 - [x] Blog page now shows all 6 articles: 4 static + 2 babylovegrowth.ai DB articles
+- [x] Wire Ads_Phone_Call_Click GA4 event for Google Ads conversion tracking (GA4-imported conversion)
