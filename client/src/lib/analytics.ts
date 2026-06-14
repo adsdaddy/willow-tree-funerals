@@ -99,61 +99,90 @@ export function trackPhoneClick(source: string = "unknown"): void {
 
 /**
  * Track a contact form submission.
- * GA4: generate_lead (recommended)
+ * GA4: Ads_Form_Submit (imported as Google Ads conversion)
+ * GA4: generate_lead (legacy, kept for historical continuity)
  * Meta: Lead (standard)
  */
 export function trackContactFormSubmit(): void {
+  // Fire the GA4 event that Google Ads imports as a conversion
   trackEvent(
-    "generate_lead",
+    "Ads_Form_Submit",
     { event_category: "form", event_label: "contact_form", value: 1 },
     "Lead",
     { content_name: "contact_form" },
+  );
+  // Also fire legacy event name for GA4 reporting continuity
+  trackEvent(
+    "generate_lead",
+    { event_category: "form", event_label: "contact_form", value: 1 },
   );
   trackGAdsConversion('generate_lead');
 }
 
 /**
  * Track a pre-arrangement enquiry form submission.
- * GA4: generate_lead
- * Meta: Lead
+ * GA4: Ads_Form_Submit (imported as Google Ads conversion)
+ * GA4: generate_lead (legacy, kept for historical continuity)
+ * Meta: Lead (standard)
  */
 export function trackPreArrangeFormSubmit(): void {
+  // Fire the GA4 event that Google Ads imports as a conversion
   trackEvent(
-    "generate_lead",
+    "Ads_Form_Submit",
     { event_category: "form", event_label: "pre_arrange_form", value: 1 },
     "Lead",
     { content_name: "pre_arrange_form" },
+  );
+  // Also fire legacy event name for GA4 reporting continuity
+  trackEvent(
+    "generate_lead",
+    { event_category: "form", event_label: "pre_arrange_form", value: 1 },
   );
   trackGAdsConversion('generate_lead');
 }
 
 /**
  * Track a flowers enquiry form submission.
- * GA4: generate_lead
- * Meta: Lead
+ * GA4: Ads_Form_Submit (imported as Google Ads conversion)
+ * GA4: generate_lead (legacy, kept for historical continuity)
+ * Meta: Lead (standard)
  */
 export function trackFlowersFormSubmit(): void {
+  // Fire the GA4 event that Google Ads imports as a conversion
   trackEvent(
-    "generate_lead",
+    "Ads_Form_Submit",
     { event_category: "form", event_label: "flowers_enquiry_form", value: 1 },
     "Lead",
     { content_name: "flowers_enquiry_form" },
+  );
+  // Also fire legacy event name for GA4 reporting continuity
+  trackEvent(
+    "generate_lead",
+    { event_category: "form", event_label: "flowers_enquiry_form", value: 1 },
   );
   trackGAdsConversion('generate_lead');
 }
 
 /**
  * Track an obituary tribute form submission.
- * GA4: generate_lead
- * Meta: Lead
+ * GA4: Ads_Form_Submit (imported as Google Ads conversion)
+ * GA4: generate_lead (legacy, kept for historical continuity)
+ * Meta: Lead (standard)
  */
 export function trackObituaryFormSubmit(): void {
+  // Fire the GA4 event that Google Ads imports as a conversion
   trackEvent(
-    "generate_lead",
+    "Ads_Form_Submit",
     { event_category: "form", event_label: "obituary_form", value: 1 },
     "Lead",
     { content_name: "obituary_form" },
   );
+  // Also fire legacy event name for GA4 reporting continuity
+  trackEvent(
+    "generate_lead",
+    { event_category: "form", event_label: "obituary_form", value: 1 },
+  );
+  trackGAdsConversion('generate_lead');
 }
 
 /**
@@ -172,15 +201,22 @@ export function trackCTAClick(label: string, source: string = "unknown"): void {
 
 /**
  * Track a WhatsApp button click.
- * GA4: whatsapp_click (custom)
+ * GA4: Ads_WhatsApp_Click (imported as Google Ads conversion)
+ * GA4: whatsapp_click (legacy, kept for historical continuity)
  * Meta: Contact
  */
 export function trackWhatsAppClick(source: string = "unknown"): void {
+  // Fire the GA4 event that Google Ads imports as a conversion
   trackEvent(
-    "whatsapp_click",
+    "Ads_WhatsApp_Click",
     { event_category: "contact", event_label: source, value: 1 },
     "Contact",
     { content_name: "whatsapp_click", source },
+  );
+  // Also fire legacy event name for GA4 reporting continuity
+  trackEvent(
+    "whatsapp_click",
+    { event_category: "contact", event_label: source, value: 1 },
   );
   trackGAdsConversion('whatsapp_click');
 }

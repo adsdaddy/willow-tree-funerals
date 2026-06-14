@@ -382,3 +382,5 @@
 - [x] Remove 2 duplicate DB articles (IDs 60001, 30002) created by old webhook double-send behaviour
 - [x] Blog page now shows all 6 articles: 4 static + 2 babylovegrowth.ai DB articles
 - [x] Wire Ads_Phone_Call_Click GA4 event for Google Ads conversion tracking (GA4-imported conversion)
+- [x] Wire Ads_Form_Submit GA4 event for Google Ads conversion tracking (all 4 form types: contact, pre-arrange, flowers, obituary)
+- [x] Wire Ads_WhatsApp_Click GA4 event for Google Ads conversion tracking (WhatsApp button clicks)
