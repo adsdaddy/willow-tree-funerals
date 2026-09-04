@@ -384,3 +384,15 @@
 - [x] Wire Ads_Phone_Call_Click GA4 event for Google Ads conversion tracking (GA4-imported conversion)
 - [x] Wire Ads_Form_Submit GA4 event for Google Ads conversion tracking (all 4 form types: contact, pre-arrange, flowers, obituary)
 - [x] Wire Ads_WhatsApp_Click GA4 event for Google Ads conversion tracking (WhatsApp button clicks)
+
+## Vollständiges Website-Backup (31. August 2026)
+- [x] Vollständiges Inventar von Code, Datenbank, Blogs, Medien, Automatisierungen, Konfiguration und Wiederherstellungsanforderungen erstellen
+- [x] Portables Backup-Paket mit Datenbankexport, Inhaltsindex, Medienkopien, Konfigurationsübersicht, Wiederherstellungsanleitung und Prüfsummen erzeugen
+- [x] Backup in einem GitHub-Repository sichern und die erfolgreiche Übertragung verifizieren
+- [x] Backup in Google Drive unter AV Second Brain/Ventures/Heavenly-Marketing/departments/client-services/active/Willow-Tree-Funerals/website-backup/ sichern und verifizieren
+
+## Backup-Verifizierung (31. August 2026)
+- [x] GitHub-Backup auf Repository, Commit, Archivgröße und Prüfsumme prüfen
+- [x] Google-Drive-Backup auf exakten Zielpfad, Dateien, Größen und Prüfsummen prüfen
+- [x] Vollständigkeit von Code, Datenbank, Blog, Medien, Automatisierungen, Konfiguration und Plattformdaten gegen den Websitebestand abgleichen
+- [x] Verifizierungsbericht mit bestätigten Bestandteilen und verbleibenden Einschränkungen erstellen
