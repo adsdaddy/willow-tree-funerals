@@ -12,7 +12,7 @@ The fresh snapshot is complete at `2026-11-06T07:17:02.392Z` UTC: 122 published 
 
 Read `docs/MEDIA-EXCEPTIONS.md`: seven broad-scan candidates failed, with four external PDF citations still without archived bytes. The one obsolete Open Graph JPEG has been explicitly replaced with the preserved current homepage WebP. Dynamic tracking and an unused documentation image are not lost website media. Future ingestion media rehosting remains an operational policy to implement, not an automation already configured.
 
-The GitHub release is intended at https://github.com/adsdaddy/willow-tree-funerals/releases/tag/migration-2026-11-06-prepared . Verify final publication and the externally uploaded delivery record before relying on this URL. Recoverable files use `willow-tree-funerals-public-handover-20261106.tar.gz`, `willow-tree-funerals-full-20261106.tar.gz.age` and `willow-tree-funerals-migration-20261106.sha256`. Restricted Drive also holds the plaintext full archive and `willow-tree-funerals-recovery-20261106.key.txt` separately. Read `docs/ENCRYPTED-RECOVERY.md` before decrypting. Do not substitute September data or expose the key.
+The GitHub release is confirmed at https://github.com/adsdaddy/willow-tree-funerals/releases/tag/migration-2026-11-06-prepared . The public and encrypted archives were independently downloaded and their SHA-256 values matched. Read `docs/DELIVERY-RECORD.md` for exact published artifacts, Drive IDs and successful container CI. The tested code/artifact commit is `c7b5c16f27d9427c3b266571c7ff2670afac59ef`; later documentation-only updates do not change that archived code. Recoverable files use `willow-tree-funerals-public-handover-20261106.tar.gz`, `willow-tree-funerals-full-20261106.tar.gz.age` and `willow-tree-funerals-migration-20261106.sha256`. Restricted Drive also holds the plaintext full archive and `willow-tree-funerals-recovery-20261106.key.txt` separately. Read `docs/ENCRYPTED-RECOVERY.md` before decrypting. Do not substitute September data or expose the key.
 
 
 ## Starting context and exact recovery locations
@@ -25,7 +25,7 @@ Historical baseline: https://github.com/adsdaddy/willow-tree-funerals/releases/t
 
 Restricted Drive: https://drive.google.com/drive/folders/1MJAK__sJXJecS0xKkgVGN4PtD_ZPuTTS . It is in `AV - Second Brain / 00_Second_Brain/A_Obsidian_Vault/Ventures/Heavenly-Marketing/departments/client-services/active/Willow-Tree-Funerals/website-backup`. Historical full final3 file ID: `1lM7GwKsIF4AL9TPlcQ7Acr4qO3EmT118`. Find and verify the fresh November files rather than assuming that historical archive is fresh.
 
-The prepared release is intended for tag `migration-2026-11-06-prepared`. Verify publication, exact file names, commit, hashes, encryption/decryption recovery and restricted Drive IDs. Do not invent uploaded artifacts or say backup/media preservation succeeded without evidence.
+The prepared release is published as `migration-2026-11-06-prepared`. Verify publication, exact file names, commit, hashes, encryption/decryption recovery and restricted Drive IDs. Do not invent uploaded artifacts or say backup/media preservation succeeded without evidence.
 
 The prior investigation saw generic Manus Space HTTP 404 at all three hosted addresses on 6 November 2026 at approximately 06:58 UTC. The cause is unproven. The local original source was safe. The site has NOT yet been verified live on Railway, and provider setup/cutover remain pending. Railway, Cloudflare and R2 access were not available during preparation.
 

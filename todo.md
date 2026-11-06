@@ -422,8 +422,9 @@
 - [x] Credential-free production smoke: 451 checks passed, zero failures
 - [x] English operational handover, copy-paste prompt and acceptance/rollback plan
 - [x] Clean staged-source secret scan without exclusions
-- [ ] Verify final GitHub branch/release and restricted Drive publication
-- [ ] Authorized Railway project/MySQL deployment and actual container CI check
+- [x] Verify final GitHub branch/release and restricted Drive publication
+- [x] Actual GitHub Docker/container CI build passed
+- [ ] Authorized Railway project/MySQL deployment
 - [ ] Verified Resend domain and real delivery tests with mailbox DNS intact
 - [ ] R2 upload/hash/CORS/custom-domain acceptance
 - [ ] Final publishing freeze/snapshot/delta and webhook replay/key cutover
