@@ -31,6 +31,12 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  // Behind Cloudflare + Railway: trust the proxy so req.ip and protocol are right
+  app.set("trust proxy", true);
+  // Railway health check
+  app.get("/healthz", (_req, res) => {
+    res.status(200).json({ ok: true });
+  });
 
   // ── Security headers (PageSpeed Best Practices + WCAG) ────────────────────
   app.use((_req, res, next) => {

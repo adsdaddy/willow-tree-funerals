@@ -112,3 +112,6 @@ temp/
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
 .project-config.json
+
+# Migration snapshots (live content export, kept out of git)
+migration/
