@@ -9,10 +9,11 @@ vi.mock("./_core/notification", () => ({
 
 // Mock sendFormEmail so we don't make real SMTP calls in tests
 vi.mock("./email", () => ({
-  sendFormEmail: vi.fn().mockResolvedValue(undefined),
+  sendFormEmail: vi.fn().mockResolvedValue(true),
 }));
 
 import { notifyOwner } from "./_core/notification";
+import { sendFormEmail } from "./email";
 
 function createPublicContext(): TrpcContext {
   return {
@@ -37,6 +38,7 @@ const validInput = {
 describe("flowers.submitEnquiry", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.mocked(sendFormEmail).mockResolvedValue(true);
   });
 
   it("returns success:true when all required fields are provided", async () => {
@@ -45,36 +47,49 @@ describe("flowers.submitEnquiry", () => {
     expect(result).toEqual({ success: true, notified: true });
   });
 
-  it("calls notifyOwner with a title containing the name, arrangement type, and date", async () => {
+  it("sends one email with a subject containing the name, arrangement type, and date", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     await caller.flowers.submitEnquiry(validInput);
 
-    expect(notifyOwner).toHaveBeenCalledOnce();
-    const call = vi.mocked(notifyOwner).mock.calls[0]![0];
-    expect(call.title).toContain("Maria Santos");
-    expect(call.title).toContain("Wreath Tribute");
-    expect(call.title).toContain("2026-05-10");
+    expect(sendFormEmail).toHaveBeenCalledOnce();
+    expect(notifyOwner).not.toHaveBeenCalled();
+    const call = vi.mocked(sendFormEmail).mock.calls[0]![0];
+    expect(call.subject).toContain("Maria Santos");
+    expect(call.subject).toContain("Wreath Tribute");
+    expect(call.subject).toContain("2026-05-10");
   });
 
-  it("includes the director email and phone in the notification content", async () => {
+  it("includes the director email and phone in the email body", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     await caller.flowers.submitEnquiry(validInput);
 
-    const call = vi.mocked(notifyOwner).mock.calls[0]![0];
-    expect(call.content).toContain("director@willowtreefunerals.com.au");
-    expect(call.content).toContain("02 8776 1667");
+    const call = vi.mocked(sendFormEmail).mock.calls[0]![0];
+    expect(call.body).toContain("director@willowtreefunerals.com.au");
+    expect(call.body).toContain("02 8776 1667");
   });
 
-  it("includes delivery address and service date in the notification content", async () => {
+  it("includes delivery address and service date in the email body", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     await caller.flowers.submitEnquiry(validInput);
 
-    const call = vi.mocked(notifyOwner).mock.calls[0]![0];
-    expect(call.content).toContain("St George Catholic Church");
-    expect(call.content).toContain("Hurstville");
-    expect(call.content).toContain("2026-05-10");
+    const call = vi.mocked(sendFormEmail).mock.calls[0]![0];
+    expect(call.body).toContain("St George Catholic Church");
+    expect(call.body).toContain("Hurstville");
+    expect(call.body).toContain("2026-05-10");
   });
 
+  it("fails visibly instead of returning success when email fails", async () => {
+    vi.mocked(sendFormEmail).mockRejectedValueOnce(
+      new Error("private provider details")
+    );
+    await expect(
+      appRouter
+        .createCaller(createPublicContext())
+        .flowers.submitEnquiry(validInput)
+    ).rejects.toMatchObject({ code: "INTERNAL_SERVER_ERROR" });
+    expect(sendFormEmail).toHaveBeenCalledOnce();
+    expect(notifyOwner).not.toHaveBeenCalled();
+  });
   it("works without optional fields (email, serviceTime, customArrangement, additionalNotes)", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     const minimalInput = {

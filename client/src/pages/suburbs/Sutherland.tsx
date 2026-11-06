@@ -1,6 +1,6 @@
 import SuburbPageTemplate from "@/components/SuburbPageTemplate";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20240920-WA0186_e139bdc4.jpg";
+const HERO_IMG = "/media/d92cfa0de1d5888dc290e1b50c6570005dc1e488624b365aded5ccccdb1e1615.jpg";
 
 export default function Sutherland() {
   return (

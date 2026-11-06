@@ -1,10 +1,10 @@
-// Service Worker — Willow Tree Funerals
+// Service Worker - Willow Tree Funerals
 // Cache-first strategy for fonts, images, and JS chunks
 // Stale-while-revalidate for HTML pages
 // Network-first for API calls
 
-const CACHE_VERSION = 'wtf-v3';
-const CDN_HOST = 'd2xsxph8kpxj0f.cloudfront.net';
+const CACHE_VERSION = 'wtf-independent-20261106-v1';
+const CDN_HOST = 'media.willowtreefunerals.com.au';
 
 // Critical assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -12,7 +12,7 @@ const PRECACHE_ASSETS = [
   '/offline.html',
 ];
 
-// Install — pre-cache shell
+// Install - pre-cache shell
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_VERSION).then((cache) => {
@@ -22,7 +22,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Activate — purge old caches
+// Activate - purge old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((names) =>
@@ -44,13 +44,13 @@ self.addEventListener('fetch', (event) => {
   // Skip non-GET and cross-origin non-CDN requests
   if (request.method !== 'GET') return;
 
-  // Skip API calls — always network-first, no caching
+  // Skip API calls - always network-first, no caching
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(fetch(request));
     return;
   }
 
-  // Skip analytics / tracking — never cache
+  // Skip analytics / tracking - never cache
   if (
     url.hostname.includes('googletagmanager') ||
     url.hostname.includes('google-analytics') ||

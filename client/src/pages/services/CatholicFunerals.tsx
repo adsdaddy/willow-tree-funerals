@@ -8,8 +8,8 @@
 import ServicePageTemplate from "../../components/ServicePageTemplate";
 import { COMPANY } from "../../../../shared/company";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-catholic-funerals-Ry9i4YpY6eQqmfFDWm4FPn.webp";
-const FEATURE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg";
+const HERO_IMG = "/media/d5d04010d6d251c14bba93ceca26cb7202dc5165cbc576951e64270bea7130dd.webp";
+const FEATURE_IMG = "/media/7f220761d0db61d66f9ea07870fe54ff7537f07dacadf7f3d39599db93892da3.jpg";
 
 export default function CatholicFunerals() {
   return (

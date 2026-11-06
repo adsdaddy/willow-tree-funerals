@@ -19,7 +19,7 @@ export default function Burial() {
         label: "Burial Services",
         heading: "Traditional Burial Services Across Sydney",
         subheading: "Arranging dignified burials at all Sydney cemeteries, including the new MacArthur Memorial Park at Varroville.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-burial-dyz2DwAytvkPKBsAubwnKU.webp",
+        image: "/media/1c20567270606441543fd9bd0bf82f223ecd7358ad4d706aeaa77c5e49b83c6f.webp",
       }}
       intro={`Traditional burial remains the choice of many Sydney families, particularly those of Catholic, Orthodox, and other faith traditions that hold the body sacred. At Willow Tree Funerals, we coordinate all aspects of the burial process  -  from cemetery selection and grave preparation to the funeral service and graveside committal. We work with every major Sydney cemetery, and we are one of the first funeral directors to establish a presence near the new MacArthur Memorial Park at Varroville, the first new Crown cemetery to open in Sydney in nearly a century.`}
       includes={[
@@ -34,7 +34,7 @@ export default function Burial() {
         "Death certificate and all statutory documentation",
         "Personalised order of service booklet",
       ]}
-      featureImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg"
+      featureImage="/media/79f7c705d6032ce17db36994f341d7ea8e69eb78130ee5ffed5c7ad776791d0a.jpg"
       pullQuote="Blessed are those who mourn, for they shall be comforted."
       steps={[
         { num: "01", title: "First Call", desc: "Call us 24/7  -  we will come to you immediately and take care of your loved one." },

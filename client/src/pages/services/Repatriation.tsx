@@ -34,7 +34,7 @@ export default function Repatriation() {
         "Burial or cremation in Sydney or onward transport",
         "Ongoing communication with your family throughout",
       ]}
-      featureImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg"
+      featureImage="/media/7b01e157ec5b349e5b25c46a1c1081af3e1a812a5c9766781874ff88b3c64b77.jpg"
       pullQuote="Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me."
       steps={[
         { num: "01", title: "First Call", desc: "Call us immediately  -  our team will take over all coordination so your family can focus on grieving, not logistics." },

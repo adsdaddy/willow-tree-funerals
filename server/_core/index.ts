@@ -1,113 +1,78 @@
 import "dotenv/config";
-import express from "express";
-import { createServer } from "http";
-import net from "net";
-import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { registerOAuthRoutes } from "./oauth";
-import { appRouter } from "../routers";
-import { createContext } from "./context";
-import { registerBlogApiRoutes } from "../blogApi";
-import { serveStatic, setupVite } from "./vite";
+import { createServer, type Server } from "node:http";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { createApplication } from "../app";
+import { closeDatabase } from "../db";
+import { serveStatic } from "./static";
 
-function isPortAvailable(port: number): Promise<boolean> {
-  return new Promise(resolve => {
-    const server = net.createServer();
-    server.listen(port, () => {
-      server.close(() => resolve(true));
+export function getPort(value = process.env.PORT): number {
+  const raw = value ?? "3000";
+  if (!/^\d+$/.test(raw))
+    throw new Error("PORT must be an integer between 1 and 65535");
+  const port = Number(raw);
+  if (port < 1 || port > 65535)
+    throw new Error("PORT must be an integer between 1 and 65535");
+  return port;
+}
+
+export function listenServer(server: Server, port: number): Promise<void> {
+  return new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(port, "0.0.0.0", () => {
+      server.removeListener("error", reject);
+      resolve();
     });
-    server.on("error", () => resolve(false));
   });
 }
 
-async function findAvailablePort(startPort: number = 3000): Promise<number> {
-  for (let port = startPort; port < startPort + 20; port++) {
-    if (await isPortAvailable(port)) {
-      return port;
-    }
-  }
-  throw new Error(`No available port found starting from ${startPort}`);
-}
-
-async function startServer() {
-  const app = express();
+export async function startServer() {
+  const port = getPort();
+  const app = createApplication();
   const server = createServer(app);
-
-  // ── Security headers (PageSpeed Best Practices + WCAG) ────────────────────
-  app.use((_req, res, next) => {
-    // HSTS  -  force HTTPS for 1 year, include subdomains
-    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
-    // Prevent clickjacking
-    res.setHeader("X-Frame-Options", "SAMEORIGIN");
-    // Cross-Origin-Opener-Policy  -  isolate top-level browsing context
-    res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-    // X-Content-Type-Options  -  prevent MIME sniffing
-    res.setHeader("X-Content-Type-Options", "nosniff");
-    // Referrer-Policy
-    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-    // Content-Security-Policy  -  permissive but effective
-    res.setHeader(
-      "Content-Security-Policy",
-      [
-        "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com",
-        "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data: blob: https://d2xsxph8kpxj0f.cloudfront.net https://www.facebook.com https://*.googletagmanager.com https://*.supabase.co https://*.supabase.in https://images.unsplash.com https://*.amazonaws.com https://*.cloudinary.com",
-        "font-src 'self' https://d2xsxph8kpxj0f.cloudfront.net",
-        "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com https://*.cloudfront.net",
-        "frame-src 'self' https://www.google.com",
-        "frame-ancestors 'self'",
-        "base-uri 'self'",
-        "form-action 'self'",
-      ].join("; ")
-    );
-    next();
-  });
-
-  // ── www → non-www redirect (canonical: willowtreefunerals.com.au) ──────────
-  app.use((req, res, next) => {
-    const host = req.headers.host || "";
-    // Redirect www to non-www on the production domain
-    if (
-      host === "www.willowtreefunerals.com.au" ||
-      host === "www.willowtreefunerals.com.au:443"
-    ) {
-      return res.redirect(301, `https://willowtreefunerals.com.au${req.originalUrl}`);
-    }
-    next();
-  });
-
-  // Configure body parser with larger size limit for file uploads
-  app.use(express.json({ limit: "50mb" }));
-  app.use(express.urlencoded({ limit: "50mb", extended: true }));
-  // OAuth callback under /api/oauth/callback
-  registerOAuthRoutes(app);
-  // Blog webhook + REST API (babylovegrowth.ai integration)
-  registerBlogApiRoutes(app);
-  // tRPC API
-  app.use(
-    "/api/trpc",
-    createExpressMiddleware({
-      router: appRouter,
-      createContext,
-    })
-  );
-  // development mode uses Vite, production mode uses static files
+  let closeVite: (() => Promise<void>) | undefined;
   if (process.env.NODE_ENV === "development") {
-    await setupVite(app, server);
+    const { setupVite } = await import("./vite");
+    const vite = await setupVite(app, server);
+    closeVite = () => vite.close();
   } else {
     serveStatic(app);
   }
+  await listenServer(server, port);
+  console.info(`[HTTP] Listening on 0.0.0.0:${port}`);
 
-  const preferredPort = parseInt(process.env.PORT || "3000");
-  const port = await findAvailablePort(preferredPort);
-
-  if (port !== preferredPort) {
-    console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
-  }
-
-  server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/`);
-  });
+  let shuttingDown = false;
+  const shutdown = () => {
+    if (shuttingDown) return;
+    shuttingDown = true;
+    const timer = setTimeout(() => process.exit(1), 10_000);
+    timer.unref();
+    server.close(async () => {
+      try {
+        await closeVite?.();
+        await closeDatabase();
+        clearTimeout(timer);
+        process.exit(0);
+      } catch {
+        process.exit(1);
+      }
+    });
+  };
+  process.once("SIGTERM", shutdown);
+  process.once("SIGINT", shutdown);
+  return server;
 }
 
-startServer().catch(console.error);
+// Keep imports side-effect free for unit tests; the bundled entrypoint starts here.
+if (
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+) {
+  startServer().catch(() => {
+    // Do not dump errors that may contain URLs, submitted content, or credentials.
+    console.error(
+      "[HTTP] Startup failed; check PORT, media configuration, and built client assets"
+    );
+    process.exitCode = 1;
+  });
+}

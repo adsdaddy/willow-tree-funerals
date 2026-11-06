@@ -396,3 +396,37 @@
 - [x] Google-Drive-Backup auf exakten Zielpfad, Dateien, Größen und Prüfsummen prüfen
 - [x] Vollständigkeit von Code, Datenbank, Blog, Medien, Automatisierungen, Konfiguration und Plattformdaten gegen den Websitebestand abgleichen
 - [x] Verifizierungsbericht mit bestätigten Bestandteilen und verbleibenden Einschränkungen erstellen
+
+## Permanent migration away from Manus (6 November 2026)
+- [ ] Capture a fresh, verified source/database/media backup without overwriting September final3
+- [ ] Inventory and remove Manus runtime dependencies for independent Railway hosting
+- [ ] Prepare Railway deployment configuration, MySQL restoration tooling, and environment template
+- [ ] Configure Resend as the independent mail provider with mocked tests and no accidental live sends
+- [ ] Prepare Cloudflare DNS, TLS, R2 media migration, and rollback instructions without changing live DNS
+- [ ] Create the complete English migration handover brief and a self-contained prompt for the next Manus task
+- [ ] Run type checks, unit tests, production build, and local independent-runtime smoke tests
+- [ ] Secret-scan the source package and prepare a safe GitHub migration branch
+- [ ] Store and verify the new handover/backup package on GitHub and the designated Second Brain Google Drive folder
+- [ ] Document remaining access, provider setup, and production cutover acceptance gates honestly
+
+## Verified off-Manus migration preparation - 6 November 2026
+
+- [x] Independent working branch created without overwriting the original project
+- [x] Fresh consistent export of all three tables including 122 current blog rows
+- [x] All 459 historical assets preserved; 115 new downloads and explicit exceptions
+- [x] Portable Railway/Docker runtime with Manus dependencies removed
+- [x] Resend-only form handling with visible delivery failures and mocked tests
+- [x] Stable media mapping, guarded restore/rewrite and R2 upload tools
+- [x] Local empty-database restore and full-column hash verification before/after transformation
+- [x] 132 application tests, eight tool tests, TypeScript and build passed
+- [x] Credential-free production smoke: 451 checks passed, zero failures
+- [x] English operational handover, copy-paste prompt and acceptance/rollback plan
+- [x] Clean staged-source secret scan without exclusions
+- [ ] Verify final GitHub branch/release and restricted Drive publication
+- [ ] Authorized Railway project/MySQL deployment and actual container CI check
+- [ ] Verified Resend domain and real delivery tests with mailbox DNS intact
+- [ ] R2 upload/hash/CORS/custom-domain acceptance
+- [ ] Final publishing freeze/snapshot/delta and webhook replay/key cutover
+- [ ] Exact approved DNS/TLS cutover plus live acceptance and independent monitoring/backups
+
+Historical unrelated unchecked work above remains outside this migration scope.

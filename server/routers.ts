@@ -1,19 +1,32 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
-import { notifyOwner } from "./_core/notification";
+import type { TrpcContext } from "./_core/context";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
+import { TRPCError } from "@trpc/server";
 import { getDb } from "./db";
 import { sendFormEmail } from "./email";
 import { blogPosts } from "../drizzle/schema";
 import { desc, eq, and } from "drizzle-orm";
 
+async function deliverEnquiry(opts: Parameters<typeof sendFormEmail>[0]) {
+  try {
+    if ((await sendFormEmail(opts)) !== true)
+      throw new Error("Email not accepted");
+  } catch {
+    throw new TRPCError({
+      code: "INTERNAL_SERVER_ERROR",
+      message:
+        "Your enquiry could not be sent. Please try again or call 02 8776 1667.",
+    });
+  }
+}
+
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
   auth: router({
-    me: publicProcedure.query(opts => opts.ctx.user),
+    me: publicProcedure.query((): TrpcContext["user"] => null),
     logout: publicProcedure.mutation(({ ctx }) => {
       const cookieOptions = getSessionCookieOptions(ctx.req);
       ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
@@ -52,16 +65,12 @@ export const appRouter = router({
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
         const content = lines.join("\n");
-        const sent = await notifyOwner({
-          title: `New Funeral Enquiry from ${input.name}  -  ${input.phone}`,
-          content,
-        });
-        await sendFormEmail({
+        await deliverEnquiry({
           subject: `New Funeral Enquiry from ${input.name}  -  ${input.phone}`,
           body: content,
           replyTo: input.email || undefined,
         });
-        return { success: true, notified: sent };
+        return { success: true, notified: true };
       }),
   }),
 
@@ -100,16 +109,12 @@ export const appRouter = router({
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
         const content = lines.join("\n");
-        const sent = await notifyOwner({
-          title: `Pre-Arrangement Enquiry from ${input.name}  -  ${input.serviceType}`,
-          content,
-        });
-        await sendFormEmail({
+        await deliverEnquiry({
           subject: `Pre-Arrangement Enquiry from ${input.name}  -  ${input.serviceType}`,
           body: content,
           replyTo: input.email || undefined,
         });
-        return { success: true, notified: sent };
+        return { success: true, notified: true };
       }),
 
     // Full multi-step pre-arrangement form (from PreArrange.tsx)
@@ -160,16 +165,12 @@ export const appRouter = router({
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ];
         const content = lines.join("\n");
-        const sent = await notifyOwner({
-          title: `Pre-Arrangement Request from ${input.firstName} ${input.lastName}  -  ${input.phone}`,
-          content,
-        });
-        await sendFormEmail({
+        await deliverEnquiry({
           subject: `Pre-Arrangement Request from ${input.firstName} ${input.lastName}  -  ${input.phone}`,
           body: content,
           replyTo: input.email || undefined,
         });
-        return { success: true, notified: sent };
+        return { success: true, notified: true };
       }),
   }),
   // ── Flower enquiry form ────────────────────────────────────────────────────
@@ -178,7 +179,9 @@ export const appRouter = router({
       .input(
         z.object({
           // Arrangement details
-          arrangementType: z.string().min(1, "Please select an arrangement type"),
+          arrangementType: z
+            .string()
+            .min(1, "Please select an arrangement type"),
           customArrangement: z.string().optional(),
           // Delivery details
           deliveryAddress: z.string().min(5, "Delivery address is required"),
@@ -199,7 +202,9 @@ export const appRouter = router({
           ``,
           `=== Arrangement ===`,
           `Type: ${input.arrangementType}`,
-          input.customArrangement ? `Custom Request: ${input.customArrangement}` : null,
+          input.customArrangement
+            ? `Custom Request: ${input.customArrangement}`
+            : null,
           ``,
           `=== Delivery Details ===`,
           `Address: ${input.deliveryAddress}`,
@@ -212,23 +217,21 @@ export const appRouter = router({
           `Phone: ${input.phone}`,
           `Email: ${input.email || "Not provided"}`,
           ``,
-          input.additionalNotes ? `Additional Notes:\n${input.additionalNotes}` : null,
+          input.additionalNotes
+            ? `Additional Notes:\n${input.additionalNotes}`
+            : null,
           ``,
           `---`,
           `Submitted via willowtreefunerals.com.au/order-flowers`,
           `Reply to: director@willowtreefunerals.com.au | 02 8776 1667`,
         ].filter((l): l is string => l !== null);
         const content = lines.join("\n");
-        const sent = await notifyOwner({
-          title: `Flower Enquiry from ${input.name}  -  ${input.arrangementType}  -  ${input.serviceDate}`,
-          content,
-        });
-        await sendFormEmail({
+        await deliverEnquiry({
           subject: `Flower Enquiry from ${input.name}  -  ${input.arrangementType}  -  ${input.serviceDate}`,
           body: content,
           replyTo: input.email || undefined,
         });
-        return { success: true, notified: sent };
+        return { success: true, notified: true };
       }),
   }),
 
@@ -238,7 +241,7 @@ export const appRouter = router({
       .input(
         z.object({
           page: z.number().min(1).default(1),
-          limit: z.number().min(1).max(100).default(12),
+          limit: z.number().min(1).max(1000).default(12),
           tag: z.string().optional(),
           search: z.string().optional(),
         })
@@ -253,14 +256,17 @@ export const appRouter = router({
           .orderBy(desc(blogPosts.publishedAt));
         let filtered = allPosts;
         if (input.tag && input.tag !== "All") {
-          filtered = filtered.filter((p) =>
-            p.tags.split(",").map((t) => t.trim()).includes(input.tag!)
+          filtered = filtered.filter(p =>
+            p.tags
+              .split(",")
+              .map(t => t.trim())
+              .includes(input.tag!)
           );
         }
         if (input.search && input.search.trim()) {
           const q = input.search.toLowerCase();
           filtered = filtered.filter(
-            (p) =>
+            p =>
               p.title.toLowerCase().includes(q) ||
               p.excerpt.toLowerCase().includes(q) ||
               p.tags.toLowerCase().includes(q)
@@ -274,17 +280,27 @@ export const appRouter = router({
       }),
 
     getRelated: publicProcedure
-      .input(z.object({ slug: z.string(), limit: z.number().min(1).max(6).default(3) }))
+      .input(
+        z.object({
+          slug: z.string(),
+          limit: z.number().min(1).max(6).default(3),
+        })
+      )
       .query(async ({ input }) => {
         const db = await getDb();
         if (!db) return [];
         const [current] = await db
           .select()
           .from(blogPosts)
-          .where(and(eq(blogPosts.slug, input.slug), eq(blogPosts.isPublished, 1)))
+          .where(
+            and(eq(blogPosts.slug, input.slug), eq(blogPosts.isPublished, 1))
+          )
           .limit(1);
         if (!current) return [];
-        const currentTags = current.tags.split(",").map((t) => t.trim()).filter(Boolean);
+        const currentTags = current.tags
+          .split(",")
+          .map(t => t.trim())
+          .filter(Boolean);
         const others = await db
           .select()
           .from(blogPosts)
@@ -292,24 +308,33 @@ export const appRouter = router({
           .orderBy(desc(blogPosts.publishedAt))
           .limit(20);
         const scored = others
-          .filter((p) => p.slug !== input.slug)
-          .map((p) => {
-            const pTags = p.tags.split(",").map((t) => t.trim()).filter(Boolean);
-            const shared = pTags.filter((t) => currentTags.includes(t)).length;
+          .filter(p => p.slug !== input.slug)
+          .map(p => {
+            const pTags = p.tags
+              .split(",")
+              .map(t => t.trim())
+              .filter(Boolean);
+            const shared = pTags.filter(t => currentTags.includes(t)).length;
             return { post: p, score: shared };
           })
-          .sort((a, b) => b.score - a.score || (b.post.publishedAt > a.post.publishedAt ? 1 : -1))
+          .sort(
+            (a, b) =>
+              b.score - a.score ||
+              (b.post.publishedAt > a.post.publishedAt ? 1 : -1)
+          )
           .slice(0, input.limit)
-          .map((x) => x.post);
+          .map(x => x.post);
         return scored;
       }),
 
     getLatest: publicProcedure
       .input(
-        z.object({
-          limit: z.number().min(1).max(12).default(6),
-          tag: z.string().optional(),
-        }).optional()
+        z
+          .object({
+            limit: z.number().min(1).max(12).default(6),
+            tag: z.string().optional(),
+          })
+          .optional()
       )
       .query(async ({ input }) => {
         const db = await getDb();
@@ -321,8 +346,11 @@ export const appRouter = router({
           .orderBy(desc(blogPosts.publishedAt))
           .limit(input?.limit ?? 6);
         if (input?.tag && input.tag !== "All") {
-          return posts.filter((p) =>
-            p.tags.split(",").map((t) => t.trim()).includes(input.tag!)
+          return posts.filter(p =>
+            p.tags
+              .split(",")
+              .map(t => t.trim())
+              .includes(input.tag!)
           );
         }
         return posts;
@@ -337,10 +365,7 @@ export const appRouter = router({
           .select()
           .from(blogPosts)
           .where(
-            and(
-              eq(blogPosts.slug, input.slug),
-              eq(blogPosts.isPublished, 1)
-            )
+            and(eq(blogPosts.slug, input.slug), eq(blogPosts.isPublished, 1))
           )
           .limit(1);
         return post ?? null;
@@ -354,12 +379,12 @@ export const appRouter = router({
         .from(blogPosts)
         .where(eq(blogPosts.isPublished, 1));
       const tagSet = new Set<string>();
-      posts.forEach((p) =>
+      posts.forEach(p =>
         p.tags
           .split(",")
-          .map((t) => t.trim())
+          .map(t => t.trim())
           .filter(Boolean)
-          .forEach((t) => tagSet.add(t))
+          .forEach(t => tagSet.add(t))
       );
       return Array.from(tagSet).sort();
     }),

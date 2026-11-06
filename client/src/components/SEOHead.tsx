@@ -44,7 +44,7 @@ export default function SEOHead({ title, description, canonical, schema, ogImage
     setMeta("twitter:description", description);
 
     // Canonical  -  always update the EXISTING static canonical tag (never create a second one)
-    // Manus redirects www → non-www (301), so non-www is the canonical URL.
+    // The application redirects www → non-www (301), so non-www is the canonical URL.
     {
       const canonicalValue = canonical || '/';
       // Normalise to absolute non-www URL

@@ -4,15 +4,17 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { appRouter } from "./routers";
 import type { TrpcContext } from "./_core/context";
+import { sendFormEmail } from "./email";
+import { notifyOwner } from "./_core/notification";
 
 // Mock the notifyOwner helper so we don't make real HTTP calls in tests
 vi.mock("./_core/notification", () => ({
   notifyOwner: vi.fn().mockResolvedValue(true),
 }));
 
-// Mock sendFormEmail so we don't make real SMTP calls in tests
+// Mock sendFormEmail; tests never send real email
 vi.mock("./email", () => ({
-  sendFormEmail: vi.fn().mockResolvedValue(undefined),
+  sendFormEmail: vi.fn().mockResolvedValue(true),
 }));
 
 function createPublicContext(): { ctx: TrpcContext } {
@@ -24,6 +26,11 @@ function createPublicContext(): { ctx: TrpcContext } {
     },
   };
 }
+
+beforeEach(() => {
+  vi.clearAllMocks();
+  vi.mocked(sendFormEmail).mockResolvedValue(true);
+});
 
 describe("contact.submit", () => {
   it("returns success when all required fields are provided", async () => {
@@ -39,7 +46,9 @@ describe("contact.submit", () => {
       message: "I would like to discuss funeral arrangements.",
     });
 
-    expect(result.success).toBe(true);
+    expect(result).toEqual({ success: true, notified: true });
+    expect(sendFormEmail).toHaveBeenCalledOnce();
+    expect(notifyOwner).not.toHaveBeenCalled();
   });
 
   it("returns success with only required fields (name + phone)", async () => {
@@ -51,7 +60,9 @@ describe("contact.submit", () => {
       phone: "0411222333",
     });
 
-    expect(result.success).toBe(true);
+    expect(result).toEqual({ success: true, notified: true });
+    expect(sendFormEmail).toHaveBeenCalledOnce();
+    expect(notifyOwner).not.toHaveBeenCalled();
   });
 
   it("throws validation error when name is missing", async () => {
@@ -101,7 +112,9 @@ describe("preArrange.preArrange", () => {
       howDidYouHear: "Word of Mouth",
     });
 
-    expect(result.success).toBe(true);
+    expect(result).toEqual({ success: true, notified: true });
+    expect(sendFormEmail).toHaveBeenCalledOnce();
+    expect(notifyOwner).not.toHaveBeenCalled();
   });
 
   it("returns success with only required fields (firstName, lastName, phone)", async () => {
@@ -114,7 +127,9 @@ describe("preArrange.preArrange", () => {
       phone: "0411555666",
     });
 
-    expect(result.success).toBe(true);
+    expect(result).toEqual({ success: true, notified: true });
+    expect(sendFormEmail).toHaveBeenCalledOnce();
+    expect(notifyOwner).not.toHaveBeenCalled();
   });
 
   it("throws validation error when firstName is missing", async () => {
@@ -141,5 +156,72 @@ describe("preArrange.preArrange", () => {
         phone: "12",
       })
     ).rejects.toThrow();
+  });
+});
+
+describe("all enquiry procedures: visible delivery failure", () => {
+  const cases = [
+    {
+      name: "contact",
+      call: (caller: ReturnType<typeof appRouter.createCaller>) =>
+        caller.contact.submit({ name: "Synthetic", phone: "0000000000" }),
+    },
+    {
+      name: "pre-arrange short",
+      call: (caller: ReturnType<typeof appRouter.createCaller>) =>
+        caller.preArrange.submit({
+          name: "Synthetic",
+          phone: "0000000000",
+          serviceType: "Test",
+        }),
+    },
+    {
+      name: "pre-arrange full",
+      call: (caller: ReturnType<typeof appRouter.createCaller>) =>
+        caller.preArrange.preArrange({
+          firstName: "Synthetic",
+          lastName: "Person",
+          phone: "0000000000",
+        }),
+    },
+  ];
+  it.each(cases)(
+    "$name does not return success if email fails",
+    async ({ call }) => {
+      vi.mocked(sendFormEmail).mockRejectedValueOnce(
+        new Error("private provider details")
+      );
+      await expect(
+        call(appRouter.createCaller(createPublicContext().ctx))
+      ).rejects.toMatchObject({
+        code: "INTERNAL_SERVER_ERROR",
+        message:
+          "Your enquiry could not be sent. Please try again or call 02 8776 1667.",
+      });
+      expect(sendFormEmail).toHaveBeenCalledOnce();
+      expect(notifyOwner).not.toHaveBeenCalled();
+    }
+  );
+  it.each(cases)(
+    "$name also fails on false provider acceptance",
+    async ({ call }) => {
+      vi.mocked(sendFormEmail).mockResolvedValueOnce(false);
+      await expect(
+        call(appRouter.createCaller(createPublicContext().ctx))
+      ).rejects.toMatchObject({ code: "INTERNAL_SERVER_ERROR" });
+      expect(sendFormEmail).toHaveBeenCalledOnce();
+    }
+  );
+  it("short pre-arrange sends exactly one email on success", async () => {
+    const result = await appRouter
+      .createCaller(createPublicContext().ctx)
+      .preArrange.submit({
+        name: "Synthetic",
+        phone: "0000000000",
+        serviceType: "Test",
+      });
+    expect(result).toEqual({ success: true, notified: true });
+    expect(sendFormEmail).toHaveBeenCalledOnce();
+    expect(notifyOwner).not.toHaveBeenCalled();
   });
 });

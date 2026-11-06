@@ -17,7 +17,7 @@ import { trpc } from "@/lib/trpc";
 import { COMPANY } from "../../../shared/company";
 import { trackPreArrangeFormSubmit } from "@/lib/analytics";
 
-const HEARSE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded_c81955b1.png";
+const HEARSE_IMG = "/media/d400ce2118ad105b25158a3ebabd9feb00b13938ad1e5f1fd37e280881ee153c.png";
 
 type Step = 1 | 2 | 3 | 4;
 

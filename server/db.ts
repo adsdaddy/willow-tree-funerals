@@ -1,92 +1,75 @@
-import { eq } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
-import { ENV } from './_core/env';
+import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
+import { createPool, type Pool, type PoolOptions } from "mysql2/promise";
 
-let _db: ReturnType<typeof drizzle> | null = null;
+let database: MySql2Database | null = null;
+let pool: Pool | null = null;
 
-// Lazily create the drizzle instance so local tooling can run without a DB.
+/**
+ * DATABASE_SSL=true enables certificate-verified TLS; false permits plain MySQL.
+ * With no flag, TiDB Cloud uses TLS and ordinary MySQL uses its usual plain
+ * connection. URL query options cannot override the explicit TLS policy.
+ */
+export function getDatabaseOptions(
+  databaseUrl: string,
+  sslFlag: string | undefined = process.env.DATABASE_SSL
+): PoolOptions {
+  const url = new URL(databaseUrl);
+  if (url.protocol !== "mysql:" || !url.hostname || !url.pathname.slice(1)) {
+    throw new Error("DATABASE_URL must be a MySQL URL with a database name");
+  }
+  if (sslFlag !== undefined && sslFlag !== "true" && sslFlag !== "false") {
+    throw new Error("DATABASE_SSL must be true or false");
+  }
+  const useTls =
+    sslFlag === undefined
+      ? url.hostname.endsWith(".tidbcloud.com")
+      : sslFlag === "true";
+  return {
+    host: url.hostname,
+    port: url.port ? Number(url.port) : 3306,
+    user: decodeURIComponent(url.username),
+    password: decodeURIComponent(url.password),
+    database: decodeURIComponent(url.pathname.slice(1)),
+    ...(useTls ? { ssl: { rejectUnauthorized: true } } : {}),
+    connectionLimit: 10,
+    waitForConnections: true,
+    queueLimit: 100,
+    connectTimeout: 5000,
+    enableKeepAlive: true,
+    multipleStatements: false,
+  };
+}
+
+// Pool construction is lazy and does not make a database query.
 export async function getDb() {
-  if (!_db && process.env.DATABASE_URL) {
+  if (!database && process.env.DATABASE_URL) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
-    } catch (error) {
-      console.warn("[Database] Failed to connect:", error);
-      _db = null;
+      pool = createPool(getDatabaseOptions(process.env.DATABASE_URL));
+      database = drizzle(pool);
+    } catch {
+      // Raw driver errors can include connection strings and credentials.
+      console.error("[Database] Invalid connection configuration");
+      database = null;
+      pool = null;
     }
   }
-  return _db;
+  return database;
 }
 
-export async function upsertUser(user: InsertUser): Promise<void> {
-  if (!user.openId) {
-    throw new Error("User openId is required for upsert");
-  }
-
-  const db = await getDb();
-  if (!db) {
-    console.warn("[Database] Cannot upsert user: database not available");
-    return;
-  }
-
+/** Read-only readiness probe: checks connectivity rather than just configuration. */
+export async function isDatabaseReady(): Promise<boolean> {
   try {
-    const values: InsertUser = {
-      openId: user.openId,
-    };
-    const updateSet: Record<string, unknown> = {};
-
-    const textFields = ["name", "email", "loginMethod"] as const;
-    type TextField = (typeof textFields)[number];
-
-    const assignNullable = (field: TextField) => {
-      const value = user[field];
-      if (value === undefined) return;
-      const normalized = value ?? null;
-      values[field] = normalized;
-      updateSet[field] = normalized;
-    };
-
-    textFields.forEach(assignNullable);
-
-    if (user.lastSignedIn !== undefined) {
-      values.lastSignedIn = user.lastSignedIn;
-      updateSet.lastSignedIn = user.lastSignedIn;
-    }
-    if (user.role !== undefined) {
-      values.role = user.role;
-      updateSet.role = user.role;
-    } else if (user.openId === ENV.ownerOpenId) {
-      values.role = 'admin';
-      updateSet.role = 'admin';
-    }
-
-    if (!values.lastSignedIn) {
-      values.lastSignedIn = new Date();
-    }
-
-    if (Object.keys(updateSet).length === 0) {
-      updateSet.lastSignedIn = new Date();
-    }
-
-    await db.insert(users).values(values).onDuplicateKeyUpdate({
-      set: updateSet,
-    });
-  } catch (error) {
-    console.error("[Database] Failed to upsert user:", error);
-    throw error;
+    if (!(await getDb()) || !pool) return false;
+    await pool.query({ sql: "SELECT 1", timeout: 5000 });
+    return true;
+  } catch {
+    return false;
   }
 }
 
-export async function getUserByOpenId(openId: string) {
-  const db = await getDb();
-  if (!db) {
-    console.warn("[Database] Cannot get user: database not available");
-    return undefined;
-  }
-
-  const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
-
-  return result.length > 0 ? result[0] : undefined;
+export async function closeDatabase(): Promise<void> {
+  const current = pool;
+  pool = null;
+  database = null;
+  if (current) await current.end();
 }
-
-// TODO: add feature queries here as your schema grows.

@@ -1,18 +1,9 @@
-/**
- * email.ts  -  Postmark transactional email helper
- * Sends form submission notifications to director@willowtreefunerals.com.au
- *
- * Primary:  Postmark (POSTMARK_API_TOKEN)
- * Fallback: Resend (RESEND_API_KEY) or SMTP (SMTP_USER + SMTP_PASS)
- */
-
-import * as postmark from "postmark";
+/** Resend is the only transactional email provider for independent hosting. */
 import { Resend } from "resend";
-import nodemailer from "nodemailer";
 
-const RECIPIENT = "director@willowtreefunerals.com.au";
-const FROM_EMAIL = "noreply@adsdaddy.com";
-const FROM_NAME = "Willow Tree Funerals Website";
+const DEFAULT_RECIPIENT = "director@willowtreefunerals.com.au";
+const DEFAULT_SENDER =
+  "Willow Tree Funerals Website <noreply@willowtreefunerals.com.au>";
 
 // ── HTML email builder ────────────────────────────────────────────────────────
 
@@ -21,21 +12,38 @@ const FROM_NAME = "Willow Tree Funerals Website";
  * Sections like "=== Title ===" become section headers.
  * Blank lines and separator lines (---) are skipped.
  */
-function parseFields(body: string): Array<{ type: "section" | "field" | "message"; label?: string; value: string }> {
-  const rows: Array<{ type: "section" | "field" | "message"; label?: string; value: string }> = [];
+function parseFields(
+  body: string
+): Array<{
+  type: "section" | "field" | "message";
+  label?: string;
+  value: string;
+}> {
+  const rows: Array<{
+    type: "section" | "field" | "message";
+    label?: string;
+    value: string;
+  }> = [];
   const lines = body.split("\n");
   let inMessage = false;
   let messageLines: string[] = [];
 
   for (const raw of lines) {
     const line = raw.trim();
-    if (!line || line === "---" || line.startsWith("Submitted via") || line.startsWith("Reply to:")) continue;
+    if (
+      !line ||
+      line === "---" ||
+      line.startsWith("Submitted via") ||
+      line.startsWith("Reply to:")
+    )
+      continue;
 
     // Section header: === Title ===
     if (line.startsWith("===") && line.endsWith("===")) {
       if (inMessage && messageLines.length) {
         rows.push({ type: "message", value: messageLines.join("\n") });
-        messageLines = []; inMessage = false;
+        messageLines = [];
+        inMessage = false;
       }
       rows.push({ type: "section", value: line.replace(/===/g, "").trim() });
       continue;
@@ -43,10 +51,12 @@ function parseFields(body: string): Array<{ type: "section" | "field" | "message
 
     // Message block start
     if (line === "Message:" || line === "Notes:") {
-      inMessage = true; continue;
+      inMessage = true;
+      continue;
     }
     if (inMessage) {
-      messageLines.push(line); continue;
+      messageLines.push(line);
+      continue;
     }
 
     // Key: Value field
@@ -66,29 +76,39 @@ function parseFields(body: string): Array<{ type: "section" | "field" | "message
 }
 
 function esc(s: string): string {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function buildHtml(subject: string, body: string, replyTo?: string): string {
   const fields = parseFields(body);
-  const now = new Date().toLocaleString("en-AU", { timeZone: "Australia/Sydney", dateStyle: "full", timeStyle: "short" });
+  const now = new Date().toLocaleString("en-AU", {
+    timeZone: "Australia/Sydney",
+    dateStyle: "full",
+    timeStyle: "short",
+  });
 
-  const fieldRows = fields.map(f => {
-    if (f.type === "section") {
-      return `<tr><td colspan="2" style="padding:20px 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A6FA5;border-bottom:2px solid #E8F0FB;">${esc(f.value)}</td></tr>`;
-    }
-    if (f.type === "message") {
-      return `<tr>
+  const fieldRows = fields
+    .map(f => {
+      if (f.type === "section") {
+        return `<tr><td colspan="2" style="padding:20px 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A6FA5;border-bottom:2px solid #E8F0FB;">${esc(f.value)}</td></tr>`;
+      }
+      if (f.type === "message") {
+        return `<tr>
         <td valign="top" style="padding:10px 0;width:140px;font-size:13px;font-weight:600;color:#64748b;">Message</td>
         <td style="padding:10px 0 10px 16px;font-size:14px;color:#1e293b;line-height:1.7;white-space:pre-wrap;background:#F8FAFC;border-radius:6px;padding:12px 16px;border-left:3px solid #4A6FA5;">${esc(f.value)}</td>
       </tr>`;
-    }
-    // Regular field
-    return `<tr>
+      }
+      // Regular field
+      return `<tr>
       <td valign="top" style="padding:8px 0;width:140px;font-size:13px;font-weight:600;color:#64748b;white-space:nowrap;">${esc(f.label || "")}</td>
       <td style="padding:8px 0 8px 16px;font-size:14px;color:#1e293b;">${esc(f.value)}</td>
     </tr>`;
-  }).join("\n");
+    })
+    .join("\n");
 
   const replyBtn = replyTo
     ? `<a href="mailto:${esc(replyTo)}?subject=Re: ${esc(subject)}" style="display:inline-block;background:#1B3A5C;color:#ffffff;font-size:14px;font-weight:600;padding:12px 28px;border-radius:6px;text-decoration:none;margin-top:8px;">Reply to Enquiry</a>`
@@ -162,96 +182,42 @@ function buildHtml(subject: string, body: string, replyTo?: string): string {
 </html>`;
 }
 
-// ── Postmark ──────────────────────────────────────────────────────────────────
-
-async function sendViaPostmark(opts: { subject: string; body: string; replyTo?: string }): Promise<boolean> {
-  const token = process.env.POSTMARK_API_TOKEN;
-  if (!token) return false;
-  try {
-    const client = new postmark.ServerClient(token);
-    const result = await client.sendEmail({
-      From: `${FROM_NAME} <${FROM_EMAIL}>`,
-      To: RECIPIENT,
-      ReplyTo: opts.replyTo || RECIPIENT,
-      Subject: opts.subject,
-      HtmlBody: buildHtml(opts.subject, opts.body, opts.replyTo),
-      TextBody: opts.body,
-      MessageStream: "outbound",
-    });
-    console.log(`[Email/Postmark] Sent: "${opts.subject}" → ${RECIPIENT} (${result.MessageID})`);
-    return true;
-  } catch (err) {
-    console.error("[Email/Postmark] Failed:", err);
-    return false;
-  }
-}
-
-// ── Resend fallback ───────────────────────────────────────────────────────────
-
-async function sendViaResend(opts: { subject: string; body: string; replyTo?: string }): Promise<boolean> {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return false;
-  try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from: `${FROM_NAME} <onboarding@resend.dev>`,
-      to: [RECIPIENT],
-      replyTo: opts.replyTo || RECIPIENT,
-      subject: opts.subject,
-      html: buildHtml(opts.subject, opts.body, opts.replyTo),
-      text: opts.body,
-    });
-    if (error) { console.error("[Email/Resend] Error:", error); return false; }
-    console.log(`[Email/Resend] Sent: "${opts.subject}" → ${RECIPIENT}`);
-    return true;
-  } catch (err) {
-    console.error("[Email/Resend] Exception:", err);
-    return false;
-  }
-}
-
-// ── SMTP fallback ─────────────────────────────────────────────────────────────
-
-async function sendViaSMTP(opts: { subject: string; body: string; replyTo?: string }): Promise<boolean> {
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  if (!user || !pass) return false;
-  const host = process.env.SMTP_HOST || "smtp.gmail.com";
-  const port = parseInt(process.env.SMTP_PORT || "587", 10);
-  try {
-    const transporter = nodemailer.createTransport({ host, port, secure: port === 465, auth: { user, pass }, tls: { rejectUnauthorized: false } });
-    await transporter.sendMail({ from: `${FROM_NAME} <${user}>`, to: RECIPIENT, replyTo: opts.replyTo || RECIPIENT, subject: opts.subject, text: opts.body, html: buildHtml(opts.subject, opts.body, opts.replyTo) });
-    console.log(`[Email/SMTP] Sent: "${opts.subject}" → ${RECIPIENT}`);
-    return true;
-  } catch (err) {
-    console.error("[Email/SMTP] Failed:", err);
-    return false;
-  }
-}
-
-// ── Public API ────────────────────────────────────────────────────────────────
-
-/**
- * Sends an email notification to director@willowtreefunerals.com.au.
- * Tries Postmark first, then Resend, then SMTP.
- */
+/** Reports provider acceptance only; failures never become form success. */
 export async function sendFormEmail(opts: {
   subject: string;
   body: string;
   replyTo?: string;
 }): Promise<boolean> {
-  if (process.env.POSTMARK_API_TOKEN) {
-    const sent = await sendViaPostmark(opts);
-    if (sent) return true;
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  const from = process.env.EMAIL_FROM?.trim() || DEFAULT_SENDER;
+  const to = process.env.EMAIL_TO?.trim() || DEFAULT_RECIPIENT;
+  // A verified business sender must be configured in Resend before going live.
+  if (
+    !apiKey ||
+    /@resend\.dev(?:>|\s|$)/i.test(from) ||
+    /[\r\n]/.test(from + to)
+  ) {
+    console.error(
+      "[Email] Delivery is not configured with a verified business sender"
+    );
+    throw new Error("Email delivery is unavailable");
   }
-  if (process.env.RESEND_API_KEY) {
-    const sent = await sendViaResend(opts);
-    if (sent) return true;
+  try {
+    const resend = new Resend(apiKey);
+    const { data, error } = await resend.emails.send({
+      from,
+      to: [to],
+      replyTo: opts.replyTo || to,
+      subject: opts.subject,
+      html: buildHtml(opts.subject, opts.body, opts.replyTo),
+      text: opts.body,
+    });
+    if (error || !data?.id) throw new Error("Provider did not accept email");
+    console.info("[Email] Enquiry accepted by Resend");
+    return true;
+  } catch {
+    // Provider errors can contain recipients, payloads, or credentials.
+    console.error("[Email] Resend delivery failed");
+    throw new Error("Email delivery is unavailable");
   }
-  if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-    const sent = await sendViaSMTP(opts);
-    if (sent) return true;
-  }
-  console.warn("[Email] No email provider configured  -  add POSTMARK_API_TOKEN to enable email delivery.");
-  return false;
 }

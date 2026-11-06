@@ -1,0 +1,23 @@
+# Railway service settings
+
+Create this stack in the owner's Railway account. This file is an operator specification, not an automatically applied deployment. No Railway resources have been created by this handover preparation.
+
+Connect the GitHub repository `adsdaddy/willow-tree-funerals` to a new website service using branch `migration/railway-resend-cloudflare-20261106`. The repository root contains the Dockerfile. Use that Dockerfile with no additional build command. Start with `node dist/index.js`, already supplied by Docker CMD. Bind to the Railway-injected `PORT`; the application listens on `0.0.0.0`.
+
+Create a separate MySQL service in the same Railway project and environment, with persistent storage. In website Variables set `DATABASE_URL=${{MySQL.MYSQL_URL}}`, replacing `MySQL` with the actual service name. Never use a Manus-hosted database URL. Keep MySQL private after restoration. If restoring from your workstation, use Railway's temporary public TCP proxy and `MYSQL_PUBLIC_URL`; private `railway.internal` DNS cannot resolve from a workstation. Remove public DB exposure after import and verification.
+
+Use `NODE_ENV=production`, `DATABASE_SSL=false` for private Railway MySQL, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_TO`, `BLOG_API_KEY`, and `MEDIA_PUBLIC_BASE_URL` from `.env.example`. API keys and DB credentials are runtime-only, not Docker build arguments. Build-time public identifiers are `VITE_GA4_MEASUREMENT_ID=G-ZPSZ3KQRF4` and an optional real `VITE_META_PIXEL_ID`, otherwise blank. Updating those identifiers requires rebuilding the frontend.
+
+Configure the Railway healthcheck path `/readyz`, with 120 seconds timeout. `/readyz` must return 200 only when MySQL is usable, so a service with missing data connectivity must not be promoted. `/healthz` is liveness for process troubleshooting, not sufficient production acceptance. Use the restart policy On Failure with up to 10 retries. Disable sleep/serverless for this business-critical website if available in the chosen plan. Choose a suitable available region near the visitors and budget, with the owner approving service cost before creating paid resources. Enable database backups and the available recovery features; set alerts and resource limits appropriate to the approved plan.
+
+Generate the Railway preview domain and verify the restored database, all routes, all recovered media, and Resend before changing production DNS. Add both `willowtreefunerals.com.au` and `www.willowtreefunerals.com.au` as custom domains on the website service. Read their exact CNAME and ownership-verification TXT names/values from Railway; do not guess or reuse another project's records. The application redirects `www` to the existing non-www canonical host with paths and query strings preserved.
+
+Initially keep web DNS records DNS-only in Cloudflare, validate Railway's hostname-specific HTTPS certificate and both domains, and use Cloudflare R2 on the separate media hostname. Railway's current proxied-domain documentation warns that Full (strict) may not work with its fallback certificate. Do not enable the proxy and silently weaken certificate verification. If a later CDN/WAF configuration is desired, separately confirm the supported TLS path, certificate hostname validation and current provider guidance before changing it. Never use Flexible TLS.
+
+## Do not use obsolete deployment configuration
+
+As checked on 6 November 2026, Railway's official Config as Code documentation says new services cannot opt into `railway.json`/`railway.toml`, with an existing-service cutoff of 1 December 2026. This package therefore uses the supported Dockerfile plus explicit Dashboard settings. After the stack exists, the operator can adopt the current Infrastructure as Code feature by running `railway config pull`, reviewing `.railway/railway.ts` and running `railway config plan`. Do not use `--include-variables` when importing because it can export secrets. Apply only the reviewed changes with owner authorization; a plan is not a deployment. No fabricated Railway IDs or untested infrastructure template is included.
+
+## Sources
+
+[Railway Dockerfiles](https://docs.railway.com/guides/dockerfiles), [MySQL](https://docs.railway.com/guides/mysql), [Config as Code deprecation](https://docs.railway.com/guides/config-as-code), [Infrastructure as Code](https://docs.railway.com/infrastructure-as-code), [Working with Domains](https://docs.railway.com/networking/domains/working-with-domains), and [Cloudflare Full strict conditions](https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/full-strict/).

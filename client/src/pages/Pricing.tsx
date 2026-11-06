@@ -207,7 +207,7 @@ export default function Pricing() {
       <section
         className="relative min-h-[55vh] flex items-end py-28 pt-36"
         style={{
-          backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-pricing-JLQAcEeMk3Z9GnAibkXuwT.webp)`,
+          backgroundImage: `url(/media/fe013de47f4837ec5030f454b464ab4980d67fdcbfbbc7d7c0791be4f6256fbc.webp)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

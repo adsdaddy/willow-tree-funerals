@@ -16,9 +16,9 @@ import { COMPANY } from "../../../shared/company";
 import { trpc } from "@/lib/trpc";
 import { trackFlowersFormSubmit } from "@/lib/analytics";
 
-const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg";
-const BIRDCAGE_GARDEN   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
-const CASKET_CATHEDRAL  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg";
+const BUTTERFLY_FLOWERS = "/media/8854af7e6ff65c30d7f69407585fdfdac146ff7693a84d35a61bd9025f8685b4.jpg";
+const BIRDCAGE_GARDEN   = "/media/88b6925acff59418b17c048a6e4bad265e788bd472cb4dc5edeada8665dea117.jpg";
+const CASKET_CATHEDRAL  = "/media/79f7c705d6032ce17db36994f341d7ea8e69eb78130ee5ffed5c7ad776791d0a.jpg";
 
 const ARRANGEMENT_TYPES = [
   "Wreath Tribute",

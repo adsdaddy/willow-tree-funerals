@@ -32,7 +32,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "A step-by-step guide for families in New South Wales - from the moment of death through to the funeral service.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/person-phone_01a8551b.png",
+      "/media/d75fad48c68c7d0c21d453bf5bfb864a3e5d3c4839d3cea1fed482c956d5ec5e.png",
     tags: "Practical Guidance",
     author: COMPANY.director,
     readingTime: 8,
@@ -46,7 +46,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "Everything you need to know about arranging a Catholic funeral Mass in Sydney - from liaising with the parish priest to choosing readings, music, and the Mass booklet.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg",
+      "/media/7f220761d0db61d66f9ea07870fe54ff7537f07dacadf7f3d39599db93892da3.jpg",
     tags: "Catholic Funerals",
     author: COMPANY.director,
     readingTime: 10,
@@ -60,7 +60,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "A transparent breakdown of what funerals cost in Sydney in 2026 - including what's included, what's extra, and how to compare funeral directors without being misled.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg",
+      "/media/79f7c705d6032ce17db36994f341d7ea8e69eb78130ee5ffed5c7ad776791d0a.jpg",
     tags: "Pricing & Planning",
     author: COMPANY.director,
     readingTime: 7,
@@ -74,7 +74,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "Everything families need to know about Macquarie Memorial Park in Campbelltown - location, burial options, pricing, and how to arrange a service there.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg",
+      "/media/88b6925acff59418b17c048a6e4bad265e788bd472cb4dc5edeada8665dea117.jpg",
     tags: "Cemeteries & Venues",
     author: COMPANY.director,
     readingTime: 6,
@@ -339,7 +339,7 @@ export default function BlogIndex() {
 
   const { data: dbData } = trpc.blog.getAll.useQuery({
     page: 1,
-    limit: 100,
+    limit: 1000,
     tag: undefined,
     search: undefined,
   });
