@@ -3,10 +3,18 @@ import fs from "fs";
 import { type Server } from "http";
 import { nanoid } from "nanoid";
 import path from "path";
-import { createServer as createViteServer } from "vite";
-import viteConfig from "../../vite.config";
-
+/**
+ * Development only: mount Vite in middleware mode.
+ *
+ * Vite and the Vite config are loaded dynamically (through variables, so the
+ * production esbuild bundle never references them): the production image
+ * only installs runtime dependencies and serves the prebuilt client instead.
+ */
 export async function setupVite(app: Express, server: Server) {
+  const viteModule = "vite";
+  const { createServer: createViteServer } = await import(viteModule);
+  const viteConfigPath = path.resolve(import.meta.dirname, "../..", "vite.config.ts");
+  const { default: viteConfig } = await import(viteConfigPath);
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
