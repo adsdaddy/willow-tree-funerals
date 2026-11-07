@@ -2,8 +2,9 @@
 /**
  * Production entrypoint (Dockerfile CMD).
  *
- * 1. If DATABASE_URL is set: apply pending migrations, then load the blog
- *    posts into an empty table (scripts/seed-blog.mjs, idempotent).
+ * 1. If DATABASE_URL is set: apply pending migrations, load the blog posts
+ *    into an empty table (scripts/seed-blog.mjs), then apply idempotent
+ *    content fixes (scripts/fix-content.mjs).
  * 2. Start the web server.
  *
  * Database problems are logged but never stop the server from starting, so a
@@ -27,6 +28,7 @@ function run(script) {
 if (process.env.DATABASE_URL) {
   if ((await run("migrate.mjs")) === 0) {
     await run("seed-blog.mjs");
+    await run("fix-content.mjs");
   } else {
     console.error("[start] migrations failed; starting server anyway");
   }
