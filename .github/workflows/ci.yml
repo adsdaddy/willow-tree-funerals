@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm version comes from the packageManager field in package.json
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm check
+
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Production build
+        run: pnpm build
+
+      - name: Every /media reference in the source exists, nothing points at Manus
+        run: node scripts/check-media-refs.mjs
+
+      - name: Docker image builds
+        run: docker build -t willow-tree-funerals:ci .
+
+      - name: Container starts and serves pages
+        run: |
+          docker run -d --name web -p 8080:8080 willow-tree-funerals:ci
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8080/healthz && break; sleep 2; done
+          curl -sf http://127.0.0.1:8080/healthz
+          curl -sf http://127.0.0.1:8080/ | grep -q '<div id="root">'
+          curl -sf http://127.0.0.1:8080/contact | grep -q '<div id="root">'
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/media/does-not-exist.webp)" = "404"
+      - name: Container logs
+        if: always()
+        run: docker logs web || true

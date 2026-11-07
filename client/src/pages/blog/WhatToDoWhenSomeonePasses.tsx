@@ -1,7 +1,7 @@
 import BlogArticleTemplate from "@/components/BlogArticleTemplate";
 import { COMPANY } from "../../../../shared/company";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/person-phone_01a8551b.png";
+const HERO_IMG = "/media/person-phone_01a8551b.png";
 
 const relatedArticles = [
   { title: "How to Plan a Catholic Funeral Mass in Sydney", href: "/blog/how-to-plan-catholic-funeral-sydney", date: "March 2026" },

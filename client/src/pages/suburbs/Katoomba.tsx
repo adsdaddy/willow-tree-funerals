@@ -1,6 +1,6 @@
 import SuburbPageTemplate from "@/components/SuburbPageTemplate";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg";
+const HERO_IMG = "/media/casket-cathedral_upscaled_1a1ea687.jpg";
 
 export default function Katoomba() {
   return (

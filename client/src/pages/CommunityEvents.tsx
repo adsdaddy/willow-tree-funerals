@@ -12,8 +12,8 @@ import SEOHead from "../components/SEOHead";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
 
-const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20230517-WA0056_b5a70d37.jpg";
-const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
+const BUTTERFLY_FLOWERS = "/media/IMG-20230517-WA0056_b5a70d37.jpg";
+const BIRDCAGE_GARDEN = "/media/IMG-20250724-WA0048_67323615.jpg";
 
 const schema = {
   "@context": "https://schema.org",

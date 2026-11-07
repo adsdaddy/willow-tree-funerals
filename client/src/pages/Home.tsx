@@ -34,26 +34,26 @@ import { COMPANY } from "@/../../shared/company";
 import { trackPhoneClick, trackCTAClick } from "@/lib/analytics";
 
 // ── CDN Assets ───────────────────────────────────────────────────────────────
-const HERO_IMG        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-opt-v2_e04c2bfa.webp";
-const HERO_IMG_MD     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-mobile_v1_5a7cde54.webp";
-const HERO_IMG_SM     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hero-bg-mobile-sm_v1_a5f78808.webp";
-const BRUCE_CHURCH    = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-church-opt_73636581.webp";
-const BRUCE_HEARSE_1  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-hearse-1-v4_a4a0e861.webp";
-const HEARSE_BRANDED  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/hearse-branded-v2_dbb50328.webp";
-const CHURCH_MASS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass-v2_25a19f0f.webp";
-const CASKET_CATHEDRAL= "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral-v4_6058f1ab.webp";
-const CASKET_CHURCH   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-church-v4_47ab5172.webp";
-const PRIEST_BLESSING = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/priest-blessing-opt_fe1b6c81.webp";
-const BAGPIPER        = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bagpiper-opt_abade4d9.webp";
-const PROCESSION      = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/procession-v4_6a71fd70.webp";
-const BIRDCAGE_GARDEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/birdcage-garden-v4_1c510e6a.webp";
-const BUTTERFLY_FLOWERS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/butterfly-flowers-v4_cd828735.webp";
-const CASKET_HEARSE   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-hearse-v2_42939cc7.webp";
-const PALLBEARERS     = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/pallbearers-opt_d4cc1ad8.webp";
-const CASKET_YELLOW   = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-yellow-opt_35477fea.webp";
-const BRUCE_HEARSE_2  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-hearse-2-opt_56ac8ed2.webp";
-const BRUCE_HEARSE_3  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-hearse-3-opt_db6c6668.webp";
-const SERVICE_CHURCH  = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/service-church-opt_55dc524f.webp";
+const HERO_IMG        = "/media/hero-bg-opt-v2_e04c2bfa.webp";
+const HERO_IMG_MD     = "/media/hero-bg-mobile_v1_5a7cde54.webp";
+const HERO_IMG_SM     = "/media/hero-bg-mobile-sm_v1_a5f78808.webp";
+const BRUCE_CHURCH    = "/media/bruce-church-opt_73636581.webp";
+const BRUCE_HEARSE_1  = "/media/bruce-hearse-1-v4_a4a0e861.webp";
+const HEARSE_BRANDED  = "/media/hearse-branded-v2_dbb50328.webp";
+const CHURCH_MASS     = "/media/church-interior-mass-v2_25a19f0f.webp";
+const CASKET_CATHEDRAL= "/media/casket-cathedral-v4_6058f1ab.webp";
+const CASKET_CHURCH   = "/media/casket-church-v4_47ab5172.webp";
+const PRIEST_BLESSING = "/media/priest-blessing-opt_fe1b6c81.webp";
+const BAGPIPER        = "/media/bagpiper-opt_abade4d9.webp";
+const PROCESSION      = "/media/procession-v4_6a71fd70.webp";
+const BIRDCAGE_GARDEN = "/media/birdcage-garden-v4_1c510e6a.webp";
+const BUTTERFLY_FLOWERS = "/media/butterfly-flowers-v4_cd828735.webp";
+const CASKET_HEARSE   = "/media/casket-hearse-v2_42939cc7.webp";
+const PALLBEARERS     = "/media/pallbearers-opt_d4cc1ad8.webp";
+const CASKET_YELLOW   = "/media/casket-yellow-opt_35477fea.webp";
+const BRUCE_HEARSE_2  = "/media/bruce-hearse-2-opt_56ac8ed2.webp";
+const BRUCE_HEARSE_3  = "/media/bruce-hearse-3-opt_db6c6668.webp";
+const SERVICE_CHURCH  = "/media/service-church-opt_55dc524f.webp";
 
 // ── Animation helpers (CSS-based, no framer-motion) ──────────────────────────
 function Reveal({
@@ -570,7 +570,7 @@ export default function Home() {
                 <div className="relative">
                   <div className="rounded-2xl overflow-hidden max-w-sm mx-auto lg:mx-0 shadow-2xl">
                     <img
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/bruce-headshot-v2_c7f0cb68.webp"
+                      src="/media/bruce-headshot-v2_c7f0cb68.webp"
                       alt="Bruce Missen, Managing Director & Founder of Willow Tree Funerals"
                       className="w-full h-auto block"
                       width={384} height={384}

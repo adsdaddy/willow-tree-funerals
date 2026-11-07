@@ -3,7 +3,6 @@ import express from "express";
 import { createServer } from "http";
 import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { registerBlogApiRoutes } from "../blogApi";
@@ -31,6 +30,12 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  // Behind Cloudflare + Railway: trust the proxy so req.ip and protocol are right
+  app.set("trust proxy", true);
+  // Railway health check
+  app.get("/healthz", (_req, res) => {
+    res.status(200).json({ ok: true });
+  });
 
   // ── Security headers (PageSpeed Best Practices + WCAG) ────────────────────
   app.use((_req, res, next) => {
@@ -49,12 +54,12 @@ async function startServer() {
       "Content-Security-Policy",
       [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://connect.facebook.net",
         "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data: blob: https://d2xsxph8kpxj0f.cloudfront.net https://www.facebook.com https://*.googletagmanager.com https://*.supabase.co https://*.supabase.in https://images.unsplash.com https://*.amazonaws.com https://*.cloudinary.com",
-        "font-src 'self' https://d2xsxph8kpxj0f.cloudfront.net",
-        "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://connect.facebook.net https://plausible.io https://*.manus-analytics.com https://*.cloudfront.net",
-        "frame-src 'self' https://www.google.com",
+        "img-src 'self' data: blob: https://www.facebook.com https://*.googletagmanager.com https://*.google-analytics.com https://www.google.com https://www.google.com.au https://*.doubleclick.net https://www.googleadservices.com https://*.supabase.co https://*.supabase.in https://media.babylovegrowth.ai https://images.unsplash.com",
+        "font-src 'self'",
+        "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://www.google.com.au https://*.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://www.facebook.com",
+        "frame-src 'self' https://www.google.com https://*.doubleclick.net https://www.googletagmanager.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",
         "form-action 'self'",
@@ -79,8 +84,6 @@ async function startServer() {
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
-  // OAuth callback under /api/oauth/callback
-  registerOAuthRoutes(app);
   // Blog webhook + REST API (babylovegrowth.ai integration)
   registerBlogApiRoutes(app);
   // tRPC API

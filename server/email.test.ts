@@ -1,36 +1,45 @@
 /**
- * email.test.ts  -  Validates Postmark API token by sending a real test email
+ * Form email routing. Offline: Resend is mocked, nothing is sent.
  */
-import { describe, it, expect } from "vitest";
-import * as postmark from "postmark";
-import "dotenv/config";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-describe("Postmark email delivery", () => {
-  it("should have POSTMARK_API_TOKEN set in the environment", () => {
-    expect(process.env.POSTMARK_API_TOKEN, "POSTMARK_API_TOKEN must be set").toBeTruthy();
+const send = vi.fn();
+vi.mock("resend", () => ({
+  Resend: vi.fn().mockImplementation(() => ({ emails: { send } })),
+}));
+
+describe("sendFormEmail", () => {
+  beforeEach(() => {
+    send.mockReset();
+    send.mockResolvedValue({ data: { id: "test" }, error: null });
+    vi.stubEnv("RESEND_API_KEY", "re_test_key");
+    vi.stubEnv("POSTMARK_API_TOKEN", "");
+  });
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.resetModules();
   });
 
-  it("should send a test email to director@willowtreefunerals.com.au", async () => {
-    const token = process.env.POSTMARK_API_TOKEN;
-    expect(token).toBeTruthy();
-
-    const client = new postmark.ServerClient(token!);
-
-    const result = await client.sendEmail({
-      From: "Willow Tree Funerals Website <noreply@adsdaddy.com>",
-      To: "director@willowtreefunerals.com.au",
-      Subject: "Willow Tree Funerals  -  Postmark Integration Test",
-      TextBody: "This confirms Postmark is correctly configured. Form submissions will now be delivered to this inbox.",
-      HtmlBody: `<div style="font-family:Arial,sans-serif;padding:24px;max-width:500px;">
-        <h2 style="color:#1B3A5C;">Postmark Integration Test</h2>
-        <p>Postmark is correctly configured for <strong>Willow Tree Funerals</strong>.</p>
-        <p>Contact, pre-arrange, and flowers form submissions will now be delivered to this inbox.</p>
-      </div>`,
-      MessageStream: "outbound",
+  it("sends through Resend from the site's own domain to Bruce", async () => {
+    const { sendFormEmail } = await import("./email");
+    const ok = await sendFormEmail({
+      subject: "New Funeral Enquiry from Test",
+      body: "Name: Test\nPhone: 0400000000",
+      replyTo: "family@example.com",
     });
+    expect(ok).toBe(true);
+    expect(send).toHaveBeenCalledTimes(1);
+    const msg = send.mock.calls[0][0];
+    expect(msg.from).toBe("Willow Tree Funerals Website <website@mail.willowtreefunerals.com.au>");
+    expect(msg.to).toEqual(["director@willowtreefunerals.com.au"]);
+    expect(msg.replyTo).toBe("family@example.com");
+    expect(msg.from).not.toContain("adsdaddy");
+  });
 
-    expect(result.ErrorCode).toBe(0);
-    expect(result.MessageID).toBeTruthy();
-    console.log(`Test email sent. MessageID: ${result.MessageID}`);
-  }, 15000);
+  it("returns false when Resend reports an error and no fallback is set", async () => {
+    send.mockResolvedValue({ data: null, error: { message: "domain not verified" } });
+    const { sendFormEmail } = await import("./email");
+    const ok = await sendFormEmail({ subject: "x", body: "y" });
+    expect(ok).toBe(false);
+  });
 });

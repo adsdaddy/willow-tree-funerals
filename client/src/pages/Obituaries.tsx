@@ -13,7 +13,7 @@ import SEOHead from "../components/SEOHead";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { COMPANY } from "../../../shared/company";
 
-const PROCESSION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg";
+const PROCESSION = "/media/IMG-20250724-WA0023_bedffdad.jpg";
 
 // Names from original site obituaries directory
 const memorials = [

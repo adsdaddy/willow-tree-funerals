@@ -1,10 +1,10 @@
 // Service Worker — Willow Tree Funerals
 // Cache-first strategy for fonts, images, and JS chunks
-// Stale-while-revalidate for HTML pages
+// Network-first for HTML pages
 // Network-first for API calls
 
-const CACHE_VERSION = 'wtf-v3';
-const CDN_HOST = 'd2xsxph8kpxj0f.cloudfront.net';
+// v4: Railway move. Bumping the version purges every cache the Manus-era worker made.
+const CACHE_VERSION = 'wtf-v4';
 
 // Critical assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -60,19 +60,14 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for fonts (CDN-hosted woff2 files)
-  if (
-    url.hostname === CDN_HOST &&
-    (url.pathname.endsWith('.woff2') || url.pathname.endsWith('.woff'))
-  ) {
-    event.respondWith(cacheFirst(request, CACHE_VERSION));
-    return;
-  }
+  // Only same-origin files are cached
+  if (url.origin !== self.location.origin) return;
 
-  // Cache-first for images (CDN + any image destination)
+  // Cache-first for self-hosted fonts and images
   if (
-    url.hostname === CDN_HOST ||
-    request.destination === 'image'
+    url.pathname.startsWith('/media/') ||
+    request.destination === 'image' ||
+    request.destination === 'font'
   ) {
     event.respondWith(cacheFirst(request, CACHE_VERSION));
     return;
@@ -87,9 +82,9 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Stale-while-revalidate for HTML pages
+  // Network-first for HTML pages
   if (request.destination === 'document' || url.pathname === '/') {
-    event.respondWith(staleWhileRevalidate(request, CACHE_VERSION));
+    event.respondWith(networkWithCacheFallback(request, CACHE_VERSION));
     return;
   }
 

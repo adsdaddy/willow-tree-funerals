@@ -1,7 +1,7 @@
 import BlogArticleTemplate from "@/components/BlogArticleTemplate";
 import { COMPANY } from "../../../../shared/company";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
+const HERO_IMG = "/media/IMG-20250724-WA0048_67323615.jpg";
 
 const relatedArticles = [
   { title: "What to Do When Someone Passes Away in NSW", href: "/blog/what-to-do-when-someone-passes-away-nsw", date: "April 2026" },

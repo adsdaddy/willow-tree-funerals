@@ -171,7 +171,7 @@ export default function About() {
       <section
         className="relative min-h-[60vh] flex items-end"
         style={{
-          backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/about-hero-church-interior-FD9HEt6xbEK5GpVCZrqCWj.webp)`,
+          backgroundImage: `url(/media/about-hero-church-interior-FD9HEt6xbEK5GpVCZrqCWj.webp)`,
           backgroundSize: "cover",
           backgroundPosition: "center 20%",
         }}
