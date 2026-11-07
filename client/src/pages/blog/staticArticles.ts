@@ -34,7 +34,7 @@ export const STATIC_ARTICLES: StaticArticle[] = [
     publishedAt: new Date("2026-04-01"),
     readTime: 8,
     heroImage:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/person-phone_01a8551b.png",
+      "/media/person-phone_01a8551b.png",
     tags: "Practical Guidance,NSW,After Death",
     excerpt:
       "A step-by-step guide for families in NSW - from the moment of death through to the funeral service. You do not have to face this alone.",
@@ -133,7 +133,7 @@ Yes. Your funeral director will register the death with the NSW Registry of Birt
     publishedAt: new Date("2026-03-01"),
     readTime: 10,
     heroImage:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg",
+      "/media/church-interior-mass_upscaled_a84f50dd.jpg",
     tags: "Catholic Funerals,Sydney,Planning",
     excerpt:
       "Everything you need to know about arranging a Catholic funeral Mass in Sydney - from liaising with the parish priest to choosing readings, music, and the Mass booklet.",
@@ -238,7 +238,7 @@ Yes. A eulogy or tribute is typically given after Communion, before the Final Co
     publishedAt: new Date("2026-02-01"),
     readTime: 7,
     heroImage:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-service_a28d78fe.png",
+      "/media/church-service_a28d78fe.png",
     tags: "Pricing,Sydney,Planning",
     excerpt:
       "A transparent breakdown of what funerals cost in Sydney in 2026 - including what's included, what's extra, and how to compare funeral directors without being misled.",
@@ -347,7 +347,7 @@ Yes. All funeral prices in Australia include GST. When comparing quotes, ensure 
     publishedAt: new Date("2026-01-01"),
     readTime: 6,
     heroImage:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg",
+      "/media/IMG-20250724-WA0048_67323615.jpg",
     tags: "Cemeteries,Campbelltown,South West Sydney",
     excerpt:
       "Everything families need to know about Macarthur Memorial Park in Campbelltown - location, burial options, pricing, and how to arrange a funeral service there.",

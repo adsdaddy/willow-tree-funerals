@@ -1,6 +1,6 @@
 import SuburbPageTemplate from "@/components/SuburbPageTemplate";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/pallbearers-opt_d4cc1ad8.webp";
+const HERO_IMG = "/media/pallbearers-opt_d4cc1ad8.webp";
 
 export default function Camden() {
   return (

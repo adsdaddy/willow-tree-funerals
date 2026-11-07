@@ -1,6 +1,6 @@
 import SuburbPageTemplate from "@/components/SuburbPageTemplate";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0023_bedffdad.jpg";
+const HERO_IMG = "/media/IMG-20250724-WA0023_bedffdad.jpg";
 
 export default function Campbelltown() {
   return (

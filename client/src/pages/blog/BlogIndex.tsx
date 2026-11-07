@@ -32,7 +32,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "A step-by-step guide for families in New South Wales - from the moment of death through to the funeral service.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/person-phone_01a8551b.png",
+      "/media/person-phone_01a8551b.png",
     tags: "Practical Guidance",
     author: COMPANY.director,
     readingTime: 8,
@@ -46,7 +46,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "Everything you need to know about arranging a Catholic funeral Mass in Sydney - from liaising with the parish priest to choosing readings, music, and the Mass booklet.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg",
+      "/media/church-interior-mass_upscaled_a84f50dd.jpg",
     tags: "Catholic Funerals",
     author: COMPANY.director,
     readingTime: 10,
@@ -60,7 +60,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "A transparent breakdown of what funerals cost in Sydney in 2026 - including what's included, what's extra, and how to compare funeral directors without being misled.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/casket-cathedral_upscaled_1a1ea687.jpg",
+      "/media/casket-cathedral_upscaled_1a1ea687.jpg",
     tags: "Pricing & Planning",
     author: COMPANY.director,
     readingTime: 7,
@@ -74,7 +74,7 @@ const STATIC_ARTICLES = [
     excerpt:
       "Everything families need to know about Macquarie Memorial Park in Campbelltown - location, burial options, pricing, and how to arrange a service there.",
     imageUrl:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg",
+      "/media/IMG-20250724-WA0048_67323615.jpg",
     tags: "Cemeteries & Venues",
     author: COMPANY.director,
     readingTime: 6,

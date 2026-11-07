@@ -1,17 +1,17 @@
 /**
- * email.ts  -  Postmark transactional email helper
+ * email.ts  -  transactional email for website form enquiries
  * Sends form submission notifications to director@willowtreefunerals.com.au
  *
- * Primary:  Postmark (POSTMARK_API_TOKEN)
- * Fallback: Resend (RESEND_API_KEY) or SMTP (SMTP_USER + SMTP_PASS)
+ * Primary:  Resend (RESEND_API_KEY), sent from the site's own verified domain
+ * Fallback: Postmark (POSTMARK_API_TOKEN) or SMTP (SMTP_USER + SMTP_PASS)
  */
 
 import * as postmark from "postmark";
 import { Resend } from "resend";
 import nodemailer from "nodemailer";
 
-const RECIPIENT = "director@willowtreefunerals.com.au";
-const FROM_EMAIL = "noreply@adsdaddy.com";
+const RECIPIENT = process.env.FORM_RECIPIENT || "director@willowtreefunerals.com.au";
+const FROM_EMAIL = process.env.EMAIL_FROM || "website@mail.willowtreefunerals.com.au";
 const FROM_NAME = "Willow Tree Funerals Website";
 
 // ── HTML email builder ────────────────────────────────────────────────────────
@@ -186,7 +186,7 @@ async function sendViaPostmark(opts: { subject: string; body: string; replyTo?: 
   }
 }
 
-// ── Resend fallback ───────────────────────────────────────────────────────────
+// ── Resend (primary) ───────────────────────────────────────────────────────────
 
 async function sendViaResend(opts: { subject: string; body: string; replyTo?: string }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
@@ -194,7 +194,7 @@ async function sendViaResend(opts: { subject: string; body: string; replyTo?: st
   try {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: `${FROM_NAME} <onboarding@resend.dev>`,
+      from: `${FROM_NAME} <${FROM_EMAIL}>`,
       to: [RECIPIENT],
       replyTo: opts.replyTo || RECIPIENT,
       subject: opts.subject,
@@ -233,25 +233,25 @@ async function sendViaSMTP(opts: { subject: string; body: string; replyTo?: stri
 
 /**
  * Sends an email notification to director@willowtreefunerals.com.au.
- * Tries Postmark first, then Resend, then SMTP.
+ * Tries Resend first, then Postmark, then SMTP.
  */
 export async function sendFormEmail(opts: {
   subject: string;
   body: string;
   replyTo?: string;
 }): Promise<boolean> {
-  if (process.env.POSTMARK_API_TOKEN) {
-    const sent = await sendViaPostmark(opts);
-    if (sent) return true;
-  }
   if (process.env.RESEND_API_KEY) {
     const sent = await sendViaResend(opts);
+    if (sent) return true;
+  }
+  if (process.env.POSTMARK_API_TOKEN) {
+    const sent = await sendViaPostmark(opts);
     if (sent) return true;
   }
   if (process.env.SMTP_USER && process.env.SMTP_PASS) {
     const sent = await sendViaSMTP(opts);
     if (sent) return true;
   }
-  console.warn("[Email] No email provider configured  -  add POSTMARK_API_TOKEN to enable email delivery.");
+  console.warn("[Email] No email provider delivered the message (check RESEND_API_KEY and the sending domain).");
   return false;
 }

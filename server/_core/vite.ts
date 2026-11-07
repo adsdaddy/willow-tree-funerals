@@ -59,20 +59,31 @@ export function serveStatic(app: Express) {
   }
 
   app.use(express.static(distPath, {
+    index: false,
     setHeaders: (res, filePath) => {
-      // Long-lived cache for content-hashed assets (JS, CSS, fonts, images)
-      if (/\.[0-9a-f]{8,}\.(js|css|woff2|webp|png|jpg|jpeg|svg|ico)$/i.test(filePath)) {
-        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      if (filePath.includes(`${path.sep}assets${path.sep}`)) {
+        // Vite output: content-hashed file names, safe to cache forever
+        res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+      } else if (filePath.includes(`${path.sep}media${path.sep}`)) {
+        // Site photos and fonts: file names carry a hash suffix, cache for 30 days
+        res.setHeader("Cache-Control", "public, max-age=2592000");
+      } else if (filePath.endsWith(".html")) {
+        res.setHeader("Cache-Control", "no-cache, no-transform");
       } else {
-        // Short cache for non-hashed files (index.html, robots.txt, etc.)
-        res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+        res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
       }
     },
   }));
 
+  // Missing files under /assets or /media are real 404s, not the app shell
+  app.use(["/assets", "/media"], (_req, res) => {
+    res.status(404).type("text/plain").send("Not found");
+  });
+
   // fall through to index.html if the file doesn't exist
   app.use("*", (_req, res) => {
-    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    // no-transform stops Cloudflare injecting its analytics beacon before consent
+    res.setHeader("Cache-Control", "no-cache, no-transform");
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }

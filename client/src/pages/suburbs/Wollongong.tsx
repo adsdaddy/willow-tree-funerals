@@ -1,6 +1,6 @@
 import SuburbPageTemplate from "@/components/SuburbPageTemplate";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/church-interior-mass_upscaled_a84f50dd.jpg";
+const HERO_IMG = "/media/church-interior-mass_upscaled_a84f50dd.jpg";
 
 export default function Wollongong() {
   return (

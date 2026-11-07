@@ -1,6 +1,6 @@
 import SuburbPageTemplate from "@/components/SuburbPageTemplate";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663451841155/mxnFESxuEjBzvxvPzCeyFt/IMG-20250724-WA0048_67323615.jpg";
+const HERO_IMG = "/media/IMG-20250724-WA0048_67323615.jpg";
 
 export default function CentralCoast() {
   return (
